@@ -6,4 +6,6 @@ VERSION_DATE="v0.0.1, Copyright © June 25, 2024"
 GUIDE_ID=bggit
 BGBSPD_BUILD_DIR?=../../bgbspd
 
+WEB_IMAGES=img_040_010.svg
+
 include $(BGBSPD_BUILD_DIR)/source.make
