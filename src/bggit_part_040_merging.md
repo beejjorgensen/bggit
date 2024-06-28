@@ -10,6 +10,9 @@ ancestors? In other words, what if the branches have _diverged_?
 
 Let's look at a commit graph where things are still OK to fast-forward:
 
+![A direct ancestor branch](img_040_010.pdf "[A direct ancestor branch]")
+
+<!--
 ``` {.default}
          [main]
            |
@@ -18,6 +21,7 @@ Let's look at a commit graph where things are still OK to fast-forward:
             \            v
             (3)---(5)---(7)
 ```
+-->
 
 Yes, I've bent the graph a bit there, but we can merge `somebranch`
 into `main` as a fast-forward because `main` is a direct ancestor and
