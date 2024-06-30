@@ -10,7 +10,7 @@ ancestors? In other words, what if the branches have _diverged_?
 
 Let's look at a commit graph where things are still OK to fast-forward:
 
-![A direct ancestor branch](img_040_010.pdf "[A direct ancestor branch]")
+![A direct ancestor branch.](img_040_010.pdf "[A direct ancestor branch.]")
 
 <!--
 ``` {.default}
@@ -30,6 +30,7 @@ into `main` as a fast-forward because `main` is a direct ancestor and
 But what if, **before** we merged, someone made another commit on the
 `main` branch? And now it looks like this:
 
+<!--
 ``` {.default}
                [main]
                  |
@@ -38,6 +39,9 @@ But what if, **before** we merged, someone made another commit on the
             \            v
             (3)---(5)---(7)
 ```
+-->
+
+![Not a direct ancestor branch.](img_040_020.pdf "[Not a direct ancestor branch.]")
 
 There's a common ancestor at commit `(2)`, but there's no direct line of
 descent. `main` and `somebranch` have diverged.

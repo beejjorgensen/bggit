@@ -9,16 +9,25 @@ test some more, and eventually the code is complete.
 In Git we might think of this as a sequence of commits. Let's look at a
 graph where I've numbered commits 1-5:
 
+![A simple commit graph.](img_030_010.pdf "[A simple commit graph.]")
+
+<!--
 ``` {.default}
     (1)---(2)---(3)---(4)---(5)
 ```
+-->
 
 In the above graph, `(1)` was the first commit we made on the repo,
 `(2)` is some changes we made on top of `(1)`, and `(3)` is some changes
 we made on top of `(2)`, etc.
 
 Git always keeps track of the parent commit for any particular commit,
-e.g. it knows the parent commit of `(3)` is `(2)` in the above graph.
+e.g. it knows the parent commit of `(3)` is `(2)` in the above graph. In
+this graph, the parent relationship is indicated by an arrow. "The
+parent of commit 3 is commit 2", etc. It's a little confusing because
+clearly commit 3 came _after_ commit 2 in terms of time, but the arrow
+points to the parent, which is the opposite of the nodes' temporal
+relationship.
 
 A _branch_ is like a name tag stuck on one **specific** commit. You can
 move the name tag around with various Git operations.
@@ -30,12 +39,16 @@ The default branch is called `main`.
 
 So it looks like this:
 
+![The main branch on a commit.](img_030_020.pdf "[The main branch on a commit.]")
+
+<!--
 ``` {.default}
                            [main]
                              |
                              v
     (1)---(2)---(3)---(4)---(5)
 ```
+-->
 
 There's our `main` branch attached to the commit labeled `(5)` in this
 diagram.
