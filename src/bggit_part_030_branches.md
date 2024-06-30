@@ -61,6 +61,9 @@ diagram.
 But Git offers something more powerful, allowing you (or collaborators)
 to pursue multiple branches simultaneously:
 
+![Lots of branches.](img_030_030.pdf "[Lots of branches.]")
+
+<!--
 ``` {.default}
                [main]
                  |
@@ -74,6 +77,7 @@ to pursue multiple branches simultaneously:
                      |
               [anotherbranch]
 ```
+-->
 
 So there might be multiple collaborators working on the project at the
 same time.
