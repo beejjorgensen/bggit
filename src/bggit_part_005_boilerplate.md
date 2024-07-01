@@ -62,7 +62,7 @@ have to do.
 
 Windows is naturally the sticking point, there. Luckily Git for Windows
 comes with a Bash shell variant called Git Bash. You can also install
-[WSL](https://learn.microsoft.com/en-us/windows/wsl/) to get a Linux
+[fl[WSL|https://learn.microsoft.com/en-us/windows/wsl/]] to get a Linux
 environment running on your Windows box. I wholeheartedly recommend this
 for hacker types, since Unix-like systems are hacker-awesome, and
 additionally I recommend you all become hacker types.
