@@ -1,4 +1,7 @@
-.PHONY: clean
+.PHONY: clean pristine
 
 clean:
-	@echo "Cleaning source"
+	:
+
+pristine: clean
+	:
