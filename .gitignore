@@ -1,0 +1,18 @@
+# vim swap files
+
+.*.sw[op]
+
+# Build products
+
+stage/
+__pycache__
+
+# Misc
+
+foo
+foo.[ch]
+bar
+bar.[ch]
+baz
+baz.[ch]
+.vscode/*
