@@ -15,7 +15,7 @@ test some more, and eventually the code is complete.
 -->
 
 In Git we might think of this as a sequence of commits. Let's look at a
-graph (Figure 5.1) where I've numbered commits 1-5. There, `(1)` was the
+graph (Figure_#.1) where I've numbered commits 1-5. There, `(1)` was the
 first commit we made on the repo, `(2)` is some changes we made on top
 of `(1)`, and `(3)` is some changes we made on top of `(2)`, etc.
 
@@ -46,8 +46,9 @@ The default branch is called `main`.
 ```
 -->
 
-So to make it a little more complete, we can show that branch in Figure
-5.2. There's our `main` branch attached to the commit labeled `(5)`.
+So to make it a little more complete, we can show that branch in
+Figure_#.2. There's our `main` branch attached to the commit labeled
+`(5)`.
 
 > It's tempting to think of the whole sequence of commits as "the
 > branch", but this author recommends against it. Better to keep in mind
@@ -80,7 +81,7 @@ same time.
 
 And then, when you're ready, you can _merge_ those branches back
 together. In this diagram we've merged commit 6 and 7 into a new commit,
-commit 9. In Figure 5.4, commit 9 contains the changes of both commits 7
+commit 9. In Figure_#.4, commit 9 contains the changes of both commits 7
 and 6.
 
 ![After merging `somebranch` and `anotherbranch`.](img_030_040.pdf "[After merging somebranch and anotherbranch.]")
@@ -102,7 +103,7 @@ In that case, `somebranch` and `anotherbranch` both point to the same
 commit. There's no problem with this.
 
 And then we can keep merging if we want, until all the branches are
-pointing at the same commit (Figure 5.5).
+pointing at the same commit (Figure_#.5).
 
 ![After merging all branches.](img_030_050.pdf "[After merging all branches.]")
 
@@ -121,8 +122,11 @@ pointing at the same commit (Figure 5.5).
 
 And maybe after all this we decide to delete `somebranch` and
 `anotherbranch`; we can do this safely because they're fully merged, and
-can do this without affecting `main` or any commits:
+can do this without affecting `main` or any commits (Figure_#.6).
 
+![After deleting merged branches.](img_030_060.pdf "[After deleting merged branches.]")
+
+<!--
 ``` {.default}
                                [main]
                                  |
@@ -133,8 +137,9 @@ can do this without affecting `main` or any commits:
               \               /
               (4)-----------(6)
 ```
+-->
 
-This section is all about getting good with branching and partially
+This chapter is all about getting good with branching and partially
 good with merging.
 
 ## A Quick Note about `git pull`

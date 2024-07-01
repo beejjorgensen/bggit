@@ -8,7 +8,8 @@ ancestors? In other words, what if the branches have _diverged_?
 
 ## An Example of Divergent Branches
 
-Let's look at a commit graph where things are still OK to fast-forward:
+Let's look at a commit graph where things are still OK to fast-forward
+in Figure_#.1.
 
 ![A direct ancestor branch.](img_040_010.pdf "[A direct ancestor branch.]")
 
@@ -28,7 +29,7 @@ into `main` as a fast-forward because `main` is a direct ancestor and
 `somebranch` is therefore a direct descendant.
 
 But what if, **before** we merged, someone made another commit on the
-`main` branch? And now it looks like this:
+`main` branch? And now it looks like it does in Figure_#.2.
 
 <!--
 ``` {.default}
