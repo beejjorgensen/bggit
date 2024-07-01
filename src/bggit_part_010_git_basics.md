@@ -1,23 +1,18 @@
 # Git Basics
 
-Welcome to the Git Tutorial!
+Welcome to the _Beej's Guide to Git_!
 
-## Audience
+This guide has two goals, in no particular order:
 
-This guide walks through Git and GitHub from a beginner-to-intermediate
-perspective, following common student workflows.
+1. Help you get some familiarity with Git syntax on the command line.
+2. Help you get a mental model that describes how Git stores its
+   information.
 
-It assumes you have a Unix-like OS installed, including:
-
-* MacOS
-* [WSL](https://learn.microsoft.com/en-us/windows/wsl/) or
-  [Git BASH](https://gitforwindows.org/) (for Windows)
-* Linux
-* BSD
-* Any Unix-like OS
-
-A lot of the commands will work fine under PowerShell, but you might
-have to do some digging to find Unix equivalents from time to time.
+I feel the second of these is very important for becoming even remotely
+adept at using Git, which is why I spend so much time talking about it.
+Yes, you can get by with a cheat-sheet of common Git commands, but if
+you want to fearlessly use the tool to its full effectiveness, you gotta
+learn the internals!
 
 ## What is Git?
 
