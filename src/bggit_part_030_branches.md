@@ -6,9 +6,6 @@ Normally you think of writing code as a linear sequence of changes. You
 start with an empty file, add some things, test them, add some more,
 test some more, and eventually the code is complete.
 
-In Git we might think of this as a sequence of commits. Let's look at a
-graph where I've numbered commits 1-5:
-
 ![A simple commit graph.](img_030_010.pdf "[A simple commit graph.]")
 
 <!--
@@ -17,9 +14,10 @@ graph where I've numbered commits 1-5:
 ```
 -->
 
-In the above graph, `(1)` was the first commit we made on the repo,
-`(2)` is some changes we made on top of `(1)`, and `(3)` is some changes
-we made on top of `(2)`, etc.
+In Git we might think of this as a sequence of commits. Let's look at a
+graph (Figure 5.1) where I've numbered commits 1-5. There, `(1)` was the
+first commit we made on the repo, `(2)` is some changes we made on top
+of `(1)`, and `(3)` is some changes we made on top of `(2)`, etc.
 
 Git always keeps track of the parent commit for any particular commit,
 e.g. it knows the parent commit of `(3)` is `(2)` in the above graph. In
@@ -37,8 +35,6 @@ The default branch is called `main`.
 > The default branch used to be called `master`, and still is called
 > that in some older repos.
 
-So it looks like this:
-
 ![The main branch on a commit.](img_030_020.pdf "[The main branch on a commit.]")
 
 <!--
@@ -50,8 +46,8 @@ So it looks like this:
 ```
 -->
 
-There's our `main` branch attached to the commit labeled `(5)` in this
-diagram.
+So to make it a little more complete, we can show that branch in Figure
+5.2. There's our `main` branch attached to the commit labeled `(5)`.
 
 > It's tempting to think of the whole sequence of commits as "the
 > branch", but this author recommends against it. Better to keep in mind
@@ -59,7 +55,7 @@ diagram.
 > can move that name tag around.
 
 But Git offers something more powerful, allowing you (or collaborators)
-to pursue multiple branches simultaneously:
+to pursue multiple branches simultaneously.
 
 ![Lots of branches.](img_030_030.pdf "[Lots of branches.]")
 
@@ -84,8 +80,12 @@ same time.
 
 And then, when you're ready, you can _merge_ those branches back
 together. In this diagram we've merged commit 6 and 7 into a new commit,
-commit 9. Commit 9 contains the changes of both commits 7 and 6:
+commit 9. In Figure 5.4, commit 9 contains the changes of both commits 7
+and 6.
 
+![After merging `somebranch` and `anotherbranch`.](img_030_040.pdf "[After merging somebranch and anotherbranch.]")
+
+<!--
 ``` {.default}
                [main]
                  |
@@ -96,12 +96,17 @@ commit 9. Commit 9 contains the changes of both commits 7 and 6:
               \               /
               (4)-----------(6)
 ```
+-->
 
 In that case, `somebranch` and `anotherbranch` both point to the same
 commit. There's no problem with this.
 
-And then we can keep merging if we want:
+And then we can keep merging if we want, until all the branches are
+pointing at the same commit (Figure 5.5).
 
+![After merging all branches.](img_030_050.pdf "[After merging all branches.]")
+
+<!--
 ``` {.default}
                      [main|somebranch|anotherbranch]
                                  |
@@ -112,6 +117,7 @@ And then we can keep merging if we want:
               \               /
               (4)-----------(6)
 ```
+-->
 
 And maybe after all this we decide to delete `somebranch` and
 `anotherbranch`; we can do this safely because they're fully merged, and
