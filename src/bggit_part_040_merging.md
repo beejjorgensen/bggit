@@ -56,7 +56,7 @@ Turns out you do it the exact same way as always.
 1. Check out the branch you want to merge _into_.
 2. `git merge` the branch you want to merge _from_.
 
-In our example above, let's say we've done this:
+In our Figure_#.2 example above, let's say we've done this:
 
 ``` {.default}
 $ git switch main
@@ -84,7 +84,11 @@ it. This text is the commit message. Edit it (or just accept it as-is)
 and save the file and exit the editor. See [Getting Out of
 Editors](#editor-get-out) if you need help with this.
 
-So after our merge, we end up with this:
+So after our merge, we end up with Figure_#.3.
+
+![Creating a merge commit.](img_040_030.pdf "[Creating a merge commit.]")
+
+<!--
 
 ``` {.default}
                          [main]
@@ -97,6 +101,7 @@ So after our merge, we end up with this:
                          |
                       [somebranch]
 ```
+-->
 
 Commit labeled `(9)` is the merge commit. It contains both the changes
 from `(8)` and `(7)`. And has the commit message you saved in the

@@ -174,24 +174,32 @@ And we also said that was a bit of a lie.
 In normal usage, `HEAD` points to a branch, not to a commit. In detached
 head state, `HEAD` points to a commit.
 
-It's like this when `HEAD` is pointing to a branch as per normal:
+It's like Figure_#.7 when `HEAD` is pointing to a branch as per normal.
 
+![`HEAD` pointing to a branch.](img_030_070.pdf "[HEAD pointing to a branch.]")
+
+<!--
 ``` {.default}
                      [main]<--HEAD
                        |
                        v
     (1)---(2)---(3)---(4)
 ```
+-->
 
 But if we check out an earlier commit that doesn't have a branch, we end
-up in detached head state, and it looks like this:
+up in detached head state, and it looks like Figure_#.8.
 
+![`HEAD` pointing to a commit.](img_030_080.pdf "[HEAD pointing to a commit.]")
+
+<!--
 ``` {.default}
                HEAD   [main]
                  |     |
                  v     v
     (1)---(2)---(3)---(4)
 ```
+-->
 
 So far, we've been making commits on the `main` branch without really
 even thinking about branching. Recalling that the `main` branch is just
@@ -202,36 +210,24 @@ It does it like this: the branch the `HEAD` points to follows the
 current commit. That is, when you make a commit, the branch `HEAD`
 points to moves along to that next commit.
 
-If we were here:
+If we were here back at Figure_#.7, when `HEAD` was pointing to the
+`main` branch, we could make one more commit and get us to Figure_#.9.
 
-``` {.default}
-                     [main]<--HEAD
-                       |
-                       v
-    (1)---(2)---(3)---(4)
-```
+![`HEAD` moving with a branch.](img_030_090.pdf "[HEAD moving with a branch.]")
 
-Then making one more commit gets us here:
-
+<!--
 ``` {.default}
                            [main]<--HEAD
                              |
                              v
     (1)---(2)---(3)---(4)---(5)
 ```
+-->
 
-Contrast that to detached head state, where if we were here:
+Contrast that to detached head state, back in Figure_#.8. If we were
+there, a new commit would get us to Figure_#.10, leaving `main` alone.
 
-
-``` {.default}
-               HEAD   [main]
-                 |     |
-                 v     v
-    (1)---(2)---(3)---(4)
-```
-
-Then a new commit would get us here, leaving `main` alone:
-
+<!--
 ``` {.default}
                       [main]
                        |
@@ -243,6 +239,12 @@ Then a new commit would get us here, leaving `main` alone:
                    |
                   HEAD
 ```
+-->
+
+At this point, there's nothing stopping you from creating a new branch
+at the same commit as `HEAD`, if you want to do that. Or maybe you are
+just messing around and decide to switch back to `main` later,
+abandoning the commits you've made in detached `HEAD` state.
 
 Now that we have the abstract theory stuff laid out, let's talk
 specifics.
