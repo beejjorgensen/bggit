@@ -10,7 +10,7 @@ keys, you can skip that section, as well.
 
 ## Making a GitHub Account
 
-Head on over to [GitHub](https://github.com/) and click `Sign Up`.
+Head on over to [fl[GitHub|https://github.com/]] and click `Sign Up`.
 Follow those instructions.
 
 Eventually you'll end up on your home screen dashboard.
@@ -64,10 +64,10 @@ This is a command line interface to GitHub. It does a number of things,
 but one of them is providing an authentication helper so you can do
 things like actually push to a remote repo.
 
-[Visit the GitHub CLI page](https://cli.github.com/) and follow the
+[fl[Visit the GitHub CLI page|https://cli.github.com/]] and follow the
 installation instructions. If you're using WSL, Linux, or another Unix
-variant, see their [installation
-instructions](https://github.com/cli/cli#installation) for other
+variant, see their [fl[installation
+instructions|https://github.com/cli/cli#installation]] for other
 platforms.
 
 Once you have it installed, you should be able to run 'gh --version' and
@@ -164,9 +164,15 @@ The key's randomart image is:
 ```
 
 > **Important Note**: If you chose any file name other than the default
-> for your key, you'll have to do some [additional configuration to get
-> it to work with
-> GitHub](https://www.baeldung.com/linux/ssh-private-key-git-command).
+> for your key, you'll have to do some
+> [fl[additional configuration to get it to work with GitHub|https://www.baeldung.com/linux/ssh-private-key-git-command]].
+
+> **Unimportant Note**: What's that randomart thing with all the weird
+> characters? It's a visual representation of that key. There are ways
+> to configure SSH so that you see the randomart every time you log in,
+> say. And the idea is that if one day you see it looks different,
+> something could be amiss security-wise. I doubt most people every look
+> at it again once it's been generated, though.
 
 Now if you type `ls ~/.ssh` you should see something like this:
 
