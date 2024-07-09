@@ -424,8 +424,9 @@ merge: the _fast-forward_. This occurs when the branch you're merging
 from is a direct ancestor of the branch you're merging into.
 
 Let's say we have `newbranch` checked out, like from the previous
-example:
+example in Figure_#.14.
 
+<!--
 ``` {.default}
                       [main]
                        |
@@ -435,6 +436,7 @@ example:
                                    |
                                [newbranch]<--HEAD
 ```
+-->
 
 I decide I want to merge `main`'s changes into `newbranch`, so (again,
 having `newbranch` checked out):
@@ -458,8 +460,11 @@ into it.
 $ git switch main
 ```
 
-Get us to here:
+Now we've moved `HEAD` to track `main`, as shown in Figure_#.15.
 
+![Checking out `main` again.](img_030_140.pdf "[Checking out `main` again.]")
+
+<!--
 ``` {.default}
                       [main]<--HEAD
                        |
@@ -469,6 +474,7 @@ Get us to here:
                                    |
                                [newbranch]
 ```
+-->
 
 And `newbranch` is **not** a direct ancestor of `main` (it's a
 descendant). So `newbranch`'s changes are **not** yet in `main`.
@@ -484,8 +490,11 @@ Fast-forward
  1 file changed, 3 insertions(+), 1 deletion(-)
 ```
 
-And now we're here:
+And now we're at Figure_#.16.
 
+![After merging `newbranch` into `main`.](img_030_150.pdf "[After merging newbranch into main.]")
+
+<!--
 ``` {.default}
                                  [main]<--HEAD
                                    |
@@ -495,9 +504,11 @@ And now we're here:
                                    |
                                [newbranch]
 ```
+-->
 
 Wait a second—didn't we say to merge `newbranch` into `main`, like take
-those changes and fold them into the `main` branch?
+those changes and fold them into the `main` branch? Why did `main`
+move, then?
 
 We did! But let's stop and think about how this can happen in the
 special case where the branch you're merging _into_ is a direct ancestor
