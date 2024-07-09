@@ -26,7 +26,8 @@ all your source code in a particular directory tree.
 
 The idea is that you'll make some changes (to implement a feature, for
 example), and then you'll _commit_ those changes to the _source code
-repo_ (repository) once the feature is ready.
+repo_ (repository) once the feature is ready. This saves the changes to
+the repo and allows other collaborators to see them.
 
 And if you ever change something you didn't want to, or your want to see
 how things were implemented in the past, you can always _check out_ a
@@ -51,7 +52,17 @@ Definitions:
 
 * **Commit**: An explicit moment in time where a snapshot of the
   contents of all the source files are recorded in the source code
-  control system.
+  control system. Very, very typically the code is in a working state
+  when the commit is made; in other words, the commit represents in some
+  ways a seal of approval that the repo in this state is in working
+  order even if the changes aren't complete.
+  
+  Example commits might be:
+
+  * "Added feature *X* to the codebase."
+  * "Fixed bug *Y*."
+  * "Merged other contributor's changes into the codebase."
+  * "Partially completed the Spanish translation."
 
 * **Repo**/**Source Code Repository**: This is where a particular
   software project is stored in the source code control system.
