@@ -212,29 +212,51 @@ After that, other contributors looking at `main` will see the changes.
 ## Approach: Everyone Merges to the Dev Branch
 
 In this scenario, we treat `main` as the published code that we're
-going to distribute, often tagged with a release version number, and we treat a
-`dev` branch as the working code. And, as in the previous scenario,
-everyone has their own branches they're developing on.
+going to distribute, often tagged with a release version number, and we
+treat a `dev` branch as the working, unreleased code. And, as in the
+previous scenario, everyone has their own branches they're developing
+on.
 
-contributors' branches as where work is done. When a contributor gets
-their code working, they merge it back into `main`.
+The idea is basically we're going to have two versions of the working
+code:
+
+1. The public, released version that's on `main`.
+2. The private, internal version that's on `dev`.
+
+And then, of course, we'll have one branch per collaborator.
+
+Another way of thinking about it is that we're going to have our
+internal build on `dev` that is good for testing and then, when it's all
+ready, we'll "bless" it and merge it into `main`.
+
+So there will be a lot of merges into `dev` from all the developer
+branches, and then every so often there will be a merge from `dev` into
+`main`.
+
+*The developers will never directly merge into `main`!* Usually
+that is performed by someone in a managerial role.
+
+![Working on the `dev` branch.](img_100_030.pdf "[Working on the dev branch]")
+
+Overall the process works as in Figure_#.3. This is a busy image, but
+notice how Bob and Alice are only merging their work into the `dev`
+branch, and then every so often, their manager merges the `dev` branch
+into `main` and tags that commit with a release number. (More on tagging
+later.)
 
 Benefits:
 
-* You get to work on your own branch without worrying about messing up
-  other people's work.
-* You can commit non-working code since no one else can see it. (You
-  might be wrapping up the work day and want to push some incomplete
-  code for a backup, for example.)
-* Less merge conflict potential since fewer merges are happening than if
-  everyone were committing to `main`.
+* All the benefits of everyone having their own branch.
+* You have an internal branch from which you can make complete builds
+  for internal or external testing.
 
 Drawbacks:
 
-* If your branch diverges too far from `main`, merging might become
+* A little more complexity and management.
+* If your branch diverges too far from `dev`, merging might become
   painful.
 * Unless you're rebasing, the incremental work on your branch might
-  "pollute" the commit history on `main` with a lot of tiny commits.
+  "pollute" the commit history on `dev` with a lot of tiny commits.
 
 Initial setup:
 
@@ -253,16 +275,23 @@ Workflow:
   non-overlapping as possible.
 * As collaborators finish their tasks, they will:
   * Test everything on their branch.
-  * Merge the latest `main` into their branch; do a pull to make sure
-    you have it. (The collaborator might already have the latest `main`
+  * Merge the latest `dev` into their branch; do a pull to make sure
+    you have it. (The collaborator might already have the latest `dev`
     if no one else has merged into it, which will cause Git to say
     there's nothing to do. This is fine.)
   * Test everything, and fix it if necessary.
-  * Merge their functioning branch into `main`.
+  * Merge their functioning branch into `dev`.
   * Push.
-    * If someone else has modified `main` while you were testing, Git
+    * If someone else has modified `dev` while you were testing, Git
       will complain that you have to pull before you can push. If
       there's a conflict at this point, you'll have to resolve, test,
-      and push it. And you'll have to merge `main` back into your branch
+      and push it. And you'll have to merge `dev` back into your branch
       so that your branch is up-to-date.
+
+Managerial Workflow:
+
+* Coordinate with all devs to get a candidate release in `dev` tested
+  out and ready.
+* Merge that candidate release (some commit) from `dev` into `main`.
+* Tag the `main` commit with some version number, optionally.
 
