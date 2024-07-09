@@ -328,7 +328,7 @@ Lastly, it mentions we're up-to-date with the latest version of
 because there are no local changes. We're not sure what that means yet,
 but it all sounds like vaguely good news.
 
-## Step 2: Make Some Local Changes
+### Step 2: Make Some Local Changes
 
 Let's edit a file and make some changes to it.
 
@@ -394,7 +394,7 @@ It means we haven't added anything to the _stage_ yet. Recall that the
 stage is where we can place items that we wish to include in the next
 commit. Let's try that.
 
-## Step 3: Add Changes to the Stage
+### Step 3: Add Changes to the Stage
 
 The Git status message, above, is trying to help us out. It says:
 
@@ -492,7 +492,7 @@ the remote repo so that it also has our changes.
 So let's try to do that. Let's push our local changes to the remote
 repo.
 
-# Step 5: Push Your Changes to the Remote Repo
+### Step 5: Push Your Changes to the Remote Repo
 
 Let's push our local changes to the remote repo:
 
