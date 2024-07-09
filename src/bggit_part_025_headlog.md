@@ -65,9 +65,10 @@ about?
 
 ## The `HEAD` Reference
 
-We've seen that each commit has a unique identifier like
-`5a02fede3007edf55d18e2f9ee3e57979535e8f2`, but those are kind of
-unwieldy. 
+We've seen that each commit has a unique and unwieldy identifier like
+this:
+
+`5a02fede3007edf55d18e2f9ee3e57979535e8f2`
 
 Luckily, there are a few ways to refer to commits with more human
 symbolic names.
@@ -105,11 +106,14 @@ Date:   Thu Feb 1 12:36:13 2024 -0800
 ```
 
 We see `HEAD` right there on the first line, indicating that `HEAD` is
-referring to commit `5e8cb52cb813a371a11f75050ac2d7b9e15e4751`.
+referring to commit with ID:
 
-> The `-> main` means that the `main` branch is also pointing to that
-> commit, and that `main` is the currently checked-out branch. More on
-> that later.
+`5e8cb52cb813a371a11f75050ac2d7b9e15e4751`
+
+Again that's a bit of a lie, though. The `HEAD -> main` means that
+`HEAD` is actually referring to the `main` branch, and that `main` is
+referring to the commit. `HEAD` is therefore indirectly referring to the
+commit. More on that later.
 
 ## Going Back In Time and Detached `HEAD`
 
@@ -250,7 +254,7 @@ the `main` commit.
 
 ## The New Command: `git switch`
 
-In the olden days, `git checkout` did a lot of things, and it still
+In ye olden days, `git checkout` did a lot of things, and it still
 does. Because it does so much, the maintainers of Git have been trying
 to break some of that functionality into a new command, `git switch`.
 
