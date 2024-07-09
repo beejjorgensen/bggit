@@ -5,10 +5,46 @@ GitHub repo. (One person on the team owns the repo, and they've
 [fl[added you all as
 collaborators|https://docs.github.com/en/enterprise-server@3.9/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository]].)
 
+> I'm going to use the term _collaborator_ to mean "someone to whom you
+> have granted write access to your repo".
+
 How can you all structure your work so that you're minimizing conflicts?
 
-There are a lot of ways to do this, and one of them is described in this
-chapter.
+There are a number of ways to do this.
+
+* Everyone is a collaborator on the repo, and:
+  * Everyone uses the same branch, probably `main`, or:
+  * Everyone uses their own remote tracking branch and periodically
+    merges with the main branch, or:
+  * Everyone uses their own remote tracking branch and periodically
+    merges with a development branch, which itself is periodically
+    merged into `main` for each official release.
+* Or everyone has their own repo (and are not collaborators on the same
+  repo), and:
+  * Everyone uses _pull requests_ or other synchronization methods to
+    get their repos merged into the other devs'.
+
+We'll look at the first few ways in this chapter, but we'll save pull
+requests for later.
+
+There's no one-size-fits-all approach to teamwork with Git, and the
+methods outlined below can be mixed and matched with local topic
+branches, or people having multiple remote tracking branches, or
+whatever. Often management will have an approach they want to use for
+collaboration which might be one of the ones in this section, or maybe
+it's a variant, or maybe its something completely different.
+
+In any case, the best strategy for you, the learner, is to just be
+familiar with the tools (branching, merging, conflict resolution,
+pushing, pulling, remote tracking branches) and use them for effect
+where it makes the most sense.
+
+And when you're first starting out, your intuition about "where it makes
+the most sense" might not be dead-on, but it probably won't be lethal
+and you'll figure it out in the school of hard knocks.
+
+> "Oh great. Another f---ing learning experience." \
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;—Actual quote from my mother
 
 ## Communication and Delegation
 
@@ -20,20 +56,79 @@ Two people shouldn't generally be editing the same part of the same
 file, or even any part of the same file. That's more of a guideline than
 a rule, but if you follow it, you will never have a merge conflict.
 
+As we've seen, it's not the end of the world if there is a merge
+conflict, but life sure is easier if they're just avoided.
+
 Takeaway: without good communication and a good distribution of work on
-your team, you're doomed. Make a plan and stick to it.
+your team, you're doomed. Make a plan where no one is stepping on toes,
+and stick to it.
 
-## The Plan
+## Approach: Everyone Uses One Branch
 
-It's important to note that this is _a_ plan, and it most definitely can
-be improved. There are many, many different collaboration patterns
-possible with Git.
+This is really easy. Everyone has push access to the repo and does all
+their work on the `main` branch.
 
-In this scenario, we treat `main` as the as-yet complete working code,
-and we treat contributors' branches as where work is done. When a
-contributor gets their code working, they merge it back into `main`.
+Benefits:
 
-Here we go:
+* Super simple to set up.
+* Conceptually not much to juggle.
+* All work instantly available to all collaborators upon push.
+
+Drawbacks:
+
+* More potential for merge conflicts.
+* Unless you're rebasing (more on that later), you'll have a lot of
+  merge commits.
+* You can't push non-working code since it will break everything for
+  everyone else.
+
+Initial setup:
+
+* One person makes the GitHub repo
+* The owner of the GitHub repo adds all the team members as
+  collaborators.
+* Everyone clones the repo.
+
+Workflow:
+
+* Work is delegated to all collaborators. The work should be as
+  non-overlapping as possible.
+* Everyone periodically pulls `main` and resolves any merge conflicts.
+* Everyone pushes their work to `main`.
+
+In real life, this approach is probably only used on very small teams,
+e.g. three people at most, with frequent and easy communication between
+all members. If you're working on a small team in school, it could very
+well be enough, but I'd still recommend trying a different approach just
+for the experience.
+
+The other approaches are not that much more complex, and give you a lot
+more flexibility.
+
+## Approach: Everyone Uses Their Own Branch
+
+In this scenario, we treat `main` as the working code, and we treat
+contributors' branches as where work is done. When a contributor gets
+their code working, they merge it back into `main`.
+
+Benefits:
+
+* You get to work on your own branch without worrying about messing up
+  other people's work.
+* You can commit non-working code since no one else can see it. (You
+  might be wrapping up the work day and want to push some incomplete
+  code for a backup, for example.)
+* Less merge conflict potential since fewer merges are happening than if
+  everyone were committing to `main`.
+
+Drawbacks:
+
+* If your branch diverges too far from `main`, merging might become
+  painful.
+* Unless you're rebasing, the incremental work on your branch might
+  "pollute" the commit history on `main` with a lot of tiny commits.
+
+Initial setup:
 
 * One person makes the GitHub repo
 * The owner of the GitHub repo adds all the team members as
@@ -43,18 +138,32 @@ Here we go:
 * Everyone pushes their branch to GitHub, making them remote-tracking
   branches. (We do this so that your work is effectively backed up on
   GitHub when you push it.)
+
+Workflow:
+
 * Work is delegated to all collaborators. The work should be as
   non-overlapping as possible.
 * As collaborators finish their tasks, they will:
   * Test everything on their branch.
-  * Merge their functioning branch into `main`, but don't push.
-  * Test `main`.
-  * Fix their branch if necessary, and repeat the merge until working.
+  * Merge the latest `main` into their branch; do a pull to make sure
+    you have it. (The collaborator might already have the latest `main`
+    if no one else has merged into it, which will cause Git to say
+    there's nothing to do. This is fine.)
+  * Test everything, and fix it if necessary.
+  * Merge their functioning branch into `main`.
   * Push.
+    * If someone else has modified `main` while you were testing, Git
+      will complain that you have to pull before you can push. If
+      there's a conflict at this point, you'll have to resolve, test,
+      and push it. And you'll have to merge `main` back into your branch
+      so that your branch is up-to-date.
 
-The result will look something like this to start, where all the
-collaborators have made their own branches off of main:
+The result will look something like Figure_#.1 to start, where all the
+collaborators have made their own branches off of `main`.
 
+![Collaborators branching off `main`.](img_100_010.pdf "[Collaborators branching off main.]")
+
+<!--
 ``` {.default}
              +
             /+
@@ -73,10 +182,15 @@ collaborators have made their own branches off of main:
      |   |   #   |
      :   :   :   :
 ```
+-->
 
 Let's say Chris (on branch `chris`) finishes up their work and wants
-other contributors to be able to see it. It's time to merge into `main`.
+other contributors to be able to see it. It's time to merge into `main`,
+as we graphically see in Figure_#.2.
 
+![Chris merges back into `main`.](img_100_020.pdf "[Chris merges back into main.]")
+
+<!--
 ``` {.default}
      |  b|   #   |
     a|  o|   #   |c
@@ -91,6 +205,64 @@ other contributors to be able to see it. It's time to merge into `main`.
      |   |   #/
      |   |   +
 ```
+-->
 
 After that, other contributors looking at `main` will see the changes.
+
+## Approach: Everyone Merges to the Dev Branch
+
+In this scenario, we treat `main` as the published code that we're
+going to distribute, often tagged with a release version number, and we treat a
+`dev` branch as the working code. And, as in the previous scenario,
+everyone has their own branches they're developing on.
+
+contributors' branches as where work is done. When a contributor gets
+their code working, they merge it back into `main`.
+
+Benefits:
+
+* You get to work on your own branch without worrying about messing up
+  other people's work.
+* You can commit non-working code since no one else can see it. (You
+  might be wrapping up the work day and want to push some incomplete
+  code for a backup, for example.)
+* Less merge conflict potential since fewer merges are happening than if
+  everyone were committing to `main`.
+
+Drawbacks:
+
+* If your branch diverges too far from `main`, merging might become
+  painful.
+* Unless you're rebasing, the incremental work on your branch might
+  "pollute" the commit history on `main` with a lot of tiny commits.
+
+Initial setup:
+
+* One person makes the GitHub repo
+* The owner of the GitHub repo adds all the team members as
+  collaborators.
+* Everyone clones the repo.
+* Everyone makes their own branch, possibly naming it after themselves.
+* Everyone pushes their branch to GitHub, making them remote-tracking
+  branches. (We do this so that your work is effectively backed up on
+  GitHub when you push it.)
+
+Workflow:
+
+* Work is delegated to all collaborators. The work should be as
+  non-overlapping as possible.
+* As collaborators finish their tasks, they will:
+  * Test everything on their branch.
+  * Merge the latest `main` into their branch; do a pull to make sure
+    you have it. (The collaborator might already have the latest `main`
+    if no one else has merged into it, which will cause Git to say
+    there's nothing to do. This is fine.)
+  * Test everything, and fix it if necessary.
+  * Merge their functioning branch into `main`.
+  * Push.
+    * If someone else has modified `main` while you were testing, Git
+      will complain that you have to pull before you can push. If
+      there's a conflict at this point, you'll have to resolve, test,
+      and push it. And you'll have to merge `main` back into your branch
+      so that your branch is up-to-date.
 
