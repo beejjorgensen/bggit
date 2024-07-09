@@ -65,7 +65,7 @@ Definitions:
 
 ## What is GitHub?
 
-[GitHub](https://github.com/) is **not** Git.
+[fl[GitHub|https://github.com/]] is **not** Git.
 
 ## What is GitHub?
 
@@ -81,8 +81,8 @@ Takeaway: GitHub is a web-based front-end to Git (specifically one that
 works on the copy of your repo at GitHub—stay tuned for more on that
 later).
 
-> [GitLab](https://gitlab.com) is a competitor to GitHub.
-> [Gitea](https://docs.gitea.com/) is an open-source competitor that
+> [fl[GitLab|https://gitlab.com]] is a competitor to GitHub.
+> [fl[Gitea|https://docs.gitea.com/]] is an open-source competitor that
 > allows you to basically run a GitHub-like front-end on your own
 > server. None of this information is immediately important.
 
@@ -175,9 +175,9 @@ command line Git tools installed. It also generally assumes you're
 running a Unix shell like Bash or Zsh.
 
 > Linux/BSD/Unix and Mac users will already have these shells.
-> Recommendation for Windows users is to [install and run Ubuntu with
-> WSL](https://learn.microsoft.com/en-us/windows/wsl/) to get a virtual
-> Linux installation.
+> Recommendation for Windows users is to
+> [fl[install and run Ubuntu with WSL|https://learn.microsoft.com/en-us/windows/wsl/]]
+> to get a virtual Linux installation.
 
 For this example, we'll assume we have a GitHub repo already in
 existence that we're going to clone.
@@ -343,7 +343,7 @@ $ code .
 ```
 
 Otherwise, open the code in your favorite editor, which, admit it, is
-[Vim](https://www.vim.org/).
+[fl[Vim|https://www.vim.org/]].
 
 Let's change `hello.py`:
 

@@ -107,8 +107,8 @@ from the main page, drop me a line at
 ## Note for Translators
 
 If you want to translate the guide into another language, write me at
-[`beej@beej.us`](beej@beej.us) and I'll link to your translation from
-the main page. Feel free to add your name and contact info to the
+[`beej@beej.us`](mailto:beej@beej.us) and I'll link to your translation
+from the main page. Feel free to add your name and contact info to the
 translation.
 
 Please note the license restrictions in the Copyright and Distribution
@@ -138,7 +138,7 @@ to the public domain, and is completely free of any license restriction.
 Educators are freely encouraged to recommend or supply copies of this
 guide to their students.
 
-Contact [`beej@beej.us`](beej@beej.us) for more information.
+Contact [`beej@beej.us`](mailto:beej@beej.us) for more information.
 
 ## Dedication
 
