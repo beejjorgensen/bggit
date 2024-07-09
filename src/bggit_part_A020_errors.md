@@ -1,4 +1,4 @@
-# Errors and Scary Messages
+# Appendix: Errors and Scary Messages
 
 ## Detached Head
 
