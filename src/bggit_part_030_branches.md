@@ -227,6 +227,8 @@ If we were here back at Figure_#.7, when `HEAD` was pointing to the
 Contrast that to detached head state, back in Figure_#.8. If we were
 there, a new commit would get us to Figure_#.10, leaving `main` alone.
 
+![A commit with detached `HEAD`.](img_030_100.pdf "[A commit with detached HEAD.]")
+
 <!--
 ``` {.default}
                       [main]
@@ -295,18 +297,25 @@ it.
 > clean" before you switch. Later we'll learn about another option with
 > `git stash`.
 
-So after checking out `main`, we have:
+So after checking out `main`, we have Figure_#.11.
 
+![`HEAD` pointing to `main`.](img_030_070.pdf "[HEAD pointing to main.]")
+
+<!--
 ``` {.default}
                       [main]<--HEAD
                        |
                        v
     (1)---(2)---(3)---(4)
 ```
+-->
 
 And then with `git switch -c newbranch`,  we create and switch to
-`newbranch`, and that gets us here:
+`newbranch`, and that gets us to Figure_#.12.
 
+![`HEAD` pointing to `newbranch`.](img_030_110.pdf "[HEAD pointing to newbranch.]")
+
+<!--
 ``` {.default}
                       [main]
                        |
@@ -316,6 +325,7 @@ And then with `git switch -c newbranch`,  we create and switch to
                        |
                    [newbranch]<--HEAD
 ```
+-->
 
 That's not super exciting, since we're still looking at the same commit,
 but let's see what happens when we make some new commits on this new
@@ -345,9 +355,13 @@ commits before. Before we made a branch, we had `HEAD` pointing to
 Now we have `HEAD` pointing to `newbranch` and our commits will go
 there, instead.
 
-Right after creating `newbranch`, we had this situation:
+Right after creating `newbranch`, we had the situation in Figure_#.12.
+Now let's edit something in the working tree and make a new commit. With
+that, we'll have the scenario in Figure_#.13.
 
+![Adding a new commit to `newbranch`.](img_030_120.pdf "[Adding a new commit to newbranch.]")
 
+<!--
 ``` {.default}
                       [main]
                        |
@@ -358,9 +372,6 @@ Right after creating `newbranch`, we had this situation:
                    [newbranch]<--HEAD
 ```
 
-Now let's edit something in the working tree and make a new commit. With
-that, we'll have this scenario:
-
 ``` {.default}
                       [main]
                        |
@@ -370,9 +381,13 @@ that, we'll have this scenario:
                              |
                          [newbranch]<--HEAD
 ```
+-->
 
-Right? Let's make another commit:
+Right? Let's make another commit and get to Figure_#.14.
 
+![Adding another commit to `newbranch`.](img_030_130.pdf "[Adding another commit to newbranch.]")
+
+<!--
 ``` {.default}
                       [main]
                        |
@@ -382,6 +397,7 @@ Right? Let's make another commit:
                                    |
                                [newbranch]<--HEAD
 ```
+-->
 
 We can see that `newbranch` and `main` are pointing at different
 commits.
