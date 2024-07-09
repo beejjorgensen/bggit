@@ -15,7 +15,8 @@ So clearly files can exist in a variety of "states" and we can move them
 around between those states.
 
 To figure out what state a file is in and get a hint on how to "undo" it
-from that state, `git status` is your best friend.
+from that state, `git status` is your best friend (except in the case of
+renaming, but more on that mess soon).
 
 ## What States Can Files in Git Be In?
 
@@ -59,52 +60,40 @@ There are four of them: **Untracked**, **Unmodified**, **Modified**, and
   You can remove the file from the stage and back to Modified State with
   `git restore --staged`.
 
-So a typical file will follow this process (with the state after the
-event in parentheses):
+A file typically goes through this process to be added to a repo:
 
-1. The file has just been created in the repo directory, but hasn't been
-   added yet. (Currently **Untracked**.)
+1. The user creates a new file and saves it. This file is **Untracked**.
 
-2. Add the file with `git add`. (Currently **Unmodified**.)
+2. The user adds the file with `git add`. The file is now **Staged**.
 
-3. Modify the file in your editor and save it. (Currently **Modified**.)
+3. The user commits the file with `git commit`. The file is now
+   **Unmodified** and is part of the repo and ready to go.
 
-4. Copy the modified file to the stage with `git add`. (Currently
-   **Staged**.)
+After it's in the repo, the typical file life cycle only differs by the
+first step:
 
-5. Commit the staged file to the repo with `git commit`. (**Unmodified**
-   again, and we loop back to step 3.)
+1. The user changes the file and saves it. The file is now **Modified**.
 
-## Doing a State Change
+2. The user adds the file with `git add`. The file is now **Staged**.
 
-This is a summary of the previous section, how we move forward from
-state to state. Let's use an example file `foo.txt`:
+3. The user commits the file with `git commit`. The file is now
+   **Unmodified** and is part of the repo and ready to go.
 
-* **Untracked** → `git add foo.txt` → **Unmodified**
-* **Unmodified** → `edit foo.txt` → **Modified**  (with your favorite editor)
+Keep in mind that often a commit is a bundle of different changes to
+different files. All those files would be added to the stage before the
+single commit.
+
+Here's a partial list of ways to change state:
+
+* **Untracked** → `git add foo.txt` → **Staged** (as "new file")
 * **Modified** → `git add foo.txt` → **Staged**
-* **Staged** → `git commit` → **Unmodified**
-
-A typical life for a file is:
-
-1. The first `git add` from Untracked to Unmodified.
-
-2. Edit the file from Unmodified to Modified.
-
-3. Stage the file (`git add`) from Modified to Staged.
-
-4. Commit the file (`git commit`) from Staged to Unmodified.
-
-5. GOTO step 2.
-
-## Undoing a State Change
-
-We can move backward from any of these states. Let's say we have a file
-`foo.txt`:
-
-* **Staged** → `git restore --staged foo.txt` → **Modified** or **Untracked**
 * **Modified** → `git restore foo.txt` → **Unmodified**
-* **Unmodified** → `git rm --cached foo.txt` → **Untracked**
+* **Unmodified** → `edit foo.txt` → **Modified**  (with your favorite editor)
+* **Staged** → `git commit` → **Unmodified**
+* **Staged** → `git restore --staged` → **Modified**
+
+Again, `git status` will often give you advice of how to undo a state
+change.
 
 ## Renaming Files
 
@@ -123,26 +112,45 @@ Changes to be committed:
 	renamed:    foo.txt -> bar.txt
 ```
 
-So it knows they're renamed.
+So it knows the file is renamed, and the file has been moved to the
+stage. Like so:
 
-If we look, we see the file has actually been renamed in the directory
-to `bar.txt`, as well.
+* **Unmodified** → `git mv foo.txt bar.txt` → **Staged** (as "renamed")
+
+And if we look, we see the file has actually been renamed in the
+directory to `bar.txt`, as well.
 
 If we make a commit at this point, the file will be renamed in the repo.
 Done.
 
 But what if we want to undo the rename?
 
-Git suggests `git restore --staged` to the rescue, but no combination of
-running that command with `foo.txt` or `bar.txt` seems to do what we
-want.
+Git suggests `git restore --staged` to the rescue... But which file name
+to use, the old one or new one? And then what? It turns out that while
+you *can* use `git restore` to undo this by following it with multiple
+other commands, you should, in this case, ignore Git's advice.
 
-The easiest way to undo a Staged rename is to just do the reverse
-rename.
+Just remember this part: **the easiest way to undo a Staged rename is to
+just do the reverse rename**.
+
+Let's say we renamed and got here:
 
 ``` {.default}
+$ git mv foo.txt bar.txt    # Rename foo.txt to bar.txt
+$ git status
+
+On branch main
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	renamed:    foo.txt -> bar.txt
+```
+
+This easiest way to revert this change is to do this:
+
+```
 $ git mv bar.txt foo.txt    # Rename it back to foo.txt
 $ git status
+
 On branch main
 nothing to commit, working tree clean
 ```
@@ -262,3 +270,44 @@ the name of the restored file, then add it and commit.
 > There are ways around this if you haven't yet pushed, but that's
 > beyond the scope of this guide.
 
+## Unmodified to Untracked
+
+A variation of `git rm` tells Git to remove the file from the repo but
+leave it intact in the working tree. Maybe you want to keep the file
+around but don't want Git to track it any longer.
+
+To make this happen, you use the `--cached` switch.
+
+Here's an example where we remove the file `foo.txt` from the repo but
+keep it around in our working tree:
+
+``` {.default}
+$ ls
+
+foo.txt
+
+$ git rm --cached foo.txt
+
+rm 'foo.txt'
+
+$ git status
+
+On branch main
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	deleted:    foo.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	foo.txt
+
+$ ls
+foo.txt
+```
+
+There you see in the `status` output that Git has staged the file for
+deletion, but it's also mentioning that the file exists and is
+untracked. And a subsequent `ls` shows that the file still exists.
+
+At this point, you can commit and the file would then be in Untracked
+state.
