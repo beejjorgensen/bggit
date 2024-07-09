@@ -109,7 +109,7 @@ You have a few options.
    In this case, just unset the upstream:
 
    ``` {.default}
-   $ git branch --unset-upstream
+   $ git branch --unset-upstream newbranch
    ```
 
 ## Current Branch Has No Upstream Branch
