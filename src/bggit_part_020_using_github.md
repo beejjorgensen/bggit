@@ -130,9 +130,8 @@ them.
 > secure, then you don't need a password on the key.
 >
 > Setting up the key agent is outside the scope of this document, and
-> the author in unsure of how it even works in WSL. [GitHub has
-> documentation on the
-> matter](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).
+> the author in unsure of how it even works in WSL.
+> [fl[GitHub has documentation on the matter|https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent]].
 >
 > For this demo, we'll just leave the password blank. All of this can be
 > redone with a new key with a password if you choose to do that later.
