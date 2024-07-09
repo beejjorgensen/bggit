@@ -223,7 +223,8 @@ for those specific files.
 
 ## Getting Premade `.gitignore` Files
 
-[Here's a repo](https://github.com/github/gitignore) with a whole bunch.
+[fl[Here's a repo|https://github.com/github/gitignore]] with a whole
+bunch.
 
 But you can also roll your own as needed. Use `git status` often to see
 if any files are there you want to ignore.

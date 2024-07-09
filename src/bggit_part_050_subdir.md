@@ -36,8 +36,8 @@ It's not great. Don't do this.
 
 For mixing and matching different repos in the same hierarchy, Git has
 the concept of
-[submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules), but
-that's out of scope for this guide, and rarely used in school.
+[fl[submodules|https://git-scm.com/book/en/v2/Git-Tools-Submodules]],
+but that's out of scope for this guide, and rarely used in school.
 
 ## Accidentally Making a Repo in your Home Directory
 

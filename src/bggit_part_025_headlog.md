@@ -50,8 +50,9 @@ There are a few things to notice in the log:
 * The date
 * The user who made the commit
 
-Also we have those huge [hex](https://en.wikipedia.org/wiki/Hexadecimal)
-numbers after the word `commit`.
+Also we have those huge
+[fl[hex|https://en.wikipedia.org/wiki/Hexadecimal]] numbers after the
+word `commit`.
 
 This is the _commit ID_ or _commit hash_. This is universally unique
 number that you can use to identify a particular commit.

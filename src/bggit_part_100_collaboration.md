@@ -1,9 +1,9 @@
 # Collaboration across Branches
 
 Let's say you're on a team of coders and you all have access to the same
-GitHub repo. (One person on the team owns the repo, and they've [added
-you all as
-collaborators](https://docs.github.com/en/enterprise-server@3.9/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository).)
+GitHub repo. (One person on the team owns the repo, and they've
+[fl[added you all as
+collaborators|https://docs.github.com/en/enterprise-server@3.9/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository]].)
 
 How can you all structure your work so that you're minimizing conflicts?
 
