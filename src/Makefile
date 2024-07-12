@@ -1,11 +1,7 @@
-TITLE="Beej's Guide to Git"
-SUBTITLE=""
-AUTHOR='Brian “Beej Jorgensen” Hall'
-VERSION_DATE="v0.0.5, Copyright © July 9, 2024"
-
 GUIDE_ID=bggit
-BGBSPD_BUILD_DIR?=../../bgbspd
+BGBSPS_DIR?=../../bgbsps
 
-WEB_IMAGES=$(wildcard img_*svg)
+export BGBSPS_DIR
+export BGBSPS_DIR
 
-include $(BGBSPD_BUILD_DIR)/source.make
+include $(BGBSPS_DIR)/source.make
