@@ -1,5 +1,7 @@
 # Ignoring Files with `.gitignore`
 
+[i[`.gitignore` file]<]
+
 What if you have files in your subdirectory you don't want Git to pay
 any attention to? Like maybe you have some temporary files you don't
 want to see in the repo. Or maybe you have an executable you built from
@@ -84,6 +86,8 @@ and we're all clear.
 
 ## Can I Specify Subdirectories in `.gitignore`?
 
+[i[`.gitignore` file-->And subdirectories]]
+
 Yes!
 
 You can be as specific or as non-specific as you like with file matches.
@@ -105,6 +109,8 @@ Note that means `subdir` in the root of the _project_, not the root
 directory of your entire filesystem.
 
 ## Where do I Put the `.gitignore`?
+
+[i[`.gitignore` file-->Location]]
 
 You can add `.gitignore` files to any subdirectories of your project.
 But how they behave depends on where they are.
@@ -130,6 +136,8 @@ For simple projects, you're fine just having one `.gitignore` in the
 project root directory.
 
 ## Wildcards
+
+[i[`.gitignore` file-->Wildcards]]
 
 Do I have to individually list all the files I don't want in the
 `.gitignore`? What a pain!
@@ -171,6 +179,8 @@ sequence of characters, followed by `.sw`, followed by either `o` or
 `p`."
 
 ## Negated `.gitignore` Rules
+
+[i[`.gitignore` file-->Negated rules]]
 
 What if your root `.gitignore` is ignoring `*.tmp` files for the entire
 project. No problem.
@@ -223,6 +233,8 @@ for those specific files.
 
 ## Getting Premade `.gitignore` Files
 
+[i[`.gitignore` file-->Boilerplate]]
+
 [fl[Here's a repo|https://github.com/github/gitignore]] with a whole
 bunch.
 
@@ -234,3 +246,5 @@ choose a prepopulated `.gitignore`. **Warning!** Only do this if you're
 not planning to push an already-existing repo into this newly-made
 GitHub repo. If you plan to do this, GitHub's `,gitignore` will get in
 the way.
+
+[i[`.gitignore` file]>]

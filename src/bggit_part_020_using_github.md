@@ -10,12 +10,16 @@ keys, you can skip that section, as well.
 
 ## Making a GitHub Account
 
+[i[GitHub-->Account creation]]
+
 Head on over to [fl[GitHub|https://github.com/]] and click `Sign Up`.
 Follow those instructions.
 
 Eventually you'll end up on your home screen dashboard.
 
 ## Creating a New Repo on GitHub
+
+[i[GitHub-->Repo creation]]
 
 This will make a repository on GitHub that you own. It does not make a
 local repository—you'll have to clone the repo for that, something we'll
@@ -44,6 +48,8 @@ And there you have it.
 
 ## Authentication
 
+[i[GitHub-->Authentication]]
+
 Before we get to cloning, let's talk authentication. In the previous
 part of the intro, we say that username/password logins were disabled,
 so we have to do something different.
@@ -59,6 +65,8 @@ If you already have authentication working with GitHub, skip these
 sections.
 
 ### GitHub CLI
+
+[i[GitHub-->GitHub CLI setup]]
 
 This is a command line interface to GitHub. It does a number of things,
 but one of them is providing an authentication helper so you can do
@@ -96,6 +104,8 @@ choose HTTPS or SSH. Remember your choice when you go to clone a repo
 later.
 
 ### SSH Keys
+
+[i[GitHub-->SSH setup]]
 
 This is more involved, but has slightly more geek cred and doesn't
 require you to install GitHub CLI.
@@ -236,6 +246,8 @@ We'll be using SSH to clone URLs later. Remember that.
 
 ## Make a Local Clone of the Repo
 
+[i[GitHub-->Cloning]]
+
 We need to figure out the URL to the repo so we can clone it.
 
 If you click on your icon in the upper right, then "My Repositories", you
@@ -250,6 +262,8 @@ Click the big blue "Code" button.
 What you do next depends on if you're using GitHub CLI or SSH keys.
 
 ### Cloning from GitHub with GitHub CLI
+
+[i[GitHub-->Cloning with GitHub CLI]]
 
 You have two options.
 
@@ -281,6 +295,8 @@ You have two options.
 
 ### Cloning from GitHub with SSH Keys
 
+[i[GitHub-->Cloning with SSH]]
+
 If you set up an SSH key earlier, you can use this method.
 
 After hitting the blue "Code" button, make sure the "SSH" tab is
@@ -296,6 +312,8 @@ $ git clone git@github.com:user/test-repo.git
 ```
 
 ## Make Changes and Push!
+
+[i[Pushing]]
 
 Now that you've cloned the repo, you should be able to `cd` into that
 directory, edit a file, `git add` it to the stage, then `git commit -m
@@ -316,6 +334,8 @@ And now we're back to that standard common flow:
 6. Go back to Step 2.
 
 ## Collaboration on GitHub
+
+[i[Collaboration-->with GitHub]]
 
 There are two main techniques for this:
 

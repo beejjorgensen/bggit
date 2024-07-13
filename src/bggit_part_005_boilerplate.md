@@ -7,10 +7,14 @@
 <!-- [nh[scalbn]] -->
 
 <!-- Index see alsos -->
-<!--
-[is[String==>see `char *`]]
-[is[New line==>see `\n` newline]]
--->
+[is[Git Log==>see Log]]
+[is[Detached `HEAD`==>see `HEAD`, Detached]]
+[is[Fast-forward==>see Merging, Fast-forward]]
+[is[`origin`==>see Remotes, `origin`]]
+[is[Ignoring files==>see `.gitignore`]]
+[is[`git push --set-upstream`==>see Branching, Set upstream]]
+[is[`git push -u`==>see Branching, Set upstream]]
+[is[Recursion==>see Recursion]]
 
 # Foreword
 
@@ -106,6 +110,7 @@ from the main page, drop me a line at
 
 ## Note for Translators
 
+[i[Translations]<]
 If you want to translate the guide into another language, write me at
 [`beej@beej.us`](mailto:beej@beej.us) and I'll link to your translation
 from the main page. Feel free to add your name and contact info to the
@@ -113,6 +118,7 @@ translation.
 
 Please note the license restrictions in the Copyright and Distribution
 section, below.
+[i[Translations]>]
 
 ## Copyright and Distribution
 

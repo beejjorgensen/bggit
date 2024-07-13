@@ -1,5 +1,7 @@
 # Appendix: Getting Out of Editors {#editor-get-out}
 
+[i[Exiting editors]]
+
 If you try to `git commit` and don't specify `-m` for a message, or if
 you `git pull` and there's a non-fast-forward merge, or if you `git
 merge` and there's a non-fast-forward merge and you don't specify `-m`,

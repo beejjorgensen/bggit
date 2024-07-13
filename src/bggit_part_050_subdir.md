@@ -1,5 +1,7 @@
 # Using Subdirectories with Git
 
+[i[Subdirectories]<]
+
 This is a shorter chapter, but we want to talk about Git's behavior when
 it comes to working in subdirectories and some gotchas that you
 probably don't want to get wrapped up in.
@@ -20,6 +22,8 @@ it looks in the grandparent, etc., all the way back to the root
 directory.
 
 ### What about Subprojects?
+
+[i[Subprojects]]
 
 One common student question is, "Should I make one single repo for CS101
 with subdirectories for each project? Or should I make a different repo
@@ -93,3 +97,5 @@ directory.
 > The file could be called anything. For example, if you know you'll
 > need to eventually put a `.gitignore` in that directory, you might
 > just use that instead. Or a `README`.
+
+[i[Subdirectories]>]

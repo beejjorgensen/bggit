@@ -1,5 +1,7 @@
 # Remotes
 
+[i[Remotes]<]
+
 A _remote_ is just a name for a remote server you can push and pull
 from.
 
@@ -10,11 +12,13 @@ It's possible to use this URL to identify the server in our Git usage,
 but it's unwieldy to type. So we give the remote server URLs nicknames
 that we just tend to call "remotes".
 
-A remote we've already seen a bunch of is `origin`. This is the nickname
+A remote we've already seen a bunch of is [i[Remotes-->`origin`]] `origin`. This is the nickname
 for the remote repo you cloned from, and it gets set automatically by
 Git when you clone.
 
 ## Remote and Branch Notation
+
+[i[Remotes-->Remote branches]]
 
 Before we begin, note that Git uses slash notation to refer to a
 specific branch on a specific remote: `remotename/branchname`.
@@ -37,6 +41,8 @@ We'll talk more about this in the Remote Tracking Branches chapter.
 
 ## Getting a List of Remotes
 
+[i[Remotes-->Listing]]
+
 You can run `git remote` with the `-v` option in any repo directory to
 see what remotes you have for that repo:
 
@@ -54,6 +60,8 @@ And that URL is the exact same one we copied from GitHub when cloning
 the repo in the first place.
 
 ## Renaming a Remote
+
+[i[Remotes-->Renaming]]
 
 Remember that a remote name is just an alias for some URL that you
 cloned the repo from.
@@ -99,6 +107,8 @@ origin    git@github.com:beejjorgensen/git-example-repo.git (push)
 And now we can push! (Assuming we have our SSH keys set up.)
 
 ## Adding a Remote
+
+[i[Remotes-->Adding]]
 
 There's nothing stopping you from adding another remote.
 
@@ -201,3 +211,4 @@ It's interesting that my local `master` can be out of sync from the
 
 We'll look at this in the Remote Tracking Branches chapter.
 
+[i[Remotes]>]

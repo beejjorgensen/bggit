@@ -8,6 +8,8 @@ ancestors? In other words, what if the branches have _diverged_?
 
 ## An Example of Divergent Branches
 
+[i[Branches]]
+
 Let's look at a commit graph where things are still OK to fast-forward
 in Figure_#.1.
 
@@ -50,6 +52,8 @@ descent. `main` and `somebranch` have diverged.
 Is all hope lost? How can we merge?
 
 ## Merging Divergent Branches
+
+[i[Merging]]
 
 Turns out you do it the exact same way as always.
 
@@ -121,6 +125,8 @@ automatically. But there are some cases where it cannot, and this
 results in a _merge conflict_ that requires manual intervention. By you.
 
 ## Merge Conflicts
+
+[i[Merging-->Conflicts]<]
 
 If two branches have changes that are "far apart" from one another, Git
 can figure it out. If I edit line 20 of a file in one branch, and you
@@ -375,3 +381,5 @@ better at them you get.
 
 Nothing to worry about. Everything is in Git's commit history, so even
 if you botch it, you can always get things back the way they were.
+
+[i[Merging-->Conflicts]>]

@@ -1,5 +1,7 @@
 # The Git Log and `HEAD`
 
+[i[Log]]
+
 When we make commits to a Git repo, it tracks each of those commits in a
 log that you can visit. Let's take a look at that now.
 
@@ -65,6 +67,8 @@ about?
 
 ## The `HEAD` Reference
 
+[i[`HEAD`]]
+
 We've seen that each commit has a unique and unwieldy identifier like
 this:
 
@@ -117,6 +121,8 @@ commit. More on that later.
 
 ## Going Back In Time and Detached `HEAD`
 
+[i[`HEAD`-->Detached]]
+
 Here's my full Git log:
 
 ``` {.default}
@@ -141,7 +147,8 @@ commit and see what the files looked like then. How would I do that?
 > that had been since removed, and you wanted to look at them, for
 > example.
 
-I can use the `git checkout` command to make that happen.
+I can use the [i[`git checkout`]] `git checkout` command to make that
+happen.
 
 Let's checkout the first commit, the one with ID
 `5a02fede3007edf55d18e2f9ee3e57979535e8f2`.
@@ -253,6 +260,8 @@ and our working tree will be updated to show the files as they are in
 the `main` commit.
 
 ## The New Command: `git switch`
+
+[i[`git switch`]]
 
 In ye olden days, `git checkout` did a lot of things, and it still
 does. Because it does so much, the maintainers of Git have been trying

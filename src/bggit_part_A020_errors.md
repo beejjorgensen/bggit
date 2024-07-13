@@ -2,6 +2,8 @@
 
 ## Detached Head
 
+[i[`HEAD`-->Detached]]
+
 Did you get this alarmingly guillotinesque message?
 
 ``` {.default}

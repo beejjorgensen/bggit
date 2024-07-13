@@ -1,5 +1,7 @@
 # Remote Tracking Branches
 
+[i[Branches-->Remote tracking]<]
+
 We've seen how to create local branches that you do work on and then
 merge back into the `main` branch, then `git push` it up to a remote
 server.
@@ -50,6 +52,8 @@ We're going to call the `main` branch on our local machines the _local
 branch_, and we'll call the one on `origin` the _upstream branch_.
 
 ## Pushing to a Remote
+
+[i[Branching-->Set upstream]]
 
 Fun Fact: when you push or pull, you technically specify the remote and
 the branch you want to use. This is me saying, "Push the branch I'm on
@@ -104,6 +108,8 @@ branches to the remote!
 
 ## Making a Branch and Pushing to Remote
 
+[i[Pushing-->Branch to remote]]
+
 I'm going to make a new local branch `topic99`:
 
 ``` {.default}
@@ -157,5 +163,6 @@ Ouch. The short of all this is that we said "push", and Git said, "To
 what? You haven't associated this branch with anything on the remote!"
 
 And we haven't. There's no `origin/topic99` remote-tracking branch, and
-no  TODO
+no 
 
+[i[Branches-->Remote tracking]>]

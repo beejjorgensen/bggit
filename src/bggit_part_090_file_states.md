@@ -1,5 +1,7 @@
 # File States
 
+[i[File States]<]
+
 We've talked about this quite a bit in passing already.
 
 If you create a new file, you have to `git add` it to the stage before
@@ -23,9 +25,9 @@ renaming, but more on that mess soon).
 There are four of them: **Untracked**, **Unmodified**, **Modified**, and
 **Staged**.
 
-* **Untracked**: Git does not know anything about this file (e.g. you
-  just created it in the repo). Git will ignore it, but you'll see it in
-  the status.
+* [i[File States-->Untracked]] **Untracked**: Git does not know anything
+  about this file (e.g. you just created it in the repo). Git will
+  ignore it, but you'll see it in the status.
 
   You can make Git aware of this file by moving it to Staged State with
   `git add`.
@@ -34,8 +36,9 @@ There are four of them: **Untracked**, **Unmodified**, **Modified**, and
   you can add it to your `.gitignore` if you want to leave it in place
   but still have Git ignore it.
 
-* **Unmodified**: Git knows about this file and it's in the repo. But
-  you haven't made any changes to it since it was last committed.
+* [i[File States-->Unmodified]] **Unmodified**: Git knows about this
+  file and it's in the repo. But you haven't made any changes to it
+  since it was last committed.
 
   You can move this file to Modified State by making changes to the file
   (and saving).
@@ -44,15 +47,17 @@ There are four of them: **Untracked**, **Unmodified**, **Modified**, and
   to the Staged State. (Wait—removing the file puts it on the stage?
   Yes! More on that later.)
 
-* **Modified**: Git knows about this file and knows that you've changed
-  it. It's ready for you to stage those changes or to undo them.
+* [i[File States-->Modified]] **Modified**: Git knows about this file
+  and knows that you've changed it. It's ready for you to stage those
+  changes or to undo them.
 
   You can change the file to Staged State with `git add`.
 
   You can change the file to Unmodified State (throwing away your
   changes) with `git restore`.
 
-* **Staged**: The file is ready to be included in the next commit.
+* [i[File States-->Staged]] **Staged**: The file is ready to be included
+  in the next commit.
 
   You can change to Unmodified State by making a commit with `git
   commit`.
@@ -60,7 +65,8 @@ There are four of them: **Untracked**, **Unmodified**, **Modified**, and
   You can remove the file from the stage and back to Modified State with
   `git restore --staged`.
 
-A file typically goes through this process to be added to a repo:
+[i[Workflow-->File states]] A file typically goes through this process
+to be added to a repo:
 
 1. The user creates a new file and saves it. This file is **Untracked**.
 
@@ -97,6 +103,8 @@ change.
 
 ## Renaming Files
 
+[i[Renaming]]
+
 You can use the OS rename command to rename files, but if they're in a
 Git repo, it's better to `git mv` them so that Git has total awareness.
 
@@ -130,8 +138,8 @@ to use, the old one or new one? And then what? It turns out that while
 you *can* use `git restore` to undo this by following it with multiple
 other commands, you should, in this case, ignore Git's advice.
 
-Just remember this part: **the easiest way to undo a Staged rename is to
-just do the reverse rename**.
+[i[Renaming-->Reverting]] Just remember this part: **the easiest way to
+undo a Staged rename is to just do the reverse rename**.
 
 Let's say we renamed and got here:
 
@@ -168,6 +176,8 @@ way they were:
 * **Staged** → `git mv bar.txt foo.txt` → **Unmodified**
 
 ## Removing Files
+
+[i[Removing files]]
 
 You can use the OS remove command to remove files, but if they're in a
 git repo, it's better to `git rm` them so that Git has total awareness.
@@ -272,6 +282,8 @@ the name of the restored file, then add it and commit.
 
 ## Unmodified to Untracked
 
+[i[Untracking files]]
+
 A variation of `git rm` tells Git to remove the file from the repo but
 leave it intact in the working tree. Maybe you want to keep the file
 around but don't want Git to track it any longer.
@@ -311,3 +323,5 @@ untracked. And a subsequent `ls` shows that the file still exists.
 
 At this point, you can commit and the file would then be in Untracked
 state.
+
+[i[File States]>]

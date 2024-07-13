@@ -50,8 +50,8 @@ Definitions:
   developers. Git is a source code control system. There are many
   others.
 
-* **Commit**: An explicit moment in time where a snapshot of the
-  contents of all the source files are recorded in the source code
+* [i[Commit]] **Commit**: An explicit moment in time where a snapshot of
+  the contents of all the source files are recorded in the source code
   control system. Very, very typically the code is in a working state
   when the commit is made; in other words, the commit represents in some
   ways a seal of approval that the repo in this state is in working
@@ -80,6 +80,8 @@ Definitions:
 
 ## What is GitHub?
 
+[i[GitHub]]
+
 Oh, more?
 
 [GitHub](https://github.com/) is a website that provides a front end to
@@ -98,6 +100,8 @@ later).
 > server. None of this information is immediately important.
 
 ## The Most Basic Git Workflow
+
+[i[Workflow-->basic]]
 
 There's a super-common workflow that you'll use repeatedly:
 
@@ -126,6 +130,8 @@ Definitions:
   stage, even if you've modified those files.
 
 ## What is Cloning?
+
+[i[Clone]<]
 
 First, some backstory.
 
@@ -179,7 +185,11 @@ Until you push, your local changes aren't visible on the remote repo.
 Until you pull, the changes on the remote repo aren't visible on your
 local repo.
 
+[i[Clone]>]
+
 ## Actual Git Usage
+
+[i[Workflow-->basic]<]
 
 Let's put all this into play. This section assumes you have the
 command line Git tools installed. It also generally assumes you're
@@ -205,6 +215,8 @@ Recall the process in The Most Basic Git Workflow, above:
 
 ### Step 0: One-time Setup
 
+[i[Configuration]]
+
 "Wait! You didn't say there was a Step 0!"
 
 Yes, one time, before you start using Git, you should tell it what your
@@ -225,6 +237,8 @@ information.
 > follows it. Your actual shell prompt might be `%` or `$` or something
 > else, but here we use the `$` to indicate it.
 
+[i[Configuration-->Name and Email]]
+
 ``` {.default}
 $ git config --global user.name "Your Name"
 $ git config --global user.email "your-email@example.com"
@@ -233,6 +247,8 @@ $ git config --global user.email "your-email@example.com"
 If you need to change them in the future, just run those commands again.
 
 ### Step 1: Clone an Existing Repo
+
+[i[Clone]]
 
 Let's clone a repo! Here's an example one you can actually use. Don't
 worry--you can't mess anything up on the remote repo even though (and
@@ -313,9 +329,10 @@ We haven't talked about branching yet, but this is letting us know we're
 on branch `main`. That's fine for now.
 
 It also tells us this branch is up to date with a branch called
-`origin/main`. A branch in Git is just a reference to a certain commit
-that's been made, like a PostIt note attached to that commit. (Recall
-that a commit is a snapshot of the code repo at some time.)
+[i[Remotes-->`origin`]] `origin/main`. A branch in Git is just a
+reference to a certain commit that's been made, like a PostIt note
+attached to that commit. (Recall that a commit is a snapshot of the code
+repo at some time.)
 
 We don't want to get caught up in the intricacies of branching right
 now, but bear with me for a couple paragraphs.
@@ -407,6 +424,8 @@ commit. Let's try that.
 
 ### Step 3: Add Changes to the Stage
 
+[i[Stage]]
+
 The Git status message, above, is trying to help us out. It says:
 
 ``` {.default}
@@ -450,6 +469,8 @@ the stage!
 > state.
 
 ### Step 4: Commit those Changes
+
+[i[Commit]]
 
 Now that we have something copied to the stage, we can make a commit.
 Recall that a commit is just a snapshot of the state of the repo given
@@ -505,6 +526,8 @@ repo.
 
 ### Step 5: Push Your Changes to the Remote Repo
 
+[i[Pushing]]
+
 Let's push our local changes to the remote repo:
 
 ``` {.default}
@@ -544,3 +567,4 @@ GitHub that's not plain password.
 
 Let's try that in the next section.
 
+[i[Workflow-->basic]>]

@@ -2,6 +2,8 @@
 
 ## What is a Branch?
 
+[i[Branches]]
+
 Normally you think of writing code as a linear sequence of changes. You
 start with an empty file, add some things, test them, add some more,
 test some more, and eventually the code is complete.
@@ -79,10 +81,10 @@ to pursue multiple branches simultaneously.
 So there might be multiple collaborators working on the project at the
 same time.
 
-And then, when you're ready, you can _merge_ those branches back
-together. In this diagram we've merged commit 6 and 7 into a new commit,
-commit 9. In Figure_#.4, commit 9 contains the changes of both commits 7
-and 6.
+And then, when you're ready, you can [i[Merging]] _merge_ those branches
+back together. In this diagram we've merged commit 6 and 7 into a new
+commit, commit 9. In Figure_#.4, commit 9 contains the changes of both
+commits 7 and 6.
 
 ![After merging `somebranch` and `anotherbranch`.](img_030_040.pdf "[After merging somebranch and anotherbranch.]")
 
@@ -120,6 +122,8 @@ pointing at the same commit (Figure_#.5).
 ```
 -->
 
+[i[Branches-->Deleting]]
+
 And maybe after all this we decide to delete `somebranch` and
 `anotherbranch`; we can do this safely because they're fully merged, and
 can do this without affecting `main` or any commits (Figure_#.6).
@@ -144,6 +148,8 @@ good with merging.
 
 ## A Quick Note about `git pull`
 
+[i[Pulling]]
+
 When you do a pull, it actually does two things: (a) _fetch_ all the
 changes from the remote repo and (b) _merge_ those changes.
 
@@ -165,6 +171,8 @@ then.
 When we talk about rebasing later, this will make more sense.
 
 ## `HEAD` and Branches
+
+[i[`HEAD`-->With branches]]
 
 We said earlier that `HEAD` refers to a specific commit, namely the
 commit you're looking at right now in your working tree.
@@ -252,6 +260,8 @@ Now that we have the abstract theory stuff laid out, let's talk
 specifics.
 
 ## Creating a Branch
+
+[i[Branches-->Creating]]
 
 When you make the first commit to a new repo, the `main` branch is
 automatically created for you at that commit.
@@ -412,6 +422,8 @@ the `main` branch. How would we do that?
 
 ## Merging: Fast-Forward
 
+[i[Merging-->Fast-forward]<]
+
 Bringing two branches back into sync is called _merging_.
 
 The branch you're on is the branch you're bringing other changes _into_.
@@ -534,7 +546,11 @@ conflicts_, regular merges certainly can.
 
 But that's another story.
 
+[i[Merging-->Fast-forward]>]
+
 ## Deleting a Branch
+
+[i[Branches-->Deleting]]
 
 If you're done merging your branch, it's easy to delete it. **Importantly
 this doesn't delete any commits; it just deletes the branch "label"

@@ -1,5 +1,7 @@
 # Collaboration across Branches
 
+[i[Collaboration-->Across branches]<]
+
 Let's say you're on a team of coders and you all have access to the same
 GitHub repo. (One person on the team owns the repo, and they've
 [fl[added you all as
@@ -48,6 +50,8 @@ and you'll figure it out in the school of hard knocks.
 
 ## Communication and Delegation
 
+[i[Communication]]
+
 Git can't save you from poor communication. The only way to minimize
 conflicts in a shared project to communicate with your team and clearly
 assign different tasks to people in a non-conflicting way.
@@ -64,6 +68,8 @@ your team, you're doomed. Make a plan where no one is stepping on toes,
 and stick to it.
 
 ## Approach: Everyone Uses One Branch
+
+[i[Workflow-->One Branch]]
 
 This is really easy. Everyone has push access to the repo and does all
 their work on the `main` branch.
@@ -106,6 +112,8 @@ The other approaches are not that much more complex, and give you a lot
 more flexibility.
 
 ## Approach: Everyone Uses Their Own Branch
+
+[i[Workflow-->One Branch per Dev]]
 
 In this scenario, we treat `main` as the working code, and we treat
 contributors' branches as where work is done. When a contributor gets
@@ -211,6 +219,8 @@ After that, other contributors looking at `main` will see the changes.
 
 ## Approach: Everyone Merges to the Dev Branch
 
+[i[Workflow-->Dev branch]]
+
 In this scenario, we treat `main` as the published code that we're
 going to distribute, often tagged with a release version number, and we
 treat a `dev` branch as the working, unreleased code. And, as in the
@@ -295,3 +305,4 @@ Managerial Workflow:
 * Merge that candidate release (some commit) from `dev` into `main`.
 * Tag the `main` commit with some version number, optionally.
 
+[i[Collaboration-->Across branches]>]
