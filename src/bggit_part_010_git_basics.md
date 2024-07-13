@@ -94,10 +94,21 @@ Takeaway: GitHub is a web-based front-end to Git (specifically one that
 works on the copy of your repo at GitHub—stay tuned for more on that
 later).
 
-> [fl[GitLab|https://gitlab.com]] is a competitor to GitHub.
-> [fl[Gitea|https://docs.gitea.com/]] is an open-source competitor that
-> allows you to basically run a GitHub-like front-end on your own
-> server. None of this information is immediately important.
+> **Information:** [fl[GitLab|https://gitlab.com]] is a competitor to
+> GitHub. [fl[Gitea|https://docs.gitea.com/]] is an open-source
+> competitor that allows you to basically run a GitHub-like front-end on
+> your own server. None of this information is immediately important.
+
+Regardless of whatever repos you have on GitHub, you'll also have copies
+(known as _clones_) of those repos on your local system for you to work
+on. Periodically, in a common workflow, you'll sync your copy of the
+repo with GitHub.
+
+> **Note:** Even though you might be commonly using GitHub, there's no
+> law that says you have to. You can just create and destroy repos on
+> your local system all you want, even if you're not connected to the
+> Internet. See [Appendix: Making a Playground](#making-playground) for
+> more information once you're more comfortable with the basics.
 
 ## The Most Basic Git Workflow
 

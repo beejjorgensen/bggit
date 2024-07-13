@@ -1,4 +1,4 @@
-# Appendix: Making a Playground
+# Appendix: Making a Playground {#making-playground}
 
 [i[Playground]]
 
