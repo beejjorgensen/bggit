@@ -15,6 +15,7 @@
 [is[`git push --set-upstream`==>see Branching, Set upstream]]
 [is[`git push -u`==>see Branching, Set upstream]]
 [is[Recursion==>see Recursion]]
+[is[Branches-->on GitHub==>see GitHub, Branches]]
 
 # Foreword
 

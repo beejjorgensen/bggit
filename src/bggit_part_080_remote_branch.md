@@ -163,6 +163,25 @@ Ouch. The short of all this is that we said "push", and Git said, "To
 what? You haven't associated this branch with anything on the remote!"
 
 And we haven't. There's no `origin/topic99` remote-tracking branch, and
-no 
+certainly no `topic99` branch on that remote. Yet.
+
+The fix is easy enough—Git already told us what to do.
+
+```
+$ git push --set-upstream origin topic99
+```
+
+And that will do it.
+
+[i[GitHub-->Branches]]
+
+At this point, assuming you've pushed to GitHub, you could go to your
+GitHub page for the project, and near the top left you should see
+something that looks like Figure_#.1.
+
+![Two branches on GitHub](img_080_010.png "Two branches on GitHub")
+
+If you pull down that `main` button, you'll see `topic99` there as well.
+You can select either branch and view it in the GitHub interface.
 
 [i[Branches-->Remote tracking]>]
