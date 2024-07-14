@@ -126,7 +126,7 @@ address is common.)
 This results in a lot of prompts, but you can just hit ENTER for all of
 them.
 
-> Best practice is to use a password to access this key, otherwise
+> **Best practice is to use a password to access this key**, otherwise
 > anyone with access to the private key can impersonate you and access
 > your GitHub account, and any other account you have set up to use that
 > key. But it's a pain to type the password every time you want to use
@@ -137,11 +137,12 @@ them.
 > If you don't have a password on your key, you're relying on the fact
 > that no one can get a copy of the private portion of your key that's
 > stored on your computer. If you're confident that your computer is
-> secure, then you don't need a password on the key.
+> secure, then you don't need a password on the key. Do you feel lucky?
 >
 > Setting up the key agent is outside the scope of this document, and
-> the author in unsure of how it even works in WSL.
-> [fl[GitHub has documentation on the matter|https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent]].
+> the author in unsure of how it even works in WSL. [fl[GitHub has
+> documentation on the
+> matter|https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent]].
 >
 > For this demo, we'll just leave the password blank. All of this can be
 > redone with a new key with a password if you choose to do that later.
@@ -172,16 +173,17 @@ The key's randomart image is:
 +----[SHA256]-----+
 ```
 
-> **Important Note**: If you chose any file name other than the default
-> for your key, you'll have to do some
-> [fl[additional configuration to get it to work with GitHub|https://www.baeldung.com/linux/ssh-private-key-git-command]].
+> **If you chose any file name other than the default for your key**,
+> you'll have to do some [fl[additional configuration to get it to work
+> with
+> GitHub|https://www.baeldung.com/linux/ssh-private-key-git-command]].
 
-> **Unimportant Note**: What's that randomart thing with all the weird
-> characters? It's a visual representation of that key. There are ways
-> to configure SSH so that you see the randomart every time you log in,
-> say. And the idea is that if one day you see it looks different,
-> something could be amiss security-wise. I doubt most people every look
-> at it again once it's been generated, though.
+> **What's that randomart thing with all the weird characters?** It's a
+> visual representation of that key. There are ways to configure SSH so
+> that you see the randomart every time you log in, say. And the idea is
+> that if one day you see it looks different, something could be amiss
+> security-wise. I doubt most people every look at it again once it's
+> been generated, though.
 
 Now if you type `ls ~/.ssh` you should see something like this:
 
@@ -196,8 +198,8 @@ The second file is your _public key_. This can be freely shared with
 anyone, and we're going to share it with GitHub in a second so that you
 can log in with it.
 
-> If you have trouble in the following sections, try running these two
-> commands:
+> **If you have trouble in the following subsections**, try running
+> these two commands:
 >
 > ``` {.default}
 > $ chmod 700 ~/.ssh

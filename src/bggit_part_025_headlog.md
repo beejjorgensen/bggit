@@ -82,8 +82,8 @@ you're looking at right now in your project subdirectory. Remember how
 we said you could go look at previous commits? The way you do that is by
 moving `HEAD` to them.
 
-> We haven't talked about branches yet, but the `HEAD` normally refers
-> to a branch. By default, it's the `main` branch. But since we're
+> **We haven't talked about branches yet, but the `HEAD` normally refers
+> to a branch.** By default, it's the `main` branch. But since we're
 > getting ahead of ourselves, I'm going to just keep saying that `HEAD`
 > refers to a commit, even though it usually does it indirectly via a
 > branch.
@@ -143,9 +143,9 @@ If I look at the files, I'll see the changes indicated by the "More
 output" commit. But let's say I want to go back in time to the previous
 commit and see what the files looked like then. How would I do that?
 
-> Maybe there were some changes that existed back in an earlier commit
-> that had been since removed, and you wanted to look at them, for
-> example.
+> **Maybe there were some changes that existed back in an earlier
+> commit** that had been since removed, and you wanted to look at them,
+> for example.
 
 I can use the [i[`git checkout`]] `git checkout` command to make that
 happen.
@@ -221,11 +221,11 @@ That's because the `main` branch is still looking at the latest commit,
 the one with the "More output" comment. So we don't see it from this
 perspective.
 
-> Remember earlier when I said it was a bit of a lie to say that `HEAD`
-> points to a commit? Well, detached head state is the case where it
-> actually **does**. Detached head state is just what happens when
-> `HEAD` is pointing to a commit instead of a branch. To reattach it,
-> you have to change it to point to a branch again.
+> **Remember earlier when I said it was a bit of a lie to say that
+> `HEAD` points to a commit?** Well, detached head state is the case
+> where it actually **does**. Detached head state is just what happens
+> when `HEAD` is pointing to a commit instead of a branch. To reattach
+> it, you have to change it to point to a branch again.
 
 Let's get back to the `main` branch. There are three options:
 

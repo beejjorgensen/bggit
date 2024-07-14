@@ -94,17 +94,18 @@ Takeaway: GitHub is a web-based front-end to Git (specifically one that
 works on the copy of your repo at GitHub—stay tuned for more on that
 later).
 
-> **Information:** [fl[GitLab|https://gitlab.com]] is a competitor to
-> GitHub. [fl[Gitea|https://docs.gitea.com/]] is an open-source
-> competitor that allows you to basically run a GitHub-like front-end on
-> your own server. None of this information is immediately important.
+> **What about GitLib and Gitea?** [fl[GitLab|https://gitlab.com]] is a
+> competitor to GitHub. [fl[Gitea|https://docs.gitea.com/]] is an
+> open-source competitor that allows you to basically run a GitHub-like
+> front-end on your own server. None of this information is immediately
+> important.
 
 Regardless of whatever repos you have on GitHub, you'll also have copies
 (known as _clones_) of those repos on your local system for you to work
 on. Periodically, in a common workflow, you'll sync your copy of the
 repo with GitHub.
 
-> **Note:** Even though you might be commonly using GitHub, there's no
+> **You don't need GitHub.** Even though you might be commonly using GitHub, there's no
 > law that says you have to. You can just create and destroy repos on
 > your local system all you want, even if you're not connected to the
 > Internet. See [Appendix: Making a Playground](#making-playground) for
@@ -206,10 +207,11 @@ Let's put all this into play. This section assumes you have the
 command line Git tools installed. It also generally assumes you're
 running a Unix shell like Bash or Zsh.
 
-> Linux/BSD/Unix and Mac users will already have these shells.
-> Recommendation for Windows users is to
-> [fl[install and run Ubuntu with WSL|https://learn.microsoft.com/en-us/windows/wsl/]]
-> to get a virtual Linux installation.
+> **Where do you get these shells?** Linux/BSD/Unix and Mac users will
+> already have these shells. Recommendation for Windows users is to
+> [fl[install and run Ubuntu with
+> WSL|https://learn.microsoft.com/en-us/windows/wsl/]] to get a virtual
+> Linux installation.
 
 For this example, we'll assume we have a GitHub repo already in
 existence that we're going to clone.
@@ -243,10 +245,10 @@ You just have to do this once then never again (unless you want to).
 Type both of these on the command line, filling in the appropriate
 information.
 
-> **NOTE**: in this guide, things you type at the shell prompt are
-> indicated by a prefaced `$`. Don't type the `$`; just type what
-> follows it. Your actual shell prompt might be `%` or `$` or something
-> else, but here we use the `$` to indicate it.
+> **In this guide, things you type at the shell prompt are indicated by
+> a prefaced `$`**. Don't type the `$`; just type what follows it. Your
+> actual shell prompt might be `%` or `$` or something else, but here we
+> use the `$` to indicate it.
 
 [i[Configuration-->Name and Email]]
 
@@ -265,10 +267,10 @@ Let's clone a repo! Here's an example one you can actually use. Don't
 worry--you can't mess anything up on the remote repo even though (and
 because) you don't own it.
 
-> Like we said before, this isn't the only workflow. Sometimes people
-> make a local repo first, add some commits, then create a remote repo
-> and push those commits. But for this example, we'll assume the remote
-> repo exists first, though this isn't a requirement.
+> **Like we said before, this isn't the only workflow.** Sometimes
+> people make a local repo first, add some commits, then create a remote
+> repo and push those commits. But for this example, we'll assume the
+> remote repo exists first, though this isn't a requirement.
 
 Switch in a subdirectory where you want the clone created. This command
 will create a new subdirectory out of there that will hold all the repo
@@ -313,8 +315,8 @@ drwxr-xr-x  12 user  user  384 Jan 26 11:50 .git
 
 There are two files in this repo: `README.md` and `hello.py`.
 
-> The directory `.git` has special meaning; it's the directory where Git
-> keeps all its metadata and commits. You can look in there, but you
+> **The directory `.git` has special meaning;** it's the directory where
+> Git keeps all its metadata and commits. You can look in there, but you
 > don't have to. If you do look, don't change anything. The only thing
 > that makes a directory a Git repo is the presence of a valid `.git`
 > directory within it.
@@ -371,7 +373,7 @@ but it all sounds like vaguely good news.
 
 Let's edit a file and make some changes to it.
 
-> Again, don't worry about messing up the remote repo—you don't have
+> **Again, don't worry about messing up the remote repo**—you don't have
 > permissions to do that. Your safety is completely assured from a Git
 > perspective.
 
@@ -467,9 +469,10 @@ Now it's changed from saying "Changes not staged for commit" to saying
 "Changes to be committed", so we have successfully copied `hello.py` to
 the stage!
 
-> There's also a helpful message there about how to _unstage_ the file.
-> Let's say you accidentally added it to the stage and you changed your
-> mind and wanted to not include it in the commit after all. You can run
+> **There's also a helpful message there about how to _unstage_ the
+> file.** Let's say you accidentally added it to the stage and you
+> changed your mind and wanted to not include it in the commit after
+> all. You can run
 >
 > ``` {.default}
 > $ git restore --staged hello.py
@@ -501,10 +504,10 @@ $ git commit -m "I added another print line"
  1 file changed, 1 insertion(+)
 ```
 
-> The `-m` switch allows you to specify a commit message. If you don't
-> use `-m`, you'll be popped into an editor, which will probably be Nano
-> or Vim, to edit the commit message. If you're not familiar with those,
-> see [Getting Out of Editors](#editor-get-out) for help.
+> **The `-m` switch allows you to specify a commit message.** If you
+> don't use `-m`, you'll be popped into an editor, which will probably
+> be Nano or Vim, to edit the commit message. If you're not familiar
+> with those, see [Getting Out of Editors](#editor-get-out) for help.
 
 And that's good news! Let's check the status:
 
