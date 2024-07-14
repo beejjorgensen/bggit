@@ -27,12 +27,13 @@ it:
 
 ``` {.default}
 $ git status
-On branch main
-Untracked files:
-  (use "git add <file>..." to include in what will be committed)
-	doom
+  On branch main
+  Untracked files:
+    (use "git add <file>..." to include in what will be committed)
+	  doom
 
-nothing added to commit but untracked files present (use "git add" to track)
+  nothing added to commit but untracked files present (use "git add"
+  to track)
 ```
 
 So I edit a `.gitignore` file in that directory and add this one line to
@@ -46,12 +47,13 @@ Now I run status again:
 
 ``` {.default}
 $ git status
-On branch main
-Untracked files:
-  (use "git add <file>..." to include in what will be committed)
-	.gitignore
+  On branch main
+  Untracked files:
+    (use "git add <file>..." to include in what will be committed)
+	  .gitignore
 
-nothing added to commit but untracked files present (use "git add" to track)
+  nothing added to commit but untracked files present (use "git add"
+  to track)
 ```
 
 What? Same thing? Not quite! Read the fine print!
@@ -69,17 +71,17 @@ which is handy.
 ``` {.default}
 $ git add .gitignore
 $ git commit -m Added
-[main 07582ad] Added
- 1 file changed, 1 insertion(+)
- create mode 100644 .gitignore
+  [main 07582ad] Added
+   1 file changed, 1 insertion(+)
+   create mode 100644 .gitignore
 ```
 
 Now we get the status:
 
 ``` {.default}
 $ git status
-On branch main
-nothing to commit, working tree clean
+  On branch main
+  nothing to commit, working tree clean
 ```
 
 and we're all clear.

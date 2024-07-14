@@ -455,7 +455,7 @@ having `newbranch` checked out):
 
 ``` {.default}
 $ git merge main
-Already up to date.
+  Already up to date.
 ```
 
 Nothing happened? What's that mean? Well, if we look at the commit
@@ -496,10 +496,10 @@ depending on what files are included in the merge):
 
 ``` {.default}
 $ git merge newbranch
-Updating 087a53d..cef68a8
-Fast-forward
- foo.py | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+  Updating 087a53d..cef68a8
+  Fast-forward
+   foo.py | 4 +++-
+   1 file changed, 3 insertions(+), 1 deletion(-)
 ```
 
 And now we're at Figure_#.16.
@@ -570,7 +570,7 @@ branch:
 
 ``` {.default}
 $ git branch -d topic1
-Deleted branch topic1 (was 3be2ad2).
+  Deleted branch topic1 (was 3be2ad2).
 ```
 
 Done!

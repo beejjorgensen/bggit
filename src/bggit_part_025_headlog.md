@@ -291,7 +291,7 @@ So we can override, just like it suggests:
 
 ``` {.default}
 $ git switch --detach 5a02
-HEAD is now at 5a02fed Added
+  HEAD is now at 5a02fed Added
 ```
 
 All right! No big message about being detached, but we don't need it

@@ -114,10 +114,10 @@ Let's rename `foo.txt` to `bar.txt` and get a status:
 
 ``` {.default}
 $ git mv foo.txt bar.txt
-On branch main
-Changes to be committed:
-  (use "git restore --staged <file>..." to unstage)
-	renamed:    foo.txt -> bar.txt
+  On branch main
+  Changes to be committed:
+    (use "git restore --staged <file>..." to unstage)
+	  renamed:    foo.txt -> bar.txt
 ```
 
 So it knows the file is renamed, and the file has been moved to the
@@ -146,11 +146,10 @@ Let's say we renamed and got here:
 ``` {.default}
 $ git mv foo.txt bar.txt    # Rename foo.txt to bar.txt
 $ git status
-
-On branch main
-Changes to be committed:
-  (use "git restore --staged <file>..." to unstage)
-	renamed:    foo.txt -> bar.txt
+  On branch main
+  Changes to be committed:
+    (use "git restore --staged <file>..." to unstage)
+	  renamed:    foo.txt -> bar.txt
 ```
 
 This easiest way to revert this change is to do this:
@@ -158,9 +157,8 @@ This easiest way to revert this change is to do this:
 ```
 $ git mv bar.txt foo.txt    # Rename it back to foo.txt
 $ git status
-
-On branch main
-nothing to commit, working tree clean
+  On branch main
+  nothing to commit, working tree clean
 ```
 
 And there you go.
@@ -189,7 +187,7 @@ we decide to remove it.
 
 ``` {.default}
 $ git rm foo.txt
-rm 'foo.txt'         # This is Git's output
+  rm 'foo.txt'         # This is Git's output
 ```
 
 This actually removes the file—if you look in the directory, it's gone.
@@ -198,10 +196,10 @@ But let's check the status:
 
 ``` {.default}
 $ git status
-On branch main
-Changes to be committed:
-  (use "git restore --staged <file>..." to unstage)
-	deleted:    foo.txt
+  On branch main
+  Changes to be committed:
+    (use "git restore --staged <file>..." to unstage)
+	  deleted:    foo.txt
 ```
 
 So the now-deleted file is in Staged State, as it were.
@@ -216,13 +214,13 @@ Let's try it:
 ``` {.default}
 $ git restore --staged foo.txt
 $ git status
-On branch main
-Changes not staged for commit:
-  (use "git add/rm <file>..." to update what will be committed)
-  (use "git restore <file>..." to discard changes in working directory)
-	deleted:    foo.txt
+  On branch main
+  Changes not staged for commit:
+    (use "git add/rm <file>..." to update what will be committed)
+    (use "git restore <file>..." to discard changes in working directory)
+	  deleted:    foo.txt
 
-no changes added to commit (use "git add" and/or "git commit -a")
+  no changes added to commit (use "git add" and/or "git commit -a")
 ```
 
 Hmmm. "Changes not staged for commit" are files in Modified State. This
@@ -238,15 +236,15 @@ how to do in the status: `git restore`. Let's try:
 ``` {.default}
 $ git restore foo.txt
 $ git status
-On branch main
-nothing to commit, working tree clean
+  On branch main
+  nothing to commit, working tree clean
 ```
 
 Git's telling us there are no Modified files here. Let's look and see:
 
 ``` {.default}
 $ ls foo.txt
-foo.txt
+  foo.txt
 ```
 
 There it is, back safe and sound.
@@ -295,26 +293,23 @@ keep it around in our working tree:
 
 ``` {.default}
 $ ls
-
-foo.txt
+  foo.txt
 
 $ git rm --cached foo.txt
-
-rm 'foo.txt'
+  rm 'foo.txt'
 
 $ git status
+  On branch main
+  Changes to be committed:
+    (use "git restore --staged <file>..." to unstage)
+	  deleted:    foo.txt
 
-On branch main
-Changes to be committed:
-  (use "git restore --staged <file>..." to unstage)
-	deleted:    foo.txt
-
-Untracked files:
-  (use "git add <file>..." to include in what will be committed)
-	foo.txt
+  Untracked files:
+    (use "git add <file>..." to include in what will be committed)
+	  foo.txt
 
 $ ls
-foo.txt
+  foo.txt
 ```
 
 There you see in the `status` output that Git has staged the file for

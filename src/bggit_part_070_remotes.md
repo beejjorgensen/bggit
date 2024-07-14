@@ -48,8 +48,8 @@ see what remotes you have for that repo:
 
 ``` {.default}
 $ git remote -v
-origin    https://github.com/beejjorgensen/git-example-repo.git (fetch)
-origin    https://github.com/beejjorgensen/git-example-repo.git (push)
+  origin    https://github.com/example-repo.git (fetch)
+  origin    https://github.com/example-repo.git (push)
 ```
 
 We see that we're using the same URL for the remote named `origin` for
@@ -72,8 +72,8 @@ URL. In that case, you'll see the following remote:
 
 ``` {.default}
 $ git remote -v
-origin    https://github.com/beejjorgensen/git-example-repo.git (fetch)
-origin    https://github.com/beejjorgensen/git-example-repo.git (push)
+origin    https://github.com/example-repo.git (fetch)
+origin    https://github.com/example-repo.git (push)
 ```
 
 And then you try to push, and GitHub tells you that you can't push to an
@@ -136,7 +136,7 @@ I need some way to refer to his repo, so I'm going to add a remote
 called `reallinux` that points to it:
 
 ``` {.default}
-$ git remote add reallinux https://github.com/torvalds/linux.git (fetch)
+$ git remote add reallinux https://github.com/torvalds/linux.git
 ```
 
 Now my remotes look like this:

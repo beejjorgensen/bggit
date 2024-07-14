@@ -411,16 +411,15 @@ Let's ask Git what the status is now.
 
 ``` {.default}
 $ git status
+  On branch main
+  Your branch is up to date with 'origin/main'.
 
-On branch main
-Your branch is up to date with 'origin/main'.
+  Changes not staged for commit:
+    (use "git add <file>..." to update what will be committed)
+    (use "git restore <file>..." to discard changes in working directory)
+	  modified:   hello.py
 
-Changes not staged for commit:
-  (use "git add <file>..." to update what will be committed)
-  (use "git restore <file>..." to discard changes in working directory)
-	modified:   hello.py
-
-no changes added to commit (use "git add" and/or "git commit -a")
+  no changes added to commit (use "git add" and/or "git commit -a")
 ```
 
 This is telling us a couple important things.
@@ -456,13 +455,12 @@ Let's do it:
 ``` {.default}
 $ git add hello.py
 $ git status
+  On branch main
+  Your branch is up to date with 'origin/main'.
 
-On branch main
-Your branch is up to date with 'origin/main'.
-
-Changes to be committed:
-  (use "git restore --staged <file>..." to unstage)
-	modified:   hello.py
+  Changes to be committed:
+    (use "git restore --staged <file>..." to unstage)
+	  modified:   hello.py
 ```
 
 Now it's changed from saying "Changes not staged for commit" to saying
@@ -499,9 +497,8 @@ Let's do it:
 
 ``` {.default}
 $ git commit -m "I added another print line"
-
-[main 0e1ad42] I added another print line
- 1 file changed, 1 insertion(+)
+  [main 0e1ad42] I added another print line
+   1 file changed, 1 insertion(+)
 ```
 
 > **The `-m` switch allows you to specify a commit message.** If you
@@ -513,12 +510,11 @@ And that's good news! Let's check the status:
 
 ``` {.default}
 $ git status
+  On branch main
+  Your branch is ahead of 'origin/main' by 1 commit.
+    (use "git push" to publish your local commits)
 
-On branch main
-Your branch is ahead of 'origin/main' by 1 commit.
-  (use "git push" to publish your local commits)
-
-nothing to commit, working tree clean
+  nothing to commit, working tree clean
 ```
 
 "Nothing to commit, working tree clean" means we have no local changes

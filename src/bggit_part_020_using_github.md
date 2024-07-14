@@ -83,8 +83,8 @@ see some version information, e.g.:
 
 ``` {.default}
 $ gh --version
-gh version 2.42.1 (2024-01-15)
-https://github.com/cli/cli/releases/tag/v2.42.1
+  gh version 2.42.1 (2024-01-15)
+  https://github.com/cli/cli/releases/tag/v2.42.1
 ```
 
 Then you'll want to run the following two commands:

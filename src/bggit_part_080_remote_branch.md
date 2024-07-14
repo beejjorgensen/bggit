@@ -114,7 +114,7 @@ I'm going to make a new local branch `topic99`:
 
 ``` {.default}
 $ git switch -c topic99
-Switched to a new branch 'topic99'
+  Switched to a new branch 'topic99'
 ```
 
 And make some changes:
@@ -150,13 +150,13 @@ Now let's push!
 
 ``` {.default}
 $ git push
-fatal: The current branch topic99 has no upstream branch.
-To push the current branch and set the remote as upstream, use
+  fatal: The current branch topic99 has no upstream branch.
+  To push the current branch and set the remote as upstream, use
 
-    git push --set-upstream origin topic99
+      git push --set-upstream origin topic99
 
-To have this happen automatically for branches without a tracking
-upstream, see 'push.autoSetupRemote' in 'git help config'.
+  To have this happen automatically for branches without a tracking
+  upstream, see 'push.autoSetupRemote' in 'git help config'.
 ```
 
 Ouch. The short of all this is that we said "push", and Git said, "To

@@ -160,9 +160,9 @@ one is correct, so there's a conflict.
 
 ``` {.default}
 $ git merge newbranch
-Auto-merging foo.py
-CONFLICT (content): Merge conflict in foo.py
-Automatic merge failed; fix conflicts and then commit the result.
+  Auto-merging foo.py
+  CONFLICT (content): Merge conflict in foo.py
+  Automatic merge failed; fix conflicts and then commit the result.
 ```
 
 Now if I look at my status, I see we're in merge state, as noted by `You
@@ -171,16 +171,16 @@ out the front or back out the back to get back to normal.
 
 ``` {.default}
 $ git status
-On branch main
-You have unmerged paths.
-  (fix conflicts and run "git commit")
-  (use "git merge --abort" to abort the merge)
+  On branch main
+  You have unmerged paths.
+    (fix conflicts and run "git commit")
+    (use "git merge --abort" to abort the merge)
 
-Unmerged paths:
-  (use "git add <file>..." to mark resolution)
-	both modified:   foo.py
+  Unmerged paths:
+    (use "git add <file>..." to mark resolution)
+	  both modified:   foo.py
 
-no changes added to commit (use "git add" and/or "git commit -a")
+  no changes added to commit (use "git add" and/or "git commit -a")
 ```
 
 It's also hinting that I can do one of two things:
@@ -283,12 +283,12 @@ automatically make it.)
 ``` {.default}
 $ git add foo.py
 $ git status
-On branch main
-All conflicts fixed but you are still merging.
-  (use "git commit" to conclude merge)
+  On branch main
+  All conflicts fixed but you are still merging.
+    (use "git commit" to conclude merge)
 
-Changes to be committed:
-	modified:   foo.py
+  Changes to be committed:
+	  modified:   foo.py
 ```
 
 Notice that `git status` is telling me we're still in the merging state,
@@ -299,15 +299,15 @@ So let's do that, making the merge commit:
 
 ``` {.default}
 $ git commit -m "Merged with newbranch"
-[main 668b506] Merged with newbranch
+  [main 668b506] Merged with newbranch
 ```
 
 And that's it! Let's check status just to be sure:
 
 ``` {.default}
 $ git status
-On branch main
-nothing to commit, working tree clean
+  On branch main
+  nothing to commit, working tree clean
 ```
 
 Success!
@@ -316,30 +316,30 @@ Just to wrap up, let's take a look at the log at this point:
 
 ``` {.default}
 $ git log
-commit 668b5065aa803fa496951b70159474e164d4d3d2 (HEAD -> main)
-Merge: e4b69af 81d6f58
-Author: User Name <user@example.com>
-Date:   Sun Feb 4 13:18:09 2024 -0800
+  commit 668b5065aa803fa496951b70159474e164d4d3d2 (HEAD -> main)
+  Merge: e4b69af 81d6f58
+  Author: User Name <user@example.com>
+  Date:   Sun Feb 4 13:18:09 2024 -0800
 
-    Merged with newbranch
+      Merged with newbranch
 
-commit e4b69af05724dc4ef37594e06d0fd323ca1b8578
-Author: User Name <user@example.com>
-Date:   Sun Feb 4 13:16:32 2024 -0800
+  commit e4b69af05724dc4ef37594e06d0fd323ca1b8578
+  Author: User Name <user@example.com>
+  Date:   Sun Feb 4 13:16:32 2024 -0800
 
-    Commmit 4
+      Commmit 4
 
-commit 81d6f58b5982d39a1d92af06b812777dbb452879 (newbranch)
-Author: User Name <user@example.com>
-Date:   Sun Feb 4 13:16:32 2024 -0800
+  commit 81d6f58b5982d39a1d92af06b812777dbb452879 (newbranch)
+  Author: User Name <user@example.com>
+  Date:   Sun Feb 4 13:16:32 2024 -0800
 
-    Commmit 3
+      Commmit 3
 
-commit 3ab961073374ec26734c933503a8aa988c94185b
-Author: User Name <user@example.com>
-Date:   Sun Feb 4 13:16:32 2024 -0800
+  commit 3ab961073374ec26734c933503a8aa988c94185b
+  Author: User Name <user@example.com>
+  Date:   Sun Feb 4 13:16:32 2024 -0800
 
-    Commmit 1
+      Commmit 1
 ```
 
 We see a few things. One is that our merge commit is pointed to by
