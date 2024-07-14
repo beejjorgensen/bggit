@@ -244,7 +244,7 @@ if any files are there you want to ignore.
 When you create a new repo on GitHub, it also gives you the option to
 choose a prepopulated `.gitignore`. **Warning!** Only do this if you're
 not planning to push an already-existing repo into this newly-made
-GitHub repo. If you plan to do this, GitHub's `,gitignore` will get in
+GitHub repo. If you plan to do this, GitHub's `.gitignore` will get in
 the way.
 
 [i[`.gitignore` file]>]
