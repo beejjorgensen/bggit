@@ -1,5 +1,12 @@
 # Using GitHub
 
+Now, we've said that GitHub (which is a proprietary web front-end to Git
+run and owned by Microsoft) is not Git, and it's true. It's also true
+that you never even need to touch GitHub in order to use Git.
+
+That said, it's *really* common for people to use GitHub, so we'll get
+it set up in this chapter.
+
 Here we'll make a new GitHub account and see how authentication works.
 This involves some one-time setup.
 
