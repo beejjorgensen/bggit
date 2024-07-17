@@ -15,6 +15,8 @@ If you already have a GitHub account, you can skip that section.
 If you already have authentication set up with GitHub CLI or with SSH
 keys, you can skip that section, as well.
 
+If you don't need to use GitHub, you can skip the entire chapter!
+
 ## Making a GitHub Account
 
 [i[GitHub-->Account creation]]

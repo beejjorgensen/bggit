@@ -184,6 +184,8 @@ $ git pull --no-rebase  # Do a merge instead of a rebase
 
 ## Conflicts
 
+[i[Rebasing-->Conflicts]]
+
 When you do a merge, there's a chance that you might conflict with some
 of the changes in the other branch, and you have to resolve those, as
 we've seen.
@@ -242,15 +244,8 @@ $ git rebase main
 ```
 
 Whoa, Nelly. OK, so it can't do that. It says we need to "Resolve all
-conflicts manually, and then add them, and then we'll run rebase again
+conflicts manually", and then add them, and then we'll run rebase again
 with the `--continue` flag to continue the rebase.
-
-This might sound a little familiar. It's basically the same process as
-we went through with the merge conflict.
-
-1. Edit the conflicting file and make it *Right*.
-2. Add it.
-3. Continue the rebase.
 
 > **If you keep reading the hints**, you'll see there some more stuff in
 > there. We'll get to `--skip` later, but do note that if the conflict
@@ -263,9 +258,16 @@ we went through with the merge conflict.
 > <!-- ` -->
 > to pretend you never started it in the first place.
 
+This might sound a little familiar. It's basically the same process as
+we went through with the merge conflict.
+
+1. Edit the conflicting file and make it *Right*.
+2. Add it.
+3. Continue the rebase.
+
 Let's do that. If I pop open that file `magic.txt` in my editor, I see:
 
-``` {.default}
+``` {.default .numberLines}
 <<<<<<< HEAD
 The magic number is 2
 =======
@@ -361,4 +363,270 @@ After all that, we see our new commit graph in Figure_#.5.
 
 ## Squashing Commits
 
-## Multiple Conflicts
+[i[Rebasing-->Squashing commits]]
+
+This concept fits in with the notion of a clean commit history.
+
+Let's say you were tasked with implementing a feature, namely adding an
+alert box saying that the storage limit was exceeded.
+
+No problem. You add it and commit with message "Added feature #121".
+(And you don't push yet.)
+
+``` {.default}
+alert("Strrage limit exceeeded");
+```
+
+Then after the commit, you notice a typo. Heck.
+
+So you fix it and commit with message "Fixed typo".
+
+``` {.default}
+alert("Storage limit exceeeded");
+```
+
+Done.
+
+Wait! There's another typo! Are you kidding me?
+
+So you fix it:
+
+``` {.default}
+alert("Storage limit exceeded");
+```
+
+And add another commit saying "Fixed another typo".
+
+Now your local commit history reads:
+
+``` {.default}
+Fixed another typo
+Fixed a typo
+Added feature #121
+```
+
+That's not super clean, right? Really this was supposed to be one commit
+that implemented feature #121.
+
+But luckily you haven't pushed yet, which means you're still free to
+rewrite that history!
+
+You can use a feature of rebase called ***squashing*** to get this done.
+
+What you want to do is squash those two typo fixes into the previous
+commit, the one where you first tried to implement the feature.
+
+First, let's look at the log.
+
+``` {.default}
+$ git log
+commit c1820e6d0da19013208b389d264310162477b099 (HEAD -> main)
+Author: User <user@example.com>
+Date:   Wed Jul 17 11:53:10 2024 -0700
+
+    Fixed another typo
+
+commit c62c0db7b82e6b415d36bd0f00d568fd503164b7
+Author: User <user@example.com>
+Date:   Wed Jul 17 11:53:10 2024 -0700
+
+    Fixed typo
+
+commit ab84a428b8baae0078ee0647a67b34a89a6abed8
+Author: User <user@example.com>
+Date:   Wed Jul 17 11:53:10 2024 -0700
+
+    Added feature #121
+
+commit a95854659e31d203e2325eee61d892c9cdad767c
+Author: User <user@example.com>
+Date:   Wed Jul 17 11:53:10 2024 -0700
+
+    Added
+```
+
+Since this is a rebase, we're going to rebase onto something, namely the
+commit _prior_ to the added feature commit, the commit ID starting with
+`a9585`.
+
+And we want to do it _interactively_, which is a special rebase mode
+that lets us to the squashing, and we get there with the `-i` flag.
+
+``` {.default}
+$ git rebase -i a9585
+```
+
+This brings us into an editor that has this information, and a huge
+comment block below it full of instructions.
+
+``` {.default .numberLines}
+pick ab84a42 Added feature #121
+pick c62c0db Fixed typo
+pick c1820e6 Fixed another typo
+```
+
+Notice that they're listed in forward order instead of the reverse log
+order we're used to.
+
+Look at all those options! Pick, reword, edit, squash, fixup... so many
+things to choose from. As you might imagine we're in a pretty powerful
+history rewriting mode.
+
+For now, though, let's just look at "squash" and "fixup", which are
+almost the same thing.
+
+Starting with "squash", what I want to do is take those typo fix commits
+and work them into the "Added feature" commit. We can use the squash
+mode to do this.
+
+I'll edit the file to look like this:
+
+``` {.default .numberLines}
+pick ab84a42 Added feature #121
+squash c62c0db Fixed typo
+squash c1820e6 Fixed another typo
+```
+
+That will squash "Fixed another typo" into "Fixed typo" and then squash
+that result into "Added feature #121".
+
+And `pick` just means "use this commit as-is".
+
+> **There are shorthand versions for all these commands.** I could have
+> used `s` instead of `squash`.
+
+After I save the file, I get launched right back into another editor
+that has this in it:
+
+``` {.default .numberLines}
+# This is a combination of 3 commits.
+# This is the 1st commit message:
+
+Added feature #121
+
+# This is the commit message #2:
+
+Fixed typo
+
+# This is the commit message #3:
+
+Fixed another typo
+```
+
+We're making a new rebased commit here with the three commits squashed
+into one, and so we get to write a new commit message. Helpfully, Git
+has included all three commit messages. Let's hack it down to just have
+the commit message we want.
+
+``` {.default .numberLines}
+Added feature #121
+```
+
+And saving gets us back out with a message.
+
+``` {.default}
+[detached HEAD 4bc6bca] Added feature #121
+ Date: Wed Jul 17 11:53:10 2024 -0700
+ 1 file changed, 1 insertion(+)
+ create mode 100644 foo.js
+Successfully rebased and updated refs/heads/main.
+```
+
+Success is good. I like success.
+
+> **What's that about detached HEAD?** Git detaches the `HEAD` briefly
+> when doing a rebase. Don't worry—it gets reattached for you.
+
+Now my commit history is all cleaned up.
+
+``` {.default}
+commit 4bc6bca6870d124b3eebc9afd32486a5a23189fc (HEAD -> main)
+Author: Brian "Beej Jorgensen" Hall <beej@beej.us>
+Date:   Wed Jul 17 11:53:10 2024 -0700
+
+    Added feature #121
+
+commit a95854659e31d203e2325eee61d892c9cdad767c
+Author: Brian "Beej Jorgensen" Hall <beej@beej.us>
+Date:   Wed Jul 17 11:53:10 2024 -0700
+
+    Added
+```
+
+And you can see, if you look at the earlier log, that the "Added
+feature" commit ID has changed. We did a rebase, after all, so those old
+commits are gone, replaced by the new ones.
+
+Finally, after all this, *now* you can push.
+
+### Squash versus Fixup
+
+[i[Rebasing-->Fixup]]
+
+Now a quick note about `fixup` instead of `squash`. It's the same thing,
+except only the squashed-into commit message is kept by default. So if I
+ran this:
+
+``` {.default .numberLines}
+pick fbc1075 Added feature #121
+fixup fd4ca42 Fixed typo
+fixup 6a10e97 Fixed another typo
+```
+
+Git instantly returns with:
+
+``` {.default}
+Successfully rebased and updated refs/heads/main.
+```
+
+And Git log only shows the "Added feature #121" commit. With `fixup`,
+Git automatically discards the squashed commit messages.
+
+## Multiple Conflicts in the Rebase
+
+When you merge with commit and there are multiple conflicts, you resolve
+them all in one big merge commit and then you're done. You use `git
+commit` to wrap it all up.
+
+Rebase is a little different. Since rebase "replays" your commits onto
+the new base one at a time, each replay is a merge conflict opportunity.
+This means that *as you rebase, you might have to resolve multiple
+conflicts one after another*.
+
+For example, let's say on your topic branch you made a commit that
+modified file `foo.txt`. And then you made *another commit* that
+modified file `bar.txt`.
+
+But unbeknownst to you, someone on the `main` branch has also modified
+those two files, so they're bound to conflict when you rebase.
+
+And so you begin `git rebase main`, and we're in trouble right off the
+bat. It's telling us that `foo.txt` conflicts.
+
+So you fix it up and then run `git rebase --continue` and edit the
+commit message, and get on with it.
+
+But that all does is move on to your *next* commit to `bar.txt` and try
+to rebase that. And it conflicts, too!
+
+So you fix it up and then run `git rebase --continue` and edit the
+commit message, and get on with it. Again.
+
+And finally you get the success message:
+
+``` {.default}
+[detached HEAD 31c3947] topic change bar
+ 1 file changed, 1 insertion(+)
+Successfully rebased and updated refs/heads/topic.
+```
+
+This is why you can conclude a merge with a simple commit, but you have
+to conclude a rebase by repeatedly running `git rebase --continue` until
+all commits have been rebased cleanly.
+
+Is this good or bad? It might be better in that you get a chance to
+merge each commit in isolation so it might be easier to reason about and
+avoid errors. But at the same time it's more legwork to get through it.
+
+As always, use the right tool for the job!
+
