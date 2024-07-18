@@ -198,7 +198,7 @@ Let's take a look around with `git log`:
 
 ``` {.default}
 commit 5a02fede3007edf55d18e2f9ee3e57979535e8f2 (HEAD)
-Author: Brian "Beej Jorgensen" Hall <beej@beej.us>
+Author: User <user@example.com>
 Date:   Thu Feb 1 09:24:52 2024 -0800
 
     Added

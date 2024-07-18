@@ -1,5 +1,8 @@
 # TODO
 
 * pull requests
-* stash
 * git aliases
+* reset
+* submodules
+* reflog
+* Reference

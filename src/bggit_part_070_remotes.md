@@ -2,8 +2,8 @@
 
 [i[Remotes]<]
 
-A _remote_ is just a name for a remote server you can push and pull
-from.
+A _remote_ is just a name for a remote server you can clone, push, and
+pull from.
 
 We identify these by a URL; with GitHub, this is a URL we copied when we
 went to clone the repo initially.

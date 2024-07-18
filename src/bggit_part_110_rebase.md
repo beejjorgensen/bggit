@@ -176,7 +176,7 @@ $ git config --global pull.rebase true
 ```
 
 If you've configured your repo to always rebase on a pull, you can
-override that (if you want) with:
+override that to force a merge (if you want) with:
 
 ```
 $ git pull --no-rebase  # Do a merge instead of a rebase
@@ -541,13 +541,13 @@ Now my commit history is all cleaned up.
 
 ``` {.default}
 commit 4bc6bca6870d124b3eebc9afd32486a5a23189fc (HEAD -> main)
-Author: Brian "Beej Jorgensen" Hall <beej@beej.us>
+Author: User <user@example.com>
 Date:   Wed Jul 17 11:53:10 2024 -0700
 
     Added feature #121
 
 commit a95854659e31d203e2325eee61d892c9cdad767c
-Author: Brian "Beej Jorgensen" Hall <beej@beej.us>
+Author: User <user@example.com>
 Date:   Wed Jul 17 11:53:10 2024 -0700
 
     Added
