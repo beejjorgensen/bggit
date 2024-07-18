@@ -5,4 +5,6 @@
 * reset
 * submodules
 * reflog
+* revert
+* cherrypick?
 * Reference
