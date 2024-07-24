@@ -1,4 +1,4 @@
-# Using GitHub
+# GitHub: How To Use It
 
 Now, we've said that GitHub (which is a proprietary web front-end to Git
 run and owned by Microsoft) is not Git, and it's true. It's also true

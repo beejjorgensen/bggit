@@ -1,10 +1,10 @@
 # TODO
 
 * pull requests
+* revert
 * git aliases
 * reset
 * submodules
 * reflog
-* revert
 * cherrypick?
 * Reference
