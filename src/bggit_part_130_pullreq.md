@@ -13,9 +13,9 @@ forked from.
 A ***pull request*** (or "PR" for short) is a way for you to offer
 changes you've made to your fork to the owner of the original repo.
 
-> **Pull Requests are a GitHub thing, not a Git thing.** It's some
-> additional functionality that GitHub has implemented on their website
-> that you can use.
+> **Forks and Pull Requests are a GitHub thing, not a Git thing.** It's
+> some additional functionality that GitHub has implemented on their
+> website that you can use.
 
 Let's say, for example, you found an open source project you liked and
 there was a bug in it. You don't have permission to write to the
@@ -31,7 +31,8 @@ The process for someone making a pull request is:
 5. On GitHub, create a pull request. This informs the upstream owner
    that you have changes you'd like them to merge.
 6. On GitHub, the upstream owner reviews your PR and decides if they
-   want to merge it. If so, they merge it. Otherwise they delete it.
+   want to merge it. If so, they merge it. Otherwise they comment and
+   ask for changes, or delete it.
 7. At this point, if you're done, you can optionally delete your fork.
 
 Let's give it a try! Feel free to issue PRs on my sample repo, used
@@ -137,9 +138,32 @@ button that you can pull down.
 
 If you pull it down and it says "This branch is not behind the
 upstream", then congratulations! You're already up to date! Go ahead and
-make a PR, as outlined below.
+make a PR, as outlined in the next section.
 
-If not, TODO
+If you pull it down and it says "This branch is out-of-date" and offers
+you an "Update branch" button, then congratulations! You're out of date,
+but you can be brought up to date without a conflict. Click "Update
+branch" and then go ahead and make a PR, as outlined in the next
+section. (It might also offer you a "Discard" button, but don't press
+that unless you want to discard your changes!)
+
+If it instead says "This branch has conflicts that must be resolved",
+bad news. You have some changes in your repo that conflict with someone
+else's changes in the upstream. You have some options:
+
+* The UI says you can open a pull request, which will give you a chance
+  to resolve the conflict in-browser as outlined in the next section.
+* It also says you can just throw away your changes and replace them
+  with the upstream. Bummer.
+* Aside from that, you can actually merge your branch from the upstream
+  on the command line and take care of the conflict there without
+  opening a PR first. See [Syncing on the Command Line](#sync-cl),
+  below.
+
+In general, it's a good idea to keep in sync with the upstream repo.
+This way you can be sure your changes aren't conflicting with any
+upstream changes as you go. It's way better than waiting to resolve them
+all at the end when you're ready to issue a pull request.
 
 ## Making a Pull Request
 
@@ -154,6 +178,14 @@ repo.
 Let's go!
 
 * Click the "Contribute" button and then "Open pull request".
+* Look for the text "This branch has conflicts that must be resolved".
+  If you find that text, it means the upstream can't automatically apply
+  your PR and they'll have to do manual work to make it happen. They're
+  far more likely to just reject it. To avoid this, you have some options:
+  * Don't open the PR, go back and sync with the upstream, fix the
+    conflict, and try again.
+  * Or click the "Resolve conflicts" button right there in the UI and
+    use the in-browser editor to manually resolve.
 * Add a nice title.
 * Add a good description. You're asking someone to incorporate your code
   into their project, so you'll want to describe what the code does here
@@ -190,10 +222,19 @@ a number next to indicating how many PRs are currently outstanding.
 Now we're looking at the PR. Read the description to see what it does,
 and then, **very importantly** review the code!
 
-To do that, look right below the description to the contributor's avatar
-and the commit message. Click on the commit message and you'll see a
-diff[^A diff shows the difference between two files.]. Lines marked with
-a `+` are added, and lines marked with `-` are removed.
+> **You're about to accept code from someone you probably don't know.**
+> On this planet, most people are friendly, but that doesn't mean there
+> aren't some bad actors (the industry term is *a--holes*) out there
+> looking to take advantage of you by introducing some malicious code.
+> Even if you've known the contributor for a year, they might be playing
+> a long game, and if that seems unlikely to you,
+> [flw[read about the XZ utils hack that took place in 2024|XZ_Utils_backdoor]].
+
+To review the code, look right below the description to the
+contributor's avatar and the commit message. Click on the commit message
+and you'll see a diff^[A diff shows the difference between two files.].
+Lines marked with a `+` are added, and lines marked with `-` are
+removed.
 
 If you just want a straight up view of the file as it was edited by the
 contributor, you can hit the "..." on the right and then "View file".
@@ -213,14 +254,90 @@ all!
 > **Closing a PR doesn't delete the PR.** You can still reopen it.
 
 But let's say the PR does conflict and can't be automatically merged.
-What now?
+GitHub complains that "This branch has conflicts that must be resolved"
+and gives you some options.
 
-TODO
+As the upstream owner, you can click the "Resolve conflicts" button and
+fix the issue if possible.
+
+Or you can just reject the PR and ask the person who opened it to
+resolve the conflict so that your life might be made easier with an
+automatic merge.
 
 ## Making Many Pull Requests with Branches
 
-TODO
+Here's the thing about pull requests: when you make one, it takes all
+the changes you have on your branch and bundles them together in one.
+Doesn't matter if the changes are doing radically different things; they
+all get rolled into the same PR.
 
+This is sometimes not so great from an administrative perspective. Maybe
+I want a PR for issue #1 and a different PR for issue #2!
+
+The way to make this happen is to make a local branch on the clone of
+your fork for each individual PR, and push those branches to your fork.
+Then when you create the PR, you choose the branch to use. Even if your
+branch is named something like `feature1`, you can still merge it into
+the `main` branch on the upstream.
+
+So make a new branch for the feature:
+
+``` {.default}
+$ git switch -c feature1
+  Switched to a new branch 'feature1'
+```
+
+Then make your changes, add, and commit.
+
+``` {.default}
+$ vim readme.txt
+$ git add readme.txt
+$ git commit -m "feature 1"
+  [feature1 1ad9e92] feature 1
+   1 file changed, 1 insertion(+)
+```
+
+Then push them to your repo, setting up a remote-tracking branch:
+
+``` {.default}
+$ git push -u origin feature1
+  Enumerating objects: 5, done.
+  Counting objects: 100% (5/5), done.
+  Delta compression using up to 8 threads
+  Compressing objects: 100% (2/2), done.
+  Writing objects: 100% (3/3), 979 bytes | 979.00 KiB/s, done.
+  Total 3 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+  remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+  remote:
+  remote: Create a pull request for 'feature1' on GitHub by visiting:
+  remote:      https://github.com/user/fork/pull/new/feature1
+  remote:
+  To github.com:user/fork.git
+   * [new branch]      feature1 -> feature1
+  branch 'feature1' set up to track 'origin/feature1'.
+```
+
+Now you can jump back to GitHub and issue a PR.
+
+There might be a handy little popup there saying "feature1 had recent
+pushes 4 minutes ago" and a button "Compare and pull request" you can
+click to make the PR.
+
+But if it's been too long and the popup is gone, not to worry. See the
+branch selector button on the upper left that probably says "main" right
+now? Pull it down and select the branch "feature1" that you want to
+create the PR for. Then click "Contribute" and open the PR.
+
+There's a line at the top of the PR that indicates the repo and branch
+that will be merged into, and, on the right, your repo and branch name
+that you'll be merging from.
+
+The rest of the PR proceeds as normal.
+
+**Don't delete your branch until after the merge!** Once it has been
+safely merged, GitHub will pop up a "Delete branch" button for you on
+the PR page. This will delete the branch on GitHub, but you'll still
+have to delete `feature1` and `origin/feature1` on the command line.
 
 ## Deleting a Pull Request
 
@@ -250,3 +367,77 @@ them to do it.
 In any case, you most definitely should change your leaked credentials
 right now and let that be a lesson to you.
 
+## Syncing on the Command Line {#sync-cl}
+
+GitHub has that nice Sync button to bring the upstream changes into your
+fork, and this was a welcome addition. It used to be you had to do it
+the hard way.
+
+But the hard way has an additional benefit: if the upstream conflicts
+with your changes, you can merge them locally before creating the PR.
+The GitHub UI requires you create a PR to resolve the conflict.
+
+Additionally, if you just like the command line and want to quickly sync
+the upstream to your branch, this can do it.
+
+The plan is this:
+
+1. Add an `upstream` remote that points to the upstream repo.
+2. Fetch the data from `upstream`.
+3. Merge the upstream branch into your branch.
+4. Resolve conflicts.
+5. Push your branch.
+6. Go issue a now-hopefully-non-conflicting PR.
+
+Let's try. I'll be on my `main` branch, and try to sync it with the
+upstream's `main` branch. I'll show what it's like when there's a
+conflict. (If there were no conflict, the merge would succeed
+automatically.)
+
+``` {.default}
+$ git remote add upstream https://github.com/other/upstream.git
+
+$ git fetch upstream
+  remote: Enumerating objects: 5, done.
+  remote: Counting objects: 100% (5/5), done.
+  remote: Compressing objects: 100% (1/1), done.
+  remote: Total 3 (delta 1), reused 3 (delta 1), pack-reused 0
+  Unpacking objects: 100% (3/3), 950 bytes | 950.00 KiB/s, done.
+  From https://github.com/other/upstream
+   * [new branch]      main       -> upstream/main
+
+$ git switch main   # Make sure we're on the main branch
+
+$ git merge upstream/main
+  Auto-merging readme.txt
+  CONFLICT (content): Merge conflict in readme.txt
+  Automatic merge failed; fix conflicts and then commit the result.
+```
+
+(You could also rebase if you wanted.)
+
+At this point, we should edit the file and resolve the conflict, and
+complete the resolution as per usual.
+
+And then we push back to our fork on GitHub!
+
+``` {.default}
+$ git push
+  Enumerating objects: 7, done.
+  Counting objects: 100% (7/7), done.
+  Delta compression using up to 8 threads
+  Compressing objects: 100% (2/2), done.
+  Writing objects: 100% (3/3), 999 bytes | 999.00 KiB/s, done.
+  Total 3 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+  remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+  To github.com:user/fork.git
+   8b2476c..c8a7e0a  main -> main
+```
+
+If we jump back to the GitHub UI at this point and open a PR, it should
+tell us "These branches can be automatically merged" which is music to
+everyone's ears.
+
+Once you have the `upstream` remote set up, all you have to do to sync
+in the future is do the `git fetch upstream` and then merge or rebase
+your stuff with it.
