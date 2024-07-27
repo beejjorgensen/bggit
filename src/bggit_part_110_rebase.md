@@ -182,7 +182,7 @@ override that to force a merge (if you want) with:
 $ git pull --no-rebase  # Do a merge instead of a rebase
 ```
 
-## Conflicts
+## Conflicts {#rebasing-conflicts}
 
 [i[Rebasing-->Conflicts]]
 
@@ -361,7 +361,7 @@ After all that, we see our new commit graph in Figure_#.5.
 
 ![After rebase conflict resolution.](img_110_050.pdf "After rebase conflict resolution.")
 
-## Squashing Commits
+## Squashing Commits {#squashing-commits}
 
 [i[Rebasing-->Squashing commits]]
 
