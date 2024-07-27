@@ -18,8 +18,10 @@ is, let's say you've made 30 commits, but it turns out you don't
 actually want commit number 4 to be there any longer. You can revert
 just that one!
 
-Performing a standard revert will actually make a new commit, but we'll
-see a way around that later on.
+Performing a standard revert will actually make a new commit, and
+doesn't erase any old commits. In this way, it's not rewriting history
+so using this method is safe to revert commits that have already been
+pushed.
 
 ## Performing the Revert
 
