@@ -1,4 +1,4 @@
-# Reverting Changes
+# Reverting: Undoing Commits
 
 Let's say you made some changes and committed them, but they actually
 botched everything up. You want to just revert to an earlier version of
@@ -142,33 +142,6 @@ So what we can do here is one of these:
 If you fix the conflict, you'll get to enter a commit message for the
 new commit just like before.
 
-## Reverting Without a Commit
-
-But I'm not ready to commit yet! Can I just revert a change and have it
-show up in my working tree but not make a commit? I'll keep working on
-the file and commit later.
-
-Alternately, I want to revert multiple commits and don't want a commit
-for each of them.
-
-Yes!
-
-You can do this with the `-n` switch to revert.
-
-``` {.default}
-$ git revert -n 11845
-  Auto-merging foo.txt
-```
-
-This will stage a change that has that commit reverted, so it's ready to
-be committed.
-
-If you don't want to commit it, you can `git restore --staged` to get it
-off the stage and then you can edit it.
-
-You can also have a conflict at this point, which you'll have to resolve
-as normal. This will result in a new commit at this point, however.
-
 ## Reverting Multiple Commits
 
 You can specify multiple reverts at the same time on the command line.
@@ -177,12 +150,12 @@ Here's an example that reverts two commits:
 
 ``` {.default}
 $ git revert 4c0b3 81d2a
-Auto-merging foo.txt
-[main ab3169d] Revert "Added Line 50"
- 1 file changed, 1 deletion(-)
-Auto-merging foo.txt
-[main b63f003] Revert "Added Line 10"
- 1 file changed, 1 deletion(-)
+  Auto-merging foo.txt
+  [main ab3169d] Revert "Added Line 50"
+   1 file changed, 1 deletion(-)
+  Auto-merging foo.txt
+  [main b63f003] Revert "Added Line 10"
+   1 file changed, 1 deletion(-)
 ```
 
 And there will be two new revert commits after that. You'll edit two
@@ -194,16 +167,28 @@ error.
 
 ``` {.default}
 $ git revert 4c0b3^..81d2a
-Auto-merging foo.txt
-[main ab3169d] Revert "Added Line 50"
- 1 file changed, 1 deletion(-)
-Auto-merging foo.txt
-[main b63f003] Revert "Added Line 10"
- 1 file changed, 1 deletion(-)
+  Auto-merging foo.txt
+  [main ab3169d] Revert "Added Line 50"
+   1 file changed, 1 deletion(-)
+  Auto-merging foo.txt
+  [main b63f003] Revert "Added Line 10"
+   1 file changed, 1 deletion(-)
 ```
 
 Again, that will make a lot of commits, one per revert. You can [squash
 those commits](#squashing-commits) if you want to, or you can use `-n`
-to keep Git from committing until you're ready.
+("no commit") to keep Git from committing until you're ready.
 
-TODO -n
+``` {.default}
+% git revert -n ee71e 123e8
+  Auto-merging foo.txt
+  Auto-merging foo.txt
+```
+
+At this point, the file is staged with those two commits reverted. And
+you can now make a single commit that holds them. And you can do the
+same thing specifying a range.
+
+Of course, there might a conflict, and you'll have to resolve those in
+the super fun way we've already discussed.
+
