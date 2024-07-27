@@ -1,4 +1,4 @@
-# Stashing
+# Stashing: Temporarily Set Changes Aside
 
 [i[Stashing]<]
 

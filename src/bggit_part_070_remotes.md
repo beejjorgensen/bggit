@@ -1,4 +1,4 @@
-# Remotes
+# Remotes: Repos in Other Places
 
 [i[Remotes]<]
 
