@@ -119,8 +119,9 @@ There's a super-common workflow that you'll use repeatedly:
 
 1. _Clone_ a _remote_ repo. The remote repo is commonly on GitHub, but
    not necessarily.
-2. Make some local changes.
-3. Add those changes to the _stage_.
+2. Make some local changes in your _working tree_, where the project
+   files are on your computer.
+3. Add those changes to the _stage_ (AKA the _index_).
 4. _Commit_ those changes.
 5. _Push_ your changes back to the remote repo.
 6. Go back to Step 2.
@@ -136,10 +137,15 @@ Definitions:
 
 * **Remote**: In Git, a clone of a repo in another location.
 
+* **Working Tree**: The directory that you go into to edit and change
+  the files of the project. This is created when you clone.
+
 * **Stage**: In Git, a place you add copies of files to in preparation
   for a commit. The commit will include all the files that you've placed
   on the stage. It will not include files you haven't placed on the
   stage, even if you've modified those files.
+
+* **Index**: A less-common name for the stage.
 
 ## What is Cloning?
 

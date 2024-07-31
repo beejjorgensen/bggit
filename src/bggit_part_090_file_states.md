@@ -142,4 +142,38 @@ untracked. And a subsequent `ls` shows that the file still exists.
 At this point, you can commit and the file would then be in Untracked
 state.
 
+## Files In Multiple States
+
+A file can actually sort of exist in multiple states at once. For
+instance, you might have one version of a file on the stage, and another
+version of that file, with different modifications, in your working tree
+*at the same time*. Technically these are actually different files since
+they don't contain the same data.
+
+Just remember that when you stage a file, it effectively stages a
+**copy** of that file as it exists right then. There is nothing stopping
+you from making another modification to the file in the working tree and
+ending up like this:
+
+``` {.default}
+% git status
+  On branch main
+  Changes to be committed:
+    (use "git restore --staged <file>..." to unstage)
+	  modified:   foo.txt
+
+  Changes not staged for commit:
+    (use "git add <file>..." to update what will be committed)
+    (use "git restore <file>..." to discard changes in working
+    directory)
+	  modified:   foo.txt
+```
+
+You can overwrite the version on the stage by adding it again. And
+various incantations of `restore` can change the files in different
+ways. Look up the `--staged` and `--worktree` options for `git restore`.
+
+I'll leave how to move files around in these simultaneous states as an
+exercise to the reader, but I wanted you to at least be aware of it.
+
 [i[File States]>]
