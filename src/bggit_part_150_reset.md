@@ -40,16 +40,44 @@ commit.
 And there we have some options: ***soft reset***, ***mixed reset***, and
 ***hard reset***.
 
+And which you choose controls what happens to the branch, the stage, and
+the working tree.
+
 Note: in the following examples, we assume everything is committed and
 the working tree and stage are clean.
+
+Note: also in the following examples, I'm going to use the term "old
+commit" to refer to where the branch was *before* the reset, and "new
+commit" to refer to where it will be *after* the reset.
+
+With all three variants, the current branch moves to the new (specified)
+commit.
+
+The summary of differences is:
+
+* **Soft**:
+  * Stage: old commit
+  * Working tree: old commit
+
+* **Mixed**:
+  * Stage: new commit
+  * Working tree: old commit
+  
+* **Hard**:
+  * Stage: new commit
+  * Working tree: new commit
 
 ## Soft Reset
 
 When you run a `git reset --soft`, this resets the current branch to
-point to the given commit, and stages the old commit's changes.
+point to the given commit, and makes the stage and working tree both
+have the changes that were present in the old commit.
 
-So when you do it, you'll see the old state of your files ready to
-commit.
+The upshot is that `git status` will show your old commit's changes as
+staged, and none of the files as modified.
+
+In other words, you'll see the old state of your files on the stage
+ready to commit.
 
 A common use for this might be to collapse some of your previous
 commits similar to what we did with [rebase and squashing
@@ -118,27 +146,71 @@ the general public.
 ## Mixed Reset
 
 When you run a `git reset --mixed`[^2472], this resets the current
-branch to point to the given commit, but it doesn't change your working
-tree.
+branch to point to the given commit, and it modifies the stage to that
+commit, and it **doesn't** change your working tree.
 
 [^2472]: You can leave off the `--mixed` since it's the default.
+
+The upshot is that it will show files as "modified" with the changes of
+the old commit, and there will be nothing on the stage.
 
 Now, thinking about this, since the branch has moved to a commit with
 your files in one state, but your working tree has the files in another
 state, the files must be _modified_ with respect to the commit the
 branch now points to.
 
-And this is what happens. Your changes at the old commit 
+And this is what happens. Your changes at the old commit will show up as
+modified files at the current commit.
 
-TODO
+It's like the soft reset, except instead of the old commit ending up on
+the stage, it ends up in the working tree. You can stage it and commit
+it from here.
+
+But that's not all! Since the stage is also updated to the new commit,
+it means the stage is effectively emptied.
+
+In fact, this is the classic use for a mixed reset: `git reset HEAD`.
+This moves files from staged state back to modified state.
+
+> **In the glorious future past, a new command was introduced to do
+> this**: `git restore --staged`. That's the preferred method to use
+> now.
+
+This will reset the current branch to where it already was (assuming
+`HEAD` points to the current branch), and reset the stage to be the same
+as that commit. This unstages the files that were there. And it changes
+the working tree files to have the changes that were already present in
+those files at that point, which would be any changes you introduced.
+
+And that unstages the files!
+
+Another use might be if you want to squash a bunch of unpushed commits
+but simply don't want to stage the changes at the old commit yet,
+leaving them as modified.
 
 ## Hard Reset
 
-TODO
+This resets everything to a particular commit. The branch moves there.
+The stage is set to that commit. The files in the working tree are set
+to that commit. All changes since that commit are lost.
+
+Use this if you want to bail out. You've made some commits and decided
+that was the wrong way, and you want to just roll them back entirely.
+
+**Again, only do this if you haven't pushed!**
+
+If you do a hard reset, it will simply move the branch and reset your
+entire world (as it pertains to that branch) to that point as if nothing
+had happened since. `git status` will report that everything is clean.
 
 ## Reset to a Divergent Branch
 
-TODO
+In the above examples, we've been resetting to a direct ancestor of our
+current commit. This is the common case for using `git reset`.
+
+But there's no reason why you couldn't reset to an entirely different
+divergent branch. It just moves the branch there with exactly the same
+rules for soft, mixed, and hard that we've already covered.
 
 ## Pushing Branch Changes to a Remote
 
