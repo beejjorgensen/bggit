@@ -212,6 +212,52 @@ But there's no reason why you couldn't reset to an entirely different
 divergent branch. It just moves the branch there with exactly the same
 rules for soft, mixed, and hard that we've already covered.
 
+## Resetting Files
+
+So far, we've been just doing resets on a commit-by-commit basis. But we
+could also do mixed resets with specific files. We can't so hard or soft
+resets with specific files, though—sorry!
+
+For example, we can do a mixed reset to unstage a single file.
+
+Let's say we're here:
+
+``` {.default}
+$ git status
+  On branch main
+  Changes to be committed:
+    (use "git restore --staged <file>..." to unstage)
+	  modified:   bar.txt
+	  modified:   foo.txt
+```
+
+And we want to reset `foo.txt` off the stage, but leave `bar.txt` on
+there.
+
+> **Again, we'd use `git restore --staged` in these modern times.** But
+> we're going to press on here for the sake of example.
+
+So let's specify just that file:
+
+``` {.default}
+$ git reset foo.txt
+  Unstaged changes after reset:
+  M	foo.txt
+
+$ git status
+  On branch main
+  Changes to be committed:
+    (use "git restore --staged <file>..." to unstage)
+	  modified:   bar.txt
+
+  Changes not staged for commit:
+    (use "git add <file>..." to update what will be committed)
+    (use "git restore <file>..." to discard changes in working directory)
+	  modified:   foo.txt
+```
+
+And there you have it.
+
 ## Pushing Branch Changes to a Remote
 
 TODO
@@ -220,16 +266,40 @@ TODO --force
 
 TODO --force-with-lease
 
-## Resetting Files
-
-TODO
-
 ## Resetting Without Moving `HEAD`
 
 Using the reset feature moves the `HEAD` around by necessity. What if
-you just want to move a branch to another commit TODO
+you just want to move a branch to another commit but leave `HEAD` alone?
 
-TODO can't move current branch
-TODO
+It can be done! But you can't do it with a branch you have checked out
+right now. So either detach the head or attach it to a different branch.
 
+Instead of using `git reset` to do this, we'll use `git branch`. Here's
+an example:
+
+``` {.default}
+$ git switch topic1
+  Switched to branch 'topic1'
+
+$ git log
+  commit 97c4da49eda8de7b273003515a660945c (HEAD -> topic1)
+  Author: User <user@example.com>
+  Date:   Thu Aug 1 14:22:39 2024 -0700
+
+      fix a third typo
+
+$ git branch --force main
+$ git log
+  commit 97c4da49eda8de7b273003515a660945c (HEAD -> topic1, main)
+  Author: User <user@example.com>
+  Date:   Thu Aug 1 14:22:39 2024 -0700
+
+      fix a third typo
+```
+
+See what happened to `main`? It moved to the current commit! You can see
+it in the output for the second `git log`.
+
+You could also specify a destination for `main` as a second argument if
+you wanted it to move somewhere other than your current location.
 
