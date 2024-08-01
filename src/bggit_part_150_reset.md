@@ -1,6 +1,6 @@
 # Reset: Moving Branches Around
 
-Before be begin, using `git reset` ***rewrites history***. This means
+Before we begin, using `git reset` ***rewrites history***. This means
 that you shouldn't use it on any branches that other people might have
 copies of, i.e. branches that you have pushed.
 
