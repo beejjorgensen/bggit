@@ -232,9 +232,10 @@ and then, **very importantly** review the code!
 
 To review the code, look right below the description to the
 contributor's avatar and the commit message. Click on the commit message
-and you'll see a diff^[A diff shows the difference between two files.].
-Lines marked with a `+` are added, and lines marked with `-` are
-removed.
+and you'll see a diff[^6ec7]. Lines marked with a `+` are added, and
+lines marked with `-` are removed.
+
+[^6ec7]: A diff shows the difference between two files.
 
 If you just want a straight up view of the file as it was edited by the
 contributor, you can hit the "..." on the right and then "View file".
