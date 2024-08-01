@@ -1,9 +1,10 @@
 # TODO
 
 * reset
+* diff
 * reflog
 * git aliases
-* add -p
+* add -p, reset -p
 * submodules
 * cherrypick
 * Reference
