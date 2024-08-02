@@ -304,3 +304,66 @@ And like before, we can get back to the `main` branch with either:
 
 Easy.
 
+## Commits Relative to `HEAD`
+
+There are a couple shortcuts to get to commits that are earlier than
+`HEAD`, like, "I want to switch to the 3rd commit before this one."
+
+Here's a pretty-useless example that we'll start with:
+
+``` {.default}
+$ git switch --detach HEAD
+```
+
+This moves `HEAD` to where `HEAD` was. That is, it moves it nowhere.
+(Though it does have the effect of detaching it from the branch.)
+
+But what if I wanted to move to the commit right *before* where `HEAD`
+is now? You can do it with ***caret notation*** like this:
+
+``` {.default}
+$ git switch --detach HEAD^
+```
+
+And that gets you to the previous commit.
+
+What if you wanted to get to the _third-previous_ commit? You can add
+more carets!
+
+``` {.default}
+$ git switch --detach HEAD^^^
+```
+
+Or the 10th-previous commit!
+
+``` {.default}
+$ git switch --detach HEAD^^^^^^^^^^
+```
+
+Or the 100th-previous commit!
+
+``` {.default}
+$ git switch --detach HEAD^^^^^^^^^^^^^^^^^^^^forget this
+```
+
+Typing all these carets is wearing me out. Luckily there's *another*
+shorthand we have at our disposal with ***tilde notation***. The two
+following lines are equivalent:
+
+``` {.default}
+$ git switch --detach HEAD^^^
+$ git switch --detach HEAD~3
+```
+
+After the tilde, you can just give the number of commits back you want
+to go. So back to my example:
+
+``` {.default}
+$ git switch --detach HEAD~100   # Much easier
+```
+
+All this said, personally I usually just look at the log and go to a
+specific commit instead of counting back.
+
+> *"But that's just, like, my opinion, man."*
+> \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \—The Dude
