@@ -224,7 +224,7 @@ and then, **very importantly** review the code!
 
 > **You're about to accept code from someone you probably don't know.**
 > On this planet, most people are friendly, but that doesn't mean there
-> aren't some bad actors (the industry term is *a--holes*) out there
+> aren't some bad actors (the industry term is *a\-\-holes*) out there
 > looking to take advantage of you by introducing some malicious code.
 > Even if you've known the contributor for a year, they might be playing
 > a long game, and if that seems unlikely to you,
@@ -395,9 +395,20 @@ upstream's `main` branch. I'll show what it's like when there's a
 conflict. (If there were no conflict, the merge would succeed
 automatically.)
 
+First things first: if you haven't already, set up the `upstream` remote
+to point to the original owner's repo. This is the repo that you forked
+from. Since you won't be pushing to it, you can use the SSH or HTTP
+methods to access it. (And this remote can be named anything, but
+`upstream` is a common convention.)
+
 ``` {.default}
 $ git remote add upstream https://github.com/other/upstream.git
+```
 
+And then we need to get the new commits from the upstream repo and merge
+them into our stuff.
+
+``` {.default}
 $ git fetch upstream
   remote: Enumerating objects: 5, done.
   remote: Counting objects: 100% (5/5), done.
