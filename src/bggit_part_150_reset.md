@@ -260,11 +260,48 @@ And there you have it.
 
 ## Pushing Branch Changes to a Remote
 
-TODO
+Let's say you've made a mess of things somehow and you have to reset a
+branch that you've already pushed commits on. That is, you have to
+rewrite a public history.
 
-TODO --force
+***First: get good communication with the team.*** They're going to make
+fun of you, but at least they won't hate you[^d100].
 
-TODO --force-with-lease
+[^d100]: No guarantees. You shouldn't rewrite commit history that is
+    already public!! It makes a big mess!
+
+Our process will be something like this:
+
+1. Do the reset.
+2. Do a forced push to your remote. Git won't push normally in this
+   circumstance for your protection. You have to force push.
+
+Your coworkers will do something like this:
+
+1. Do a `git fetch` to get the new branch position from the remote.
+2. Stash any local changes they need to preserve.
+3. Do a reset of the branch in question to the remote branch commit. For
+   example, if we're resetting the `main` branch, you would `git reset
+   --hard origin/main`.
+4. Pop their changes from the stash.
+5. Maybe apply earlier commits that got obliterated[^318a].
+
+[^318a]: Perhaps using `git reflog` and `git cherry-pick` or `git
+    cherry-pick -n` and potentially `git add -p`, all of which are
+    covered in later chapters. Along with judicious use of rebase, old
+    commits or parts of old commits can be applied while keeping the
+    commit history clean.
+
+> **Never do a forced push without understanding *why* you're doing
+> it.** Git is trying to stop you from doing a push for a reason: your
+> own good, typically!
+
+Note that your coworkers don't necessarily need to do a hard reset; they
+could do a mixed reset, for instance.
+
+TODO demo
+
+TODO --force vs --force-with-lease
 
 ## Resetting Without Moving `HEAD`
 
