@@ -62,7 +62,8 @@ So you do that.
 $ git pull
   remote: Enumerating objects: 5, done.
   remote: Counting objects: 100% (5/5), done.
-  remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+  remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+  remote: (from 0)
   Unpacking objects: 100% (3/3), 943 bytes | 943.00 KiB/s, done.
   From /home/beej/tmp/origin
      10a8ad6..e286011  main       -> origin/main
@@ -85,7 +86,8 @@ $ git stash pop
 
   Changes not staged for commit:
     (use "git add <file>..." to update what will be committed)
-    (use "git restore <file>..." to discard changes in working directory)
+    (use "git restore <file>..." to discard changes in working
+    directory)
 	  modified:   foo.rs
 
   no changes added to commit (use "git add" and/or "git commit -a")

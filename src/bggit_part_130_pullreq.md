@@ -308,9 +308,11 @@ $ git push -u origin feature1
   Compressing objects: 100% (2/2), done.
   Writing objects: 100% (3/3), 979 bytes | 979.00 KiB/s, done.
   Total 3 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
-  remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+  remote: Resolving deltas: 100% (1/1), completed with 1 local
+  remote: object.
   remote:
-  remote: Create a pull request for 'feature1' on GitHub by visiting:
+  remote: Create a pull request for 'feature1' on GitHub by
+  remote: visiting:
   remote:      https://github.com/user/fork/pull/new/feature1
   remote:
   To github.com:user/fork.git
@@ -441,7 +443,8 @@ $ git push
   Compressing objects: 100% (2/2), done.
   Writing objects: 100% (3/3), 999 bytes | 999.00 KiB/s, done.
   Total 3 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
-  remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+  remote: Resolving deltas: 100% (1/1), completed with 1 local
+  remote: object.
   To github.com:user/fork.git
    8b2476c..c8a7e0a  main -> main
 ```

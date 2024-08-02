@@ -232,7 +232,7 @@ $ cat ~/.ssh/id_ed25519.pub
 You should see something like this:
 
 ``` {.default}
-ssh-ed25519 AAAAC3N[a bunch of letters]V+znpoO youremail@example.com
+ssh-ed25519 AAAC3N[a bunch of letters]V+znpoO youremail@example.com
 ```
 
 Copy the entire thing into the clipboard so you can paste it later.

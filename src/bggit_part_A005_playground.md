@@ -90,8 +90,8 @@ $ git status
     (use "git add <file>..." to include in what will be committed)
       hello.txt
 
-  nothing added to commit but untracked files present (use "git add"
-  to track)
+  nothing added to commit but untracked files present (use "git
+  add" to track)
 ```
 
 Now we have an untracked file.

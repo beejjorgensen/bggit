@@ -89,11 +89,12 @@ Luckily it's not the end of the world. We can just change what the alias
 points to.
 
 (The example below is split into two lines so that it's not too wide for
-the screen, but it can be on a single line.)
+the book, but it can be on a single line. The backslash lets Bash know
+that the line continues.)
 
 ``` {.default}
 $ git remote set-url origin \
-                     git@github.com:beejjorgensen/git-example-repo.git
+             git@github.com:beejjorgensen/git-example-repo.git
 ```
 
 And now when we look at our remotes, we see:

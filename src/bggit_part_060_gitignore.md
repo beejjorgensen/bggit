@@ -32,8 +32,8 @@ $ git status
     (use "git add <file>..." to include in what will be committed)
 	  doom
 
-  nothing added to commit but untracked files present (use "git add"
-  to track)
+  nothing added to commit but untracked files present (use "git
+  add" to track)
 ```
 
 So I edit a `.gitignore` file in that directory and add this one line to
@@ -52,8 +52,8 @@ $ git status
     (use "git add <file>..." to include in what will be committed)
 	  .gitignore
 
-  nothing added to commit but untracked files present (use "git add"
-  to track)
+  nothing added to commit but untracked files present (use "git
+  add" to track)
 ```
 
 What? Same thing? Not quite! Read the fine print!
