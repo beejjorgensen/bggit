@@ -396,7 +396,7 @@ Let's change `hello.py`:
 
 It was:
 
-``` {.py}
+``` {.py .numberLines}
 #!/usr/bin/env python
 
 print("Hello, world!")
@@ -404,7 +404,7 @@ print("Hello, world!")
 
 but let's add a line so it reads:
 
-``` {.py}
+``` {.py .numberLines}
 #!/usr/bin/env python
 
 print("Hello, world!")
