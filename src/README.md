@@ -6,7 +6,7 @@ Maximum full-width code box columns: 67
 
 ## Clarifications
 
-* Every # line in a commit message is ignored
+* None currently
 
 ## Still to Write
 

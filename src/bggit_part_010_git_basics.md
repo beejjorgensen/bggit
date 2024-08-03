@@ -512,6 +512,12 @@ $ git commit -m "I added another print line"
 > don't use `-m`, you'll be popped into an editor, which will probably
 > be Nano or Vim, to edit the commit message. If you're not familiar
 > with those, see [Getting Out of Editors](#editor-get-out) for help.
+>
+> **If you do get into the editor, know that every line in the commit
+> message that begins with `#` is a comment** that is ignored for the
+> purposes of the commit. It's a little weird that the commit message is
+> a comment about the commit, and then you can have commented-out lines
+> in the comment, but I don't make the rules!
 
 And that's good news! Let's check the status:
 
