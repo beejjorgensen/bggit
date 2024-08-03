@@ -556,8 +556,8 @@ If you're done merging your branch, it's easy to delete it. **Importantly
 this doesn't delete any commits; it just deletes the branch "label"
 so you can't use it any longer**. You can still use all the commits.
 
-Let's say we've finished the work on our `topic1` branch and we want to
-merge it into `main`. No problem:
+Let's say we've finished the work on our `topic1` branch and we
+want to merge it into `main`. No problem:
 
 ``` {.default}
 $ git commit -m "finished with topic1"   # on topic1 branch
@@ -574,6 +574,12 @@ $ git branch -d topic1
 ```
 
 Done!
+
+> **A *topic* branch is what we call a local branch made for a single
+> topic like a feature, bug fix, etc.** In this guide I'll name branches
+> literally `topic` to indicate that it's just an arbitrary branch. But
+> in real life you'd name the topic branch after what it is your doing,
+> like `bugfix37`, `newfeature`, `experiment`, etc.
 
 But what if you were working on a branch and wanted to abandon it before
 you merge it into something? For that, we have the more imperative

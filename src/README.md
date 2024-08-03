@@ -6,7 +6,6 @@ Maximum full-width code box columns: 67
 
 ## Clarifications
 
-* Explain 'topic' branch
 * Every # line in a commit message is ignored
 
 ## Still to Write
