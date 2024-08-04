@@ -581,7 +581,7 @@ local commit history on the `main` branch has one commit that the remote
 commit history on its `main` branch does not have.
 
 Which makes sense—the remote repo is a clone and so it's independent of
-our local repo unless we specifically try to sync them up. It doesn't
+our local repo unless we explicitly try to sync them up. It doesn't
 magically know that we've made changes to our local repo.
 
 And Git is helpfully telling us to run `git push` if we want to update
