@@ -283,13 +283,13 @@ Our process will be something like this:
 Your coworkers will do something like this:
 
 1. Do a `git fetch` to get the new branch position from the remote.
-2. Stash any local changes they need to preserve.
+2. Stash or commit any local changes they need to preserve.
 3. Maybe make a new branch at the old branch point in case they need to
    return to see old soon-to-be-obliterated commits.
 4. Do a reset of the branch in question to the remote branch commit. For
    example, if we're resetting the `main` branch, you would `git reset
    --hard origin/main`.
-5. Pop their changes from the stash.
+5. Pop their changes from the stash, if any.
 6. Maybe apply earlier commits that got obliterated[^318a].
 
 [^318a]: Perhaps using `git reflog` and `git cherry-pick` or `git
