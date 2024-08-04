@@ -441,6 +441,49 @@ It means we haven't added anything to the _stage_ yet. Recall that the
 stage is where we can place items that we wish to include in the next
 commit. Let's try that.
 
+#### Step 2.1: Reviewing Your Changes
+
+We're going to divert for just a moment to briefly introduce a new
+optional tool: `git diff` (short for "difference", though we still
+pronounce it "diff").
+
+If you make some changes to files and you need a refresher on all the
+things you've changed, you can run this command to see it. But, fair
+warning, the output is... *esoteric*.
+
+Let's try it.
+
+``` {.default}
+$ git diff
+  diff --git a/hello.py b/hello.py
+  index 42cc1f7..532d33e 100644
+  --- a/hello.py
+  +++ b/hello.py
+  @@ -1,4 +1,5 @@
+   #!/usr/bin/env python
+
+   print("Hello, world!")
+  +print("Hello, again!")
+```
+
+What the heck is this sorcery? If you're lucky, it got color-coded for
+you with (by convention) added lines in green and deleted lines in red.
+
+For now, just notice a couple things:
+
+1. The file name. We see this change was to `hello.py`.
+2. The line with the `+` at the front. This indicates an added line.
+
+A `-` at the front of a line would indicate the line was deleted. And
+changed lines are often shown as the old line being deleted and a new
+one added.
+
+Finally, if you want to see the diff for things you've added to the
+stage already (in the next step), you can run `git diff --staged`.
+
+We'll dive more into diff later, but I wanted to introduce it here since
+it's so useful.
+
 ### Step 3: Add Changes to the Stage
 
 [i[Stage]]
