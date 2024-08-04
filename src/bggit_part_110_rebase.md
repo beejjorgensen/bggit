@@ -450,7 +450,7 @@ commit _prior_ to the added feature commit, the commit ID starting with
 `a9585`.
 
 And we want to do it _interactively_, which is a special rebase mode
-that lets us to the squashing, and we get there with the `-i` flag.
+that lets us do the squashing, and we get there with the `-i` flag.
 
 ``` {.default}
 $ git rebase -i a9585
