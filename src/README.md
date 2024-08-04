@@ -16,5 +16,6 @@ Maximum full-width code box columns: 67
 * add -p, reset -p
 * submodules
 * cherrypick
+* blame
 * Git in VS Code
 * Reference section
