@@ -463,3 +463,18 @@ it in the output for the second `git log`.
 You could also specify a destination for `main` as a second argument if
 you wanted it to move somewhere other than your current location.
 
+## Resetting to Remove Credentials
+
+Did you accidentally commit some secret password into your repo? Can you
+use `git reset` to back out of that commit?
+
+* Have you pushed? Then **NO**. Your password is out in the wild. Change
+  it now and never make that mistake again.
+* Have you *not yet* pushed? **Yes**. You can do it. But keep in mind
+  the commit containing the password will remain in your local repo
+  until it is garbage collected.
+
+If the answer was yes, you might find `git reset -p` useful to
+selectively reset parts of commits, something we'll cover in a later
+chapter.
+
