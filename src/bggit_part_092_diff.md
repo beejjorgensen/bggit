@@ -105,7 +105,10 @@ Just typing `git diff` shows nothing!
 
 Why?
 
-The answer is really easy: `git diff --staged`. Done.
+The answer is really easy: `git diff --staged`[^91c6]. Done.
+
+[^91c6]: The `--staged` flag is more modern. Older versions of Git used
+    `git diff --cached`.
 
 But I want to use this subsection to dig a little deeper into what's
 happening so you can improve your understanding of how this works.
@@ -130,8 +133,9 @@ Back to the question: if you have added some modified files to the
 stage, why does `git diff` show nothing is changed?
 
 *It's because `git diff` **always** compares the working tree to the
-stage.* And in this case, after you've added your modified file to the
-stage, it's the same as the working tree. So no diffs.
+stage.* (Unless you're diffing specific commits—see below.) And in this
+case, after you've added your modified file to the stage, it's the same
+as the working tree. So no diffs.
 
 Contrast this to where you've modified the working tree but *haven't*
 added the file to the stage. In this case, the file on the stage is just
@@ -151,6 +155,173 @@ $ git diff --staged
 ```
 
 And that'll do it.
+
+## More Diff Fun
+
+Let's speed through some examples of things you can do with diff.
+
+### Diff Any Commits or Branches
+
+You have more at your disposal than just diffing the working tree or
+stage. You can actually diff any two commits. This will show you all the
+differences between them.
+
+For example, if you know the commit hashes, you can diff them directly:
+
+``` {.default}
+$ git diff d977 27a3
+```
+
+Or if you have two branch names:
+
+``` {.default}
+$ git diff main topic
+```
+
+Or mix and match:
+
+``` {.default}
+$ git diff main 27a3
+```
+
+Or use `HEAD`:
+
+``` {.default}
+$ git diff HEAD 27a3
+```
+
+Or relative `HEAD`:
+
+``` {.default}
+$ git diff HEAD~3 HEAD~4
+```
+
+That last one diffs three commits before `HEAD` with four commits before
+`HEAD`.
+
+### Diffing with Parent Commit
+
+We just showed this example:
+
+``` {.default}
+$ git diff HEAD~3 HEAD~4
+```
+
+But since `HEAD~4` is the parent of `HEAD~3`, is there some shorthand we
+can use here? Yes!
+
+``` {.default}
+$ git diff HEAD~3 HEAD~4
+$ git diff HEAD~3^!          # Same thing!
+```
+
+You can use it anywhere you want to compare a commit with its parent,
+which is really showing just what changes were in that one particular
+commit.
+
+``` {.default}
+$ git diff HEAD^!
+$ git diff HEAD~3^!
+$ git diff main^!
+$ git diff 27a3^!
+```
+
+### More Context
+
+By default, `git diff` shows 3 lines on context around the changes. If
+you want to see more, like 5 lines, use the `-U` switch.
+
+``` {.default}
+$ git diff -U5
+```
+
+### Just the File Names
+
+If you just want a list of files that have changed, you can use the
+`--name-only` option.
+
+``` {.default}
+$ git diff --name-only
+```
+
+### Ignoring Whitespace
+
+There might be a time when you get some tabs/spaces confusion in your
+source code, which is always painful. Protip: stick to one and force
+everyone else on the team to do the same under penalty of paying for
+lunch.
+
+But you can commit `git diff` to ignore whitespace in the comparison:
+
+``` {.default}
+$ git diff -w
+$ git diff --ignore-all-space    # Same thing
+```
+### Just Certain Files
+
+You can just diff certain files.
+
+One way is to just put the file names after a `--`:
+
+``` {.default}
+$ git diff -- hello.py
+$ git diff -- hello.py another_file.py
+```
+
+You can also specify commits or branches before the `--`:
+
+``` {.default}
+$ git diff somebranch -- hello.py
+```
+
+That'll compare `hello.py` at `HEAD` with the version on `somebranch`.
+
+Or you could give two commits or branches to compare the file there:
+
+``` {.default}
+$ git diff main somebranch -- hello.py
+```
+
+Finally, you can restrict to a file extension using a glob and single
+quotes:
+
+``` {.default}
+$ git diff '*.py'
+```
+
+That will just diff the Python files.
+
+### Inter-branch Diffs
+
+This is an interesting version of comparing two branches.
+
+We already showed the following example for comparing the commits at two
+branches:
+
+``` {.default}
+$ git diff branch1 branch2
+```
+
+But sometimes you want to know what changed in a branch *since the
+branches diverged*.
+
+That is, you don't want to know what's different *now* between `branch1`
+and `branch2`, which is what the above would give you.
+
+You want to know what `branch2` added or deleted that `branch1` did not.
+
+In order to see this, you can use this notation:
+
+``` {.default}
+$ git diff branch1...branch2
+```
+
+This means "diff the common ancestor of `branch1` and `branch2` with
+`branch2`."
+
+In other words, tell me all the changes that were made in `branch2` that
+`branch1` is unaware of. Don't show me anything that `branch1` has
+changed since they diverged.
 
 ## Difftool
 
