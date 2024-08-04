@@ -108,16 +108,17 @@ The first is one-time only.
 The second command will take you through the login process. You'll have
 to do this again if you log out.
 
-When choosing the authentication type between SSH and HTTPS, you can
-choose HTTPS or SSH. Remember your choice when you go to clone a repo
+When choosing the authentication type between SSH and HTTPS, I recommend
+SSH. You'll need to remember your choice when you go to clone a repo
 later.
 
 ### SSH Keys
 
 [i[GitHub-->SSH setup]]
 
-This is more involved, but has slightly more geek cred and doesn't
-require you to install GitHub CLI.
+If you don't want to install and use GitHub CLI, you can take this
+approach instead. This is more involved, but has more geek cred. This is
+what I use.
 
 If you already have an SSH keypair, you can skip the key generation
 step. You'd know you had one if you ran `ls ~/.ssh` and you saw a file
