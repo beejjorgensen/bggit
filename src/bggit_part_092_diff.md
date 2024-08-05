@@ -325,5 +325,35 @@ changed since they diverged.
 
 ## Difftool
 
+Admittedly, that diff output is hard to read. I swear, though, you do
+get used to it. I use it all the time.
+
+That said, it can be nicer to see something more *visual*, you know,
+like the old version on the left and the new version on the right in a
+way that's visually easier to comprehend.
+
+> **If you're using VS Code, you get some nice diffing for free.** See
+> more in the VS Code chapter.
+
+The bad news is that Git doesn't support this out of the box.
+
+The good news is that there are a lot of third-party tools that do, and
+you can easily hook them up so that they work with Git super easily.
+
+How easy?
+
+Once you set it up, you'll be able to just write `difftool` instead of
+`diff` on the command line. For example:
+
+``` {.default}
+$ git difftool HEAD~3^!
+```
+And what does that get you? For me, where I use Vim and have Vimdiff set
+up as my difftool, it gives me a screen like in Figure_#.1.
+
+![Vimdiff as the difftool.](difftool.png "Vimdiff as the difftool.")
+
 TODO
+
+TODO setting up config
 
