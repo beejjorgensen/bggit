@@ -10,7 +10,6 @@ Maximum full-width code box columns: 67
 
 ## Still to Write
 
-* diff
 * reflog
 * git aliases
 * add -p, reset -p
