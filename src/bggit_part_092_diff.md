@@ -412,8 +412,8 @@ There are a number of diff tools out there you can choose from. Here's a
 partial list, with the caveat that I've only ever used
 Vimdiff.
 
-* Vimdiff (comes with [fl[Vim|https://www.vim.org/]]
-* [fl[Kompare|https://apps.kde.org/kompare/]
+* Vimdiff (comes with [fl[Vim|https://www.vim.org/]])
+* [fl[Kompare|https://apps.kde.org/kompare/]]
 * [fl[WinMerge|https://winmerge.org/?lang=en]]
 * [fl[Meld|https://meldmerge.org/]]
 * [fl[Kdiff3|https://kdiff3.sourceforge.net/]]
