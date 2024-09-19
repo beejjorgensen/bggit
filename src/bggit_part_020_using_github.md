@@ -67,8 +67,13 @@ There are a couple options:
 
 * Use a tool called GitHub CLI
 * Use SSH keys
+* Use Personal Authentication Tokens
 
-GitHub CLI is likely easier. SSH keys are geektacular.
+GitHub CLI is likely easier. SSH keys are geektacular. I only recently
+learned that you could authentication with personal access tokens, so I
+can't really speak to them much.
+
+Personally, I use SSH keys. But other people... don't. It's up to you.
 
 If you already have authentication working with GitHub, skip these
 sections.
@@ -255,6 +260,54 @@ Then paste your key into the "Key" field.
 And click "Add SSH key".
 
 We'll be using SSH to clone URLs later. Remember that.
+
+### Using Personal Access Tokens
+
+Remember last chapter when we tried to clone an HTTPS repo URL on the
+command line and it prompted for a username and password that didn't
+work?
+
+Well, we get actually make new passwords that *will* work in that case.
+They're called *personal access tokens*.
+
+[fl[GitHub has a lot of documentation on
+this|https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens]]
+but the gist of it is that you're going to create a _token_ that
+represents some kind of access, e.g. "ability to read and write my
+repos", and you're going to use that in lieu of the password on the
+command line.
+
+So that last failed example would look like this:
+
+``` {.default}
+Username for 'https://github.com': [MY USERNAME]
+Password for 'https://beejjorgensen@github.com': [MY TOKEN]
+```
+
+In other words:
+
+1. Generate a token.
+2. Use that token as your password.
+
+Your computer might automatically save those credentials so you don't
+have to enter them every time. Or it might not.
+
+One of the main things personal access tokens can give you is
+fine-grained control over access. You can limit access to read-only, or
+just to certain repos, and so on.
+
+Additionally, you can use GitHub CLI authentication with a token, as
+well. You just have to feed it in there on standard input. Let's say you
+have your token in a file called `mytoken.txt`. You can authenticate
+with GitHub CLI like so:
+
+``` {.default}
+$ gh auth login --with-token < mytoken.txt
+```
+
+Like with SSH keys, if you lose a laptop that uses a particular access
+token, you can simply invalidate that token through GitHub's UI so that
+mean people can't use it.
 
 ## Make a Local Clone of the Repo
 
