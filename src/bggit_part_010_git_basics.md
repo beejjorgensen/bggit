@@ -269,7 +269,7 @@ If you need to change them in the future, just run those commands again.
 
 [i[Clone]]
 
-Let's clone a repo! Here's an example one you can actually use. Don't
+Let's clone a repo! Here's an example repo you can actually use. Don't
 worry--you can't mess anything up on the remote repo even though (and
 because) you don't own it.
 
