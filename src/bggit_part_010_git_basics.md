@@ -327,7 +327,7 @@ There are two files in this repo: `README.md` and `hello.py`.
 > that makes a directory a Git repo is the presence of a valid `.git`
 > directory within it.
 
-Let's ask Git what it things the current status of the local repo is:
+Let's ask Git what it thinks the current status of the local repo is:
 
 ``` {.default}
 $ git status
