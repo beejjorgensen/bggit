@@ -86,7 +86,7 @@ $ git commit -m 'appended to bar.txt'
    1 file changed, 1 insertion($)
 $ git switch -                             # Switch back to main
   Switched to branch 'main'
-$ git branch -D topic1               # Delete topic1
+$ git branch -D topic1                     # Delete topic1
   Deleted branch topic1 (was bf8b8cf).
 ```
 
