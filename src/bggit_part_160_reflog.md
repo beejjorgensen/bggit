@@ -94,7 +94,7 @@ At this point let's say we want to look back at the commits we made on
 `bar.txt`. Good luck with `git log`!
 
 ``` {.default}
-% git log
+$ git log
 commit 90bd7cc6c3c530798872827ba02cb7db4fd422c2 (HEAD -> main)
 Author: User <user@example.com>
 Date:   Fri Oct 4 16:24:56 2024 -0700

@@ -156,7 +156,7 @@ you from making another modification to the file in the working tree and
 ending up like this:
 
 ``` {.default}
-% git status
+$ git status
   On branch main
   Changes to be committed:
     (use "git restore --staged <file>..." to unstage)

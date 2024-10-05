@@ -182,7 +182,7 @@ those commits](#squashing-commits) if you want to, or you can use `-n`
 ("no commit") to keep Git from committing until you're ready.
 
 ``` {.default}
-% git revert -n ee71e 123e8
+$ git revert -n ee71e 123e8
   Auto-merging foo.txt
   Auto-merging foo.txt
 ```
