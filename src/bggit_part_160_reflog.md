@@ -71,7 +71,7 @@ $ git commit -m 'added foo.txt'
   [main (root-commit) 90bd7cc] added foo.txt
    1 file changed, 1 insertion($)
    create mode 100644 foo.txt
-$ git switch -c topic1               # Switch to topic1
+$ git switch -c topic1                     # Switch to topic1
   Switched to a new branch 'topic1'
 $ echo 'Line 1' > bar.txt                  # Create bar.txt
 $ git add bar.txt
