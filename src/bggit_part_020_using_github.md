@@ -60,10 +60,10 @@ And there you have it.
 [i[GitHub-->Authentication]]
 
 Before we get to cloning, let's talk authentication. In the previous
-part of the intro, we say that username/password logins were disabled,
+part of the intro, we saw that username/password logins were disabled,
 so we have to do something different.
 
-There are a couple options:
+There are a few options:
 
 * Use a tool called GitHub CLI
 * Use SSH keys

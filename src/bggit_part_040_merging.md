@@ -185,8 +185,8 @@ $ git status
 
 It's also hinting that I can do one of two things:
 
-1. Fix conflicts and run "git commit".
-2. Use "git merge --abort" to abort the merge.
+1. Fix conflicts and run `git commit`.
+2. Use `git merge --abort` to abort the merge.
 
 The second just rolls back the merge making it as if I hadn't run `git
 merge` in the first place.
