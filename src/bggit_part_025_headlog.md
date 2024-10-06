@@ -99,7 +99,7 @@ So if you switch `HEAD` to another commit, the files in your working
 tree will be updated to reflect that.
 
 Okay, then, how do we know which commit `HEAD` is referring to? Well,
-it's right the at the top of the log:
+it's right there at the top of the log:
 
 ``` {.default}
 commit 5e8cb52cb813a371a11f75050ac2d7b9e15e4751 (HEAD -> main)
