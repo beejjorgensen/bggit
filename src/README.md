@@ -11,8 +11,6 @@ Maximum full-width code box columns: 67
 ## Still to Write
 
 * git aliases
-* patch mode
-* add -p, reset -p
 * submodules
 * cherrypick
 * blame
