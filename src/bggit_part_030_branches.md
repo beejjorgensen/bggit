@@ -427,7 +427,7 @@ the `main` branch. How would we do that?
 Bringing two branches back into sync is called _merging_.
 
 The branch you're on is the branch you're bringing other changes _into_.
-That is, if you're on Branch A, and you tell give to Merge Branch B,
+That is, if you're on Branch A, and you tell git to Merge Branch B,
 Branch B's changes will be applied onto Branch A. (Branch B remains
 unchanged in this scenario.)
 
