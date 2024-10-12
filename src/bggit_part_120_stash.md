@@ -117,7 +117,7 @@ read up on it first.
 Because of this, I could `stash`, then do something else, then `stash`
 again, and we'll have two stashes on the stack.
 
-```
+``` {.default}
 $ git stash list
   stash@{0}: WIP on main: 659b132 added repo1 another line
   stash@{1}: WIP on main: 659b132 added repo1 another line
@@ -132,7 +132,7 @@ working tree.
 But you can also pop by stash name if you want to pop something from the
 middle of the stack.
 
-```
+``` {.default}
 $ git stash pop 'stash@{1}'
 $ git stash pop --index 1       # same thing
 ```
