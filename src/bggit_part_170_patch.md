@@ -1,4 +1,4 @@
-# Patch Mode
+# Patch Mode: Applying Partial Changes
 
 A lot of Git commands obey the `-p` switch that puts them in ***patch
 mode***. This is a powerful mode that allows you to select *some* of the

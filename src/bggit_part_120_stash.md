@@ -35,7 +35,7 @@ not ready to commit, but you want Chris's changes.
 
 So you save your files and then run this:
 
-```
+``` {.default}
 $ git stash
   Saved working directory and index state WIP on main: c72c245
                                 some very descriptive commit message
