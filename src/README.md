@@ -10,10 +10,10 @@ Maximum full-width code box columns: 67
 
 ## Still to Write
 
-* git aliases
-* submodules
 * cherrypick
+* git aliases
 * blame
 * mergetool
+* submodules
 * Git in VS Code
 * Reference section
