@@ -14,5 +14,7 @@ Maximum full-width code box columns: 67
 * mergetool
 * submodules
 * config
+* using different identities
+* using different SSH keys other than default
 * Git in VS Code
 * Reference section
