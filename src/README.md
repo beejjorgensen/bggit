@@ -11,7 +11,6 @@ Maximum full-width code box columns: 67
 ## Still to Write
 
 * git aliases
-* blame
 * mergetool
 * submodules
 * config
