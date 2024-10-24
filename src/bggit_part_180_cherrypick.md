@@ -1,5 +1,7 @@
 # Cherry-Pick: Bringing in Specific Commits
 
+[i[Cherry-pick]<]
+
 Let's say you're working on `branch1` and you have made a bug fix to
 `branch2`. You're not ready to merge _all_ the changes in from `branch2`
 into `branch1`, but you really want just that bug fixed.
@@ -211,6 +213,8 @@ But not every cherry-pick will go as smoothly as that!
 
 ## Cherry-Pick Conflicts
 
+[i[Cherry-pick-->Conflicts]]
+
 Yes, you can get conflicts with a cherry-pick, of course. This might
 happen because you've changed some of the same lines as the commit
 you're cherry-picking, or maybe because the cherry-picked commit has
@@ -224,3 +228,5 @@ But by now I hope the process seems familiar. First, make the file
 _Right_, then add it, and then you'll _continue_ (like with a `rebase`)
 with `git cherry-pick --continue`. Keep doing that until everything's
 merged together cleanly.
+
+[i[Cherry-pick]>]

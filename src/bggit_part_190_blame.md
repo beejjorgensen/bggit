@@ -1,5 +1,7 @@
 # Who's to Blame for this Code?
 
+[i[Blame]<]
+
 Let's say you find something in the shared codebase that's just wrong.
 Or, charitably, we'll say you found something _interesting_.
 
@@ -49,3 +51,4 @@ with `-M`. And you can do the same thing across multiple files with
 
 TODO more config with colors
 
+[i[Blame]>]
