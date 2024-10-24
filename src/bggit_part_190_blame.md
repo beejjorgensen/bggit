@@ -12,7 +12,7 @@ This is where a simple Git command can enlighten you.
 Here's some example truncated output (so that it fits in the book
 margins):
 
-```
+``` {.default}
 $ git blame --date=short foo.py
   8c96991f (Alice 2024-10-08  4) def encode_data(message, value):
   8c96991f (Alice 2024-10-08  5)     encoded_message = message.enco
