@@ -49,6 +49,8 @@ You can reliably detect lines that were moved or copied within a file
 with `-M`. And you can do the same thing across multiple files with
 `-C`.
 
-TODO more config with colors
+Finally, your IDE (like VS Code) might support blame, either natively or
+via an extension. Some people just have this feature turned on all the
+time.
 
 [i[Blame]>]
