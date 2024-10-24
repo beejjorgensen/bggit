@@ -1,5 +1,7 @@
 # Reverting: Undoing Commits
 
+[i[Reverting]<]
+
 Let's say you made some changes and committed them, but they actually
 botched everything up. You want to just revert to an earlier version of
 the file.
@@ -83,6 +85,8 @@ changes in the revert commit itself? Can it conflict? Of course it can!
 
 ## Revert Conflicts
 
+[i[Reverting-->Conflicts]]
+
 Like with merging or rebasing, you can have conflicts with a revert. If
 you're not familiar with conflict resolution, please review the
 [Rebasing Conflicts](#rebasing-conflicts) section, because it's closest
@@ -146,6 +150,8 @@ new commit just like before.
 
 ## Reverting Multiple Commits
 
+[i[Reverting-->Multiple commits]]
+
 You can specify multiple reverts at the same time on the command line.
 
 Here's an example that reverts two commits:
@@ -194,3 +200,4 @@ same thing specifying a range.
 Of course, there might a conflict, and you'll have to resolve those in
 the super fun way we've already discussed.
 
+[i[Reverting]>]

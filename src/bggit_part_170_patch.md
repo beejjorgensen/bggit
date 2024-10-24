@@ -1,5 +1,7 @@
 # Patch Mode: Applying Partial Changes
 
+[i[Patch mode]<]
+
 A lot of Git commands obey the `-p` switch that puts them in ***patch
 mode***. This is a powerful mode that allows you to select *some* of the
 changes for a particular command, but not *all* of the changes.
@@ -341,3 +343,4 @@ You can use `-p` with `stash`, `restore`, `commit`, and more. The UI
 behaves basically the same way as described above. See the manual pages
 for any particular command to learn more about it.
 
+[i[Patch mode]>]

@@ -1,5 +1,7 @@
 # Reset: Moving Branches Around
 
+[i[Reset]<]
+
 Before we begin, using `git reset` ***rewrites history***. This means
 that you shouldn't use it on any branches that other people might have
 copies of, i.e. branches that you have pushed.
@@ -65,6 +67,8 @@ The summary of differences is:
   * Working tree: new commit
 
 ## Soft Reset
+
+[i[Reset-->Soft]]
 
 When you run a `git reset --soft`, this resets the current branch to
 point to the given commit, and makes the stage and working tree both
@@ -142,6 +146,8 @@ the general public.
 
 ## Mixed Reset
 
+[i[Reset-->Mixed]]
+
 When you run a `git reset --mixed`[^2472], this resets the current
 branch to point to the given commit, and it modifies the stage to that
 commit, and it **doesn't** change your working tree.
@@ -186,6 +192,8 @@ but simply don't want to stage the changes at the old commit yet,
 leaving them as modified.
 
 ## Hard Reset
+
+[i[Reset-->Hard]]
 
 This resets everything to a particular commit. The branch moves there.
 The stage is set to that commit. The files in the working tree are set
@@ -258,6 +266,8 @@ And there you have it.
 
 ## Pushing Branch Changes to a Remote
 
+[i[Reset-->Pushing to remote]]
+
 Let's say you've made a mess of things somehow and you have to reset a
 branch that you've already pushed commits on. That is, you have to
 rewrite a public history.
@@ -302,6 +312,8 @@ Note that your coworkers don't necessarily need to do a hard reset; they
 could do a mixed reset, for instance.
 
 ### Forcing the Push
+
+[i[Push-->Forced]]
 
 We have basically two options to use with `git push` here:
 
@@ -428,6 +440,8 @@ need.
 
 ## Resetting Without Moving `HEAD`
 
+[i[Branch-->Moving]]
+
 Using the reset feature moves the `HEAD` around by necessity. What if
 you just want to move a branch to another commit but leave `HEAD` alone?
 
@@ -478,3 +492,4 @@ If the answer was yes, you might find `git reset -p` useful to
 selectively reset parts of commits, something we'll cover in a later
 chapter.
 
+[i[Reset]>]

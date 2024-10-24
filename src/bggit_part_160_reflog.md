@@ -1,5 +1,7 @@
 # The Reference Log, "reflog"
 
+[i[Reflog]<]
+
 All this time you've been committing things, branching, doing whatever.
 And Git's been watching you, listening like Big Brother, recording
 everything you do.
@@ -199,6 +201,8 @@ you thought you'd lost commits for good.
 
 ## Reflog Selectors
 
+[i[Reflog-->Selectors]]
+
 Let's take a look at that example reflog output again:
 
 ``` {.default}
@@ -224,3 +228,5 @@ $ git switch --detach HEAD@{1}
 ```
 
 Just like that.
+
+[i[Reflog]>]

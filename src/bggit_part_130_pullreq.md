@@ -1,5 +1,8 @@
 # GitHub: Forking and Pull Requests
 
+[i[Forking]<]
+[i[Pull requests]<]
+
 What if you want to make changes to a repo on GitHub but you don't have
 write permission? Here's how.
 
@@ -40,6 +43,8 @@ below. I'm just going to delete them (they won't be merged); don't take
 it personally—I just don't have time to review them all.
 
 ## Making a Fork
+
+[i[Fork-->Creating]]
 
 Head on over to [fl[my test
 repo|https://github.com/beejjorgensen/git-example-repo]] and let's do
@@ -125,6 +130,8 @@ your fork's page on GitHub and see the change there.
 
 ## Syncing the Upstream with Your Fork
 
+[i[Fork-->Syncing with Upstream]]
+
 Are you ready to make a PR? Hold up just a moment!
 
 What if the upstream owner has made changes to their repo in the
@@ -167,6 +174,8 @@ all at the end when you're ready to issue a pull request.
 
 ## Making a Pull Request
 
+[i[Pull request-->Creating]]
+
 Now that we've modified our fork to our satisfaction, we can ask the
 upstream maintainer if they're willing to accept it into the official
 repo.
@@ -205,6 +214,8 @@ questions. Maybe they reject the PR and close it, unmerged. Or maybe
 they accept! Happy days!
 
 ## Flipside: Merging a Pull Request
+
+[i[Pull request-->Merging]]
 
 As the upstream owner, if someone issues a PR you'll be notified (unless
 you've turned those notifications off) with an email and in the
@@ -266,6 +277,8 @@ resolve the conflict so that your life might be made easier with an
 automatic merge.
 
 ## Making Many Pull Requests with Branches
+
+[i[Pull request-->With branches]]
 
 Here's the thing about pull requests: when you make one, it takes all
 the changes you have on your branch and bundles them together in one.
@@ -344,6 +357,8 @@ have to delete `feature1` and `origin/feature1` on the command line.
 
 ## Deleting a Pull Request
 
+[i[Pull request-->Deleting]]
+
 Short answer: you can't.
 
 Long answer: you can.
@@ -371,6 +386,8 @@ In any case, you most definitely should change your leaked credentials
 right now and let that be a lesson to you.
 
 ## Syncing on the Command Line {#sync-cl}
+
+[i[Fork-->Syncing with Upstream]]
 
 GitHub has that nice Sync button to bring the upstream changes into your
 fork, and this was a welcome addition. It used to be you had to do it
@@ -456,3 +473,6 @@ everyone's ears.
 Once you have the `upstream` remote set up, all you have to do to sync
 in the future is do the `git fetch upstream` and then merge or rebase
 your stuff with it.
+
+[i[Pull requests]>]
+[i[Forking]>]
