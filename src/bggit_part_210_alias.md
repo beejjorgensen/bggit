@@ -73,28 +73,59 @@ $ git config get --all --show-names --regexp '^alias\.'
 
 which is super annoying. I suggest you alias it. Wheee!
 
-TODO
+> **Older versions of Git use this command instead:**
+> ``` {.display}
+> $ git config --get-regexp ^alias\.
+> ```
+> <!-- ` -->
 
 ## Some Neat Sample Aliases
 
-TODO
+Some of the following are split into multiple lines so they fit in the
+book. You can put them on a single line, or type them as-is with the `\`
+escape that tells the shell to continue the command on the next line.
 
-> **The following are split into multiple lines so they fit in the
-> book.** You can put them on a single line, or type them as-is with the
-> `\` escape that tells the shell to continue the command on the next
-> line.
->
-> Also remember that older versions of Git leave off the keyword `set`
-> in the following commands.
+**Add all changed files** with `git adda`. Do this carefully since you
+might add more than you wanted!
 
-**Make `git aliases` show all aliases:**
+``` {.default}
+$ git config set alias.aa "add --all"
+```
+
+**More compact log showing the commit graph** with `git logc`.
+
+``` {.default}
+$ git config set alias.logc "log --oneline --graph --decorate"
+```
+
+**Diff the stage with the repo** with `git diffs`.
+
+``` {.default}
+$ git config set alias.diffs "diff --staged"
+```
+
+**Make `git aliases` show all aliases** with `git aliases`.
 
 ``` {.default}
 $ git config set alias.aliases \
     "config get --all --show-names --regexp '^alias\.'"
 ```
 
-TODO
+**Make a very colorful and customized log** with `git lol`.
+
+(Make sure to get the spacing exactly as-is on this copy-paste or the
+shell and/or Git will be unhappy.)
+
+``` {.default}
+$ git config set alias.lol "log --graph"\
+" --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s"\
+" %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+```
+
+For that last one, we're making heavy use of `--pretty` formatting which
+gives tons of control over the output. [fl[See the "Pretty Formats"
+section of the `git log` manual page for more
+info|https://git-scm.com/docs/git-log#_pretty_formats]].
 
 ## Seeing Git's Alias Expansion
 
