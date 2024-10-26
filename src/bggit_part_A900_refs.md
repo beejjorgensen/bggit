@@ -5,7 +5,7 @@
 Here are more! I found these by searching the Internet for Git book
 recommendations. The only one I've used is *Pro Git*.
 
-* **Free**
+* **Free Stuff!**
   * [fl[_Pro Git_|https://git-scm.com/book/en/v2]]
   * [fl[_The Git Reference Manual_|https://git-scm.com/docs]]
   * [fl[_The Git Community Book_|https://shafiul.github.io/gitbook/index.html]]
