@@ -39,8 +39,7 @@ Name"`.
 > That's your identity when you commit! A side note here it that it's
 > incredibly easy to impersonate anyone else in the world just by
 > putting their name and email there. To mitigate this, one option is to
-> [digitally sign your
-> commits](https://git-scm.com/book/en/v2/Git-Tools-Signing-Your-Work),
+> [fl[digitally sign your commits|https://git-scm.com/book/en/v2/Git-Tools-Signing-Your-Work]],
 > but that's beyond the scope of this guide.
 
 ## Local Configuration
