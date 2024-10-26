@@ -83,11 +83,11 @@ $ git init corporate_job_12
 ```
 
 And we pop in there, and we set the local config just for that repo
-(it's local because we're not specifying `--global`:
+(it's local because we're not specifying `--global`):
 
 ``` {.default}
 $ cd corporate_job_12
-$ git config user.name "Profesional Name"
+$ git config user.name "Professional Name"
 $ git config user.email "professional@example.com"
 ```
 
@@ -183,8 +183,8 @@ peruse|https://git-scm.com/docs/git-config#_variables]].
 
 But here are some fun, common ones.
 
-Variable           | Description
--------------------|-----------------------------------------------------
+Variable        | Description
+----------------|----------------------------------------------------------
 `user.name`        | Your name
 `user.email`       | Your email
 `pull.rebase`      | Set to `true` to have a pull try to rebase. Set to `false` to have it try to merge.
@@ -197,10 +197,46 @@ Variable           | Description
 `commit.gpgsign`   | Set to `true` if you've configured GPG commit signing and want to always sign.
 `help.autocorrect` | Set to `0` to show the command Git thinks you meant to type if you misspelled it. Set to `immediate` to have it run the corrected command right now. Set to `prompt` to ask you if you want to run it.
 
+Again, there are a *lot* more of these. Peruse the docs for more.
 
 ## Editing the Config Directly
 
-TODO
+You can launch an editor (the one specified in the `core.editor`
+variable) to edit the config file directly. Some people might find this
+easier.
+
+I can launch the editor like this:
+
+``` {.default}
+$ git config --edit
+```
+
+Add the `--global` flag to edit the global config file.
+
+> **Like with the other commands, there's a new version of this one.**
+> On newer Git installs, you can just say `git config edit` without the
+> minus-minus.
+
+When you get into the editor, you'll see a config file that might look
+something like this:
+
+``` {.default .numberLines}
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+
+[user]
+    name = Your Name
+    email = user@example.com
+```
+
+If you look, you can see where `user.name` and `user.email` ended up.
+That's how the config file is organized.
+
+So you can edit it here and save those changes. Some people might find
+this easier than adding or modifying variables on the command line.
 
 ## Conditional Configuration
 
