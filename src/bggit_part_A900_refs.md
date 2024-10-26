@@ -3,7 +3,31 @@
 **"Your book stinks. What other references can I use?"**
 
 Here are more! I found these by searching the Internet for Git book
-recommendations. The only one I've used is *Pro Git*.
+recommendations. The only ones I've used are the man pages and *Pro
+Git*.
+
+* **The man pages**
+  * If you have the manual pages (historically known as the "man pages")
+    installed on your system, and you probably do, you can get help for
+    particular Git commands right from the command line.
+
+    For example, if you want to know about `git config`, you can type:
+
+    ``` {.default}
+    $ man git-config
+    ```
+
+    (The minus between "git" and "config" might or might not be required
+    depending on your system, but I've never found a place where it
+    doesn't work.)
+
+    Once you're in there, the arrow keys, space bar, and page up/down
+    probably work to navigate, and hitting `q` or `Escape` probably
+    quits. It depends on the pager your system uses.
+
+    These manual pages are very comprehensive, and don't tend to be easy
+    to read. But all the information is there! They can also be found in
+    _The Git Reference Manual_, below.
 
 * **Free Stuff!**
   * [fl[_Pro Git_|https://git-scm.com/book/en/v2]]
