@@ -279,6 +279,7 @@ git config get user.email                     # Get
 git config set user.email "user@example.com"  # Set
 git config unset user.email                   # Delete
 git config list                               # List
+git config edit                               # Edit
 ```
 
 And here are the older equivalents:
@@ -288,6 +289,7 @@ git config user.email                     # Get
 git config user.email "user@example.com"  # Set
 git config --unset user.email             # Delete
 git config --list                         # List
+git config --edit                         # Edit
 ```
 
 Use the new ones if you can!
