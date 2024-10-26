@@ -20,6 +20,10 @@ logn` that would do the same thing?
 
 That's what aliases are for.
 
+This chapter assumes you've read the [Configuration
+chapter](#configuration). In particular, if these commands don't work,
+you should look at [configuration of Older Git Versions](#config-old).
+
 ## Creating an Alias
 
 You do this through the configuration interface. Basically what you want
@@ -30,7 +34,7 @@ Let's say you want to make `git logn` an alias for `git log
 --name-only`. You can do it like this:
 
 ``` {.default}
-$ git config --global alias.logn 'log --name-only'
+$ git config set --global alias.logn 'log --name-only'
 ```
 
 And at this point, you can run:
@@ -59,7 +63,6 @@ to see what they are.
 
 ``` {.default}
 $ git config get alias.logx
-$ git config --get alias.logx   # old style
 ```
 
 If you want to see all of them, you can run this command:
@@ -69,13 +72,6 @@ $ git config get --all --show-names --regexp '^alias\.'
 ```
 
 which is super annoying. I suggest you alias it. Wheee!
-
-> **Older Git versions use this command instead:**
-> 
-> ``` {.default}
-> git config --get-regexp '^alias\.'
-> ```
-> <!-- ` -->
 
 TODO
 

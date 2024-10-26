@@ -259,11 +259,15 @@ information.
 [i[Configuration-->Name and Email]]
 
 ``` {.default}
-$ git config --global user.name "Your Name"
-$ git config --global user.email "your-email@example.com"
+$ git config set --global user.name "Your Name"
+$ git config set --global user.email "your-email@example.com"
 ```
 
 If you need to change them in the future, just run those commands again.
+
+> **If you get an error with the above commands** you might be running
+> an older version of Git. Try them again, but leave out the word `set`.
+> Or, better yet, see if you can get a newer version of Git.
 
 ### Step 1: Clone an Existing Repo
 
