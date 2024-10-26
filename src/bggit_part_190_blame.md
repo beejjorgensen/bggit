@@ -28,7 +28,7 @@ $ git blame --date=short foo.py
 I have the `--date=short` switch in there to compress it even more so it
 fits in the book. Otherwise it would show a full time stamp.
 
-What we see in this fabricated example is that Alex has checked in the
+What we see in this fabricated example is that Alice has checked in the
 majority of this function, but the next day Chris came in and modified
 or added those additional lines in the middle.
 
