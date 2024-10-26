@@ -23,18 +23,19 @@ Let's look at one of those lines again:
 ``` {.default}
 $ git config --global user.name "Your Name"
                           ↑          ↑
-                         key       value
+                      variable     value
 ```
 
 There are two main things in this line.
 
-1. A *key*, that is, the thing we're setting the value of.
-2. A *value*, the value we're giving that key.
+1. A *variable*, that is, the thing we're setting the value of.
+2. A *value*, the value we're giving that variable.
 
-In that case, the key is `user.name` and the value is `"Your Name"`.
+In that case, the variable is `user.name` and the value is `"Your
+Name"`.
 
-> **What those two keys, `user.name` and `user.email`, are doing** is
-> they're setting the values that will go in your commit messages!
+> **What those two variables, `user.name` and `user.email`, are doing**
+> is they're setting the values that will go in your commit messages!
 > That's your identity when you commit! A side note here it that it's
 > incredibly easy to impersonate anyone else in the world just by
 > putting their name and email there. To mitigate this, one option is to
@@ -125,7 +126,7 @@ You can see in there that `user.name` and `user.email` appear twice. The
 first is from the global config, which is overridden later by the value
 in the local config.
 
-## Getting, Setting, and Deleting Keys
+## Getting, Setting, and Deleting Variables
 
 Before we begin, a note on Newer Git Versions. Newer Git versions
 use keywords `get`, `set`, and `unset` to do these actions. We've been
@@ -133,7 +134,7 @@ using the older Git syntax, and we'll keep using it until everyone is
 updated.
 
 So here are the *old* Git config commands for getting, setting, and
-deleting keys. They still work as of Git version 2.46.1.
+deleting variables. They still work as of Git version 2.46.1.
 
 ``` {.default}
 git config user.email                     # Get
@@ -142,7 +143,7 @@ git config --unset user.email             # Delete
 ```
 
 And here are the *new* Git config commands for getting, setting, and
-deleting keys. They already work with Git version 2.46.1. I don't know
+deleting variables. They already work with Git version 2.46.1. I don't know
 when they were introduced, but ChatGPT (which can't be trusted with
 facts) says they came in with Git 2.41. I haven't verified this.
 
@@ -168,9 +169,34 @@ that day isn't here yet. And then after that someday they'll probably
 remove them. My money's on... the year 2034. And if you're reading this
 after that, how'd I do?
 
-## Some Popular Keys
+## Some Popular Variables
 
-TODO
+To see which variables you can set, look in the manual page for the
+appropriate command. You can usually get there by looking at the first
+hit on your favorite search engine for `man git whatever`. For example,
+you might find configuration variables for `git pull` by searching for
+`man git pull` and bringing up the first hit.
+
+That said, there's a [fl[big ol' list of them in the `git config` manual
+page that you can
+peruse|https://git-scm.com/docs/git-config#_variables]].
+
+But here are some fun, common ones.
+
+Variable           | Description
+-------------------|-----------------------------------------------------
+`user.name`        | Your name
+`user.email`       | Your email
+`pull.rebase`      | Set to `true` to have a pull try to rebase. Set to `false` to have it try to merge.
+`core.editor`      | Your default editor for commit messages, etc. Set to `vim`, `nano`, `code`, `emacs`, or whatever.
+`merge.tool`       | Your default merge tool, e.g. `meld` or whatever.
+`diff.tool`        | Your default diff tool, e.g. `vimdiff`
+`difftool.prompt`  | Set to `false` to stop Git from always asking you if you want to launch your difftool.
+`color.ui`         | Set to `true` for more colorful Git output
+`core.autocrlf`    | Set to `true` if you're on Windows **and** not in WSL **and** the remote repo has Unix-style newlines **and** you want to use Windows-style newlines in your working directory. On other systems, set to `input`. This is all about working around Window's ancient newlines.
+`commit.gpgsign`   | Set to `true` if you've configured GPG commit signing and want to always sign.
+`help.autocorrect` | Set to `0` to show the command Git thinks you meant to type if you misspelled it. Set to `immediate` to have it run the corrected command right now. Set to `prompt` to ask you if you want to run it.
+
 
 ## Editing the Config Directly
 
