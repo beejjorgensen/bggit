@@ -45,13 +45,58 @@ that command.
 I speculate that Git has a number of built-in command (like `log` and
 `push`) and if you try to have it run something that is not a built-in,
 it tries to find it as an `alias` variable. And if it does, it
-substitutes that instead.
+substitutes that instead. 99% sure that's what's happening under the
+hood.
 
 Since aliases are just regular configuration variables, getting,
 setting, and deleting them happens as described in the [config
 chapter](#configuration).
 
+## Displaying Aliases
+
+Since aliases are just config variables, you can just get them in order
+to see what they are.
+
+``` {.default}
+$ git config get alias.logx
+$ git config --get alias.logx   # old style
+```
+
+If you want to see all of them, you can run this command:
+
+``` {.default}
+$ git config get --all --show-names --regexp '^alias\.'
+```
+
+which is super annoying. I suggest you alias it. Wheee!
+
+> **Older Git versions use this command instead:**
+> 
+> ``` {.default}
+> git config --get-regexp '^alias\.'
+> ```
+> <!-- ` -->
+
+TODO
+
 ## Some Neat Sample Aliases
+
+TODO
+
+> **The following are split into multiple lines so they fit in the
+> book.** You can put them on a single line, or type them as-is with the
+> `\` escape that tells the shell to continue the command on the next
+> line.
+>
+> Also remember that older versions of Git leave off the keyword `set`
+> in the following commands.
+
+**Make `git aliases` show all aliases:**
+
+``` {.default}
+$ git config set alias.aliases \
+    "config get --all --show-names --regexp '^alias\.'"
+```
 
 TODO
 
@@ -61,7 +106,7 @@ Let's say you've added an alias, but it's not working. When you run it,
 it just gives some error and it's not super clear what's going on.
 
 ``` {.default}
-% git logx
+$ git logx
 fatal: unrecognized argument: --foobar
 ```
 
@@ -75,7 +120,7 @@ the beginning of the command line.
 Here's some example output:
 
 ``` {.default}
-% GIT_TRACE=1 git logx
+$ GIT_TRACE=1 git logx
   14:09:28.502707 git.c:758               trace: exec: git-logx
   14:09:28.502750 run-command.c:666       trace: run_command: git-l
   14:09:28.502905 git.c:416               trace: alias expansion: l
@@ -122,6 +167,5 @@ might be useful for debugging it.
 It's probably a bit of overkill for this simple example, but there are
 some aliases of extraordinary complexity for which this technique might
 help.
-
 
 
