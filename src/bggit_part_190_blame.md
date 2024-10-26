@@ -34,7 +34,7 @@ or added those additional lines in the middle.
 
 And now we know.
 
-## More Bells and Whistles
+## Fancier Blaming
 
 You can use the `--color-lines` switch to get color output, alternating
 colors between commits. Very exciting. If you want that to always
