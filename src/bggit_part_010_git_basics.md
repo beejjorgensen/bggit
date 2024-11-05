@@ -59,10 +59,10 @@ same codebase.
   
   Example commits might be:
 
-  * "Added feature *X* to the codebase."
-  * "Fixed bug *Y*."
-  * "Merged other contributor's changes into the codebase."
-  * "Partially completed the Spanish translation."
+  * "Add feature *X* to the codebase"
+  * "Fix bug *Y*"
+  * "Merg other contributor's changes into the codebase"
+  * "Partially complete the Spanish translation"
 
 * **Repo**/**Source Code Repository**: This is where a particular
   software project is stored in the source code control system.
