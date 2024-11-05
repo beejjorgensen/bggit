@@ -29,7 +29,7 @@ example), and then you'll _commit_ those changes to the _source code
 repo_ (repository) once the feature is ready. This saves the changes to
 the repo and allows other collaborators to see them.
 
-And if you ever change something you didn't want to, or your want to see
+And if you ever change something you didn't want to, or you want to see
 how things were implemented in the past, you can always _check out_ a
 previous commit and take a look.
 
@@ -94,14 +94,14 @@ Takeaway: GitHub is a web-based front-end to Git (specifically one that
 works on the copy of your repo at GitHub—stay tuned for more on that
 later).
 
-> **What about GitLib and Gitea?** [fl[GitLab|https://gitlab.com]] is a
+> **What about GitLab and Gitea?** [fl[GitLab|https://gitlab.com]] is a
 > competitor to GitHub. [fl[Gitea|https://docs.gitea.com/]] is an
 > open-source competitor that allows you to basically run a GitHub-like
 > front-end on your own server. None of this information is immediately
 > important.
 
 Regardless of whatever repos you have on GitHub, you'll also have copies
-(known as _clones_) of those repos on your local system for you to work
+(known as _clones_) of those repos on your local system to work
 on. Periodically, in a common workflow, you'll sync your copy of the
 repo with GitHub.
 
@@ -353,7 +353,7 @@ on branch `main`. That's fine for now.
 
 It also tells us this branch is up to date with a branch called
 [i[Remotes-->`origin`]] `origin/main`. A branch in Git is just a
-reference to a certain commit that's been made, like a PostIt note
+reference to a certain commit that's been made, like a Post-It note
 attached to that commit. (Recall that a commit is a snapshot of the code
 repo at some time.)
 
