@@ -42,7 +42,7 @@ But that's not all! As we'll see, Git also works well as a remote backup
 mechanism, and works wonderfully when cooperating with a team on the
 same codebase.
 
-Definitions:
+### Definitions:
 
 * **Source Code Control System**/**Version Control System**: Software
   that manages changes to a software project potentially consisting of
@@ -129,7 +129,7 @@ There's a super-common workflow that you'll use repeatedly:
 This is not the only workflow; there are others that are also not
 uncommon.
 
-Definitions:
+### Definitions:
 
 * **Clone** (verb): to make a copy of a remote repo locally.
 
@@ -172,7 +172,7 @@ an entire, existing GitHub repo.
 Making a clone is a one time-process, typically (though you can make as
 many as you want).
 
-Definitions:
+### Definitions:
 
 * **Distributed Version Control System**: A VCS in which there is no
   central authority of the data, and multiple clones of a repo exist.
