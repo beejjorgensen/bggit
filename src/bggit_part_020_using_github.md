@@ -155,7 +155,7 @@ them.
 > secure, then you don't need a password on the key. Do you feel lucky?
 >
 > Setting up the key agent is outside the scope of this document, and
-> the author in unsure of how it even works in WSL. [fl[GitHub has
+> the author is unsure of how it even works in WSL. [fl[GitHub has
 > documentation on the
 > matter|https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent]].
 >
@@ -195,7 +195,7 @@ The key's randomart image is:
 
 > **What's that randomart thing with all the weird characters?** It's a
 > visual representation of that key. There are ways to configure SSH so
-> that you see the randomart every time you log in, say. And the idea is
+> that you see the randomart every time you log in. And the idea is
 > that if one day you see it looks different, something could be amiss
 > security-wise. I doubt most people every look at it again once it's
 > been generated, though.
@@ -267,7 +267,7 @@ Remember last chapter when we tried to clone an HTTPS repo URL on the
 command line and it prompted for a username and password that didn't
 work?
 
-Well, we get actually make new passwords that *will* work in that case.
+Well, we get to actually make new passwords that *will* work in that case.
 They're called *personal access tokens*.
 
 [fl[GitHub has a lot of documentation on
@@ -296,7 +296,7 @@ One of the main things personal access tokens can give you is
 fine-grained control over access. You can limit access to read-only, or
 just to certain repos, and so on.
 
-Additionally, you can use GitHub CLI authentication with a token, as
+Additionally, you can use GitHub CLI authentication with a token as
 well. You just have to feed it in there on standard input. Let's say you
 have your token in a file called `mytoken.txt`. You can authenticate
 with GitHub CLI like so:
