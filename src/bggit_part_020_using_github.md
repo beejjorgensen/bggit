@@ -34,7 +34,7 @@ This will make a repository on GitHub that you own. It does not make a
 local repository—you'll have to clone the repo for that, something we'll
 do later.
 
-In GitHub, there's a blue `New` button on the left of the dashboard.
+In GitHub, there's a green `New` button on the left of the dashboard.
 
 Also, there's a `+` pulldown on the upper right center that has a "New
 Repository" option. Click one of those.
@@ -322,7 +322,7 @@ your `test-repo` repo. Click on the name.
 And you should then be on the repo page. You can browse the files here,
 among other things, but really we want to get the clone URL.
 
-Click the big blue "Code" button.
+Click the big green "Code" button.
 
 What you do next depends on if you're using GitHub CLI or SSH keys.
 
@@ -364,7 +364,7 @@ You have two options.
 
 If you set up an SSH key earlier, you can use this method.
 
-After hitting the blue "Code" button, make sure the "SSH" tab is
+After hitting the green "Code" button, make sure the "SSH" tab is
 selected.
 
 Copy that URL.
