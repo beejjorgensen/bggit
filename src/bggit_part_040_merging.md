@@ -151,7 +151,7 @@ complete the merge.
 > started it in the first place.
 >
 > The important point is that you're aware Git is in a special state and
-> you have to either complete (or abort) the merge to get back to normal
+> you have to either complete or abort the merge to get back to normal
 > before you continue to use it. 
 
 Let's have an example where both `main` and `newbranch` have added a
