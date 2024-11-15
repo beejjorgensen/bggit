@@ -52,7 +52,7 @@ its own section in the output.
 > This isn't something you need to worry about, typically. Or maybe not
 > even ever.
 
-After that we have a couple lines indicating the that old version of the
+After that we have a couple lines indicating that the old version of the
 file `a/hello.py` is the one marked with minus signs, and the new
 version (that you haven't staged yet) is `b/hello.py` and is marked with
 plus signs.
@@ -228,7 +228,7 @@ $ git diff 27a3^!
 
 ### More Context
 
-By default, `git diff` shows 3 lines on context around the changes. If
+By default, `git diff` shows 3 lines of context around the changes. If
 you want to see more, like 5 lines, use the `-U` switch.
 
 ``` {.default}
