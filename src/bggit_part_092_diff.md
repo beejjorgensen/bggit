@@ -116,8 +116,8 @@ happening so you can improve your understanding of how this works.
 A good mental model here is to imagine that the stage **must** have one
 of two things on it at all time, either of these:
 
-1. A copy of a file from the last commit. If this is the case, `git
-   status` will not show the file on the stage.
+1. A copy of a file from the last commit. If this is the case, `git status`
+   will not show the file on the stage.
 2. A copy of a file from the working tree, something modified from the
    last commit. In this case `git status` **will** show something on the
    stage.
