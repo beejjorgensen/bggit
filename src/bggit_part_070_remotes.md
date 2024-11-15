@@ -5,7 +5,7 @@
 A _remote_ is just a name for a remote server you can clone, push, and
 pull from.
 
-We identify these by a URL; with GitHub, this is a URL we copied when we
+We identify these by a URL. With GitHub, this is a URL we copied when we
 went to clone the repo initially.
 
 It's possible to use this URL to identify the server in our Git usage,
