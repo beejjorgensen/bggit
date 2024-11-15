@@ -325,7 +325,7 @@ changed since they diverged.
 
 ## Difftool
 
-Admittedly, that diff output is hard to read. I swear, though, you do
+Admittedly, this diff output is hard to read. I swear, though, you do
 get used to it. I use it all the time.
 
 That said, it can be nicer to see something more *visual*, you know,
