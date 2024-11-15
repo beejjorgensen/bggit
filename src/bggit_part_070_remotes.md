@@ -149,7 +149,7 @@ reallinux    https://github.com/torvalds/linux.git (fetch)
 reallinux    https://github.com/torvalds/linux.git (push)
 ```
 
-> Normally when setting up a remote the refers to the source of a forked
+> Normally when setting up a remote that refers to the source of a forked
 > repo on GitHub, people tend to call that remote `upstream`, whereas
 > I've clearly called it `reallinux`.
 >
