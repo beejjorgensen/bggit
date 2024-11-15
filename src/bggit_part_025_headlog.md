@@ -9,7 +9,7 @@ log that you can visit. Let's take a look at that now.
 
 You can get the commit log by typing `git log`.
 
-Let's say I'm in a repo with a single commit, where I've just added a
+Let's say I'm in a repo with a single commit where I've just added a
 file with the commit message "Added".
 
 ``` {.default}
@@ -52,7 +52,7 @@ There are a few things to notice in the log:
 * The date
 * The user who made the commit
 
-Also we have those huge
+Also, we have those huge
 [fl[hex|https://en.wikipedia.org/wiki/Hexadecimal]] numbers after the
 word `commit`.
 
@@ -60,7 +60,7 @@ This is the _commit ID_ or _commit hash_. This is universally unique
 number that you can use to identify a particular commit.
 
 Normally you don't need to know this, but it can be useful for going
-back in time or keeping track of commits in multideveloper projects.
+back in time or keeping track of commits in multi-developer projects.
 
 We also see a bit at the top that says `(HEAD -> main)`. What's that
 about?
@@ -98,7 +98,7 @@ uncommitted changes you might have made.
 So if you switch `HEAD` to another commit, the files in your working
 tree will be updated to reflect that.
 
-Okay, then, how do we know which commit `HEAD` is referring to? Well,
+Okay then, how do we know which commit `HEAD` is referring to? Well,
 it's right there at the top of the log:
 
 ``` {.default}
@@ -114,7 +114,7 @@ referring to commit with ID:
 
 `5e8cb52cb813a371a11f75050ac2d7b9e15e4751`
 
-Again that's a bit of a lie, though. The `HEAD -> main` means that
+Again, that's a bit of a lie. The `HEAD -> main` means that
 `HEAD` is actually referring to the `main` branch, and that `main` is
 referring to the commit. `HEAD` is therefore indirectly referring to the
 commit. More on that later.
@@ -144,7 +144,7 @@ output" commit. But let's say I want to go back in time to the previous
 commit and see what the files looked like then. How would I do that?
 
 > **Maybe there were some changes that existed back in an earlier
-> commit** that had been since removed, and you wanted to look at them,
+> commit** that had since been removed, and you wanted to look at them,
 > for example.
 
 I can use the [i[`git checkout`]] `git checkout` command to make that
@@ -312,7 +312,7 @@ Easy.
 There are a couple shortcuts to get to commits that are earlier than
 `HEAD`, like, "I want to switch to the 3rd commit before this one."
 
-Here's a pretty-useless example that we'll start with:
+Here's a pretty useless example that we'll start with:
 
 ``` {.default}
 $ git switch --detach HEAD
@@ -337,13 +337,13 @@ more carets!
 $ git switch --detach HEAD^^^
 ```
 
-Or the 10th-previous commit!
+Or the 10th previous commit!
 
 ``` {.default}
 $ git switch --detach HEAD^^^^^^^^^^
 ```
 
-Or the 100th-previous commit!
+Or the 100th previous commit!
 
 ``` {.default}
 $ git switch --detach HEAD^^^^^^^^^^^^^^^^^^^^forget this
