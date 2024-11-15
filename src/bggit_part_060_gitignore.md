@@ -18,7 +18,7 @@ gitignore") file.
 
 This is a simple textfile that contains a list of file names to ignore.
 
-Let's say I have a C project that builds and executable called "doom". I
+Let's say I have a C project that builds an executable called "doom". I
 wouldn't want to check that into my source repo because it's not source,
 and it's just a big binary that takes a bunch of disk.
 
