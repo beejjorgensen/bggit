@@ -136,7 +136,7 @@ $ git pull
 
 Git actually does something like this:
 
-```
+``` {.default}
 git fetch                # Get all the information from origin
 git merge origin/main    # Merge origin/main into main
 ```
@@ -151,13 +151,13 @@ do a rebase instead.
 
 And here's how:
 
-```
+``` {.default}
 $ git pull --rebase
 ```
 
 That causes these two things to happen:
 
-```
+``` {.default}
 git fetch                # Get all the information from origin
 git rebase origin/main   # Rebase main into origin/main
 ```
@@ -165,20 +165,20 @@ git rebase origin/main   # Rebase main into origin/main
 If you want that to be the default behavior for the current repo, you
 can run this one-time command:
 
-```
+``` {.default}
 $ git config pull.rebase true
 ```
 
 If you want it to be the default behavior for all repos, you can:
 
-```
+``` {.default}
 $ git config --global pull.rebase true
 ```
 
 If you've configured your repo to always rebase on a pull, you can
 override that to force a merge (if you want) with:
 
-```
+``` {.default}
 $ git pull --no-rebase  # Do a merge instead of a rebase
 ```
 
