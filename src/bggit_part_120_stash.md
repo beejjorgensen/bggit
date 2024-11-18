@@ -185,7 +185,7 @@ fn main() {
 }
 ```
 
-You can see our stashed changes below where were tried to fix it, but
+You can see our stashed changes below where we tried to fix it, but
 then we see that conflicts with Chris's fix from upstream.
 
 So we do the merge thing and make it *Right*, editing it to look the way
