@@ -90,7 +90,7 @@ Drawbacks:
 
 Initial setup:
 
-* One person makes the GitHub repo
+* One person makes the GitHub repo.
 * The owner of the GitHub repo adds all the team members as
   collaborators.
 * Everyone clones the repo.
@@ -138,7 +138,7 @@ Drawbacks:
 
 Initial setup:
 
-* One person makes the GitHub repo
+* One person makes the GitHub repo.
 * The owner of the GitHub repo adds all the team members as
   collaborators.
 * Everyone clones the repo.
@@ -270,7 +270,7 @@ Drawbacks:
 
 Initial setup:
 
-* One person makes the GitHub repo
+* One person makes the GitHub repo.
 * The owner of the GitHub repo adds all the team members as
   collaborators.
 * Everyone clones the repo.
