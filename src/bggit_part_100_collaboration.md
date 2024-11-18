@@ -63,7 +63,7 @@ a rule, but if you follow it, you will never have a merge conflict.
 As we've seen, it's not the end of the world if there is a merge
 conflict, but life sure is easier if they're just avoided.
 
-Takeaway: without good communication and a good distribution of work on
+Takeaway: Without good communication and a good distribution of work on
 your team, you're doomed. Make a plan where no one is stepping on toes,
 and stick to it.
 
