@@ -26,7 +26,7 @@ project's GitHub repo, so how can you change it?
 
 The process for someone making a pull request is:
 
-1. On GitHub: fork the repo. Now you have your own clone of it.
+1. On GitHub, fork the repo. Now you have your own clone of it.
 2. Clone your repo to your local machine. Now you have two clones of it:
    your fork on GitHub and its clone on your local machine.
 3. Make the fix on your local machine and test it.
