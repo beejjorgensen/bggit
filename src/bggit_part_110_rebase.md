@@ -53,7 +53,7 @@ made a new commit for everyone to see.
 Not only that, but now the commit graph forms a loop, so the history is
 a little more convoluted than perhaps we'd like it.
 
-What really would have been nice is if I could just taken commits *3*
+What really would have been nice is if I could just have taken commits *3*
 and *4* from `topic` and just somehow applied those changes to *2* on
 `main`. That is, could we pretend that instead of branching off *1* like
 `topic` did, that we instead branched off *2*?
@@ -147,7 +147,7 @@ machine.)
 
 But merging isn't the only thing you can do there. Given that this is
 the chapter on rebasing, you might correctly suspect that we can make it
-do a rebase, instead.
+do a rebase instead.
 
 And here's how:
 
@@ -343,7 +343,7 @@ $ git rebase --continue
 
 This pops me into my editor to edit the commit message. This is your
 opportunity to change the commit message if it no longer reflects the
-commit. (That is, if you changed the commit when you resolving the
+commit. (That is, if you changed the commit when resolving the
 conflict to be something entirely different, you might need to edit the
 message.) Edit it if necessary and save it.
 
@@ -606,7 +606,7 @@ bat. It's telling us that `foo.txt` conflicts.
 So you fix it up and then run `git rebase --continue` and edit the
 commit message, and get on with it.
 
-But that all does is move on to your *next* commit to `bar.txt` and try
+But all that does is move on to your *next* commit to `bar.txt` and try
 to rebase that. And it conflicts, too!
 
 So you fix it up and then run `git rebase --continue` and edit the
