@@ -297,8 +297,8 @@ Your coworkers will do something like this:
 3. Maybe make a new branch at the old branch point in case they need to
    return to see old soon-to-be-obliterated commits.
 4. Do a reset of the branch in question to the remote branch commit. For
-   example, if we're resetting the `main` branch, you would `git reset
-   --hard origin/main`.
+   example, if we're resetting the `main` branch, you would
+   `git reset --hard origin/main`.
 5. Pop their changes from the stash, if any.
 6. Maybe apply earlier commits that got obliterated[^318a].
 
