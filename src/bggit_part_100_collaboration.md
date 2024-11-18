@@ -273,6 +273,7 @@ Initial setup:
 * One person makes the GitHub repo.
 * The owner of the GitHub repo adds all the team members as
   collaborators.
+* The owner creates the `dev` branch.
 * Everyone clones the repo.
 * Everyone makes their own branch, possibly naming it after themselves.
 * Everyone pushes their branch to GitHub, making them remote-tracking
