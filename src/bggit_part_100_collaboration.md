@@ -53,7 +53,7 @@ and you'll figure it out in the school of hard knocks.
 [i[Communication]]
 
 Git can't save you from poor communication. The only way to minimize
-conflicts in a shared project to communicate with your team and clearly
+conflicts in a shared project is to communicate with your team and clearly
 assign different tasks to people in a non-conflicting way.
 
 Two people shouldn't generally be editing the same part of the same
