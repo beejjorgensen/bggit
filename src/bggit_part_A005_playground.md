@@ -100,7 +100,7 @@ We can `git add` it, we can `git commit` it, we can create branches, we
 can merge them and make conflicts and resolve them and `git rebase` and
 `git reset` and all kinds of stuff.
 
-We don't have a remote, so the only things we can't do involving pushing
+We don't have a remote, so the only things we can't do involve pushing
 and pulling.
 
 But it turns out we can even make that happen! Let's see how.
@@ -223,7 +223,7 @@ you can push from one and pull from the other to get the changes.
 You can even make conflicting changes and try to `git pull` or `git pull
 --rebase` and see how things go wrong and how to fix them.
 
-And if everything goes complete off the rails, you can just delete the
+And if everything goes completely off the rails, you can just delete the
 directories and start again. It's a playground!
 
 ## Automating Playground Builds
