@@ -61,7 +61,7 @@ same codebase.
 
   * "Add feature *X* to the codebase"
   * "Fix bug *Y*"
-  * "Merg other contributor's changes into the codebase"
+  * "Merge other contributor's changes into the codebase"
   * "Partially complete the Spanish translation"
 
 * **Repo**/**Source Code Repository**: This is where a particular
