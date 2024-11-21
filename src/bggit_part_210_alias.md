@@ -46,7 +46,7 @@ $ git logn
 and it will be an alias for `git log --name-only`, effectively running
 that command.
 
-I speculate that Git has a number of built-in command (like `log` and
+I speculate that Git has a number of built-in commands (like `log` and
 `push`) and if you try to have it run something that is not a built-in,
 it tries to find it as an `alias` variable. And if it does, it
 substitutes that instead. 99% sure that's what's happening under the

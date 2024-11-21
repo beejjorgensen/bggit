@@ -13,10 +13,10 @@ communication with your team.
 But if you never reset a branch you haven't pushed, you won't get into
 trouble.
 
-So what it is?
+So what is it?
 
 Doing a reset allows you change where the `HEAD` and your current branch
-point. You can move your current branch to a different commit!
+point to. You can move your current branch to a different commit!
 
 When you move a branch to another commit, the branch "becomes" the repo
 at the point of that commit, including all the history that led up to
@@ -220,7 +220,7 @@ rules for soft, mixed, and hard that we've already covered.
 ## Resetting Files
 
 So far, we've been just doing resets on a commit-by-commit basis. But we
-could also do mixed resets with specific files. We can't so hard or soft
+could also do mixed resets with specific files. We can't do hard or soft
 resets with specific files, though—sorry!
 
 For example, we can do a mixed reset to unstage a single file.
@@ -297,8 +297,8 @@ Your coworkers will do something like this:
 3. Maybe make a new branch at the old branch point in case they need to
    return to see old soon-to-be-obliterated commits.
 4. Do a reset of the branch in question to the remote branch commit. For
-   example, if we're resetting the `main` branch, you would `git reset
-   --hard origin/main`.
+   example, if we're resetting the `main` branch, you would
+   `git reset --hard origin/main`.
 5. Pop their changes from the stash, if any.
 6. Maybe apply earlier commits that got obliterated[^318a].
 
@@ -317,11 +317,11 @@ could do a mixed reset, for instance.
 
 We have basically two options to use with `git push` here:
 
-1. `--force`: just push the new branch position, [flw[damn the
+1. `--force`: Just push the new branch position, [flw[damn the
    torpedoes|Battle_of_Mobile_Bay#"Damn_the_torpedoes"]].
-2. `--force-with-lease`: only force push if the remote branch's position
+2. `--force-with-lease`: Only force push if the remote branch's position
    is what we expect. In other words, **don't** force push if someone
-   else has pushed a new commit in the meantime. This is a good safety
+   else has pushed a new commit in the meantime. This is a good safety measure
    because no one should have pushed a new commit in the meantime since
    you've been in communication with your team about this. ***Right?***
 

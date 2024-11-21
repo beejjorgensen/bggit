@@ -29,7 +29,7 @@ example), and then you'll _commit_ those changes to the _source code
 repo_ (repository) once the feature is ready. This saves the changes to
 the repo and allows other collaborators to see them.
 
-And if you ever change something you didn't want to, or your want to see
+And if you ever change something you didn't want to, or you want to see
 how things were implemented in the past, you can always _check out_ a
 previous commit and take a look.
 
@@ -42,7 +42,7 @@ But that's not all! As we'll see, Git also works well as a remote backup
 mechanism, and works wonderfully when cooperating with a team on the
 same codebase.
 
-Definitions:
+### Definitions:
 
 * **Source Code Control System**/**Version Control System**: Software
   that manages changes to a software project potentially consisting of
@@ -59,10 +59,10 @@ Definitions:
   
   Example commits might be:
 
-  * "Added feature *X* to the codebase."
-  * "Fixed bug *Y*."
-  * "Merged other contributor's changes into the codebase."
-  * "Partially completed the Spanish translation."
+  * "Add feature *X* to the codebase"
+  * "Fix bug *Y*"
+  * "Merg other contributor's changes into the codebase"
+  * "Partially complete the Spanish translation"
 
 * **Repo**/**Source Code Repository**: This is where a particular
   software project is stored in the source code control system.
@@ -94,14 +94,14 @@ Takeaway: GitHub is a web-based front-end to Git (specifically one that
 works on the copy of your repo at GitHub—stay tuned for more on that
 later).
 
-> **What about GitLib and Gitea?** [fl[GitLab|https://gitlab.com]] is a
+> **What about GitLab and Gitea?** [fl[GitLab|https://gitlab.com]] is a
 > competitor to GitHub. [fl[Gitea|https://docs.gitea.com/]] is an
 > open-source competitor that allows you to basically run a GitHub-like
 > front-end on your own server. None of this information is immediately
 > important.
 
 Regardless of whatever repos you have on GitHub, you'll also have copies
-(known as _clones_) of those repos on your local system for you to work
+(known as _clones_) of those repos on your local system to work
 on. Periodically, in a common workflow, you'll sync your copy of the
 repo with GitHub.
 
@@ -129,7 +129,7 @@ There's a super-common workflow that you'll use repeatedly:
 This is not the only workflow; there are others that are also not
 uncommon.
 
-Definitions:
+### Definitions:
 
 * **Clone** (verb): to make a copy of a remote repo locally.
 
@@ -172,7 +172,7 @@ an entire, existing GitHub repo.
 Making a clone is a one time-process, typically (though you can make as
 many as you want).
 
-Definitions:
+### Definitions:
 
 * **Distributed Version Control System**: A VCS in which there is no
   central authority of the data, and multiple clones of a repo exist.
@@ -353,7 +353,7 @@ on branch `main`. That's fine for now.
 
 It also tells us this branch is up to date with a branch called
 [i[Remotes-->`origin`]] `origin/main`. A branch in Git is just a
-reference to a certain commit that's been made, like a PostIt note
+reference to a certain commit that's been made, like a Post-It note
 attached to that commit. (Recall that a commit is a snapshot of the code
 repo at some time.)
 

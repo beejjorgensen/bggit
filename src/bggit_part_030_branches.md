@@ -214,7 +214,7 @@ even thinking about branching. Recalling that the `main` branch is just
 a label for a specific commit, how does the `main` branch know to
 "follow" our `HEAD` from commit to commit?
 
-It does it like this: the branch the `HEAD` points to follows the
+It does it like this: the branch that `HEAD` points to follows the
 current commit. That is, when you make a commit, the branch `HEAD`
 points to moves along to that next commit.
 
@@ -302,7 +302,7 @@ to that branch) with `git switch branchname`. But if the branch doesn't
 exist, you use the `-c` switch to create the branch before switching to
 it.
 
-> **ProTip**: make sure all your local changes are committed before
+> **ProTip**: Make sure all your local changes are committed before
 > switching branches! If you `git status` it should say "working tree
 > clean" before you switch. Later we'll learn about another option with
 > `git stash`.
@@ -341,7 +341,7 @@ That's not super exciting, since we're still looking at the same commit,
 but let's see what happens when we make some new commits on this new
 branch.
 
-> **Important note**: the branches we're making here exist only on your
+> **Important note**: The branches we're making here exist only on your
 > local clone; they're not automagically propagated back to wherever you
 > cloned the repo from.
 >
@@ -552,7 +552,7 @@ But that's another story.
 
 [i[Branches-->Deleting]]
 
-If you're done merging your branch, it's easy to delete it. **Importantly
+If you're done merging your branch, it's easy to delete it. **Importantly,
 this doesn't delete any commits; it just deletes the branch "label"
 so you can't use it any longer**. You can still use all the commits.
 
@@ -562,7 +562,7 @@ want to merge it into `main`. No problem:
 ``` {.default}
 $ git commit -m "finished with topic1"   # on topic1 branch
 $ git switch main
-$ get merge topic1                       # merge topic1 into main
+$ git merge topic1                       # merge topic1 into main
 ```
 
 At this point, assuming a completed merge, we can delete the `topic`

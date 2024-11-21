@@ -52,7 +52,7 @@ its own section in the output.
 > This isn't something you need to worry about, typically. Or maybe not
 > even ever.
 
-After that we have a couple lines indicating the that old version of the
+After that we have a couple lines indicating that the old version of the
 file `a/hello.py` is the one marked with minus signs, and the new
 version (that you haven't staged yet) is `b/hello.py` and is marked with
 plus signs.
@@ -116,8 +116,8 @@ happening so you can improve your understanding of how this works.
 A good mental model here is to imagine that the stage **must** have one
 of two things on it at all time, either of these:
 
-1. A copy of a file from the last commit. If this is the case, `git
-   status` will not show the file on the stage.
+1. A copy of a file from the last commit. If this is the case, `git status`
+   will not show the file on the stage.
 2. A copy of a file from the working tree, something modified from the
    last commit. In this case `git status` **will** show something on the
    stage.
@@ -228,7 +228,7 @@ $ git diff 27a3^!
 
 ### More Context
 
-By default, `git diff` shows 3 lines on context around the changes. If
+By default, `git diff` shows 3 lines of context around the changes. If
 you want to see more, like 5 lines, use the `-U` switch.
 
 ``` {.default}
@@ -325,7 +325,7 @@ changed since they diverged.
 
 ## Difftool
 
-Admittedly, that diff output is hard to read. I swear, though, you do
+Admittedly, this diff output is hard to read. I swear, though, you do
 get used to it. I use it all the time.
 
 That said, it can be nicer to see something more *visual*, you know,

@@ -105,7 +105,7 @@ environment variable or in SSH's somewhat-unrelated configuration).
 
 We haven't talked about this yet, but if you use your GPG key for
 signing you can specify which key is used if you get its fingerprint (or
-probably email or any other unique identifier recognized by GPG.
+probably email or any other unique identifier recognized by GPG).
 
 First find the secret key you're interested in:
 

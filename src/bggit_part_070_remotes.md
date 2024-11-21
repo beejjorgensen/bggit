@@ -5,7 +5,7 @@
 A _remote_ is just a name for a remote server you can clone, push, and
 pull from.
 
-We identify these by a URL; with GitHub, this is a URL we copied when we
+We identify these by a URL. With GitHub, this is a URL we copied when we
 went to clone the repo initially.
 
 It's possible to use this URL to identify the server in our Git usage,
@@ -149,7 +149,7 @@ reallinux    https://github.com/torvalds/linux.git (fetch)
 reallinux    https://github.com/torvalds/linux.git (push)
 ```
 
-> Normally when setting up a remote the refers to the source of a forked
+> Normally when setting up a remote that refers to the source of a forked
 > repo on GitHub, people tend to call that remote `upstream`, whereas
 > I've clearly called it `reallinux`.
 >

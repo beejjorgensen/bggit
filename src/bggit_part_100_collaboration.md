@@ -15,9 +15,9 @@ How can you all structure your work so that you're minimizing conflicts?
 There are a number of ways to do this.
 
 * Everyone is a collaborator on the repo, and:
-  * Everyone uses the same branch, probably `main`, or:
+  * Everyone uses the same branch, probably `main`, or
   * Everyone uses their own remote tracking branch and periodically
-    merges with the main branch, or:
+    merges with the main branch, or
   * Everyone uses their own remote tracking branch and periodically
     merges with a development branch, which itself is periodically
     merged into `main` for each official release.
@@ -53,7 +53,7 @@ and you'll figure it out in the school of hard knocks.
 [i[Communication]]
 
 Git can't save you from poor communication. The only way to minimize
-conflicts in a shared project to communicate with your team and clearly
+conflicts in a shared project is to communicate with your team and clearly
 assign different tasks to people in a non-conflicting way.
 
 Two people shouldn't generally be editing the same part of the same
@@ -63,7 +63,7 @@ a rule, but if you follow it, you will never have a merge conflict.
 As we've seen, it's not the end of the world if there is a merge
 conflict, but life sure is easier if they're just avoided.
 
-Takeaway: without good communication and a good distribution of work on
+Takeaway: Without good communication and a good distribution of work on
 your team, you're doomed. Make a plan where no one is stepping on toes,
 and stick to it.
 
@@ -90,7 +90,7 @@ Drawbacks:
 
 Initial setup:
 
-* One person makes the GitHub repo
+* One person makes the GitHub repo.
 * The owner of the GitHub repo adds all the team members as
   collaborators.
 * Everyone clones the repo.
@@ -138,7 +138,7 @@ Drawbacks:
 
 Initial setup:
 
-* One person makes the GitHub repo
+* One person makes the GitHub repo.
 * The owner of the GitHub repo adds all the team members as
   collaborators.
 * Everyone clones the repo.
@@ -270,9 +270,10 @@ Drawbacks:
 
 Initial setup:
 
-* One person makes the GitHub repo
+* One person makes the GitHub repo.
 * The owner of the GitHub repo adds all the team members as
   collaborators.
+* The owner creates the `dev` branch.
 * Everyone clones the repo.
 * Everyone makes their own branch, possibly naming it after themselves.
 * Everyone pushes their branch to GitHub, making them remote-tracking

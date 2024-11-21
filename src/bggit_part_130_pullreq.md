@@ -26,7 +26,7 @@ project's GitHub repo, so how can you change it?
 
 The process for someone making a pull request is:
 
-1. On GitHub: fork the repo. Now you have your own clone of it.
+1. On GitHub, fork the repo. Now you have your own clone of it.
 2. Clone your repo to your local machine. Now you have two clones of it:
    your fork on GitHub and its clone on your local machine.
 3. Make the fix on your local machine and test it.
@@ -58,7 +58,7 @@ this:
 > **This can be done with impunity.** That is, you've made your own fork
 > but the original owner is unaware that you did. You can delete it with
 > no damage to the original repo. Remember that a fork is a clone on
-> GitHub that you have ownership of independent of the original repo.
+> GitHub that you have ownership of, independent of the original repo.
 
 At this point, you should land on the project page for your fork, and
 the fine print on the page reads: "forked from
@@ -225,7 +225,7 @@ When you do, you can visit your project page on GitHub and decide what
 to do with the PR.
 
 At the top of the project page, you'll see a "Pull requests" button with
-a number next to indicating how many PRs are currently outstanding.
+a number next to it indicating how many PRs are currently outstanding.
 
 * Click the button to see the list.
 * Click on a PR title to get to the PR.

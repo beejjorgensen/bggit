@@ -139,8 +139,8 @@ $ git status
 
 So what we can do here is one of these:
 
-* Edit the file, fix the conflict, then `git add` it, then `git revert
-  --continue` to go to the next commit to be reverted (if any).
+* Edit the file, fix the conflict, then `git add` it, then
+  `git revert --continue` to go to the next commit to be reverted (if any).
 * Bail out completely with `git revert --abort`.
 * Skip reverting this particular commit with `git revert --skip`. If you
   skip all the commits you were reverting, it's just like an abort.

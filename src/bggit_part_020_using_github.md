@@ -34,7 +34,7 @@ This will make a repository on GitHub that you own. It does not make a
 local repository—you'll have to clone the repo for that, something we'll
 do later.
 
-In GitHub, there's a blue `New` button on the left of the dashboard.
+In GitHub, there's a green `New` button on the left of the dashboard.
 
 Also, there's a `+` pulldown on the upper right center that has a "New
 Repository" option. Click one of those.
@@ -155,7 +155,7 @@ them.
 > secure, then you don't need a password on the key. Do you feel lucky?
 >
 > Setting up the key agent is outside the scope of this document, and
-> the author in unsure of how it even works in WSL. [fl[GitHub has
+> the author is unsure of how it even works in WSL. [fl[GitHub has
 > documentation on the
 > matter|https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent]].
 >
@@ -195,7 +195,7 @@ The key's randomart image is:
 
 > **What's that randomart thing with all the weird characters?** It's a
 > visual representation of that key. There are ways to configure SSH so
-> that you see the randomart every time you log in, say. And the idea is
+> that you see the randomart every time you log in. And the idea is
 > that if one day you see it looks different, something could be amiss
 > security-wise. I doubt most people every look at it again once it's
 > been generated, though.
@@ -267,7 +267,7 @@ Remember last chapter when we tried to clone an HTTPS repo URL on the
 command line and it prompted for a username and password that didn't
 work?
 
-Well, we get actually make new passwords that *will* work in that case.
+Well, we get to actually make new passwords that *will* work in that case.
 They're called *personal access tokens*.
 
 [fl[GitHub has a lot of documentation on
@@ -296,7 +296,7 @@ One of the main things personal access tokens can give you is
 fine-grained control over access. You can limit access to read-only, or
 just to certain repos, and so on.
 
-Additionally, you can use GitHub CLI authentication with a token, as
+Additionally, you can use GitHub CLI authentication with a token as
 well. You just have to feed it in there on standard input. Let's say you
 have your token in a file called `mytoken.txt`. You can authenticate
 with GitHub CLI like so:
@@ -322,7 +322,7 @@ your `test-repo` repo. Click on the name.
 And you should then be on the repo page. You can browse the files here,
 among other things, but really we want to get the clone URL.
 
-Click the big blue "Code" button.
+Click the big green "Code" button.
 
 What you do next depends on if you're using GitHub CLI or SSH keys.
 
@@ -364,7 +364,7 @@ You have two options.
 
 If you set up an SSH key earlier, you can use this method.
 
-After hitting the blue "Code" button, make sure the "SSH" tab is
+After hitting the green "Code" button, make sure the "SSH" tab is
 selected.
 
 Copy that URL.

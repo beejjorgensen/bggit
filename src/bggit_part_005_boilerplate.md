@@ -19,7 +19,7 @@
 
 # Foreword
 
-Hello again, everyone! In my role as as industry
+Hello again, everyone! In my role as an industry
 professional-turned-college instructor, I definitely see my fair share
 of students struggling with Git.
 
@@ -51,7 +51,7 @@ reading this) as an instructor. So it's pretty natural to assume that's
 the audience I had in mind.
 
 But I'm also hoping that there are enough other folks out there who
-might get something of use from the guide, as well, and I've written it
+might get something of use from the guide as well, and I've written it
 in a more general sense with all you non-college students in mind.
 
 This guide assumes that you have basic POSIX shell (i.e. Bash, Zsh,
@@ -160,7 +160,7 @@ The hardest things about writing these guides are:
 * Keeping at it when so many other things draw my attention
 
 A lot of people have helped me through this process, and I want to
-acknowledge those who have made this book possible.
+acknowledge those who have made this book possible:
 
 * Everyone on the Internet who decided to help share their knowledge in
   one form or another. The free sharing of instructive information is
