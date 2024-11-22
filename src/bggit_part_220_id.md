@@ -139,3 +139,28 @@ git config set user.signingkey ABCDEF0123456789
 
 Then when you sign the commits, that key will be used.
 
+## Changing your SSH Key
+
+This is also something we haven't talked about yet. But if it's all set
+up for you, read on.
+
+There are two parts to this:
+
+1. Change the key to use (similar to how it's done in the GPG section,
+   above.
+
+2. Make sure your `allowed_signers` file has your current email and key
+   in it. (You only have to do this if you want to verify signatures
+   locally.)
+
+Part one is easy. Just find the path to your public key in your `~/.ssh`
+directory and set the config variable `user.signingkey` to that.
+
+``` {.default}
+git config set user.signingkey '~/.ssh/id_ed25519_signing_key.pub'
+```
+
+Part two is if you have your `allowed_signers` file set up. You'll have
+to make sure it contains a line that has your current `user.email`
+config variable and a copy of the public key to use.
+
