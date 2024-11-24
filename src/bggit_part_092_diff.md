@@ -332,4 +332,4 @@ difficult to imagine. But it does!
 
 That said, there are third-party tools that exist to make diffs more
 manageable, and Git supports these tools. You can read more about it in
-the [(diff tool](#difftool) chapter.
+the [diff tool](#difftool) chapter.
