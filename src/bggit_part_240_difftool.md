@@ -85,18 +85,17 @@ standard place.
 ## Available Difftools
 
 There are a number of diff tools out there you can choose from. Here's a
-partial list, with the caveat that I've only ever used
-Vimdiff.
+partial list, with the caveat that I've only ever used Vimdiff.
 
-* Vimdiff (comes with [fl[Vim|https://www.vim.org/]])
-* [fl[Kompare|https://apps.kde.org/kompare/]]
-* [fl[WinMerge|https://winmerge.org/?lang=en]]
-* [fl[Meld|https://meldmerge.org/]]
-* [fl[Kdiff3|https://kdiff3.sourceforge.net/]]
+* [fl[Araxis Merge|https://www.araxis.com/merge/index.en]]
 * [fl[Beyond Compare|https://www.scootersoftware.com/]]
 * [fl[DiffMerge|https://sourcegear.com/diffmerge/]]
+* [fl[Kdiff3|https://kdiff3.sourceforge.net/]]
+* [fl[Kompare|https://apps.kde.org/kompare/]]
+* [fl[Meld|https://meldmerge.org/]]
 * [fl[P4Merge|https://www.perforce.com/products/helix-core-apps/merge-diff-tool-p4merge]]
-* [fl[Araxis Merge|https://www.araxis.com/merge/index.en]]
+* Vimdiff (comes with [fl[Vim|https://www.vim.org/]])
+* [fl[WinMerge|https://winmerge.org/?lang=en]]
 
 Some of these are free, some are paid, and some are free trial.
 

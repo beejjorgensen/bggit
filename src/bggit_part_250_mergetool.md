@@ -70,14 +70,14 @@ finish the merge.
 There are a lot of them, and I'll include some links here in
 alphabetical order. Cross-platform unless otherwise noted.
 
-* [fl[Meld|https://meldmerge.org/]]
-* [fl[KDiff3|https://invent.kde.org/sdk/kdiff3]]
-* [fl[Beyond Compare|https://www.scootersoftware.com/]]
-* [fl[WinMerge|https://winmerge.org/]]—Windows
 * [fl[Araxis Merge|https://www.araxis.com/merge/index.en]]—Windows, Mac
+* [fl[Beyond Compare|https://www.scootersoftware.com/]]
+* [fl[Code Compare|https://www.devart.com/codecompare/]]—Windows
+* [fl[KDiff3|https://invent.kde.org/sdk/kdiff3]]
+* [fl[Meld|https://meldmerge.org/]]
 * [fl[P4Merge|https://www.perforce.com/products/helix-core-apps/merge-diff-tool-p4merge]]
 * [fl[Vimdiff|https://www.vim.org/]]
-* [fl[Code Compare|https://www.devart.com/codecompare/]]—Windows
+* [fl[WinMerge|https://winmerge.org/]]—Windows
 
 In addition, IDEs like VS Code and IntelliJ often have their own
 built-in merge tools that work independent of Git (no need to configure
