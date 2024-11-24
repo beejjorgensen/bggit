@@ -207,8 +207,11 @@ got stuff staged before you were done, use `git checkout --merge` with
 the file in question to get it off the stage and back to "both modified"
 state.
 
-And now the changes are made and you can finish the merge with a commit
-as per usual.
+If there are multiple conflicting files, Git will bring up the merge
+tool again to handle the next file in line.
+
+And when you're done, the changes are made and you can finish the merge
+with a commit as per usual.
 
 But wait—what's that `.orig` file that wasn't there before? Read on!
 
