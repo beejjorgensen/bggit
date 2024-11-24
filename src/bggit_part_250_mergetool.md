@@ -94,7 +94,7 @@ the proper config for other tools.
 > **This isn't a Vim tutorial.** So I'm just going to assume you know
 > how to do things like save files and quit. I will say that to switch
 > windows in Vim you use `CTRL-W` followed by a cursor direction, such
-> as `CTRL-W` followed by `l` to move to the window to the right.
+> as `CTRL-W` followed by `h` to move to the window to the left.
 
 First things first, let's set up the configuration.
 
