@@ -8,7 +8,7 @@ will give you a graphical display showing your changes, the conflicting
 changes, and the desired result of the merge. And it shows it in an
 easy-to-digest form.
 
-> **Personally, I dislike merge tools.*** That seems nuts, but let me
+> **Personally, I dislike merge tools.** That seems nuts, but let me
 > explain a moment. When you're in a merge conflict, the only thing you
 > have to do is edit those files with the `=====` delimiters and make
 > them _Right_, remember? You have to modify the file until it is
@@ -52,6 +52,13 @@ And they all tend to have the same core operations:
 * **Choose theirs**—copy _their_ conflicting changes into the final
   result, i.e. your changes are _Right_.
 
+In terms of usage, here's what we're going to do, assuming that the
+merge tool starts you at the first conflict when it is launched:
+
+1. Choose either "yours" or "theirs" to keep the _Right_ changes.
+2. Go to the next conflict.
+3. Repeat from Step 1 until all conflicts are resolved.
+
 After you've gone through all the conflicts and chosen one or the other,
 make sure the final result is _Right_ and then save/finish the result.
 
@@ -60,13 +67,34 @@ finish the merge.
 
 ## Some Example Merge Tools
 
-TODO
+There are a lot of them, and I'll include some links here in
+alphabetical order. Cross-platform unless otherwise noted.
+
+* [fl[Meld|https://meldmerge.org/]]
+* [fl[KDiff3|https://invent.kde.org/sdk/kdiff3]]
+* [fl[Beyond Compare|https://www.scootersoftware.com/]]
+* [fl[WinMerge|https://winmerge.org/]]—Windows
+* [fl[Araxis Merge|https://www.araxis.com/merge/index.en]]—Windows, Mac
+* [fl[P4Merge|https://www.perforce.com/products/helix-core-apps/merge-diff-tool-p4merge]]
+* [fl[Vimdiff|https://www.vim.org/]]
+* [fl[Code Compare|https://www.devart.com/codecompare/]]—Windows
+
+In addition, IDEs like VS Code and IntelliJ often have their own
+built-in merge tools that work independent of Git (no need to configure
+anything in Git).
 
 ## Using Vimdiff as a Merge Tool
 
 We'll do a quick run-through of using Vimdiff as a merge tool since it
 covers all the bases and has some tricky configuration. Other
-third-party tools (except VS Code) would have a similar configuration.
+third-party tools (except VS Code and other IDEs with this functionality
+built-in) would have a similar configuration. Search the Internet for
+the proper config for other tools.
+
+> **This isn't a Vim tutorial.** So I'm just going to assume you know
+> how to do things like save files and quit. I will say that to switch
+> windows in Vim you use `CTRL-W` followed by a cursor direction, such
+> as `CTRL-W` followed by `l` to move to the window to the right.
 
 First things first, let's set up the configuration.
 
@@ -78,8 +106,6 @@ $ git config --global set mergetool.vimdiff.cmd \
 
 (Second command split to fit in the book margins—it could be on a single
 line.)
-
-Search the Internet for the proper config for other tools.
 
 Once that's in place, let's say we have a merge conflict.
 
@@ -112,7 +138,79 @@ But since we've set up our merge tool, let's use it:
 $ git mergetool
 ```
 
-TODO
+> **If Git is prompting you to ask if you really want to run the merge
+> tool** (which you presumably do since you just ran `git mergetool`),
+> you can turn off that "feature" with this config command:
+>
+> ``` {.default}
+> $ git config --global set mergetool.prompt false
+> ```
+ 
+<!-- ` -->
+
+This is going to bring up a Vim window with three panels. The left is
+your local changes, the middle is the file as it exists in the repo, and
+the right is the result of the merge.
+
+The goal is to make the one on the right look _Right_. Now, you could
+just do that outright by modifying the file there, but at that point,
+why even use a merge tool?
+
+So we'll follow the steps we outlined earlier.
+
+When we first run `git mergetool`, we get dropped at the first conflict
+with the cursor in the left window. The left window holds the changes we
+made.
+
+In the middle window, we'll see the corresponding changes that are in
+the repo.
+
+And in the right repo, we see what will be staged when we're done. Right
+now in the right window, we see all the `=====` and `<<<<<` stuff. But
+we'll change that in a moment.
+
+*Move the cursor to the right window.* This is where the action will be.
+
+Make sure the cursor is on a highlighted section (which probably will be
+in multiple colors). This highlighted section is what we'll replace.
+
+Let's choose which change to use.
+
+If you want to keep your changes (and ditch the ones in the repo), use
+this Vim command:
+
+``` {.default}
+:diffget LOCAL
+```
+
+If you want to discard your changes (and keep the ones in the repo), use
+this command:
+
+``` {.default}
+:diffget REMOTE
+```
+
+When you run one of those, you'll see the content in the right window
+change to what you wanted.
+
+And then you can go to the next conflict with `]c`. (or to the previous
+with `[c`.)
+
+Do this until the right window is _Right_. Note that you are also free
+to edit the right window directly all you want.
+
+When you're done, save the right window and quit all the windows.
+
+**Importantly** the second you exit the merge tool, Git will stage
+whatever you saved in the rightmost window. If you exited too soon and
+got stuff staged before you were done, use `git checkout --merge` with
+the file in question to get it off the stage and back to "both modified"
+state.
+
+And now the changes are made and you can finish the merge with a commit
+as per usual.
+
+But wait—what's that `.orig` file that wasn't there before? Read on!
 
 ## Backing up the Originals
 
