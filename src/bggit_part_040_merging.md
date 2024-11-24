@@ -295,7 +295,22 @@ Notice that `git status` is telling me we're still in the merging state,
 but I've resolved the conflicts. It tells me to `git commit` to finish
 the merge.
 
-So let's do that, making the merge commit:
+> **What if I added the conflict file too soon?** For example, what if
+> you add it but then you realize there are still unresolved conflicts
+> or the file isn't _Right_? If you haven't committed yet, you have a
+> couple options. (If you have committed, all you can do is reset or
+> revert.)
+>
+> One option is to just edit the file again, and re-add it when it's
+> done. (After editing the file will show up as a "change not staged for
+> commit" until you add it again.)
+>
+> Another option is to move the file off the stage with `git checkout
+> --merge` on the file to get it back to the "both modified" state.
+> Helpfully, this won't delete the changes you already added. This is
+> especially useful if you're using a [merge tool](#mergetool).
+
+So now that we've added the file, let's make the merge commit:
 
 ``` {.default}
 $ git commit -m "Merged with newbranch"
@@ -372,6 +387,9 @@ before making the final commit to complete the merge.
 You can do this by, after the tool has been used to merge, opening the
 file again in a new window and making sure it's as you want it, and
 editing it to be if it's not.
+
+For more information about merge tools, see the [Mergetool](#mergetool)
+chapter.
 
 ## Merge Big Ideas
 
