@@ -34,7 +34,7 @@ represented in that submodule's tree.
 The canonical use case for this is when your project depends on a
 library that you also have the source for. You can include the library's
 repo as a submodule of your repo, and effectively pin it to a particular
-version.
+version (specifically to a particular commit).
 
 For example, maybe your code works with FooLib version 3.4.90. So you
 include FooLib as a submodule and make sure it's locked to that version.
@@ -53,5 +53,20 @@ TODO:
 * Easy thing to do is just update the submodule from its own location
   and updated
 * Updating the submodule from the submodule directory
-* Deleting a submodule from a repo`
+* Deleting a submodule from a repo
+* +/-
+* Different submodule branches
 
+```
+git submodule add
+git submodule init
+git submodule update
+git submodule update --init
+git submodule update --recursive --init
+git submodule update --remote
+git pull --recurse-submodules
+git clone --recurse-submodules
+git submodule status
+git submodule add -b <branch> <repository> <path>
+git submodule foreach git status
+```
