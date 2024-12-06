@@ -14,6 +14,11 @@ Example repo with submodule:
 
 # TODO
 
+* Update example in chapter 2 so that source matches the actual example
+  repo.
+* Stop using `git checkout` in chapter 4 or anywhere else where switch
+  should be used.
+
 ## Still to Write
 
 * submodules
