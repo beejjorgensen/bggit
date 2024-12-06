@@ -203,6 +203,54 @@ $ git clone --recurse-submodules test_repo test_repo2
 
 After that you can `cd` into `test_repo2` and see the submodule there.
 
+> **Can I Make a Local Repo a Submodule?** No! Git prohibits that
+> because there's some security risk there that, to be honest, I haven't
+> really read about. There's supposed to be a way to override that with
+> a config setting, which I thought would be quite useful for messing
+> around to see how submodules worked, but apparently that config
+> setting doesn't work. So you'll have to use remote repos for submodules.
+
+## Setting the Commit for the Submodule
+
+What does this section even mean?
+
+Here's the deal: the containing repo refers to a specific commit within
+the submodule. That is, the submodule is always checked out to a
+particular commit as defined in the containing repo. (The submodule
+`HEAD` might be attached to a branch, but it also very well might not
+be.)
+
+The upshot of this is that when we make a repo with a submodule, we get
+to dictate which exact commit of that submodule our repo is using. And
+then, importantly, when someone clones our repo, they'll be looking at
+the submodule at the exact same commit as we are.
+
+This lets us do things like choose a very particular version of a
+library as a submodule, and then everyone who clones our repo will get
+that same version _regardless of whether or not the submodule repo was
+changed elsewhere_.
+
+We effectively lock our submodule to a particular commit. And we
+probably want to do that so that someone else developing the submodule
+on the side doesn't introduce some change that breaks our containing
+repo's build.
+
+How do we do that? It's pretty easy:
+
+1. Go to the submodule directory.
+2. Switch to the commit that you want to use. You can refer to this
+   commit by branch name, UUID, tag, or any other thing that `git
+   switch` takes. Use `--detach` if you're detaching the `HEAD`.
+3. Go back to the containing module directory.
+4. Add the submodule directory.
+5. Commit.
+
+If you want to mess around with this using my test repos on GitHub, be
+sure to fork them first so you have write access.
+
+TODO finish this section
+
+
 TODO:
 * Setting the commit for the submodule
 * Updating to the latest
