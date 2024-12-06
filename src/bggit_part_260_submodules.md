@@ -44,9 +44,97 @@ have version 3.4.90 available to build against.
 Then later when you're ready, you can update the submodule to the latest
 version, say 4.0.1, and lock that one in place.
 
+It's important to note that a submodule is just another regular Git
+repo. Nothing special about it. The only thing that's notable is that
+we've decided to effectively clone it inside another repo, and logically
+tie it to that repo.
+
+## Using a Repo with Submodules
+
+Let's start by talking about what happens when you clone a repo that
+already uses submodules. In this case, someone else has done the work of
+putting the repo together with its submodules, but you have to do a
+little bit of extra effort after cloning it so you get all the
+submodules, as well.
+
+Later we'll talk about how to add submodules to a project.
+
+Luckily, for demonstration purposes, I have a repo you can clone that
+already has a submodule defined within it. (Fork the repo before you
+clone it if you want to be able to push back.)
+
+Let's say you already know that the repo you're about to clone has
+submodules. (Because someone told you it did.) You can then clone with a
+flag saying you want to get all the submodule repos, too, please. You do
+this with the `--recurse-submodules` switch:
+
+``` {.default}
+$ git clone --recurse-submodules \
+        git@github.com:beejjorgensen/git-example-submodule-repo.git
+```
+
+(Above command split into two lines to fit in the margins.)
+
+And that will clone the repo in question, and it will also clone all
+repos listed as submodules of that repo. Go ahead and run it—it's a real
+repo you can clone.
+
+After you run it and go into the repo directory, you'll see a
+`git-example-repo` directory in there. That's a completely separate repo
+inside this one as a submodule. You can `cd` into it and look at the
+files!
+
+> **Any Git commands you run in the submodule directory tree apply only
+> to the submodule!** Be extra careful making commits in the submodule
+> directory tree—`HEAD` commonly gets detached with submodules. More on
+> that later.
+
+But let's say you forget to specify `--recurse-submodules`, or you just
+plain didn't realize there were submodules here. Not to worry! You can
+get them after the fact. The above command is the same as these two (or
+three) commands:
+
+``` {.default}
+$ git clone \
+        git@github.com:beejjorgensen/git-example-submodule-repo.git
+$ cd git-example-submodule-repo
+$ git submodule update --recursive --init
+```
+
+That will also get the submodules cloned. (`--recursive` is in case the
+submodules have submodules (!!) and the `--init` does some necessary
+bookkeeping work in your local repo. How's that for a handwavy
+statement?))
+
+And for now, that might be enough for you to get to work! All you really
+needed to build the existing project was the repo and its submodules,
+and you might not be in charge of the submodules and just need them to
+exist for the build. So now you can get to work.
+
+But in case you need to do more, read on!
+
+## Creating a Submodule
+
+Let's say you have a repo already, but you've decided you want to
+include another repo as a submodule.
+
+Again, a use case for this might be if your main repo project depends on
+another one for the build, e.g. like a library. And you don't want to
+use the binary form of the library (or maybe it doesn't exist), so you
+need to build it.
+
+If you didn't use submodules, anyone who wanted to build your repo would
+need to also clone the library repo and juggle all that. Wouldn't it be
+nicer if they could just add that `--recurse-submodules` flag to their
+`clone` command and have it all set up an ready to build?
+
+So let's go through the steps of adding a submodule to an existing repo
+and see how that all works.
+
+Feel free to use my TODO
+
 TODO:
 * Creating a new one
-* Cloning one
 * Setting the commit for the submodule
 * Updating to the latest
 * Recursive updates
