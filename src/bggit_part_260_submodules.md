@@ -131,10 +131,79 @@ nicer if they could just add that `--recurse-submodules` flag to their
 So let's go through the steps of adding a submodule to an existing repo
 and see how that all works.
 
-Feel free to use my TODO
+Feel free to use my sample repo as your submodule, use one of your own,
+or anyone else's. No one knows when you make a submodule out of their
+repo.
+
+First, let's create a new repo for testing and put a commit in there for
+fun:
+
+``` {.default}
+$ git init test_repo
+  Initialized empty Git repository in /frotz/test_repo/.git/
+$ cd test_repo
+$ echo Hello, world > foo.txt
+$ git add foo.txt
+$ git commit -m added
+```
+
+And let's add a submodule!
+
+``` {.default}
+$ git submodule add \
+                  git@github.com:beejjorgensen/git-example-repo.git
+  Cloning into '/home/beej/tmp/test_repo/git-example-repo'...
+  remote: Enumerating objects: 4, done.
+  remote: Counting objects: 100% (4/4), done.
+  remote: Compressing objects: 100% (3/3), done.
+  remote: Total 4 (delta 0), reused 4 (delta 0), pack-reused 0 (from 0)
+  Receiving objects: 100% (4/4), done.
+```
+
+There you go! Well, almost, anyway. Let's check our status:
+
+``` {.default}
+$ git status
+  On branch main
+  Changes to be committed:
+    (use "git restore --staged <file>..." to unstage)
+	  new file:   .gitmodules
+	  new file:   git-example-repo
+```
+
+What are those things on the stage? Well, `git-example-repo` is the
+submodule. It's a little strange because Git is calling it a "file" when
+it's a directory, but that's just part of the special treatment
+submodules get.
+
+And there's another file in there called `.gitmodules` that holds
+information about all the submodules you've added.
+
+Both of these files (treating `git-example-repo` like a file) should be
+committed to your repo so that other people who clone it get the
+submodule information.
+
+``` {.default}
+$ git commit -m "added submodule"
+  [main cedea64] added submodule
+   2 files changed, 4 insertions(+)
+   create mode 100644 .gitmodules
+   create mode 160000 git-example-repo
+```
+
+Now you're set! Anyone who clones the repo gets that submodule
+information.
+
+You can even do it with your test repo. Change directory to the parent
+of the test repo and clone it:
+
+``` {.default}
+$ git clone --recurse-submodules test_repo test_repo2
+```
+
+After that you can `cd` into `test_repo2` and see the submodule there.
 
 TODO:
-* Creating a new one
 * Setting the commit for the submodule
 * Updating to the latest
 * Recursive updates
