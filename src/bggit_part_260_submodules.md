@@ -208,7 +208,8 @@ After that you can `cd` into `test_repo2` and see the submodule there.
 > really read about. There's supposed to be a way to override that with
 > a config setting, which I thought would be quite useful for messing
 > around to see how submodules worked, but apparently that config
-> setting doesn't work. So you'll have to use remote repos for submodules.
+> setting doesn't work as of late 2024. So you'll have to use remote
+> repos for submodules.
 
 ## Setting the Commit for the Submodule
 
