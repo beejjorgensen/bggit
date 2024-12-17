@@ -104,7 +104,7 @@ $ git submodule update --recursive --init
 That will also get the submodules cloned. (`--recursive` is in case the
 submodules have submodules (!!) and the `--init` does some necessary
 bookkeeping work in your local repo. How's that for a handwavy
-statement?))
+statement?)
 
 And for now, that might be enough for you to get to work! All you really
 needed to build the existing project was the repo and its submodules,
@@ -249,15 +249,139 @@ How do we do that? It's pretty easy:
 If you want to mess around with this using my test repos on GitHub, be
 sure to fork them first so you have write access.
 
-TODO finish this section
+Let's do the same thing we did in the last section and create the
+`test_repo` repo.
+
+And then do the `clone` into `test_repo2` just so we have two to mess
+with. (Don't forget the `--recurse-submodules` flag!)
+
+> **We're cloning a non-bare repo, which is weird.** It's OK to clone
+> it—the Git Police aren't going to show up. You just won't be able to
+> push to it. And that's perfectly good enough for this demo. But it's
+> something that you wouldn't normally do.
+
+> **Also notice the detached `HEAD` in the cloned submodule repo!** If
+> you look in `test_repo2/git-example-repo` and do a `git log`, you'll
+> see this on the first line:
+>
+> ``` {.default}
+> (HEAD, origin/main, origin/HEAD, main)
+> ```
+> <~-- ` -->
+>
+> See how `HEAD` is detached from `main`?
+>
+> Now, I'd be lying if I said I knew the exact rules for when the `HEAD`
+> in a submodule gets detached, but it's not uncommon. In fact, you
+> should just generally assume it's detached and attach it to a branch
+> if you have to. More on this later.
+
+Now in `test_repo`, let's go into the submodule directory and check out
+an earlier version of the submodule repo. In this case, we'll just check
+out the previous commit from `main`.
+
+``` {.default}
+$ cd test_repo/git-example-repo
+$ git log
+  commit cd1bf77d2ef08115b18d7f15a9c172dace1b2222
+                           (HEAD -> main, origin/main, origin/HEAD)
+  Author: Brian "Beej Jorgensen" Hall <beej@beej.us>
+  Date:   Fri Dec 6 15:07:43 2024 -0800
+
+      very important clarification
+
+  commit d8481e125e6ef49e2fa8041b16b9dd3b8136b550
+  Author: Brian "Beej Jorgensen" Hall <beej@beej.us>
+  Date:   Fri Dec 6 15:07:13 2024 -0800
+
+      improve functionality
+
+  commit 433252748b7f9bf85e556a6a0196cdf38198fc43
+  Author: Brian "Beej Jorgensen" Hall <beej@beej.us>
+  Date:   Fri Jan 26 13:30:08 2024 -0800
+
+      Added
+```
+
+Let's move this to the earlier commit.
+
+``` {.default}
+$ git switch --detach d8481e
+  HEAD is now at d8481e1 improve functionality
+```
+
+So far so good. Now let's `cd` back to the containing repo and have a
+look at where we stand.
+
+``` {.default}
+$ cd ..
+$ git status
+  On branch main
+  Changes not staged for commit:
+    (use "git add <file>..." to update what will be committed)
+    (use "git restore <file>..." to discard changes in working
+    directory)
+	  modified:   git-example-repo (new commits)
+
+  no changes added to commit (use "git add" and/or "git commit -a")
+```
+
+Look at that! The submodule directory is listed as modified. It says
+"new commits", but that's just telling us that "things have changed
+in the submodule from the commit that I was locked onto before"
+
+So let's add that and commit it.
+
+``` {.default}
+$ git add git-example-repo
+$ git commit -m "update submodule commit"
+  [main dd69bb8] update submodule commit
+   1 file changed, 1 insertion(+), 1 deletion(-)
+```
+
+And now let's pull those changes in our clone, `test_repo2`—note the
+`--recurse-submodule` option on the pull!
+
+``` {.default}
+$ cd ../test_repo2
+$ git pull --recurse-submodules
+  Fetching submodule git-example-repo
+  Already up to date.
+  Submodule path 'git-example-repo': checked out'
+                         'd8481e125e6ef49e2fa8041b16b9dd3b8136b550'
+```
+
+And now on `test_repo2` if we jump into the `git-example-repo`
+submodule, we can check the log:
+
+``` {.default}
+$ git log
+  commit d8481e125e6ef49e2fa8041b16b9dd3b8136b550 (HEAD)
+  Author: Brian "Beej Jorgensen" Hall <beej@beej.us>
+  Date:   Fri Dec 6 15:07:13 2024 -0800
+
+      improve functionality
+
+  commit 433252748b7f9bf85e556a6a0196cdf38198fc43
+  Author: Brian "Beej Jorgensen" Hall <beej@beej.us>
+  Date:   Fri Jan 26 13:30:08 2024 -0800
+
+      Added
+```
+
+And we see `HEAD` is on commit `d8481e`, just like we set it to in
+`test_repo`. (And we also do not see `main`. It's the child commit from
+where `HEAD` is now, so it's not appearing in the log. We could still
+switch to it if we wanted, of course.)
+
+What have we done? We've changed the commit the submodule is locked at
+in one repo, and then we've pulled that change into another repo!
 
 
 TODO:
-* Setting the commit for the submodule
 * Updating to the latest
 * Recursive updates
 * Easy thing to do is just update the submodule from its own location
-  and updated
 * Updating the submodule from the submodule directory
 * Deleting a submodule from a repo
 * +/-
