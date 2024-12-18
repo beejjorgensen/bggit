@@ -18,9 +18,10 @@ Example repo with submodule:
   repo.
 * Stop using `git checkout` in chapter 4 or anywhere else where switch
   should be used.
+* Index everything
+* Normalize quotes
 
 ## Still to Write
 
-* submodules
-* Git in VS Code
 * Reference section
+* Git in VS Code? Appendix?
