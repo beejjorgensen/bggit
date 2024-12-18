@@ -102,10 +102,17 @@ First things first, let's set up the configuration.
 $ git config --global set merge.tool vimdiff
 $ git config --global set mergetool.vimdiff.cmd \
                              'vimdiff "$LOCAL" "$REMOTE" "$MERGED"'
+$ git config --global set difftool.vimdiff.cmd \
+                             'vimdiff "$LOCAL" "$REMOTE"
 ```
 
-(Second command split to fit in the book margins—it could be on a single
+(Long commands split to fit in the book margins—it could be on a single
 line.)
+
+Note that last line is to explicitly set a two-panel view for `vimdiff`
+and `difftool`. If it's not set, the `mergetool.vimdiff.cmd` directive
+will make `difftool` have a three-panel display—probably not what you
+wanted.
 
 Once that's in place, let's say we have a merge conflict.
 
