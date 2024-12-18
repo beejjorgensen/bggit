@@ -1,12 +1,15 @@
 # Quick Reference
 
-Quickly look up commands based on what you want to do!
+Quickly look up commands based on what you want to do! Caveat: this list
+is grotesquely incomplete! See your man pages for more info!
 
 In the following we use the following substitutions:
 
-* `URL`: Some URL either SSH, HTTP, or even a local file
-* `PATH`: Path to a directory or file
-* `BRANCH`: Some branch name
+* `URL`: Some URL either SSH, HTTP, or even a local file, usually the
+  URL you cloned from.
+* `PATH`: Path to a directory or file, e.g. `foo/bar.txt`, etc.
+* `BRANCH`: Some branch name, e.g. `main`, etc.
+* `REMOTE`: A remote name, e.g. `origin`, `upstream`, etc.
 * `UUID`: Some commit UUID—you can get a commit UUID from `git log` or
   `git reflog`.
 
@@ -59,15 +62,16 @@ $ git config set --global pull.rebase true    # Rebase
 ## Creating and Cloning Repos
 
 ``` {.default}
-$ git clone URL
-$ git init PATH
-$ git init .     # Init repo in the current directory
+$ git clone URL       # Clone a URL
+$ git clone URL PATH  # Clone a URL to PATH
+$ git init PATH       # Init repo at PATH
+$ git init .          # Init repo in the current directory
 ```
 
 ## Adding, Renaming, Deleting, Committing
 
 ``` {.default}
-$ git add PATH
+$ git add PATH             # Add PATH to the repo
 $ git mv PATH1 PATH2       # Rename ("Move") PATH1 to PATH2
 $ git rm PATH              # Delete ("Remove") PATH
 
@@ -97,6 +101,9 @@ $ git difftool       # Diffs using the configured difftool
 ```
 
 ## Branches
+
+A local branch looks like `branchname`. A remote tracking branch looks
+like `remote/branchname`.
 
 ``` {.default}
 $ git switch BRANCH         # Switch to a branch
@@ -131,7 +138,7 @@ $ git branch -d BRANCH   # Delete fully merged branch
 $ git branch -D BRANCH   # Force delete unmerged branch
 ```
 
-Obsolete style:
+Obsolete style (use `switch` if you can):
 
 ``` {.default}
 $ git checkout BRANCH    # Switch to a branch
@@ -139,3 +146,81 @@ $ git checkout UUID      # Detach HEAD to a commit
 $ git checkout HEAD^     # Detach HEAD to previous commit
 $ git checkout HEAD~2    # Detach HEAD to second previous commit
 ```
+
+## Pulling and Pushing, and Fetching
+
+``` {.default}
+$ git pull            # Pull from remote and merge or rebase
+$ git pull --ff-only  # Only allow fast-forward merges
+```
+
+``` {.default}
+$ git push                     # Push this branch to its remote
+
+$ git push REMOTE BRANCH       # Create remote tracking branch and
+                               # push to remote
+
+$ git push -u REMOTE BRANCH    # Create remote tracking branch and
+                               # push to remote, and use subsequent
+                               # `git push` commands for this local
+                               # branch
+
+$ git push -u origin branch99  # Example
+```
+
+``` {.default}
+$ git fetch        # Get data from remote but don't merge or rebase
+$ git fetch REMOTE # Same, for a specific remote
+
+```
+## Merging
+
+``` {.default}
+$ git merge BRANCH   # Merge BRANCH into HEAD
+$ git merge --abort  # Rollback the current merge
+```
+
+In a conflict occurs, you can always `--abort`. Otherwise:
+
+1. Fix the conflict.
+2. Add the fixed files.
+3. Commit to complete the merge.
+
+## Remotes
+
+``` {.default}
+$ git remote -v                       # List remotes
+$ git remote set-url REMOTE URL       # Change remote's URL
+$ git remote add REMOTE URL           # Add a new remote
+$ git remote rename REMOTE1 REMOTE2   # Rename REMOTE1 to REMOTE2
+$ git remote remove REMOTE            # Delete REMOTE
+```
+
+## Ignoring Files
+
+Add a `.gitignore` file to your repo. It applies to this directory and
+all non-submodule subdirectories below it. Add descriptions of files to
+ignore to this file. Comments behind `#` are allowed. Blank lines are
+ignored.
+
+Example `.gitignore`:
+
+``` {.default}
+foo.aux     # Ignore specific file "foo.aux"
+foo.*       # Ignore all files that start with "foo."
+*.tmp       # Ignore all files that end with ".tmp"
+frotz/      # Ignore all files in the "frotz" directory
+foo[12].txt # Ignore "foo1.txt" and "foo2.txt"
+foo?        # Ignore "foo" followed by any single character
+frotz/bar   # Ignore file "bar" in directory "frotz"
+*           # Ignore everything
+```
+
+Exceptions to earlier rules, also useful in `.gitignore` files in
+subdirectories to override rules from parent directories:
+
+``` {.default}
+*.txt       # Ignore all text files
+!keep.txt   # Except "keep.txt"
+```
+
