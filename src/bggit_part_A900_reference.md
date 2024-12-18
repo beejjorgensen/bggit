@@ -1,5 +1,7 @@
 # Quick Reference
 
+<!-- BOOKMARK: file states -->
+
 Quickly look up commands based on what you want to do! Caveat: this list
 is grotesquely incomplete! See your man pages for more info!
 
