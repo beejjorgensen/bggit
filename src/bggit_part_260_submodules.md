@@ -37,12 +37,12 @@ repo as a submodule of your repo, and effectively pin it to a particular
 version (specifically to a particular commit).
 
 For example, maybe your code works with FooLib version 3.4.90. So you
-include FooLib as a submodule and make sure it's locked to that version.
+include FooLib as a submodule and make sure it's pinned to that version.
 Then even though another team might be updating FooLib, you'll always
 have version 3.4.90 available to build against.
 
 Then later when you're ready, you can update the submodule to the latest
-version, say 4.0.1, and lock that one in place.
+version, say 4.0.1, and pin that one in place.
 
 It's important to note that a submodule is just another regular Git
 repo. Nothing special about it. The only thing that's notable is that
@@ -208,10 +208,10 @@ After that you can `cd` into `test_repo2` and see the submodule there.
 > really read about. There's supposed to be a way to override that with
 > a config setting, which I thought would be quite useful for messing
 > around to see how submodules worked, but apparently that config
-> setting doesn't work as of late 2024. So you'll have to use remote
-> repos for submodules.
+> setting doesn't work as of late 2024. So you'll have to use
+> network-remote repos for submodules.
 
-## Setting the Commit for the Submodule
+## Setting the Commit for the Submodule {#set-submodule-commit}
 
 What does this section even mean?
 
@@ -229,12 +229,14 @@ the submodule at the exact same commit as we are.
 This lets us do things like choose a very particular version of a
 library as a submodule, and then everyone who clones our repo will get
 that same version _regardless of whether or not the submodule repo was
-changed elsewhere_.
+changed elsewhere_. Someone else could move `main` wherever they want,
+but we'll still use the one commit we're pinned to, even if we fetch the
+new `main` commit into our submodule.
 
-We effectively lock our submodule to a particular commit. And we
-probably want to do that so that someone else developing the submodule
-on the side doesn't introduce some change that breaks our containing
-repo's build.
+We effectively pin our submodule to a particular commit. And we probably
+want to do that so that someone else developing the submodule on the
+side doesn't introduce some change that breaks our containing repo's
+build.
 
 How do we do that? It's pretty easy:
 
@@ -267,7 +269,7 @@ with. (Don't forget the `--recurse-submodules` flag!)
 > ``` {.default}
 > (HEAD, origin/main, origin/HEAD, main)
 > ```
-> <~-- ` -->
+> <!-- ` -->
 >
 > See how `HEAD` is detached from `main`?
 >
@@ -328,7 +330,7 @@ $ git status
 
 Look at that! The submodule directory is listed as modified. It says
 "new commits", but that's just telling us that "things have changed
-in the submodule from the commit that I was locked onto before"
+in the submodule from the commit that I was pinned onto before"
 
 So let's add that and commit it.
 
@@ -374,29 +376,277 @@ And we see `HEAD` is on commit `d8481e`, just like we set it to in
 where `HEAD` is now, so it's not appearing in the log. We could still
 switch to it if we wanted, of course.)
 
-What have we done? We've changed the commit the submodule is locked at
+What have we done? We've changed the commit the submodule is pinned at
 in one repo, and then we've pulled that change into another repo!
+## Getting Submodule Latest
 
+Let's say someone else has updated the commit that the submodule is
+pinned at in your repo. And you want to get up to speed.
 
-TODO:
-* Updating to the latest
-* Recursive updates
-* Easy thing to do is just update the submodule from its own location
-* Updating the submodule from the submodule directory
-* Deleting a submodule from a repo
-* +/-
-* Different submodule branches
+Two steps to make that happen:
 
+1. In the containing repo, `git pull`. This will get you the latest
+   version of the containing repo that has the new pinned commit numbers
+   for the submodule.
+
+2. In the containing repo (again), run:
+
+   ``` {.default}
+   git submodule update --init --recursive
+   ```
+
+   This will fetch the submodule data and set you up to point at the
+   correct commit. 
+
+## Updating the Actual Submodule Itself
+
+What do I mean by this? Let's say the submodule holds some library, and
+you need to make a bug fix in the library. And you need people who use
+this repo as a submodule (or otherwise) to get the changes.
+
+So how to make this happen?
+
+Either do it from a standalone repo, or you can also do it _in situ_ in
+submodule directory.
+
+### Modify the Submodule Repo Elsewhere
+
+The way that's easiest for my tiny human brain is to clone the submodule
+independently of any other repos. That is, clone it like it's not a
+submodule at all.
+
+Then you can push, pull, modify, etc. all you want.
+
+And then when you have it all fixed, you can go to the submodule
+directory and do a `git fetch` to pull down the new commits.
+
+At that point, it might be convenient to run this:
+
+``` {.default}
+$ git log HEAD^..origin/main
 ```
-git submodule add
-git submodule init
-git submodule update
-git submodule update --init
-git submodule update --recursive --init
-git submodule update --remote
-git pull --recurse-submodules
-git clone --recurse-submodules
-git submodule status
-git submodule add -b <branch> <repository> <path>
-git submodule foreach git status
+
+This will show you all the commits between `HEAD` and `origin/main`,
+inclusive so you can see what's been done. (Assuming they're related,
+that is. If they're on divergent branches you'll have to get more
+creative.)
+
+Then you choose the commit you want to pin `HEAD` to, switch to that,
+and run an `add`/`commit` from the containing repo, as outlined in
+[Setting the Commit for the Submodule](#set-submodule-commit), above.
+
+### Modify the Submodule Repo in the Submodule Directory
+
+But wait! If the submodule is a full-blown repo itself, can't you just
+edit in the submodule directory?
+
+Yes! You totally can.
+
+The only weird part is that you might have a detached `HEAD` in your
+submodule, so be sure to check out a branch that you can push if you
+want to go this route.
+
+For example:
+
+``` {.default}
+$ git switch main
 ```
+
+Then make your changes and push them (from the submodule directory).
+
+At this point, the containing repo is still pinned to the old commit. So
+you'll want to run an `add`/`commit` from the containing repo, as
+outlined in [Setting the Commit for the
+Submodule](#set-submodule-commit), above.
+
+## Getting the Submodule Status
+
+When it comes to which commit the submodule is pinned to, there are some
+commands that are quite helpful.
+
+The first is `git submodule status`. This will tell you where the
+submodule `HEAD` is currently.
+
+For example, running from the containing repo:
+
+``` {.default}
+$ git submodule status
+898650e74c18cf4b30bdd07297d638de4a6fc7dd mysubmod (heads/main)
+```
+
+This tells me that `HEAD` in the `mysubmod` directory is at commit
+`89865`.
+
+But what if you see this with a `+` sign in front:
+
+``` {.default}
+$ git submodule status
++1c10d608190194b7f9fbb9a442abd5c63c74cdfa mysubmod (heads/main)
+```
+
+That `+` means that, although `HEAD` in the submodule is at commit
+`1c10d`,  the containing repo has the submodule pinned to a
+different commit! You might see this happen after you pull a submodule
+(thus moving `HEAD`), but haven't updated the containing repo to match.
+
+If you see the `+`, `git status` will also tell you more:
+
+``` {.default}
+$ git status
+  On branch main
+  Changes not staged for commit:
+    (use "git add <file>..." to update what will be committed)
+    (use "git restore <file>..." to discard changes in working
+    directory)
+	  modified:   mysubmod (new commits)
+
+  no changes added to commit (use "git add" and/or "git commit -a")
+```
+
+Sure enough—we have changed `HEAD` in the submodule so its directory
+shows as `modified`.
+
+You can get rid of the plus by either pinning the repo to a new commit
+as outlined in [Setting the Commit for the
+Submodule](#set-submodule-commit), above, or by moving the submodule
+`HEAD` back to where the containing module expects it.
+
+> **There can also be a `-` in front of the UUID.** This means the
+> submodule hasn't been initialized or downloaded. Try a `git submodule
+> update --recursive --init`.
+
+How do we figure out where the containing module expects the submodule
+`HEAD` to be? With this handy command:
+
+``` {.default}
+$ git ls-tree HEAD mysubmod
+  160000 commit 898650e74c18cf4b30bdd07297d638de4a6fc7dd   mysubmod
+```
+
+## Some Behind the Scenes
+
+Not really behind the scenes, actually, but I wanted to point out the
+historic steps to initialize the submodule that we've shortcutted by
+using some command line switches.
+
+For example, when we cloned the repo with the submodule initially, we
+used this:
+
+``` {.default}
+$ git clone --recurse-submodules \
+        git@github.com:beejjorgensen/git-example-submodule-repo.git
+```
+
+That `--recurse-submodules` did a lot of work for us, cloning the
+submodule and setting everything up so it was ready to use.
+
+We also noted that if we forgot that switch, we could still pull it off:
+
+``` {.default}
+$ git clone \
+        git@github.com:beejjorgensen/git-example-submodule-repo.git
+$ cd git-example-submodule-repo
+$ git submodule update --recursive --init
+```
+
+So `--recurse-submodules` was going that work for us.
+
+But the rabbit hole goes farther! That `--init` does a bunch for us,
+too. Let's break it down into a full by-hand process. Don't worry—it's
+just a couple steps:
+
+``` {.default}
+$ git clone \
+        git@github.com:beejjorgensen/git-example-submodule-repo.git
+$ cd git-example-submodule-repo
+$ git submodule init
+$ git submodule update --recursive
+```
+
+So that `--recurse-submodules` switch to `git clone` was actually
+running a bunch of commands for us behind the scenes.
+
+A little breakdown:
+
+When you first clone the containing repo, there's a `.gitmodules` file
+in there indicating the directory name and the URL of the submodule
+remote. But that's not enough info. You have to do a `git submodule
+init` to cause Git to parse that file and set up some internal
+bookkeeping.
+
+After that, you can run `git submodule update` to bring in the submodule
+data to use.
+
+## Deleting a Submodule
+
+This is a bit clunky, but not too bad if you follow the steps.
+
+All this action takes place from the containing repo. Let's say for this
+example we want to delete the module `mysubmod`—substitute the name of
+your module in the following commands.
+
+1. De-initialize the submodule. If the submodule `HEAD` is not where the
+   containing module expects, you can add `-f` to force this.
+
+   ``` {.default}
+   $ git submodule deinit mysubmod
+   ```
+   
+   This is partially undoing `git submodule init`.
+
+2. Remove the bookkeeping information from the Git internals for the
+   containing repo.
+
+   ``` {.default}
+   $ rm -r .git/modules/mysubmod
+   ```
+
+   This is the rest of undoing `git submodule init`.
+
+3. Fix up `.gitmodules` by removing the section about the submodule. You
+   can either do this by hand in an editor, or you can ask Git to do it
+   like so:
+
+   ``` {.default}
+   $ git config -f .gitmodules --remove-section submodule.mysubmod
+   ```
+
+   This is undoing `git submodule add`.
+
+4. Add the `.gitmodules` file to the stage.
+
+   ``` {.default}
+   $ git add .gitmodules
+   ```
+
+5. Delete the submodule tree from Git. This will also add the deletion
+   to the stage.
+
+   ``` {.default}
+   git rm --cached mysubmod
+   ```
+
+   This is sort of like undoing `git submodule update`.
+
+6. Do a `git status` to make sure we're set.
+
+   ``` {.default}
+   $ git status
+     On branch main
+     Changes to be committed:
+       (use "git restore --staged <file>..." to unstage)
+	         modified:   .gitmodules
+	         deleted:    mysubmod
+   ```
+
+   Looks good.
+
+7. Commit and push (if appropriate).
+
+   ``` {.default}
+   $ git commit -m "remove mysubmod submodule"
+   $ git push
+   ```
+
+And that's the end of the submodule.
+
