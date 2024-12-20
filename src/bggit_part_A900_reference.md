@@ -9,7 +9,9 @@ In the following we use the following substitutions:
 
 * `URL`: Some URL either SSH, HTTP, or even a local file, usually the
   URL you cloned from.
-* `PATH`: Path to a directory or file, e.g. `foo/bar.txt`, etc.
+* `FILE`: Path to file, e.g. `foo/bar.txt`, etc.
+* `DIR`: Path to directory, e.g. `foo/`, etc.
+* `PATH`: Path to directory or file
 * `BRANCH`: Some branch name, e.g. `main`, etc.
 * `REMOTE`: A remote name, e.g. `origin`, `upstream`, etc.
 * `UUID`: Some commit UUID—you can get a commit UUID from `git log` or
@@ -43,6 +45,21 @@ Also, don't type the `$`—it's the shell prompt. And everything after a
 * **Working Tree**: the collection of files you can see, which might
   have changes from the commit at `HEAD`.
 
+## File States
+
+* **Untracked** to:
+  * Unmodified: `git add FILE`
+* **Unmodified** to:
+  * Modified: Edit with your editor and save
+  * Untracked/deleted: `git rm --cached FILE`
+* **Modified** to:
+  * Staged: `git add FILE`
+  * Unmodified: `git restore FILE` (discards changes)
+  * Untracked/deleted: `git rm --cached FILE`
+* **Staged**
+  * Unmodified: `git commit FILE` (finalize commit)
+  * Modified: `git restore --staged FILE` (unstage)
+
 ## Configuration
 
 Leave off the `--global` to set the config for just the current repo.
@@ -65,8 +82,8 @@ $ git config set --global pull.rebase true    # Rebase
 
 ``` {.default}
 $ git clone URL       # Clone a URL
-$ git clone URL PATH  # Clone a URL to PATH
-$ git init PATH       # Init repo at PATH
+$ git clone URL DIR   # Clone a URL to directory
+$ git init DIR        # Init repo at directory
 $ git init .          # Init repo in the current directory
 ```
 
@@ -74,32 +91,58 @@ $ git init .          # Init repo in the current directory
 
 ``` {.default}
 $ git add PATH             # Add PATH to the repo
-$ git mv PATH1 PATH2       # Rename ("Move") PATH1 to PATH2
-$ git rm PATH              # Delete ("Remove") PATH
+$ git mv FILE1 FILE2       # Rename ("Move") FILE1 to FILE2
+$ git mv FILE2 FILE1       # Undo the above rename
+$ git rm FILE              # Delete ("Remove") FILE
 
 $ git commit
 $ git commit -m "message"  # Commit with a message
 ```
 
+To undelete a file, run these two commands in sequence:
+
+``` {.default}
+$ git restore --staged FILE
+$ git restore FILE
+```
+
 ## Getting Status
 
 ``` {.default}
-$ git status            # Show current file states
-$ git log               # Show the commit logs
-$ git log --name-only   # Also list changed files
+$ git status               # Show current file states
+$ git log                  # Show the commit logs
+$ git log --name-only      # Also list changed files
+$ git log BRANCH           # Show log from a specific branch
+$ git log BRANCH1 BRANCH2  # Show logs from multiple branches
+
+$ git log BRANCH1..BRANCH2  # Show logs from BRANCH2 since it
+                            # diverged from BRANCH1
+$ git log BRANCH1...BRANCH2 # Show logs from BRANCH1 and BRANCH2
+                            # since they diverged
 ```
 
 ## Getting a Diff
 
 ``` {.default}
-$ git diff                 # Diffs between working tree and stage
-$ git diff HEAD^           # Diff from the previous commit to here
-$ git diff HEAD~3..HEAD~2  # Diff from 3rd last to 2nd last commit
-$ git diff UUID            # Diff between UUID and now
-$ git diff UUID1..UUID2    # Diff between two UUIDS (older first)
+$ git diff                # Diffs between working tree and stage
+$ git diff HEAD^          # Diff from the previous commit to here
+$ git diff HEAD^^         # Diff from the 2nd last commit to here
+$ git diff HEAD~3 HEAD~2  # Diff from 3rd last to 2nd last commit
+$ git diff UUID           # Diff between UUID and now
+$ git diff UUID1 UUID2    # Diff between two UUIDS (older first)
 
-$ git diff --staged  # Diffs between stage and repo
-$ git difftool       # Diffs using the configured difftool
+$ git diff BRANCH1...BRANCH2  # Diff between BRANCH2 and the common
+                              # ancestor of BRANCH1 and BRANCH2
+
+$ git diff HEAD~3^!       # Diff between HEAD~3 and its parent
+$ git diff -- FILE        # Run a diff just for a specific file
+$ git diff HEAD^ -- FILE  # Run a diff just for a specific file
+
+$ git diff -U5          # Show 5 lines of context
+$ git diff -w           # Ignore whitespace
+$ git diff --name-only  # Only show filenames of changed files
+$ git diff --staged     # Diffs between stage and repo
+$ git difftool          # Diffs using the configured difftool
 ```
 
 ## Branches
@@ -152,8 +195,10 @@ $ git checkout HEAD~2    # Detach HEAD to second previous commit
 ## Pulling and Pushing, and Fetching
 
 ``` {.default}
-$ git pull            # Pull from remote and merge or rebase
-$ git pull --ff-only  # Only allow fast-forward merges
+$ git pull               # Pull from remote and merge or rebase
+$ git pull --ff-only     # Only allow fast-forward merges
+$ git pull --rebase      # Force a rebase on pull
+$ git pull --no-rebase   # Force a merge on pull
 ```
 
 ``` {.default}
@@ -225,4 +270,40 @@ subdirectories to override rules from parent directories:
 *.txt       # Ignore all text files
 !keep.txt   # Except "keep.txt"
 ```
+
+# Rebasing
+
+``` {.default}
+$ git rebase BRANCH      # Rebase changes onto BRANCH
+$ git rebase UUID        # Rebase changes onto commit
+
+$ git rebase -i BRANCH   # Interactive rebase (squashing commits)
+
+$ git rebase --continue  # Continue processing from conflict
+$ git rebase --skip      # Skip a conflicting commit
+$ git rebase --abort     # Bail out of rebasing
+
+$ git pull --rebase      # Force a rebase on pull
+$ git pull --no-rebase   # Force a merge on pull
+```
+
+# Stashing
+
+Stashes are stored on a stack.
+
+``` {.default}
+$ git stash push    # Stash changed files
+$ git stash         # Effectively the same as "push"
+$ git stash FILE    # Stash a specific file
+$ git stash pop     # Replay stashed files on working tree
+$ git stash list    # List stashed files
+
+$ git stash pop 'stash@{1}'   # Pop stash at index 1
+$ git stash pop --index 1     # Same thing
+$ git stash drop 'stash@{1}'  # Drop stash at index 1
+$ git stash drop --index 1    # Same thing
+```
+
+# Reverting
+
 
