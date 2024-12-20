@@ -16,6 +16,9 @@ In the following we use the following substitutions:
 * `REMOTE`: A remote name, e.g. `origin`, `upstream`, etc.
 * `UUID`: Some commit UUID—you can get a commit UUID from `git log` or
   `git reflog`.
+* `CMMT`: a UUID, branch, etc. Anything that refers to a commit.
+  Officially this is called a _tree-ish_, but that was more letters than
+  I wanted to repeatedly type.
 
 Also, don't type the `$`—it's the shell prompt. And everything after a
 `#` is a comment.
@@ -44,6 +47,7 @@ Also, don't type the `$`—it's the shell prompt. And everything after a
   from. Not set up automatically.
 * **Working Tree**: the collection of files you can see, which might
   have changes from the commit at `HEAD`.
+* **WT**: shorthand for working tree.
 
 ## File States
 
@@ -109,16 +113,16 @@ $ git restore FILE
 ## Getting Status
 
 ``` {.default}
-$ git status               # Show current file states
-$ git log                  # Show the commit logs
-$ git log --name-only      # Also list changed files
-$ git log BRANCH           # Show log from a specific branch
-$ git log BRANCH1 BRANCH2  # Show logs from multiple branches
+$ git status             # Show current file states
+$ git log                # Show the commit logs
+$ git log --name-only    # Also list changed files
+$ git log CMMT           # Show log from a specific branch
+$ git log CMMT1 CMMT2    # Show logs from multiple branches
 
-$ git log BRANCH1..BRANCH2  # Show logs from BRANCH2 since it
-                            # diverged from BRANCH1
-$ git log BRANCH1...BRANCH2 # Show logs from BRANCH1 and BRANCH2
-                            # since they diverged
+$ git log CMMT1..CMMT2   # Show logs from CMMT2 since it
+                         # diverged from CMMT1
+$ git log CMMT1...CMMT2  # Show logs from CMMT1 and CMMT2
+                         # since they diverged
 ```
 
 ## Getting a Diff
@@ -128,11 +132,11 @@ $ git diff                # Diffs between working tree and stage
 $ git diff HEAD^          # Diff from the previous commit to here
 $ git diff HEAD^^         # Diff from the 2nd last commit to here
 $ git diff HEAD~3 HEAD~2  # Diff from 3rd last to 2nd last commit
-$ git diff UUID           # Diff between UUID and now
-$ git diff UUID1 UUID2    # Diff between two UUIDS (older first)
+$ git diff CMMT           # Diff between CMMT and now
+$ git diff CMMT1 CMMT2    # Diff between two commits (older first)
 
-$ git diff BRANCH1...BRANCH2  # Diff between BRANCH2 and the common
-                              # ancestor of BRANCH1 and BRANCH2
+$ git diff CMMT1...CMMT2  # Diff between CMMT2 and the common
+                          # ancestor of CMMT1 and CMMT2
 
 $ git diff HEAD~3^!       # Diff between HEAD~3 and its parent
 $ git diff -- FILE        # Run a diff just for a specific file
@@ -152,8 +156,8 @@ like `remote/branchname`.
 
 ``` {.default}
 $ git switch BRANCH         # Switch to a branch
-$ git switch -              # Switch to previous commit
 $ git switch --detach UUID  # Detach HEAD to a commit
+$ git switch -              # Switch back to previous commit
 ```
 
 ``` {.default}
@@ -186,8 +190,7 @@ $ git branch -D BRANCH   # Force delete unmerged branch
 Obsolete style (use `switch` if you can):
 
 ``` {.default}
-$ git checkout BRANCH    # Switch to a branch
-$ git checkout UUID      # Detach HEAD to a commit
+$ git checkout CMMT      # Detach HEAD to a commit
 $ git checkout HEAD^     # Detach HEAD to previous commit
 $ git checkout HEAD~2    # Detach HEAD to second previous commit
 ```
@@ -223,7 +226,7 @@ $ git fetch REMOTE # Same, for a specific remote
 ## Merging
 
 ``` {.default}
-$ git merge BRANCH   # Merge BRANCH into HEAD
+$ git merge CMMT     # Merge commit or branch into HEAD
 $ git merge --abort  # Rollback the current merge
 ```
 
@@ -271,13 +274,12 @@ subdirectories to override rules from parent directories:
 !keep.txt   # Except "keep.txt"
 ```
 
-# Rebasing
+## Rebasing
 
 ``` {.default}
-$ git rebase BRANCH      # Rebase changes onto BRANCH
-$ git rebase UUID        # Rebase changes onto commit
+$ git rebase CMMT        # Rebase changes onto commit
 
-$ git rebase -i BRANCH   # Interactive rebase (squashing commits)
+$ git rebase -i CMMT     # Interactive rebase (squashing commits)
 
 $ git rebase --continue  # Continue processing from conflict
 $ git rebase --skip      # Skip a conflicting commit
@@ -287,7 +289,7 @@ $ git pull --rebase      # Force a rebase on pull
 $ git pull --no-rebase   # Force a merge on pull
 ```
 
-# Stashing
+## Stashing
 
 Stashes are stored on a stack.
 
@@ -304,6 +306,34 @@ $ git stash drop 'stash@{1}'  # Drop stash at index 1
 $ git stash drop --index 1    # Same thing
 ```
 
-# Reverting
+## Reverting
 
+``` {.default}
+$ git revert CMMT     # Revert a specific commit
+$ git revert -n CMMT  # Revert but don't commit (yet)
 
+$ git revert CMMT1 CMMT2    # Revert multiple commits
+$ git revert CMMT1^..CMMT2  # Revert a range (oldeest first)
+
+$ git revert --continue  # Continue processing from conflict
+$ git revert --skip      # Skip a conflicting commit
+$ git revert --abort     # Bail out of reverting
+```
+
+## Resetting
+
+All resets move `HEAD` and the current checked out branch to the
+specified commit.
+
+``` {.default}
+$ git reset --mixed CMMT  # Set stage to CMMT, don't change WT
+$ git reset CMMT          # Same as --mixed
+$ git reset --soft CMMT   # Don't change stage or working tree
+$ git reset --hard CMMT   # Set stage and WT to CMMT
+```
+
+Obsolete usage:
+
+``` {.default}
+$ git reset FILE   # Same as "git restore --staged FILE"
+```
