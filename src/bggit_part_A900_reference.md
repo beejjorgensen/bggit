@@ -1,11 +1,11 @@
 # Quick Reference
 
-<!-- BOOKMARK: file states -->
+<!-- BOOKMARK: alias -->
 
 Quickly look up commands based on what you want to do! Caveat: this list
 is grotesquely incomplete! See your man pages for more info!
 
-In the following we use the following substitutions:
+In this reference section we use the following substitutions:
 
 * `URL`: Some URL either SSH, HTTP, or even a local file, usually the
   URL you cloned from.
@@ -19,9 +19,13 @@ In the following we use the following substitutions:
 * `CMMT`: a UUID, branch, etc. Anything that refers to a commit.
   Officially this is called a _tree-ish_, but that was more letters than
   I wanted to repeatedly type.
+* `VARIABLE`: a Git config variable name, usually words separated by
+  periods.
+* `VALUE`: an arbitrary value for Git configs.
 
 Also, don't type the `$`—it's the shell prompt. And everything after a
-`#` is a comment.
+`#` is a comment. A backslash `\` at the end of a line indicates that it
+continues on the next line.
 
 ## Glossary 
 
@@ -66,7 +70,15 @@ Also, don't type the `$`—it's the shell prompt. And everything after a
 
 ## Configuration
 
-Leave off the `--global` to set the config for just the current repo.
+For all `git config` commands, specify `--global` for a universal
+setting or leave it off to set the value just for this repo.
+
+```
+$ git config set VARIABLE VALUE
+$ git config get VARIABLE
+$ git config list
+$ git config unset VARIABLE
+$ git config --edit
 
 Set email and username:
 
@@ -80,6 +92,55 @@ Set default pull behavior to merge or rebase:
 ``` {.default}
 $ git config set --global pull.rebase false   # Merge
 $ git config set --global pull.rebase true    # Rebase
+```
+
+Set the default editor to Vim, and the default mergetool and difftool to
+Vimdiff, and turn off prompting for the tools:
+
+``` {.default}
+$ git config set core.editor vim
+$ git config set diff.tool vimdiff
+$ git config set difftool.prompt false
+$ git config set difftool.vimdiff.cmd 'vimdiff "$LOCAL" "$REMOTE"'
+$ git config set merge.tool=vimdiff
+$ git config set mergetool.vimdiff.cmd \
+                             'vimdiff "$LOCAL" "$REMOTE" "$MERGED"'
+```
+
+Colorful Git output:
+
+``` {.default}
+$ git config set color.ui true   # Or false
+```
+
+Autocorrect will automatically run the command it thinks you meant. For
+example, if you `git poush`, it will assume you meant `git push`.
+
+``` {.default}
+$ git config set help.autocorrect 0   # Ask "Did you mean...?"
+$ git config set help.autocorrect 7   # Wait 0.7 seconds before run
+
+$ git config set help.autocorrect immediate  # Just guess and go
+$ git config set help.autocorrect prompt     # Prompt then go
+$ git config set help.autocorrect never      # Turn autocorrect off
+```
+
+Handle automatic newline translation. Recommend set to true for Windows
+(not WSL) and false everywhere else.
+
+``` {.default}
+$ git config set core.autocrlf true  # Windows (non-WSL)
+$ git config set core.autocrlf false # WSL, Linux, Mac, C64, etc.
+```
+
+Obsolete commands for older versions:
+
+``` {.default}
+git config user.email                     # Get
+git config user.email "user@example.com"  # Set
+git config --unset user.email             # Delete
+git config --list                         # List
+git config --edit                         # Edit
 ```
 
 ## Creating and Cloning Repos
@@ -98,17 +159,22 @@ $ git add PATH             # Add PATH to the repo
 $ git mv FILE1 FILE2       # Rename ("Move") FILE1 to FILE2
 $ git mv FILE2 FILE1       # Undo the above rename
 $ git rm FILE              # Delete ("Remove") FILE
+$ git add -p FILE          # Add file in patch mode
 
-$ git commit
+$ git commit               # Commit files on stage
 $ git commit -m "message"  # Commit with a message
+
 ```
 
-To undelete a file, run these two commands in sequence:
+To undelete a staged file, run these two commands in sequence:
 
 ``` {.default}
 $ git restore --staged FILE
 $ git restore FILE
 ```
+
+To undelete a deleted file, you could manually recover it from an old
+commit, or revert the commit that deleted it.
 
 ## Getting Status
 
@@ -330,6 +396,8 @@ $ git reset --mixed CMMT  # Set stage to CMMT, don't change WT
 $ git reset CMMT          # Same as --mixed
 $ git reset --soft CMMT   # Don't change stage or working tree
 $ git reset --hard CMMT   # Set stage and WT to CMMT
+
+$ git reset -p CMMT       # Reset file in patch mode
 ```
 
 Obsolete usage:
@@ -337,3 +405,25 @@ Obsolete usage:
 ``` {.default}
 $ git reset FILE   # Same as "git restore --staged FILE"
 ```
+
+## The Reflog
+
+``` {.default}
+$ git reflog      # Look at the reflog
+```
+
+…I admit this section could use a bit more information.
+
+## Cherry-pick
+
+``` {.default}
+$ git cherry-pick CMMT   # Cherry-pick a particular commit
+```
+
+## Blame
+
+``` {.default}
+$ git blame FILE                # Who is responsible for each line
+$ git blame --date=short FILE   # Same, shorter date format
+```
+
