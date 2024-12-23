@@ -67,35 +67,49 @@ continues on the next line.
 * **Staged**
   * Unmodified: `git commit FILE` (finalize commit)
   * Modified: `git restore --staged FILE` (unstage)
+  * Both modified: `git checkout --merged FILE` (during merge)
 
 ## Configuration
 
 For all `git config` commands, specify `--global` for a universal
 setting or leave it off to set the value just for this repo.
 
-```
+``` {.default}
 $ git config set VARIABLE VALUE
 $ git config get VARIABLE
 $ git config list
 $ git config unset VARIABLE
 $ git config --edit
+```
 
-Set email and username:
+### Set identity
+
+Username and email:
 
 ``` {.default}
 $ git config set --global user.name "Your Name"
 $ git config set --global user.email "your-email@example.com"
 ```
 
-Set default pull behavior to merge or rebase:
+SSH identity:
+
+``` {.default}
+$ git config set core.sshCommand \
+    "ssh -i ~/.ssh/id_alterego_ed25519 -F none"
+```
+
+### Set default pull behavior to merge or rebase
 
 ``` {.default}
 $ git config set --global pull.rebase false   # Merge
 $ git config set --global pull.rebase true    # Rebase
 ```
 
+### Set default editor, difftool, and mergetool
+
 Set the default editor to Vim, and the default mergetool and difftool to
-Vimdiff, and turn off prompting for the tools:
+Vimdiff, turn off prompting for the tools, and turn off mergetool
+backups:
 
 ``` {.default}
 $ git config set core.editor vim
@@ -105,13 +119,16 @@ $ git config set difftool.vimdiff.cmd 'vimdiff "$LOCAL" "$REMOTE"'
 $ git config set merge.tool=vimdiff
 $ git config set mergetool.vimdiff.cmd \
                              'vimdiff "$LOCAL" "$REMOTE" "$MERGED"'
+$ git config --global set mergetool.keepBackup false
 ```
 
-Colorful Git output:
+### Colorful Git output
 
 ``` {.default}
 $ git config set color.ui true   # Or false
 ```
+
+### Autocorrect
 
 Autocorrect will automatically run the command it thinks you meant. For
 example, if you `git poush`, it will assume you meant `git push`.
@@ -124,6 +141,8 @@ $ git config set help.autocorrect immediate  # Just guess and go
 $ git config set help.autocorrect prompt     # Prompt then go
 $ git config set help.autocorrect never      # Turn autocorrect off
 ```
+
+### Newline translation
 
 Handle automatic newline translation. Recommend set to true for Windows
 (not WSL) and false everywhere else.
@@ -141,6 +160,35 @@ git config user.email "user@example.com"  # Set
 git config --unset user.email             # Delete
 git config --list                         # List
 git config --edit                         # Edit
+```
+
+### Aliases
+
+Setting aliases, some examples:
+
+``` {.default}
+$ git config set --global alias.logn 'log --name-only'
+$ git config set alias.aa "add --all"
+$ git config set alias.logc "log --oneline --graph --decorate"
+$ git config set alias.diffs "diff --staged"
+$ git config set alias.lol "log --graph"\
+" --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s"\
+" %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+```
+
+Getting aliases:
+
+``` {.default}
+$ git config get alias.logx
+$ git config get --all --show-names --regexp '^alias\.'
+$ git config set alias.aliases \
+    "config get --all --show-names --regexp '^alias\.'"
+```
+
+Tracing an alias run:
+
+``` {.default}
+$ GIT_TRACE=1 git logx
 ```
 
 ## Creating and Cloning Repos
@@ -163,7 +211,15 @@ $ git add -p FILE          # Add file in patch mode
 
 $ git commit               # Commit files on stage
 $ git commit -m "message"  # Commit with a message
+```
 
+Amending commits—don't amend commits you have pushed unless you know
+what you're getting into!
+
+``` {.default}
+$ git commit --amend               # Amend last commit
+$ git commit --amend -m "message"  # Amend with commit message
+$ git commit --amend --no-edit     # Don't change commit message
 ```
 
 To undelete a staged file, run these two commands in sequence:
@@ -294,6 +350,9 @@ $ git fetch REMOTE # Same, for a specific remote
 ``` {.default}
 $ git merge CMMT     # Merge commit or branch into HEAD
 $ git merge --abort  # Rollback the current merge
+$ git mergetool      # Run mergetool to resolve a conflict
+
+$ git checkout --merged FILE   # Unstage resolved files
 ```
 
 In a conflict occurs, you can always `--abort`. Otherwise:
