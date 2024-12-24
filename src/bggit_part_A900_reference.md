@@ -486,3 +486,31 @@ $ git blame FILE                # Who is responsible for each line
 $ git blame --date=short FILE   # Same, shorter date format
 ```
 
+## Submodules
+
+``` {.default}
+$ git clone --recurse-submodules URL       # Clone with submodules
+$ git submodule update --recursive --init  # If you cloned without
+
+$ git submodule add URL              # Add submodule
+$ git add DIR                        # Add to repo
+$ git pull --recurse-submodules      # Pull including submodules
+
+$ git submodule status               # Submodule status
+$ git ls-tree HEAD DIR               # Show submod pinned commit
+$ git submodule init                 # Set up bookeeeping
+$ git submodule update               # Bring in missing submods
+$ git submodule update --recursive   # Handle submods of submods
+```
+
+Deleting a submodule—do these in order. In this example, DIR is the name
+of the submodule directory.
+
+``` {.default}
+$ git submodule deinit DIR
+$ rm -rf .git/modules/DIR
+$ git config -f .gitmodules --remove-section submodule.DIR
+$ git add .gitmodules
+$ git rm --cached DIR
+$ git commit -m "remove DIR submodule"
+```
