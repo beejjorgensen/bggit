@@ -598,7 +598,7 @@ your module in the following commands.
    containing repo.
 
    ``` {.default}
-   $ rm -r .git/modules/mysubmod
+   $ rm -rf .git/modules/mysubmod
    ```
 
    This is the rest of undoing `git submodule init`.
