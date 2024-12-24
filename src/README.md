@@ -23,5 +23,4 @@ Example repo with submodule:
 
 ## Still to Write
 
-* Reference section
 * Git in VS Code? Appendix?
