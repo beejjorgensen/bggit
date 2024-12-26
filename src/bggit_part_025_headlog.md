@@ -275,8 +275,12 @@ things, and it still does. Because it does so much, the maintainers of
 Git have been trying to break some of that functionality into `git
 switch`.
 
-We could redo the previous section by using just `git checkout` instead of
-`git switch`. Let's try:
+> **There are still times when you need to use `checkout`**, but if your
+> version of Git supports `switch`, this isn't one of them. Use `switch`
+> if you can and skip this section.
+
+But let's redo the previous section by using just `git checkout` instead
+of `git switch`. Let's try:
 
 ``` {.default}
 $ git checkout 5a02
@@ -284,35 +288,39 @@ $ git checkout 5a02
 
 and it says:
 
-<!-- BOOKMARK: fix this section below here -->
-
 ``` {.default}
-fatal: a branch is expected, got commit '5a02'
-hint: If you want to detach HEAD at the commit, try again with the
-      --detach option.
+Note: switching to '5a02fede3007edf55d18e2f9ee3e57979535e8f2'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at 5a02fed Added
 ```
 
-Hmmm! `git switch` is warning us that we're about to go into detached
-head state, and is that what we really want? It's not a crime or
-anything to do so, but it's just letting us know that we're not going to
-be on a branch any longer.
+Well, that's a lot of scary stuff, but it's just Git telling us that
+we're now in detached head state. Which of course we are since we just
+detached the head from a branch by switching to a specific commit UUID.
 
-So we can override, just like it suggests:
+And we can get back to the `main` branch with either:
 
 ``` {.default}
-$ git switch --detach 5a02
-  HEAD is now at 5a02fed Added
+$ git checkout main
 ```
 
-All right! No big message about being detached, but we don't need it
-because we know it's detached since we specified.
-
-And like before, we can get back to the `main` branch with either:
-
-1. `git switch -`, switch to the previous state
-2. `git switch main`
-
-Easy.
+You can also switch back with the aforementioned `git switch` variants,
+but we're pretending those don't exist for this section.
 
 ## Commits Relative to `HEAD`
 

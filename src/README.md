@@ -16,10 +16,8 @@ Example repo with submodule:
 
 * Update example in chapter 2 so that source matches the actual example
   repo.
-* Stop using `git checkout` in chapter 4 or anywhere else where switch
-  should be used.
-* Index everything
 * Normalize quotes
+* Index everything
 
 ## Still to Write
 
