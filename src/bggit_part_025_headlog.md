@@ -147,23 +147,23 @@ commit and see what the files looked like then. How would I do that?
 > commit** that had since been removed, and you wanted to look at them,
 > for example.
 
-I can use the [i[`git checkout`]] `git checkout` command to make that
+I can use the [i[`git switch`]] `git switch` command to make that
 happen.
 
-Let's checkout the first commit, the one with ID
+Let's check out the first commit, the one with ID
 `5a02fede3007edf55d18e2f9ee3e57979535e8f2`.
 
 Now, I could say:
 
 ``` {.default}
-$ git checkout 5a02fede3007edf55d18e2f9ee3e57979535e8f2
+$ git switch --detach 5a02fede3007edf55d18e2f9ee3e57979535e8f2
 ```
 
 and that would work, but the rule is that you must specific at least 4
 unique digits of the ID, so I could have also done this:
 
 ``` {.default}
-$ git checkout 5a02
+$ git switch --detach 5a02
 ```
 
 for the same result.
@@ -171,31 +171,8 @@ for the same result.
 And that result is:
 
 ``` {.default}
-Note: switching to '5a02'.
-
-You are in 'detached HEAD' state. You can look around, make
-experimental changes and commit them, and you can discard any
-commits you make in this state without impacting any branches by
-switching back to a branch.
-
-If you want to create a new branch to retain commits you create,
-you may do so (now or later) by using -c with the switch command.
-Example:
-
-  git switch -c <new-branch-name>
-
-Or undo this operation with:
-
-  git switch -
-
-Turn off this advice by setting config variable advice.detachedHead
-to false
-
-HEAD is now at 5a02fed Added
+HEAD is now at 5a02fed
 ```
-
-Looks sort of scary, but look—Git is telling us how to undo the
-operation if we want, and so there's really nothing to fear.
 
 Let's take a look around with `git log`:
 
@@ -224,24 +201,47 @@ That's because the `main` branch is still looking at the latest commit,
 the one with the "More output" comment. So we don't see it from this
 perspective.
 
+Furthermore, this means that `HEAD` is no longer *attached* to `main`.
+We call this state [i[Detached `HEAD`]] *detached head*. And `git
+switch` doesn't let you do that unless you mean it, which is why we have
+that `--detach` in there. (And reattaching is easy: just switch to the
+branch you want to attach to.)
+
 > **Remember earlier when I said it was a bit of a lie to say that
 > `HEAD` points to a commit?** Well, detached head state is the case
 > where it actually **does**. Detached head state is just what happens
 > when `HEAD` is pointing to a commit instead of a branch. To reattach
 > it, you have to change it to point to a branch again.
 
-Let's get back to the `main` branch. There are three options:
+Let's reattach to the `main` branch. There are two options:
 
-1. `git switch -`, just like the helpful message says.
-2. `git switch main`
-3. `git checkout main`
+1. `git switch -`: this switches to wherever we were before this, which,
+   in this case, was `main`.
+2. `git switch main`: this explicitly switches to `main`.
 
-Git replies:
+Let's try:
 
 ``` {.default}
-Previous HEAD position was 5a02fed Added
-Switched to branch 'main'
+$ git switch main
+  Previous HEAD position was 5a02fed Added
+  Switched to branch 'main'
 ```
+
+Notice there was no `--detach` in that `git switch`! We're reattaching
+the head, not detaching it, so we don't have to tell Git we know what
+we're doing.
+
+> **Don't worry if you forget the `--detach`.** Git will tell you if you
+> need it.
+>
+> ``` {.default}
+> $ git switch 5a02
+>   fatal: a branch is expected, got commit '5a02'
+>   hint: If you want to detach HEAD at the commit, try again with
+>         the --detach option.
+> ```
+
+<!-- ` -->
 
 And now if we `git log`, we see all our changes again:
 
@@ -262,22 +262,29 @@ Date:   Thu Feb 1 09:24:52 2024 -0800
 and our working tree will be updated to show the files as they are in
 the `main` commit.
 
-## The New Command: `git switch`
+And you see the `HEAD -> main`? This means `HEAD` is reattached to
+`main`.
 
-[i[`git switch`]]
+## The Old Command: `git checkout`
 
-In ye olden days, `git checkout` did a lot of things, and it still
-does. Because it does so much, the maintainers of Git have been trying
-to break some of that functionality into a new command, `git switch`.
+[i[`git checkout`]]
 
-We could redo the previous section by using just `git switch` instead of
-`git checkout`. Let's try:
+In ye olden days before `git switch` existed, there was a command to do
+all that stuff called `git checkout`. `git checkout` did a lot of
+things, and it still does. Because it does so much, the maintainers of
+Git have been trying to break some of that functionality into `git
+switch`.
+
+We could redo the previous section by using just `git checkout` instead of
+`git switch`. Let's try:
 
 ``` {.default}
-$ git switch 5a02
+$ git checkout 5a02
 ```
 
 and it says:
+
+<!-- BOOKMARK: fix this section below here -->
 
 ``` {.default}
 fatal: a branch is expected, got commit '5a02'
