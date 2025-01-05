@@ -1,7 +1,7 @@
 TITLE="Beej's Guide to Git"
 SUBTITLE=""
 AUTHOR='Brian “Beej Jorgensen” Hall'
-VERSION_DATE="v0.14.1, Copyright © December 25, 2024"
+VERSION_DATE="v0.14.2, Copyright © January 5, 2025"
 
 GUIDE_ID=bggit
 BGBSPD_BUILD_DIR?=../../bgbspd
