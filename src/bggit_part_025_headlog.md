@@ -90,13 +90,18 @@ moving `HEAD` to them.
 >
 > So this is a bit of a lie, but I hope you forgive me.
 
-Some terminology: the files in your git subdirectory you're looking at
-right now is referred to as your _working tree_. The working tree is the
-files as they appear at the commit pointed to by `HEAD`, plus any
-uncommitted changes you might have made.
+Some terminology: the Git subdirectory you're looking at right and all
+the files within it is referred to as your _working tree_. The working
+tree is the files as they appear at the commit pointed to by `HEAD`,
+plus any uncommitted changes you might have made.
 
 So if you switch `HEAD` to another commit, the files in your working
 tree will be updated to reflect that.
+
+> **Importantly, the data in the files in the working tree might differ
+> from the data in the files at the current commit pointed to by
+> `HEAD`.** This happens when you've modified a file in the working tree
+> but haven't yet committed it.
 
 Okay then, how do we know which commit `HEAD` is referring to? Well,
 it's right there at the top of the log:
@@ -313,7 +318,7 @@ Well, that's a lot of scary stuff, but it's just Git telling us that
 we're now in detached head state. Which of course we are since we just
 detached the head from a branch by switching to a specific commit UUID.
 
-And we can get back to the `main` branch with either:
+And we can get back to the `main` branch with:
 
 ``` {.default}
 $ git checkout main

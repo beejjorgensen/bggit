@@ -142,9 +142,8 @@ and doesn't know our business needs.
 So it asks us, during the merge, to fix it. After we fix it, Git can
 complete the merge.
 
-> **There's an important point here.** When you're merging, if a
-> conflict occurs, _you're still merging_. Git is in the "merge" state,
-> waiting for more merge-specific commands.
+> **When you're merging, if a conflict occurs, _you're still merging_**.
+> Git is in the "merge" state, waiting for more merge-specific commands.
 >
 > You can resolve the conflict then commit the changes to complete the
 > merge. Or you can back out of the merge making as if you'd never

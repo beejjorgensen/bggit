@@ -82,9 +82,8 @@ So there might be multiple collaborators working on the project at the
 same time.
 
 And then, when you're ready, you can [i[Merging]] _merge_ those branches
-back together. In this diagram we've merged commit 6 and 7 into a new
-commit, commit 9. In Figure_#.4, commit 9 contains the changes of both
-commits 7 and 6.
+back together. In Figure_#.4, we've merged commit 6 and 7 into a new
+commit, commit 9. Commit 9 contains the changes of both commits 7 and 6.
 
 ![After merging `somebranch` and `anotherbranch`.](img_030_040.pdf "[After merging somebranch and anotherbranch.]")
 
@@ -161,12 +160,13 @@ For now, we're going to tell `git pull` to always classically merge
 divergent branches, and you can do that with this one-time command:
 
 ``` {.default}
-$ git config --global pull.rebase false
+$ git config set --global pull.rebase false
 ```
 
 If you don't do that, Git will pop up an error message complaining about
 it the first time it has to merge on a pull. And you'll have to do it
-then.
+then. (Leave the word `set` out of that command if it fails on older
+Gits.)
 
 When we talk about rebasing later, this will make more sense.
 
@@ -175,14 +175,15 @@ When we talk about rebasing later, this will make more sense.
 [i[`HEAD`-->With branches]]
 
 We said earlier that `HEAD` refers to a specific commit, namely the
-commit you're looking at right now in your working tree.
+commit you're looking at right now in your unmodified working tree.
 
 And we also said that was a bit of a lie.
 
 In normal usage, `HEAD` points to a branch, not to a commit. In detached
 head state, `HEAD` points to a commit.
 
-It's like Figure_#.7 when `HEAD` is pointing to a branch as per normal.
+If we look at Figure_#.7, we see `HEAD` is pointing to a branch as per
+normal.
 
 ![`HEAD` pointing to a branch.](img_030_070.pdf "[HEAD pointing to a branch.]")
 
@@ -268,8 +269,8 @@ automatically created for you at that commit.
 
 But what about new branches we want to make?
 
-> Why make a branch? A common case is that you want to work on your own
-> commits without impacting the work of others. (In this case you're
+> **Why make a branch?** A common case is that you want to work on your
+> own commits without impacting the work of others. (In this case you're
 > really just putting off the work until you merge your branch with
 > theirs, but it's a good workflow.)
 >
@@ -302,10 +303,10 @@ to that branch) with `git switch branchname`. But if the branch doesn't
 exist, you use the `-c` switch to create the branch before switching to
 it.
 
-> **ProTip**: Make sure all your local changes are committed before
-> switching branches! If you `git status` it should say "working tree
-> clean" before you switch. Later we'll learn about another option with
-> `git stash`.
+> **Make sure all your local changes are committed before switching
+> branches!** If you `git status` it should say "working tree clean"
+> before you switch. Later we'll learn about another option with `git
+> stash`.
 
 So after checking out `main`, we have Figure_#.11.
 
@@ -341,9 +342,9 @@ That's not super exciting, since we're still looking at the same commit,
 but let's see what happens when we make some new commits on this new
 branch.
 
-> **Important note**: The branches we're making here exist only on your
-> local clone; they're not automagically propagated back to wherever you
-> cloned the repo from.
+> **The branches we're making here exist only on your local clone**;
+> they're not automagically propagated back to wherever you cloned the
+> repo from.
 >
 > The upshot is that if you accidentally (or deliberately) delete your
 > local repo, when you `git clone` again, all your local branches will
@@ -578,8 +579,8 @@ Done!
 > **A *topic* branch is what we call a local branch made for a single
 > topic like a feature, bug fix, etc.** In this guide I'll name branches
 > literally `topic` to indicate that it's just an arbitrary branch. But
-> in real life you'd name the topic branch after what it is your doing,
-> like `bugfix37`, `newfeature`, `experiment`, etc.
+> in real life you'd name the topic branch after what it is you're
+> doing, like `bugfix37`, `newfeature`, `experiment`, etc.
 
 But what if you were working on a branch and wanted to abandon it before
 you merge it into something? For that, we have the more imperative
