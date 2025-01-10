@@ -53,6 +53,9 @@ this:
 * In the upper right there should be a button labeled "Fork". Click it.
 * Under "Owner", choose your user name.
 * Under "Repository name", chose the default or make a new name.
+* Optionally, if the repo has multiple branches and you wish to have
+  those in your fork, uncheck the "Copy the main branch only" checkbox.
+  You can always get the branches by hand later if you don't do this.
 * Click the "Create fork" button.
 
 > **This can be done with impunity.** That is, you've made your own fork
