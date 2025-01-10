@@ -144,11 +144,13 @@ state.
 
 ## Files In Multiple States
 
-A file can actually sort of exist in multiple states at once. For
-instance, you might have one version of a file on the stage, and another
-version of that file, with different modifications, in your working tree
-*at the same time*. Technically these are actually different files since
-they don't contain the same data.
+A file can actually sort of exist in multiple states at once. To be more
+technically accurate, there can be copies of files which are in
+different states than one another. For instance, you might have one
+version of a file on the stage, and another version of that file, with
+different modifications, in your working tree *at the same time*.
+Technically these are actually different files since they don't contain
+the same data.
 
 Just remember that when you stage a file, it effectively stages a
 **copy** of that file as it exists right then. There is nothing stopping

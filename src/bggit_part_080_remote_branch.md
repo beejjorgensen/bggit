@@ -94,11 +94,11 @@ it once with either push or pull.
 That's because by default when you clone a repo, Git automagically sets
 up a local branch to track the `main` branch on the remote.
 
-> **Bonus Info**: Depending on how you made your repo, you might also
-> have a reference to `origin/HEAD`. It might be weird to think that
-> there's a `HEAD` ref on a remote server that you can see, but in this
-> case it's just referring to the branch that you'll be checking out by
-> default when you clone the repo.
+> **Depending on how you made your repo, you might also have a reference
+> to `origin/HEAD`.** It might be weird to think that there's a `HEAD`
+> ref on a remote server that you can see, but in this case it's just
+> referring to the branch that you'll be checking out by default when
+> you clone the repo.
 
 "OK, so what you're telling me is that I can just `git push` and `git
 pull` like always and just ignore everything you wrote in this section?"

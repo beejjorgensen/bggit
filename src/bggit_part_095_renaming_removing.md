@@ -56,7 +56,7 @@ $ git status
 
 This easiest way to revert this change is to do this:
 
-```
+``` {.default}
 $ git mv bar.txt foo.txt    # Rename it back to foo.txt
 $ git status
   On branch main

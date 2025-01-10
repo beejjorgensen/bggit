@@ -16,7 +16,6 @@ Example repo with submodule:
 
 * Update example in chapter 2 so that source matches the actual example
   repo.
-* Normalize quotes
 * Index everything
 
 ## Still to Write

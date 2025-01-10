@@ -45,8 +45,8 @@ And when you're first starting out, your intuition about "where it makes
 the most sense" might not be dead-on, but it probably won't be lethal
 and you'll figure it out in the school of hard knocks.
 
-> "Oh great. Another f---ing learning experience." \
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;—Actual quote from my mother
+> *"Oh great. Another f\-\-\-ing learning experience."* \
+> \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ —Actual quote from my mother
 
 ## Communication and Delegation
 
