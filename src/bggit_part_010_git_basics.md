@@ -594,6 +594,24 @@ the remote repo so that it also has our changes.
 So let's try to do that. Let's push our local changes to the remote
 repo.
 
+> **Turns out there's an optional shortcut here.** If you've modified a
+> file, you can just commit it directly (without adding it to the
+> stage!) by naming it on the command line.
+>
+> Let's say you modified `foo.txt` but didn't add it. You could:
+>
+> ``` {.default}
+> $ git commit -m "jerbified the flurblux" foo.txt
+> ```
+> 
+> <!-- ` -->
+> And that would add it and make the commit. You can only do this with
+> files that you added before. And there's never any harm in using `git
+> add` to add things to the stage.
+>
+> You can specify multiple files here, or a directory. Also, this
+> doesn't affect files that are already on the stage.
+
 ### Step 5: Push Your Changes to the Remote Repo
 
 [i[Pushing]]

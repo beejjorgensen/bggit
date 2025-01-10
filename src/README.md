@@ -14,7 +14,6 @@ Example repo with submodule:
 
 # TODO
 
-* Add note about committing without adding.
 * Update example in chapter 2 so that source matches the actual example
   repo.
 * Normalize quotes
