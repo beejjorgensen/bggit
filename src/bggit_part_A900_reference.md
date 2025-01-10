@@ -71,6 +71,8 @@ continues on the next line.
 
 ## Configuration
 
+[i[Configuration]i<]
+
 For all `git config` commands, specify `--global` for a universal
 setting or leave it off to set the value just for this repo.
 
@@ -84,6 +86,7 @@ $ git config --edit
 
 ### Set identity
 
+[i[Configuration-->Name and email]i]
 Username and email:
 
 ``` {.default}
@@ -91,6 +94,7 @@ $ git config set --global user.name "Your Name"
 $ git config set --global user.email "your-email@example.com"
 ```
 
+[i[Configuration-->SSH identity]i]
 SSH identity:
 
 ``` {.default}
@@ -100,6 +104,7 @@ $ git config set core.sshCommand \
 
 ### Set default pull behavior to merge or rebase
 
+[i[Configuration-->Pull rebase behavior]i]
 ``` {.default}
 $ git config set --global pull.rebase false   # Merge
 $ git config set --global pull.rebase true    # Rebase
@@ -111,6 +116,9 @@ Set the default editor to Vim, and the default mergetool and difftool to
 Vimdiff, turn off prompting for the tools, and turn off mergetool
 backups:
 
+[i[Configuration-->Editor]i]
+[i[Configuration-->Difftool]i]
+[i[Configuration-->Mergetool]i]
 ``` {.default}
 $ git config set core.editor vim
 $ git config set diff.tool vimdiff
@@ -124,12 +132,14 @@ $ git config --global set mergetool.keepBackup false
 
 ### Colorful Git output
 
+[i[Configuration-->Color output]i]
 ``` {.default}
 $ git config set color.ui true   # Or false
 ```
 
 ### Autocorrect
 
+[i[Configuration-->Autocorrect]i]
 Autocorrect will automatically run the command it thinks you meant. For
 example, if you `git poush`, it will assume you meant `git push`.
 
@@ -147,6 +157,7 @@ $ git config set help.autocorrect never      # Turn autocorrect off
 Handle automatic newline translation. Recommend set to true for Windows
 (not WSL) and false everywhere else.
 
+[i[Configuration-->Newline translation]i]
 ``` {.default}
 $ git config set core.autocrlf true  # Windows (non-WSL)
 $ git config set core.autocrlf false # WSL, Linux, Mac, C64, etc.
@@ -163,6 +174,8 @@ git config --edit                         # Edit
 ```
 
 ### Aliases
+
+[i[Configuration-->Aliases]i<]
 
 Setting aliases, some examples:
 
@@ -191,7 +204,12 @@ Tracing an alias run:
 $ GIT_TRACE=1 git logx
 ```
 
+[i[Configuration-->Aliases]i>]
+[i[Configuration]i>]
+
 ## Creating and Cloning Repos
+
+[i[Clone]i]
 
 ``` {.default}
 $ git clone URL       # Clone a URL
@@ -202,6 +220,11 @@ $ git init .          # Init repo in the current directory
 
 ## Adding, Renaming, Deleting, Committing
 
+[i[Add]i]
+[i[Move]i]
+[i[Remove]i]
+[i[Add]i]
+[i[Commit]i<]
 ``` {.default}
 $ git add PATH             # Add PATH to the repo
 $ git mv FILE1 FILE2       # Rename ("Move") FILE1 to FILE2
@@ -216,12 +239,14 @@ $ git commit -m "message"  # Commit with a message
 Amending commits—don't amend commits you have pushed unless you know
 what you're getting into!
 
+[i[Commit-->Amending]i]
 ``` {.default}
 $ git commit --amend               # Amend last commit
 $ git commit --amend -m "message"  # Amend with commit message
 $ git commit --amend --no-edit     # Don't change commit message
 ```
 
+[i[Remove-->Undelete]i]
 To undelete a staged file, run these two commands in sequence:
 
 ``` {.default}
@@ -234,6 +259,8 @@ commit, or revert the commit that deleted it.
 
 ## Getting Status
 
+[i[Status]i]
+[i[Log]i]
 ``` {.default}
 $ git status             # Show current file states
 $ git log                # Show the commit logs
@@ -249,6 +276,7 @@ $ git log CMMT1...CMMT2  # Show logs from CMMT1 and CMMT2
 
 ## Getting a Diff
 
+[i[Diff]i<]
 ``` {.default}
 $ git diff                # Diffs between working tree and stage
 $ git diff HEAD^          # Diff from the previous commit to here
@@ -270,11 +298,14 @@ $ git diff --name-only  # Only show filenames of changed files
 $ git diff --staged     # Diffs between stage and repo
 $ git difftool          # Diffs using the configured difftool
 ```
+[i[Diff]i>]
 
 ## Branches
 
 A local branch looks like `branchname`. A remote tracking branch looks
 like `remote/branchname`.
+
+[i[Switch]i<]
 
 ``` {.default}
 $ git switch BRANCH         # Switch to a branch
@@ -293,6 +324,7 @@ $ git switch --detach HEAD~99 # Switch to 99 commits ago
 $ git switch main   # Reattach HEAD to main
 ```
 
+[i[Branch]i<]
 ``` {.default}
 $ git branch -v   # List all branches
 $ git branch -va  # List all including remote tracking branches
@@ -303,14 +335,18 @@ $ git switch -c BRANCH        # Create and switch to BRANCH
 $ git branch BRANCH           # Create BRANCH at HEAD
 $ git branch BRANCH1 BRANCH2  # Create BRANCH1 at BRANCH2
 ```
+[i[Switch]i>]
 
 ``` {.default}
 $ git branch -d BRANCH   # Delete fully merged branch
 $ git branch -D BRANCH   # Force delete unmerged branch
 ```
 
+[i[Branch]i>]
+
 Obsolete style (use `switch` if you can):
 
+[i[Checkout]i]
 ``` {.default}
 $ git checkout CMMT      # Detach HEAD to a commit
 $ git checkout HEAD^     # Detach HEAD to previous commit
@@ -319,6 +355,7 @@ $ git checkout HEAD~2    # Detach HEAD to second previous commit
 
 ## Pulling and Pushing, and Fetching
 
+[i[Pull]i]
 ``` {.default}
 $ git pull               # Pull from remote and merge or rebase
 $ git pull --ff-only     # Only allow fast-forward merges
@@ -326,6 +363,7 @@ $ git pull --rebase      # Force a rebase on pull
 $ git pull --no-rebase   # Force a merge on pull
 ```
 
+[i[Push]i]
 ``` {.default}
 $ git push                     # Push this branch to its remote
 
@@ -340,6 +378,7 @@ $ git push -u REMOTE BRANCH    # Create remote tracking branch and
 $ git push -u origin branch99  # Example
 ```
 
+[i[Fetch]i]
 ``` {.default}
 $ git fetch        # Get data from remote but don't merge or rebase
 $ git fetch REMOTE # Same, for a specific remote
@@ -347,6 +386,7 @@ $ git fetch REMOTE # Same, for a specific remote
 ```
 ## Merging
 
+[i[Merge]i]
 ``` {.default}
 $ git merge CMMT     # Merge commit or branch into HEAD
 $ git merge --abort  # Rollback the current merge
@@ -363,6 +403,7 @@ In a conflict occurs, you can always `--abort`. Otherwise:
 
 ## Remotes
 
+[i[Remote]i]
 ``` {.default}
 $ git remote -v                       # List remotes
 $ git remote set-url REMOTE URL       # Change remote's URL
@@ -372,6 +413,8 @@ $ git remote remove REMOTE            # Delete REMOTE
 ```
 
 ## Ignoring Files
+
+[i[`.gitignore` file]i<]
 
 Add a `.gitignore` file to your repo. It applies to this directory and
 all non-submodule subdirectories below it. Add descriptions of files to
@@ -398,9 +441,11 @@ subdirectories to override rules from parent directories:
 *.txt       # Ignore all text files
 !keep.txt   # Except "keep.txt"
 ```
+[i[`.gitignore` file]i>]
 
 ## Rebasing
 
+[i[Rebase]i]
 ``` {.default}
 $ git rebase CMMT        # Rebase changes onto commit
 
@@ -409,7 +454,10 @@ $ git rebase -i CMMT     # Interactive rebase (squashing commits)
 $ git rebase --continue  # Continue processing from conflict
 $ git rebase --skip      # Skip a conflicting commit
 $ git rebase --abort     # Bail out of rebasing
+```
 
+[i[Pull-->Force rebase or merge]i]
+```
 $ git pull --rebase      # Force a rebase on pull
 $ git pull --no-rebase   # Force a merge on pull
 ```
@@ -418,6 +466,7 @@ $ git pull --no-rebase   # Force a merge on pull
 
 Stashes are stored on a stack.
 
+[i[Stash]i]
 ``` {.default}
 $ git stash push    # Stash changed files
 $ git stash         # Effectively the same as "push"
@@ -433,6 +482,7 @@ $ git stash drop --index 1    # Same thing
 
 ## Reverting
 
+[i[Revert]i]
 ``` {.default}
 $ git revert CMMT     # Revert a specific commit
 $ git revert -n CMMT  # Revert but don't commit (yet)
@@ -447,6 +497,7 @@ $ git revert --abort     # Bail out of reverting
 
 ## Resetting
 
+[i[Reset]i]
 All resets move `HEAD` and the current checked out branch to the
 specified commit.
 
@@ -467,6 +518,7 @@ $ git reset FILE   # Same as "git restore --staged FILE"
 
 ## The Reflog
 
+[i[Reflog]i]
 ``` {.default}
 $ git reflog      # Look at the reflog
 ```
@@ -475,12 +527,14 @@ $ git reflog      # Look at the reflog
 
 ## Cherry-pick
 
+[i[Cherry-pick]i]
 ``` {.default}
 $ git cherry-pick CMMT   # Cherry-pick a particular commit
 ```
 
 ## Blame
 
+[i[Blame]i]
 ``` {.default}
 $ git blame FILE                # Who is responsible for each line
 $ git blame --date=short FILE   # Same, shorter date format
@@ -488,6 +542,7 @@ $ git blame --date=short FILE   # Same, shorter date format
 
 ## Submodules
 
+[i[Submodules]i<]
 ``` {.default}
 $ git clone --recurse-submodules URL       # Clone with submodules
 $ git submodule update --recursive --init  # If you cloned without
@@ -503,6 +558,7 @@ $ git submodule update               # Bring in missing submods
 $ git submodule update --recursive   # Handle submods of submods
 ```
 
+[i[Submodules-->Deleting]i]
 Deleting a submodule—do these in order. In this example, DIR is the name
 of the submodule directory.
 
@@ -514,3 +570,4 @@ $ git add .gitmodules
 $ git rm --cached DIR
 $ git commit -m "remove DIR submodule"
 ```
+[i[Submodules]i>]
