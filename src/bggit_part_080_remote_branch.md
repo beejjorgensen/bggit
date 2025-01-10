@@ -184,4 +184,75 @@ something that looks like Figure_#.1.
 If you pull down that `main` button, you'll see `topic99` there as well.
 You can select either branch and view it in the GitHub interface.
 
+## Multiple Remotes
+
+It's possible that you might have multiple remotes. (This is commonly
+put in place when you've forked someone's repo on GitHub.)
+
+How do remote tracking branches work in that case?
+
+Let's say your main remote is called `origin` as usual. But you've also
+set another remote called `remote2`, unoriginally.
+
+Someone else pushes a new branch called `foobranch` (slightly more
+originally) up to `remote2` and you'd like to get it.
+
+So you do this:
+
+``` {.default}
+$ git fetch remote2
+  remote: Enumerating objects: 15, done.
+  remote: Counting objects: 100% (15/15), done.
+  remote: Compressing objects: 100% (4/4), done.
+  remote: Total 12 (delta 6), reused 11 (delta 5), pack-reused 0
+  Unpacking objects: 100% (12/12), 1.61 KiB | 34.00 KiB/s, done.
+  From github.com:user/somerepo
+   * [new branch]      foobranch -> remote2/foobranch
+```
+
+So far so good. Let's switch to it:
+
+``` {.default}
+$ git switch foobranch
+  branch 'foobranch' set up to track 'remote2/foobranch'.
+  Switched to a new branch 'foobranch'
+```
+
+Wait! We're tracking at `remote2`? That's a little weird because it's
+the other person's repo. Maybe you have permission to write to it, and
+that's what you want to do. But it's more probably you'd like your own
+version of this branch on your repo as well.
+
+You can do that by pushing it to your remote with `-u` again.
+
+``` {.default}
+$ git push -u origin foobranch
+```
+
+And that'll do it.
+
+If you look at your branches with `git branch -avv` you'll see now
+several `foobranch` variants for different clones.
+
+``` {.default}
+foobranch
+remotes/origin/foobranch
+remotes/remote2/foobranch
+```
+
+If you want to keep your `origin/foobranch` in sync with that on
+`remote2`, you'll have to do a bunch of merging.
+
+``` {.default}
+$ git fetch remote2            # Get remote2 changes
+$ git switch foobranch         # Get onto the merge-into branch
+$ git merge remote2/foobranch  # Merge changes from remote2
+$ git push origin foobranch    # Push changes back to origin
+```
+
+(You can leave the `origin foobranch` off the `push` if you've already
+pushed it with `-u` earlier, of course.)
+
+At that point, every `foobranch` should be on the same commit.
+
 [i[Branches-->Remote tracking]>]
