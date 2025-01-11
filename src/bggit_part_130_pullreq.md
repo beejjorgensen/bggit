@@ -1,6 +1,6 @@
 # GitHub: Forking and Pull Requests
 
-[i[Forking]<]
+[i[Fork]<]
 [i[Pull requests]<]
 
 What if you want to make changes to a repo on GitHub but you don't have
@@ -478,4 +478,4 @@ in the future is do the `git fetch upstream` and then merge or rebase
 your stuff with it.
 
 [i[Pull requests]>]
-[i[Forking]>]
+[i[Fork]>]

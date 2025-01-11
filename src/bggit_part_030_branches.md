@@ -81,7 +81,7 @@ to pursue multiple branches simultaneously.
 So there might be multiple collaborators working on the project at the
 same time.
 
-And then, when you're ready, you can [i[Merging]] _merge_ those branches
+And then, when you're ready, you can [i[Merge]] _merge_ those branches
 back together. In Figure_#.4, we've merged commit 6 and 7 into a new
 commit, commit 9. Commit 9 contains the changes of both commits 7 and 6.
 

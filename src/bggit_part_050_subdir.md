@@ -8,10 +8,10 @@ probably don't want to get wrapped up in.
 
 ## Repos and Subdirectories
 
-When you run a `git` command, Git looks for a special directory called
-`.git` ("dot git") in the current directory. As we've already mentioned,
-this is the directory, created when you create the repo, that holds the
-metadata about the repo.
+When you run a `git` command, Git looks for a [i[`.git` directory]]
+special directory called `.git` ("dot git") in the current directory. As
+we've already mentioned, this is the directory, created when you create
+the repo, that holds the metadata about the repo.
 
 But what if you're in a subdirectory in your project, and there's no
 `.git` directory there?
@@ -63,14 +63,15 @@ the spurious one you accidentally made in your home directory.
 We recommend against one big repo from your home directory. You should
 have separate subdirectories for each of your repos.
 
+[i[`.git` directory-->Removing]]
 If you accidentally create a repo where you didn't want to, changing a
 Git repo to a regular subdirectory is as simple as removing the `.git`
 directory. Be careful that you're removing the correct one when you do
 this!
 
-> One hack you can do to prevent Git from creating a repo in your home
-> directory is to preemptively put an unwriteable `.git` directory
-> there.
+> [i[`.git` directory-->Preventing in home]]One hack you can do to
+> prevent Git from creating a repo in your home directory is to
+> preemptively put an unwriteable `.git` directory there.
 >
 > ``` {.default}
 > $ mkdir ~/.git       # Make the .git directory
@@ -84,6 +85,7 @@ this!
 
 ## Empty Subdirectories in Repos
 
+[i[Subdirectories-->Empty]]
 Turns out Git doesn't support this. It only tracks files, so if you want
 a subdirectory represented in your repo, you must have at least one file
 in it.

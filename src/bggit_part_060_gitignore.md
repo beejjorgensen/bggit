@@ -88,7 +88,7 @@ and we're all clear.
 
 ## Can I Specify Subdirectories in `.gitignore`?
 
-[i[`.gitignore` file-->And subdirectories]]
+[i[`.gitignore` file-->With subdirectories]]
 
 Yes!
 

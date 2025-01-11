@@ -12,6 +12,8 @@ branches to a remote for safe keeping.
 
 ## Branches on Remotes
 
+[i[Branch-->On remote]<]
+
 First, some refresher!
 
 Recall that the remote repo you cloned yours from is a complete copy of
@@ -46,19 +48,23 @@ branch on your local repo called `origin/main`_.
 This is called a _remote-tracking branch_. It's your local copy of the
 `main` branch on the remote. You can't move your local `origin/main`
 branch directly; Git does it for you as a matter of course when you
-interact with the remote (e.g. when you pull).
+interact with the remote (e.g. when you push or pull).
 
 We're going to call the `main` branch on our local machines the _local
 branch_, and we'll call the one on `origin` the _upstream branch_.
 
+[i[Branch-->On remote]>]
+
 ## Pushing to a Remote
 
-[i[Branch-->Set upstream]]
+[i[Branch-->Set upstream]<]
 
 Fun Fact: when you push or pull, you technically specify the remote and
 the branch you want to use. This is me saying, "Push the branch I'm on
 right now (presumably `main`) and merge it into `main` on `origin`.
 
+[i[Push-->Branch to remote]]
+[i[Branch-->Pushing to remote]]
 ``` {.default}
 $ git push origin main
 ```
@@ -106,9 +112,11 @@ pull` like always and just ignore everything you wrote in this section?"
 Well... yes. Ish. No. We're going to make use of this to push other
 branches to the remote!
 
+[i[Branch-->Set upstream]>]
+
 ## Making a Branch and Pushing to Remote
 
-[i[Pushing-->Branch to remote]]
+[i[Push-->Branch to remote]<]
 
 I'm going to make a new local branch `topic99`:
 
@@ -167,6 +175,7 @@ certainly no `topic99` branch on that remote. Yet.
 
 The fix is easy enough—Git already told us what to do.
 
+[i[Branch-->Set upstream]]
 ```
 $ git push --set-upstream origin topic99
 ```
@@ -184,7 +193,11 @@ something that looks like Figure_#.1.
 If you pull down that `main` button, you'll see `topic99` there as well.
 You can select either branch and view it in the GitHub interface.
 
+[i[Push-->Branch to remote]>]
+
 ## Multiple Remotes
+
+[i[Remote-->Multiple]<]
 
 It's possible that you might have multiple remotes. (This is commonly
 put in place when you've forked someone's repo on GitHub.)
@@ -231,6 +244,7 @@ $ git push -u origin foobranch
 
 And that'll do it.
 
+[i[Branch-->Listing all]]
 If you look at your branches with `git branch -avv` you'll see now
 several `foobranch` variants for different clones.
 
@@ -255,4 +269,5 @@ pushed it with `-u` earlier, of course.)
 
 At that point, every `foobranch` should be on the same commit.
 
+[i[Remote-->Multiple]>]
 [i[Branch-->Remote tracking]>]

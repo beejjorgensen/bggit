@@ -18,7 +18,7 @@ challenging.
 ## Contrasted to Merging
 
 [i[Rebasing-->Compared to Merging]]
-[i[Merging-->Compared to Rebasing]]
+[i[Merge-->Compared to Rebasing]]
 
 But before we go run off in high spirits talking about rebasing, let's
 do a quick merge refresher. Here's a variation of an earlier example

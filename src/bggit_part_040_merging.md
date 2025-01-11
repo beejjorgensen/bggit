@@ -1,6 +1,6 @@
 # Merging and Conflicts
 
-[i[Merging]<]
+[i[Merge]<]
 
 We've seen how a fast-forward merge can bring to branches into sync with
 no possibility of conflict.
@@ -126,7 +126,7 @@ results in a _merge conflict_ that requires manual intervention. By you.
 
 ## Merge Conflicts
 
-[i[Merging-->Conflicts]<]
+[i[Merge-->Conflicts]<]
 
 If two branches have changes that are "far apart" from one another, Git
 can figure it out. If I edit line 20 of a file in one branch, and you
@@ -399,5 +399,5 @@ better at them you get.
 Nothing to worry about. Everything is in Git's commit history, so even
 if you botch it, you can always get things back the way they were.
 
-[i[Merging-->Conflicts]>]
-[i[Merging]>]
+[i[Merge-->Conflicts]>]
+[i[Merge]>]

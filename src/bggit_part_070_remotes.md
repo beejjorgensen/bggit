@@ -1,6 +1,6 @@
 # Remotes: Repos in Other Places
 
-[i[Remotes]<]
+[i[Remote]<]
 
 A _remote_ is just a name for a remote server you can clone, push, and
 pull from.
@@ -12,13 +12,13 @@ It's possible to use this URL to identify the server in our Git usage,
 but it's unwieldy to type. So we give the remote server URLs nicknames
 that we just tend to call "remotes".
 
-A remote we've already seen a bunch of is [i[Remotes-->`origin`]] `origin`. This is the nickname
+A remote we've already seen a bunch of is [i[Remote-->`origin`]] `origin`. This is the nickname
 for the remote repo you cloned from, and it gets set automatically by
 Git when you clone.
 
 ## Remote and Branch Notation
 
-[i[Remotes-->Remote branches]]
+[i[Remote-->Remote branches]<]
 
 Before we begin, note that Git uses slash notation to refer to a
 specific branch on a specific remote: `remotename/branchname`.
@@ -39,9 +39,11 @@ nitfol/feature3490
 
 We'll talk more about this in the Remote Tracking Branches chapter.
 
+[i[Remote-->Remote branches]>]
+
 ## Getting a List of Remotes
 
-[i[Remotes-->Listing]]
+[i[Remote-->Listing]<]
 
 You can run `git remote` with the `-v` option in any repo directory to
 see what remotes you have for that repo:
@@ -59,9 +61,11 @@ both is super common.
 And that URL is the exact same one we copied from GitHub when cloning
 the repo in the first place.
 
+[i[Remote-->Listing]>]
+
 ## Renaming a Remote
 
-[i[Remotes-->Renaming]]
+[i[Remote-->Renaming]<]
 
 Remember that a remote name is just an alias for some URL that you
 cloned the repo from.
@@ -107,9 +111,11 @@ origin    git@github.com:beejjorgensen/git-example-repo.git (push)
 
 And now we can push! (Assuming we have our SSH keys set up.)
 
+[i[Remote-->Renaming]>]
+
 ## Adding a Remote
 
-[i[Remotes-->Adding]]
+[i[Remote-->Adding]<]
 
 There's nothing stopping you from adding another remote.
 
@@ -149,6 +155,7 @@ reallinux    https://github.com/torvalds/linux.git (fetch)
 reallinux    https://github.com/torvalds/linux.git (push)
 ```
 
+> [i[Remote-->`upstream` convention]]
 > Normally when setting up a remote that refers to the source of a forked
 > repo on GitHub, people tend to call that remote `upstream`, whereas
 > I've clearly called it `reallinux`.
@@ -159,6 +166,8 @@ reallinux    https://github.com/torvalds/linux.git (push)
 >
 > Just remember IRL when you set up a remote to point to the forked-from
 > repo, it's relatively customary to call that remote `upstream`.
+
+[i[Remote-->Sync with `upstream`]]
 
 Now I can run this to get all the changes from Linus's repo:
 
@@ -212,4 +221,6 @@ It's interesting that my local `master` can be out of sync from the
 
 We'll look at this in the Remote Tracking Branches chapter.
 
-[i[Remotes]>]
+[i[Remote-->Adding]>]
+
+[i[Remote]>]

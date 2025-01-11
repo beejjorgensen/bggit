@@ -356,7 +356,7 @@ We haven't talked about branching yet, but this is letting us know we're
 on branch `main`. That's fine for now.
 
 It also tells us this branch is up to date with a branch called
-[i[Remotes-->`origin`]] `origin/main`. A branch in Git is just a
+[i[Remote-->`origin`]] `origin/main`. A branch in Git is just a
 reference to a certain commit that's been made, like a Post-It note
 attached to that commit. (Recall that a commit is a snapshot of the code
 repo at some time.)
@@ -496,7 +496,8 @@ it's so useful.
 
 ### Step 3: Add Changes to the Stage
 
-[i[Stage]]
+[i[Stage]<]
+[i[Add]<]
 
 The Git status message, above, is trying to help us out. It says:
 
@@ -540,9 +541,12 @@ the stage!
 > and that will change it back to the "Changes not staged for commit"
 > state.
 
+[i[Stage]>]
+[i[Add]>]
+
 ### Step 4: Commit those Changes
 
-[i[Commit]]
+[i[Commit]<]
 
 Now that we have something copied to the stage, we can make a commit.
 Recall that a commit is just a snapshot of the state of the repo given
@@ -618,9 +622,11 @@ repo.
 > You can specify multiple files here, or a directory. Also, this
 > doesn't affect files that are already on the stage.
 
+[i[Commit]>]
+
 ### Step 5: Push Your Changes to the Remote Repo
 
-[i[Push]]
+[i[Push]<]
 
 Let's push our local changes to the remote repo:
 
@@ -661,4 +667,5 @@ GitHub that's not plain password.
 
 Let's try that in the next section.
 
+[i[Push]>]
 [i[Workflow-->basic]>]
