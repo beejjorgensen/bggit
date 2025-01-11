@@ -259,6 +259,40 @@ abandoning the commits you've made in detached `HEAD` state.
 Now that we have the abstract theory stuff laid out, let's talk
 specifics.
 
+## Listing All Your Branches
+
+[i[Branch-->Listing]<]
+
+Before we start, let's see how to list branches.
+
+``` {.default}
+$ git branch
+  * main
+```
+
+This is telling you there's one branch, and you have it checked out (the
+`*` lets you know that.
+
+If I make a new branch called `foobranch` and switch to that, I'll see
+this:
+
+``` {.default}
+% git branch
+  * foobranch
+    main
+```
+
+If I then detach the `HEAD`, I end up here:
+
+``` {.default}
+% git branch              
+  * (HEAD detached at 10b6242)
+    foobranch
+    main
+```
+
+[i[Branch-->Listing]>]
+
 ## Creating a Branch
 
 [i[Branch-->Creating]]

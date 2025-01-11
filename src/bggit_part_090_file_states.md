@@ -144,6 +144,7 @@ state.
 
 ## Files In Multiple States
 
+[i[File States-->Multiple]]
 A file can actually sort of exist in multiple states at once. To be more
 technically accurate, there can be copies of files which are in
 different states than one another. For instance, you might have one

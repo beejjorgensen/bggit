@@ -55,6 +55,51 @@ branch_, and we'll call the one on `origin` the _upstream branch_.
 
 [i[Branch-->On remote]>]
 
+## Listing Remote Tracking Branches
+
+[i[Branch-->Listing remote tracking]<]
+
+Remember how `git branch` listed the branches you had? Let's power it
+up so you can see all the remote tracking branches, as well. This will
+help in the following sections.
+
+Basically, we just give it the `-avv` switch for "all" (to list the
+remote tracking branches) and "verbose" (to give info about which
+commits they're pointing to) and "verbose" again (to give info about
+which remote branches map to which remote branches.
+
+Here's the result for the repo that holds the source for this book:
+
+``` {.default}
+% git branch -avv
+  * main                  2d63af5 [origin/main] indexing
+    sphinx                cdac325 [origin/sphinx] partial port
+    remotes/origin/HEAD   -> origin/main
+    remotes/origin/main   2d63af5 indexing
+    remotes/origin/sphinx cdac325 partial port
+```
+
+We see my two local branches (`main` and `sphinx`). Looking on those two
+top lines, you see remote tracking branches in brackets (`origin/main`
+and `origin/sphinx`). When I push or pull from `main` or `sphinx`, those
+are the remote tracking branches that are merged to.
+
+Additionally, we see information about the remote below that.
+
+The first line about `remotes/origin/HEAD` is a little strange. It just
+points to `origin/main` which simply lets us know that `main` is the
+initial branch for the repo that Git will use when you clone it. You
+typically don't need to think about this line.
+
+The remaining two lines tell us what the remote tracking branches
+`origin/main` and `origin/sphinx` are pointing at. Looking closely, we
+see they're pointing to the same commits as our local `main` and
+`sphinx` indicating that everything is in sync. (As far as we
+know—someone else might have pushed something to the repo since our last
+pull and we don't know about that yet.)
+
+[i[Branch-->Listing remote tracking]>]
+
 ## Pushing to a Remote
 
 [i[Branch-->Set upstream]<]
@@ -244,7 +289,6 @@ $ git push -u origin foobranch
 
 And that'll do it.
 
-[i[Branch-->Listing all]]
 If you look at your branches with `git branch -avv` you'll see now
 several `foobranch` variants for different clones.
 
