@@ -53,6 +53,42 @@ interact with the remote (e.g. when you push or pull).
 We're going to call the `main` branch on our local machines the _local
 branch_, and we'll call the one on `origin` the _upstream branch_.
 
+> **And this is going to get confusing later** when we name a remote
+> `upstream` in a way that has nothing to do with the _upstream branch_
+> terminology we're using here.
+
+I want to go over that one more time to drive it home.
+
+Let's say you have these two branches on your computer:
+
+``` {.default}
+main            # main branch on your local repo
+origin/main     # main branch on the remote named origin
+```
+
+When you have those two branches on your computer, *there are actually
+three branches in the world**. 
+
+1. `main` on your computer.
+2. `origin/main` on your computer.
+3. `main` on the `origin` computer, usually a different computer than
+   yours, e.g. one at GitHub or something.
+
+The branch `origin/main` is just where your computer *thinks* that
+`main` on the `origin` is. Your computer got this information the last
+time you pulled or fetched from `origin`.
+
+If other people have pushed to `main` on `origin` since your last pull,
+your `origin/main` on your local computer won't be up to date.
+
+And normally you don't have to worry about this much; when you try to
+push, Git will tell you if someone else has pushed changes in the
+meantime and you have to pull first to update your `origin/main` branch.
+No biggie.
+
+But I wanted to spell that out so you had a more complete mental model
+of what's happening behind the curtain, here.
+
 [i[Branch-->On remote]>]
 
 ## Listing Remote Tracking Branches
