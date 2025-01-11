@@ -1,5 +1,7 @@
 # GitHub: How To Use It
 
+[i[GitHub]<]
+
 Now, we've said that GitHub (which is a proprietary web front-end to Git
 run and owned by Microsoft) is not Git, and it's true. It's also true
 that you never even need to touch GitHub in order to use Git.
@@ -400,8 +402,6 @@ And now we're back to that standard common flow:
 
 ## Collaboration on GitHub
 
-[i[Collaboration-->with GitHub]]
-
 There are two main techniques for this:
 
 1. Fork/pull request
@@ -409,6 +409,7 @@ There are two main techniques for this:
 
 We'll talk about the first one in the future.
 
+[i[GitHub-->Adding collaborators]]
 For now, the easiest way to add collaborators is to just add them to
 your repo.
 
@@ -423,3 +424,4 @@ they'll have access to the repo.
 
 Be sure to only do this with people you trust!
 
+[i[GitHub]>]

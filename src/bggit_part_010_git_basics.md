@@ -76,6 +76,8 @@ same codebase.
 
 ## What is GitHub?
 
+[i[GitHub]]
+
 [fl[GitHub|https://github.com/]] is **not** Git.
 
 ## What is GitHub?
@@ -94,11 +96,11 @@ Takeaway: GitHub is a web-based front-end to Git (specifically one that
 works on the copy of your repo at GitHub—stay tuned for more on that
 later).
 
-> **What about GitLab and Gitea?** [fl[GitLab|https://gitlab.com]] is a
-> competitor to GitHub. [fl[Gitea|https://docs.gitea.com/]] is an
-> open-source competitor that allows you to basically run a GitHub-like
-> front-end on your own server. None of this information is immediately
-> important.
+> [i[GitLab]][i[Gitea]]**What about GitLab and Gitea?**
+> [fl[GitLab|https://gitlab.com]] is a competitor to GitHub.
+> [fl[Gitea|https://docs.gitea.com/]] is an open-source competitor that
+> allows you to basically run a GitHub-like front-end on your own
+> server. None of this information is immediately important.
 
 Regardless of whatever repos you have on GitHub, you'll also have copies
 (known as _clones_) of those repos on your local system to work
@@ -189,11 +191,12 @@ many as you want).
 After you make a clone, there are two major operations you typically
 use:
 
-* **Push**: This takes your local commits and uploads them to the remote
-  repo.
 
-* **Pull**: This takes the remote commits and downloads them to your
-  local repo.
+* [i[Push]]**Push**: This takes your local commits and uploads them to
+  the remote repo.
+
+* [i[Pull]]**Pull**: This takes the remote commits and downloads them to
+  your local repo.
 
 Behind the scenes, there's a process going on called a _merge_, but
 we'll talk more about that later.
@@ -325,12 +328,13 @@ drwxr-xr-x  12 user  user  384 Jan 26 11:50 .git
 
 There are two files in this repo: `README.md` and `hello.py`.
 
-> **The directory `.git` has special meaning;** it's the directory where
-> Git keeps all its metadata and commits. You can look in there, but you
-> don't have to. If you do look, don't change anything. The only thing
-> that makes a directory a Git repo is the presence of a valid `.git`
-> directory within it.
+> [i[`.git` directory]]**The directory `.git` has special meaning;**
+> it's the directory where Git keeps all its metadata and commits. You
+> can look in there, but you don't have to. If you do look, don't change
+> anything. The only thing that makes a directory a Git repo is the
+> presence of a valid `.git` directory within it.
 
+[i[Status]]
 Let's ask Git what it thinks the current status of the local repo is:
 
 ``` {.default}
@@ -417,6 +421,7 @@ print("Hello, again!")
 
 And save that file.
 
+[i[Status]]
 Let's ask Git what the status is now.
 
 ``` {.default}
@@ -447,6 +452,7 @@ commit. Let's try that.
 
 #### Step 2.1: Reviewing Your Changes
 
+[i[Diff]]
 We're going to divert for just a moment to briefly introduce a new
 optional tool: `git diff` (short for "difference", though we still
 pronounce it "diff").
@@ -614,7 +620,7 @@ repo.
 
 ### Step 5: Push Your Changes to the Remote Repo
 
-[i[Pushing]]
+[i[Push]]
 
 Let's push our local changes to the remote repo:
 

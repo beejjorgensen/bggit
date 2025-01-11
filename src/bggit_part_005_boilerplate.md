@@ -7,15 +7,17 @@
 <!-- [nh[scalbn]] -->
 
 <!-- Index see alsos -->
+[is[Aliases==>see Configuration, Aliases]]
+[is[Branch-->on GitHub==>see GitHub, Branches]]
 [is[Detached `HEAD`==>see `HEAD`, Detached]]
 [is[Fast-forward==>see Merging, Fast-forward]]
-[is[`origin`==>see Remotes, `origin`]]
 [is[Ignoring files==>see `.gitignore`]]
+[is[Index==>see Stage]]
+[is[`origin`==>see Remotes, `origin`]]
 [is[Recursion==>see Recursion]]
-[is[Branches-->on GitHub==>see GitHub, Branches]]
-[is[Aliases==>see Configuration, Aliases]]
 [is[Rename==>see Move]]
 [is[Undelete==>see Remove, Undelete]]
+
 [is[`git add`==>see Add]]
 [is[`git blame`==>see Blame]]
 [is[`git branch`==>see Branch]]
@@ -34,8 +36,8 @@
 [is[`git push --set-upstream`==>see Branching, Set upstream]]
 [is[`git push -u`==>see Branching, Set upstream]]
 [is[`git rebase`==>see Rebase]]
-[is[`git remote`==>see Remote]]
 [is[`git reflog`==>see Reflog]]
+[is[`git remote`==>see Remote]]
 [is[`git reset`==>see Reset]]
 [is[`git restore`==>see Restore]]
 [is[`git revert`==>see Revert]]

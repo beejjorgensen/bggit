@@ -1,6 +1,6 @@
 # Remote Tracking Branches
 
-[i[Branches-->Remote tracking]<]
+[i[Branch-->Remote tracking]<]
 
 We've seen how to create local branches that you do work on and then
 merge back into the `main` branch, then `git push` it up to a remote
@@ -53,7 +53,7 @@ branch_, and we'll call the one on `origin` the _upstream branch_.
 
 ## Pushing to a Remote
 
-[i[Branching-->Set upstream]]
+[i[Branch-->Set upstream]]
 
 Fun Fact: when you push or pull, you technically specify the remote and
 the branch you want to use. This is me saying, "Push the branch I'm on
@@ -255,4 +255,4 @@ pushed it with `-u` earlier, of course.)
 
 At that point, every `foobranch` should be on the same commit.
 
-[i[Branches-->Remote tracking]>]
+[i[Branch-->Remote tracking]>]

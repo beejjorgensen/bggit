@@ -1,5 +1,7 @@
 # Merging and Conflicts
 
+[i[Merging]<]
+
 We've seen how a fast-forward merge can bring to branches into sync with
 no possibility of conflict.
 
@@ -8,7 +10,7 @@ ancestors? In other words, what if the branches have _diverged_?
 
 ## An Example of Divergent Branches
 
-[i[Branches]]
+[i[Branch-->Divergent]]
 
 Let's look at a commit graph where things are still OK to fast-forward
 in Figure_#.1.
@@ -52,8 +54,6 @@ descent. `main` and `somebranch` have diverged.
 Is all hope lost? How can we merge?
 
 ## Merging Divergent Branches
-
-[i[Merging]]
 
 Turns out you do it the exact same way as always.
 
@@ -400,3 +400,4 @@ Nothing to worry about. Everything is in Git's commit history, so even
 if you botch it, you can always get things back the way they were.
 
 [i[Merging-->Conflicts]>]
+[i[Merging]>]

@@ -1,6 +1,5 @@
 # The Git Log and `HEAD`
-
-[i[Log]]
+[i[Log]<]
 
 When we make commits to a Git repo, it tracks each of those commits in a
 log that you can visit. Let's take a look at that now.
@@ -65,9 +64,11 @@ back in time or keeping track of commits in multi-developer projects.
 We also see a bit at the top that says `(HEAD -> main)`. What's that
 about?
 
+[i[Log]>]
+
 ## The `HEAD` Reference
 
-[i[`HEAD`]]
+[i[`HEAD`]<]
 
 We've seen that each commit has a unique and unwieldy identifier like
 this:
@@ -152,8 +153,7 @@ commit and see what the files looked like then. How would I do that?
 > commit** that had since been removed, and you wanted to look at them,
 > for example.
 
-I can use the [i[`git switch`]] `git switch` command to make that
-happen.
+I can use the [i[Switch]] `git switch` command to make that happen.
 
 Let's check out the first commit, the one with ID
 `5a02fede3007edf55d18e2f9ee3e57979535e8f2`.
@@ -207,7 +207,7 @@ the one with the "More output" comment. So we don't see it from this
 perspective.
 
 Furthermore, this means that `HEAD` is no longer *attached* to `main`.
-We call this state [i[Detached `HEAD`]] *detached head*. And `git
+We call this state [i[`HEAD`-->Detached]] *detached head*. And `git
 switch` doesn't let you do that unless you mean it, which is why we have
 that `--detach` in there. (And reattaching is easy: just switch to the
 branch you want to attach to.)
@@ -270,9 +270,11 @@ the `main` commit.
 And you see the `HEAD -> main`? This means `HEAD` is reattached to
 `main`.
 
+[i[`HEAD`]>]
+
 ## The Old Command: `git checkout`
 
-[i[`git checkout`]]
+[i[Checkout]<]
 
 In ye olden days before `git switch` existed, there was a command to do
 all that stuff called `git checkout`. `git checkout` did a lot of
@@ -327,12 +329,18 @@ $ git checkout main
 You can also switch back with the aforementioned `git switch` variants,
 but we're pretending those don't exist for this section.
 
+[i[Checkout]>]
+
 ## Commits Relative to `HEAD`
+
+[i[`HEAD`-->Commits relative to]]
 
 There are a couple shortcuts to get to commits that are earlier than
 `HEAD`, like, "I want to switch to the 3rd commit before this one."
 
 Here's a pretty useless example that we'll start with:
+
+[i[Switch]]
 
 ``` {.default}
 $ git switch --detach HEAD

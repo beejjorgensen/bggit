@@ -2,7 +2,7 @@
 
 ## What is a Branch?
 
-[i[Branches]]
+[i[Branch]]
 
 Normally you think of writing code as a linear sequence of changes. You
 start with an empty file, add some things, test them, add some more,
@@ -121,8 +121,6 @@ pointing at the same commit (Figure_#.5).
 ```
 -->
 
-[i[Branches-->Deleting]]
-
 And maybe after all this we decide to delete `somebranch` and
 `anotherbranch`; we can do this safely because they're fully merged, and
 can do this without affecting `main` or any commits (Figure_#.6).
@@ -147,7 +145,7 @@ good with merging.
 
 ## A Quick Note about `git pull`
 
-[i[Pulling]]
+[i[Pull-->Force rebase or merge]]
 
 When you do a pull, it actually does two things: (a) _fetch_ all the
 changes from the remote repo and (b) _merge_ those changes.
@@ -233,6 +231,7 @@ If we were here back at Figure_#.7, when `HEAD` was pointing to the
 ```
 -->
 
+[i[`HEAD`-->Detached]]
 Contrast that to detached head state, back in Figure_#.8. If we were
 there, a new commit would get us to Figure_#.10, leaving `main` alone.
 
@@ -262,7 +261,7 @@ specifics.
 
 ## Creating a Branch
 
-[i[Branches-->Creating]]
+[i[Branch-->Creating]]
 
 When you make the first commit to a new repo, the `main` branch is
 automatically created for you at that commit.
@@ -423,7 +422,7 @@ the `main` branch. How would we do that?
 
 ## Merging: Fast-Forward
 
-[i[Merging-->Fast-forward]<]
+[i[Merge-->Fast-forward]<]
 
 Bringing two branches back into sync is called _merging_.
 
@@ -547,11 +546,11 @@ conflicts_, regular merges certainly can.
 
 But that's another story.
 
-[i[Merging-->Fast-forward]>]
+[i[Merge-->Fast-forward]>]
 
 ## Deleting a Branch
 
-[i[Branches-->Deleting]]
+[i[Branch-->Deleting]]
 
 If you're done merging your branch, it's easy to delete it. **Importantly,
 this doesn't delete any commits; it just deletes the branch "label"
@@ -576,11 +575,12 @@ $ git branch -d topic1
 
 Done!
 
-> **A *topic* branch is what we call a local branch made for a single
-> topic like a feature, bug fix, etc.** In this guide I'll name branches
-> literally `topic` to indicate that it's just an arbitrary branch. But
-> in real life you'd name the topic branch after what it is you're
-> doing, like `bugfix37`, `newfeature`, `experiment`, etc.
+> [i[Branch-->Topic]]**A *topic* branch is what we call a local branch
+> made for a single topic like a feature, bug fix, etc.** In this guide
+> I'll name branches literally `topic` to indicate that it's just an
+> arbitrary branch. But in real life you'd name the topic branch after
+> what it is you're doing, like `bugfix37`, `newfeature`, `experiment`,
+> etc.
 
 But what if you were working on a branch and wanted to abandon it before
 you merge it into something? For that, we have the more imperative
