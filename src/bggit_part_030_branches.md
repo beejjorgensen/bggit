@@ -143,6 +143,11 @@ can do this without affecting `main` or any commits (Figure_#.6).
 This chapter is all about getting good with branching and partially
 good with merging.
 
+If you like interactive tutorials, Peter Cottle has put together a great
+website called [fl[Learn Git
+Branching|https://learngitbranching.js.org/]]. I highly recommend it
+before, during, and/or after reading this chapter.
+
 ## A Quick Note about `git pull`
 
 [i[Pull-->Force rebase or merge]]
