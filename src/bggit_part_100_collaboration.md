@@ -4,8 +4,7 @@
 
 Let's say you're on a team of coders and you all have access to the same
 GitHub repo. (One person on the team owns the repo, and they've
-[fl[added you all as
-collaborators|https://docs.github.com/en/enterprise-server@3.9/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository]].)
+[fl[added you all as collaborators|https://tinyurl.com/y5kzpeyk]].)
 
 > I'm going to use the term _collaborator_ to mean "someone to whom you
 > have granted write access to your repo".
@@ -69,7 +68,7 @@ and stick to it.
 
 ## Approach: Everyone Uses One Branch
 
-[i[Workflow-->One Branch]]
+[i[Workflow-->One Branch]<]
 
 This is really easy. Everyone has push access to the repo and does all
 their work on the `main` branch.
@@ -111,9 +110,11 @@ for the experience.
 The other approaches are not that much more complex, and give you a lot
 more flexibility.
 
+[i[Workflow-->One Branch]>]
+
 ## Approach: Everyone Uses Their Own Branch
 
-[i[Workflow-->One Branch per Dev]]
+[i[Workflow-->One Branch per Dev]<]
 
 In this scenario, we treat `main` as the working code, and we treat
 contributors' branches as where work is done. When a contributor gets
@@ -217,9 +218,11 @@ as we graphically see in Figure_#.2.
 
 After that, other contributors looking at `main` will see the changes.
 
+[i[Workflow-->One Branch per Dev]>]
+
 ## Approach: Everyone Merges to the Dev Branch
 
-[i[Workflow-->Dev branch]]
+[i[Workflow-->Dev branch]<]
 
 In this scenario, we treat `main` as the published code that we're
 going to distribute, often tagged with a release version number, and we
@@ -306,4 +309,5 @@ Managerial Workflow:
 * Merge that candidate release (some commit) from `dev` into `main`.
 * Tag the `main` commit with some version number, optionally.
 
+[i[Workflow-->Dev branch]>]
 [i[Collaboration-->Across branches]>]

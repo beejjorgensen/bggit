@@ -1,6 +1,6 @@
 # Stashing: Temporarily Set Changes Aside
 
-[i[Stashing]<]
+[i[Stash]<]
 
 If you're in the middle of working on something and you realize you want
 to pull some changes in, but you're not ready to make a commit because
@@ -101,6 +101,8 @@ work on, or add and commit.
 
 ## The Stash Stack
 
+[i[Stash-->The stack]<]
+
 If you're familiar with [flw[stack abstract data
 type|Stack_(abstract_data_type)]], your ears might have perked up when
 you read `git stash pop`.
@@ -143,9 +145,11 @@ the changes to the working tree, discarding them instead.
 And `stash drop` can also operate on a particular stash by name if you
 want to drop something from the middle of the stack.
 
+[i[Stash-->The stack]>]
+
 ## Conflicts
 
-[i[Stashing-->Conflicts]]
+[i[Stash-->Conflicts]<]
 
 Now that you've spent so much time reading about conflicts during merge
 and rebase, you might start to get a little worried here.
@@ -229,9 +233,11 @@ If you're done with it (and you probably are), you can use `git stash
 drop` to discard the particular stash from the stack and get all cleaned
 up.
 
+[i[Stash-->Conflicts]>]
+
 ## Stashing New Files
 
-[i[Stashing-->New files]]
+[i[Stash-->New files]]
 
 What if you've added a new file to your working tree but it's currently
 untracked? Can stash see it?
@@ -239,4 +245,4 @@ untracked? Can stash see it?
 No. You have to add it first. So do a `git add` (but not a commit!) then
 stash it. The new file should disappear from the working tree.
 
-[i[Stashing]>]
+[i[Stash]>]

@@ -1,5 +1,7 @@
 # Comparing Files with Diff
 
+[i[Diff]<]
+
 The powerful `git diff` command can give you differences between two
 files or commits. We mentioned it briefly at the beginning, but here
 we're going to delve more deeply into all the things you can do with it.
@@ -10,6 +12,8 @@ what I've changed in the working tree so I know what to add to the stage
 and what commit message to use.
 
 ## Basic Usage
+
+[i[Diff-->Understanding the output]<]
 
 The most basic use case is that you've modified some files in your
 working tree and you want to see what the differences are between what
@@ -96,7 +100,11 @@ Rules:
 Another way to read the diff is that lines with a `-` have been removed
 and lines with a `+` have been added.
 
+[i[Diff-->Understanding the output]>]
+
 ## Diffing the Stage
+
+[i[Diff-->The Stage]<]
 
 What if you've added some stuff to the stage and you want to diff it
 against the previous commit?
@@ -156,11 +164,16 @@ $ git diff --staged
 
 And that'll do it.
 
+[i[Diff-->The Stage]>]
+
 ## More Diff Fun
 
 Let's speed through some examples of things you can do with diff.
 
 ### Diff Any Commits or Branches
+
+[i[Diff-->Other commits]]
+[i[Diff-->Other branches]]
 
 You have more at your disposal than just diffing the working tree or
 stage. You can actually diff any two commits. This will show you all the
@@ -201,6 +214,7 @@ That last one diffs three commits before `HEAD` with four commits before
 
 ### Diffing with Parent Commit
 
+[i[Diff-->The parent commit]]
 We just showed this example:
 
 ``` {.default}
@@ -228,6 +242,7 @@ $ git diff 27a3^!
 
 ### More Context
 
+[i[Diff-->Additional context]]
 By default, `git diff` shows 3 lines of context around the changes. If
 you want to see more, like 5 lines, use the `-U` switch.
 
@@ -237,6 +252,7 @@ $ git diff -U5
 
 ### Just the File Names
 
+[i[Diff-->Just the file names]]
 If you just want a list of files that have changed, you can use the
 `--name-only` option.
 
@@ -246,6 +262,7 @@ $ git diff --name-only
 
 ### Ignoring Whitespace
 
+[i[Diff-->Ignoring whitespace]]
 There might be a time when you get some tabs/spaces confusion in your
 source code, which is always painful. Protip: stick to one and force
 everyone else on the team to do the same under penalty of paying for
@@ -259,6 +276,7 @@ $ git diff --ignore-all-space    # Same thing
 ```
 ### Just Certain Files
 
+[i[Diff-->Specific files]]
 You can just diff certain files.
 
 One way is to just put the file names after a `--`:
@@ -293,6 +311,7 @@ That will just diff the Python files.
 
 ### Inter-branch Diffs
 
+[i[Diff-->Inter-branch]]
 This is an interesting version of comparing two branches.
 
 We already showed the following example for comparing the commits at two
@@ -333,3 +352,5 @@ difficult to imagine. But it does!
 That said, there are third-party tools that exist to make diffs more
 manageable, and Git supports these tools. You can read more about it in
 the [diff tool](#difftool) chapter.
+
+[i[Diff]>]

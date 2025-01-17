@@ -3,9 +3,14 @@
 This is an extension of dealing with file states, so make sure you read
 that chapter first!
 
+Also, I'm going to interchangeably use the terms _rename_ and _move_ to
+mean the same thing. Moving as a concept is a little more powerful
+because not only can it rename, but it can also move files to other
+directories.
+
 ## Renaming Files
 
-[i[Renaming]]
+[i[Move]<]
 
 You can use the OS rename command to rename files, but if they're in a
 Git repo, it's better to `git mv` them so that Git has total awareness.
@@ -33,6 +38,7 @@ directory to `bar.txt`, as well.
 If we make a commit at this point, the file will be renamed in the repo.
 Done.
 
+[i[Move-->Reverting]]
 But what if we want to undo the rename?
 
 Git suggests `git restore --staged` to the rescue... But which file name
@@ -40,8 +46,8 @@ to use, the old one or new one? And then what? It turns out that while
 you *can* use `git restore` to undo this by following it with multiple
 other commands, you should, in this case, ignore Git's advice.
 
-[i[Renaming-->Reverting]] Just remember this part: **the easiest way to
-undo a Staged rename is to just do the reverse rename**.
+Just remember this part: **the easiest way to undo a Staged rename is to
+just do the reverse rename**.
 
 Let's say we renamed and got here:
 
@@ -75,9 +81,11 @@ way they were:
 
 * **Staged** → `git mv bar.txt foo.txt` → **Unmodified**
 
+[i[Move]>]
+
 ## Removing Files
 
-[i[Removing files]]
+[i[Remove]<]
 
 You can use the OS remove command to remove files, but if they're in a
 git repo, it's better to `git rm` them so that Git has total awareness.
@@ -108,6 +116,7 @@ So the now-deleted file is in Staged State, as it were.
 
 If we do a commit here, the file is deleted. Done.
 
+[i[Remove-->Reverting]]
 But what if we want to undo the staging of the now-deleted file? There's
 a hint for how to get it back with `git restore --staged`, as per usual.
 
@@ -181,3 +190,4 @@ the name of the restored file, then add it and commit.
 > There are ways around this if you haven't yet pushed, but that's
 > beyond the scope of this guide.
 
+[i[Remove]>]

@@ -3,15 +3,29 @@
 [i[Fork]<]
 [i[Pull requests]<]
 
-What if you want to make changes to a repo on GitHub but you don't have
-write permission? Here's how.
+For a lot of projects you're on, maybe you have write permission to the
+main repo that everyone is using. That is, you've been added as a
+collaborator and you can just push directly.
+
+If that's the case, you don't need to fork GitHub repos or create pull
+requests. You can just keep committing and pushing as always.
+
+But what if you want to make changes to a repo on GitHub but you don't have
+write permission? This might happen if you forked a repo that you want
+to make changes to. You can write to your fork, but not to the repo you
+forked from. How do you get the changes you made to your fork into the
+original repo?
+
+Let's check it out.
 
 A ***fork*** is a clone of someone else's GitHub repo that you've made
 on GitHub using their "Fork" command. It's a regular clone except that
 GitHub is doing some bookkeeping to track which repo you forked from.
 
 The ***upstream*** is by convention the name of the remote that you
-forked from.
+forked from. I know this conflicts with some other definitions of
+"upstream". But for this chapter, in the context of forks, let's assume
+it means this.
 
 A ***pull request*** (or "PR" for short) is a way for you to offer
 changes you've made to your fork to the owner of the original repo.
@@ -23,6 +37,8 @@ changes you've made to your fork to the owner of the original repo.
 Let's say, for example, you found an open source project you liked and
 there was a bug in it. You don't have permission to write to the
 project's GitHub repo, so how can you change it?
+
+[i[Fork-->Process]]
 
 The process for someone making a pull request is:
 
@@ -44,7 +60,7 @@ it personally—I just don't have time to review them all.
 
 ## Making a Fork
 
-[i[Fork-->Creating]]
+[i[Fork-->Creating]<]
 
 Head on over to [fl[my test
 repo|https://github.com/beejjorgensen/git-example-repo]] and let's do
@@ -74,6 +90,8 @@ We can clone it as normal, pull, push, delete the repo, etc. The owner
 of the original repo will not know about it—our changes affect our repo
 alone. Later we'll see how to issue a pull request to try to get our
 changes in the original upstream repo.
+
+[i[Fork-->Creating]>]
 
 ## Making Your Changes
 
@@ -133,7 +151,7 @@ your fork's page on GitHub and see the change there.
 
 ## Syncing the Upstream with Your Fork
 
-[i[Fork-->Syncing with Upstream]]
+[i[Fork-->Syncing with Upstream]<]
 
 Are you ready to make a PR? Hold up just a moment!
 
@@ -175,9 +193,11 @@ This way you can be sure your changes aren't conflicting with any
 upstream changes as you go. It's way better than waiting to resolve them
 all at the end when you're ready to issue a pull request.
 
+[i[Fork-->Syncing with Upstream]>]
+
 ## Making a Pull Request
 
-[i[Pull request-->Creating]]
+[i[Pull request-->Creating]<]
 
 Now that we've modified our fork to our satisfaction, we can ask the
 upstream maintainer if they're willing to accept it into the official
@@ -216,9 +236,11 @@ Maybe they respond with a comment asking for improvements or other
 questions. Maybe they reject the PR and close it, unmerged. Or maybe
 they accept! Happy days!
 
+[i[Pull request-->Creating]>]
+
 ## Flipside: Merging a Pull Request
 
-[i[Pull request-->Merging]]
+[i[Pull request-->Merging]<]
 
 As the upstream owner, if someone issues a PR you'll be notified (unless
 you've turned those notifications off) with an email and in the
@@ -279,9 +301,11 @@ Or you can just reject the PR and ask the person who opened it to
 resolve the conflict so that your life might be made easier with an
 automatic merge.
 
+[i[Pull request-->Merging]>]
+
 ## Making Many Pull Requests with Branches
 
-[i[Pull request-->With branches]]
+[i[Pull request-->With branches]<]
 
 Here's the thing about pull requests: when you make one, it takes all
 the changes you have on your branch and bundles them together in one.
@@ -358,9 +382,11 @@ safely merged, GitHub will pop up a "Delete branch" button for you on
 the PR page. This will delete the branch on GitHub, but you'll still
 have to delete `feature1` and `origin/feature1` on the command line.
 
+[i[Pull request-->With branches]>]
+
 ## Deleting a Pull Request
 
-[i[Pull request-->Deleting]]
+[i[Pull request-->Deleting]<]
 
 Short answer: you can't.
 
@@ -388,9 +414,11 @@ them to do it.
 In any case, you most definitely should change your leaked credentials
 right now and let that be a lesson to you.
 
+[i[Pull request-->Deleting]>]
+
 ## Syncing on the Command Line {#sync-cl}
 
-[i[Fork-->Syncing with Upstream]]
+[i[Fork-->Syncing with Upstream]<]
 
 GitHub has that nice Sync button to bring the upstream changes into your
 fork, and this was a welcome addition. It used to be you had to do it
@@ -476,6 +504,8 @@ everyone's ears.
 Once you have the `upstream` remote set up, all you have to do to sync
 in the future is do the `git fetch upstream` and then merge or rebase
 your stuff with it.
+
+[i[Fork-->Syncing with Upstream]>]
 
 [i[Pull requests]>]
 [i[Fork]>]

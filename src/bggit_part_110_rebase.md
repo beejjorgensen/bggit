@@ -1,6 +1,6 @@
 # Rebasing: Moving Commits
 
-[i[Rebasing]<]
+[i[Rebase]<]
 
 I'm going to start with the Number One Rule of Rebasing: ***never rebase
 anything that you have pushed***. That is, only rebase local changes
@@ -17,7 +17,7 @@ challenging.
 
 ## Contrasted to Merging
 
-[i[Rebasing-->Compared to Merging]]
+[i[Rebase-->Compared to Merging]]
 [i[Merge-->Compared to Rebasing]]
 
 But before we go run off in high spirits talking about rebasing, let's
@@ -106,6 +106,7 @@ that contain the same changes, just on a different base point.
 
 ## When Should I Do This?
 
+[i[Rebase-->When to use]]
 There's no fixed rule about this. Sometimes a shop will have one, saying
 that everyone should rebase all the time so that the commit history has
 a cleaner look (no merge commits, no loops).
@@ -115,7 +116,7 @@ is preserved.
 
 ## Pulling and Rebasing
 
-[i[Rebasing-->And pulling]]
+[i[Rebase-->And pulling]]
 
 If you might recall from way back when, doing a pull is actually a
 couple operations: *fetch* and *merge*.
@@ -184,7 +185,7 @@ $ git pull --no-rebase  # Do a merge instead of a rebase
 
 ## Conflicts {#rebasing-conflicts}
 
-[i[Rebasing-->Conflicts]]
+[i[Rebase-->Conflicts]]
 
 When you do a merge, there's a chance that you might conflict with some
 of the changes in the other branch, and you have to resolve those, as
@@ -363,7 +364,7 @@ After all that, we see our new commit graph in Figure_#.5.
 
 ## Squashing Commits {#squashing-commits}
 
-[i[Rebasing-->Squashing commits]]
+[i[Rebase-->Squashing commits]<]
 
 This concept fits in with the notion of a clean commit history.
 
@@ -559,9 +560,11 @@ commits are gone, replaced by the new ones.
 
 Finally, after all this, *now* you can push.
 
+[i[Rebase-->Squashing commits]>]
+
 ### Squash versus Fixup
 
-[i[Rebasing-->Fixup]]
+[i[Rebase-->Fixup]]
 
 Now a quick note about `fixup` instead of `squash`. It's the same thing,
 except only the squashed-into commit message is kept by default. So if I
@@ -584,6 +587,7 @@ Git automatically discards the squashed commit messages.
 
 ## Multiple Conflicts in the Rebase
 
+[i[Rebase-->Conflicts]<]
 When you merge with commit and there are multiple conflicts, you resolve
 them all in one big merge commit and then you're done. You use `git
 commit` to wrap it all up.
@@ -630,3 +634,6 @@ avoid errors. But at the same time it's more legwork to get through it.
 
 As always, use the right tool for the job!
 
+[i[Rebase-->Conflicts]>]
+
+[i[Rebase]>]
