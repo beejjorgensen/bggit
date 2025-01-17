@@ -246,7 +246,7 @@ $ git commit --amend -m "message"  # Amend with commit message
 $ git commit --amend --no-edit     # Don't change commit message
 ```
 
-[i[Remove-->Undelete]i]
+[i[Remove-->Unstaging]i]
 To undelete a staged file, run these two commands in sequence:
 
 ``` {.default}

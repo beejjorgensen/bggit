@@ -9,6 +9,7 @@
 <!-- Index see alsos -->
 [is[Aliases==>see Configuration, Aliases]]
 [is[Branch-->on GitHub==>see GitHub, Branches]]
+[is[Branch-->Diff==>see Diff, Between branches]]
 [is[Detached `HEAD`==>see `HEAD`, Detached]]
 [is[Fast-forward==>see Merge, Fast-forward]]
 [is[Ignoring files==>see `.gitignore`]]

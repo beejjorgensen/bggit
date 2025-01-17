@@ -104,7 +104,7 @@ and lines with a `+` have been added.
 
 ## Diffing the Stage
 
-[i[Diff-->The Stage]<]
+[i[Diff-->The stage]<]
 
 What if you've added some stuff to the stage and you want to diff it
 against the previous commit?
@@ -164,7 +164,7 @@ $ git diff --staged
 
 And that'll do it.
 
-[i[Diff-->The Stage]>]
+[i[Diff-->The stage]>]
 
 ## More Diff Fun
 
@@ -174,7 +174,6 @@ Let's speed through some examples of things you can do with diff.
 
 [i[Diff-->Other commits]]
 [i[Diff-->Other branches]]
-
 You have more at your disposal than just diffing the working tree or
 stage. You can actually diff any two commits. This will show you all the
 differences between them.
@@ -214,7 +213,7 @@ That last one diffs three commits before `HEAD` with four commits before
 
 ### Diffing with Parent Commit
 
-[i[Diff-->The parent commit]]
+[i[Diff-->Parent commit]]
 We just showed this example:
 
 ``` {.default}
@@ -252,7 +251,7 @@ $ git diff -U5
 
 ### Just the File Names
 
-[i[Diff-->Just the file names]]
+[i[Diff-->File names only]]
 If you just want a list of files that have changed, you can use the
 `--name-only` option.
 
@@ -262,7 +261,7 @@ $ git diff --name-only
 
 ### Ignoring Whitespace
 
-[i[Diff-->Ignoring whitespace]]
+[i[Diff-->Ignore whitespace]]
 There might be a time when you get some tabs/spaces confusion in your
 source code, which is always painful. Protip: stick to one and force
 everyone else on the team to do the same under penalty of paying for
@@ -311,7 +310,7 @@ That will just diff the Python files.
 
 ### Inter-branch Diffs
 
-[i[Diff-->Inter-branch]]
+[i[Diff-->Between branches]]
 This is an interesting version of comparing two branches.
 
 We already showed the following example for comparing the commits at two

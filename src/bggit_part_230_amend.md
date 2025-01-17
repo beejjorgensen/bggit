@@ -1,4 +1,4 @@
-# Amending Commits
+# Amending Commits {#amend}
 
 Git gives you the power to relatively easily amend the last commit.
 
