@@ -1,5 +1,7 @@
 # Changing Identity
 
+[i[Identity]<]
+
 There are a few ways you're identified when you do work with Git.
 
 They are held in:
@@ -18,6 +20,8 @@ Let's check out what the defaults are for all these, as well as how to
 change them on a per repo basis.
 
 ## Changing the User Configuration Variables
+
+[i[Configuration-->Name and email]]
 
 You'll want to do this if you have, say, some repos for work and some for
 play, or if you have multiple work or play emails you want to use
@@ -47,6 +51,8 @@ will be attached to them. Commits in other repos will still obey your
 global username and email (unless you've overridden them, as well).
 
 ## Changing the SSH Authentication Key
+
+[i[Configuration-->SSH identity]<]
 
 You'll want to do this if you're connecting to someone's private remote
 (e.g. they're running a Gitea site of their own or something), and you
@@ -101,7 +107,11 @@ The reason I like this approach is that you can easily do it on a
 per-repo basis, and the config is stored with the repo (instead of in an
 environment variable or in SSH's somewhat-unrelated configuration).
 
+[i[Configuration-->SSH identity]>]
+
 ## Changing your GPG Signing Key
+
+[i[Configuration-->GPG signing key]<]
 
 We haven't talked about this yet, but if you use your GPG key for
 signing you can specify which key is used if you get its fingerprint (or
@@ -139,7 +149,11 @@ git config set user.signingkey ABCDEF0123456789
 
 Then when you sign the commits, that key will be used.
 
+[i[Configuration-->GPG signing key]>]
+
 ## Changing your SSH Signing Key
+
+[i[Configuration-->SSH signing key]<]
 
 This is also something we haven't talked about yet. But if it's all set
 up for you, read on.
@@ -164,3 +178,6 @@ Part two is if you have your `allowed_signers` file set up. You'll have
 to make sure it contains a line that has your current `user.email`
 config variable and a copy of the public key to use.
 
+[i[Configuration-->SSH signing key]>]
+
+[i[Identity]>]

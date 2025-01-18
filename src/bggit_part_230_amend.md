@@ -1,5 +1,7 @@
 # Amending Commits {#amend}
 
+[i[Commit-->Amending]<]
+
 Git gives you the power to relatively easily amend the last commit.
 
 > **Caution!** This section talks about changing history, and let's not
@@ -22,6 +24,8 @@ So what are some use cases?
 That kind of thing that none of us have ever done ever, right?
 
 ## Amending the Commit Message
+
+[i[Commit-->Amending commit messages]<]
 
 This one is pretty easy. Let's take an example of a commit that I've
 botched. Note that this is completely committed at this point—I've
@@ -65,7 +69,11 @@ reconfigure your identity with `git config` and then run:
 $ git commit --amend --reset-author
 ```
 
+[i[Commit-->Amending commit messages]>]
+
 ## Adding some Files to the Commit
+
+[i[Commit-->Amending files]<]
 
 Ugh! You just made that commit but you forgot to add one of the files to
 it! You got `foo.c` and `bar.c` in there, but you left out `baz.h`!
@@ -107,3 +115,6 @@ That'll run the amend and not edit the commit message at all.
 And there we have it—you can easily amend the last commit. Just be sure
 you haven't pushed it before you do.
 
+[i[Commit-->Amending files]>]
+
+[i[Commit-->Amending]>]

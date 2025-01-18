@@ -259,7 +259,7 @@ information.
 > actual shell prompt might be `%` or `$` or something else, but here we
 > use the `$` to indicate it.
 
-[i[Configuration-->Name and Email]]
+[i[Configuration-->Name and email]]
 
 ``` {.default}
 $ git config set --global user.name "Your Name"
