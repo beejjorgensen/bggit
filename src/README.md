@@ -17,7 +17,6 @@ Example repo with submodule:
 * Pushing a branch delete
 * Update example in chapter 2 so that source matches the actual example
   repo.
-* Index everything
 
 ## Still to Write
 

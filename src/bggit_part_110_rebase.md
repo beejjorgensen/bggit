@@ -17,8 +17,8 @@ challenging.
 
 ## Contrasted to Merging
 
-[i[Rebase-->Compared to Merging]]
-[i[Merge-->Compared to Rebasing]]
+[i[Rebase-->Compared to merging]<]
+[i[Merge-->Compared to rebasing]<]
 
 But before we go run off in high spirits talking about rebasing, let's
 do a quick merge refresher. Here's a variation of an earlier example
@@ -65,6 +65,9 @@ What we need is a way to somehow rewind our commits back to the branch
 point at *1*, and then reapply them on commit *2*. That is, the base of
 our `topic` branch, which was commit *1*, needs to be changed to another
 base at commit *2*. We want to ***rebase*** it to commit *2*!
+
+[i[Rebase-->Compared to merging]>]
+[i[Merge-->Compared to rebasing]>]
 
 ## How it Works
 
@@ -116,7 +119,7 @@ is preserved.
 
 ## Pulling and Rebasing
 
-[i[Rebase-->And pulling]]
+[i[Rebase-->And pulling]<]
 
 If you might recall from way back when, doing a pull is actually a
 couple operations: [i[Fetch]] *fetch* and *merge*.
@@ -187,9 +190,11 @@ override that to force a merge (if you want) with:
 $ git pull --no-rebase  # Do a merge instead of a rebase
 ```
 
+[i[Rebase-->And pulling]>]
+
 ## Conflicts {#rebasing-conflicts}
 
-[i[Rebase-->Conflicts]]
+[i[Rebase-->Conflicts]<]
 
 When you do a merge, there's a chance that you might conflict with some
 of the changes in the other branch, and you have to resolve those, as
@@ -365,6 +370,8 @@ And `git status` shows we're all clear.
 After all that, we see our new commit graph in Figure_#.5.
 
 ![After rebase conflict resolution.](img_110_050.pdf "After rebase conflict resolution.")
+
+[i[Rebase-->Conflicts]>]
 
 ## Squashing Commits {#squashing-commits}
 
