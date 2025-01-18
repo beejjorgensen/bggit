@@ -301,11 +301,12 @@ You should see some output similar to this:
 
 ``` {.default}
 Cloning into 'git-example-repo'...
-remote: Enumerating objects: 4, done.
-remote: Counting objects: 100% (4/4), done.
-remote: Compressing objects: 100% (3/3), done.
-remote: Total 4 (delta 0), reused 4 (delta 0), pack-reused 0
-Receiving objects: 100% (4/4), done.
+remote: Enumerating objects: 10, done.
+remote: Counting objects: 100% (10/10), done.
+remote: Compressing objects: 100% (8/8), done.
+remote: Total 10 (delta 2), reused 9 (delta 1), pack-reused 0 (from 0)
+Receiving objects: 100% (10/10), done.
+Resolving deltas: 100% (2/2), done.
 ```
 
 Congratulations! You have a clone of the repo. Let's have a peek:
@@ -319,11 +320,11 @@ And we see a number of files:
 
 ``` {.default}
 total 16
-drwxr-xr-x   5 user  user  160 Jan 26 11:50 .
-drwxr-xr-x  14 user  user  448 Jan 26 11:50 ..
-drwxr-xr-x  12 user  user  384 Jan 26 11:50 .git
--rw-r--r--   1 user  user   65 Jan 26 11:50 README.md
--rwxr-xr-x   1 user  user   47 Jan 26 11:50 hello.py
+drwxr-xr-x    5 beej  staff   160 Jan 18 13:35 .
+drwxr-xr-x  106 beej  staff  3392 Jan 18 13:35 ..
+drwxr-xr-x   12 beej  staff   384 Jan 18 13:35 .git
+-rw-r--r--    1 beej  staff   162 Jan 18 13:35 README.md
+-rwxr-xr-x    1 beej  staff    75 Jan 18 13:35 hello.py
 ```
 
 There are two files in this repo: `README.md` and `hello.py`.
@@ -408,6 +409,7 @@ It was:
 #!/usr/bin/env python
 
 print("Hello, world!")
+print("This is my program!")
 ```
 
 but let's add a line so it reads:
@@ -416,7 +418,8 @@ but let's add a line so it reads:
 #!/usr/bin/env python
 
 print("Hello, world!")
-print("Hello, again!")
+print("This is my program!")
+print("And this is my modification!")
 ```
 
 And save that file.
@@ -466,14 +469,14 @@ Let's try it.
 ``` {.default}
 $ git diff
   diff --git a/hello.py b/hello.py
-  index 42cc1f7..532d33e 100644
+  index 9db78d2..1187d32 100755
   --- a/hello.py
   +++ b/hello.py
-  @@ -1,4 +1,5 @@
-   #!/usr/bin/env python
-
+  @@ -2,3 +2,4 @@
+ 
    print("Hello, world!")
-  +print("Hello, again!")
+   print("This is my program!")
+  +print("And this is my modification!")
 ```
 
 What the heck is this sorcery? If you're lucky, it got color-coded for
