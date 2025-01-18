@@ -21,6 +21,7 @@
 [is[Undelete==>see Remove, Undelete]]
 
 [is[`git add`==>see Add]]
+[is[`git add -p`==>see Patch mode]]
 [is[`git blame`==>see Blame]]
 [is[`git branch`==>see Branch]]
 [is[`git checkout`==>see Checkout]]
@@ -41,6 +42,7 @@
 [is[`git reflog`==>see Reflog]]
 [is[`git remote`==>see Remote]]
 [is[`git reset`==>see Reset]]
+[is[`git reset -p`==>see Patch mode]]
 [is[`git restore`==>see Restore]]
 [is[`git revert`==>see Revert]]
 [is[`git rm`==>see Remove]]
