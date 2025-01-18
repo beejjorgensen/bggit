@@ -1,5 +1,7 @@
 # Difftool
 
+[i[Difftool]<]
+
 Admittedly, this diff output is hard to read. I swear, though, you do
 get used to it. I use it all the time.
 
@@ -40,6 +42,8 @@ But if you just try to run `git difftool` out of the box, it won't work.
 You have to configure it first.
 
 ## Configuring
+
+[i[Difftool-->Configuration]<]
 
 Firstly, Git normally prompts you before launching a third-party
 difftool. This is annoying, so let's turn it off globally:
@@ -82,6 +86,8 @@ part of the config line with the name of the command.
 Again, you only have to set the path if the tool isn't installed in a
 standard place.
 
+[i[Difftool-->Configuration]>]
+
 ## Available Difftools
 
 There are a number of diff tools out there you can choose from. Here's a
@@ -101,3 +107,4 @@ Some of these are free, some are paid, and some are free trial.
 
 And remember, VS Code has this functionality without using difftool.
 
+[i[Difftool]>]

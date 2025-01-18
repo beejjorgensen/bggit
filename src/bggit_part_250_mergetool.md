@@ -1,5 +1,7 @@
 # Mergetool
 
+[i[Mergetool]<]
+
 Do you hate all those `>>>>>`, `=====`, and `<<<<<` things that Git puts
 in your files during a merge conflict?
 
@@ -84,6 +86,8 @@ built-in merge tools that work independent of Git (no need to configure
 anything in Git).
 
 ## Using Vimdiff as a Merge Tool
+
+[i[Mergetool-->With Vimdiff]<]
 
 We'll do a quick run-through of using Vimdiff as a merge tool since it
 covers all the bases and has some tricky configuration. Other
@@ -222,7 +226,11 @@ with a commit as per usual.
 
 But wait—what's that `.orig` file that wasn't there before? Read on!
 
+[i[Mergetool-->With Vimdiff]>]
+
 ## Backing up the Originals
+
+[i[Mergetool-->File backups]]
 
 By default, when using a merge tool, Git will keep a backup of the file
 before the merge tool touched it. You'll see these with a `.orig`
@@ -240,3 +248,5 @@ variable:
 ``` {.default}
 $ git config --global set mergetool.keepBackup false
 ```
+
+[i[Mergetool]>]

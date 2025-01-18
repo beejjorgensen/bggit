@@ -1,5 +1,7 @@
 # Submodules
 
+[i[Submodules]<]
+
 You can't really have a Git repo _inside_ a Git repo. I mean, yes, you
 can make one, but when you try to add it to the outer repo, Git will
 have a lot to say about it.
@@ -115,6 +117,8 @@ But in case you need to do more, read on!
 
 ## Creating a Submodule
 
+[i[Submodules-->Creating]<]
+
 Let's say you have a repo already, but you've decided you want to
 include another repo as a submodule.
 
@@ -211,7 +215,11 @@ After that you can `cd` into `test_repo2` and see the submodule there.
 > setting doesn't work as of late 2024. So you'll have to use
 > network-remote repos for submodules.
 
+[i[Submodules-->Creating]>]
+
 ## Setting the Commit for the Submodule {#set-submodule-commit}
+
+[i[Submodules-->Setting the commit]<]
 
 What does this section even mean?
 
@@ -378,7 +386,12 @@ switch to it if we wanted, of course.)
 
 What have we done? We've changed the commit the submodule is pinned at
 in one repo, and then we've pulled that change into another repo!
+
+[i[Submodules-->Setting the commit]>]
+
 ## Getting Submodule Latest
+
+[i[Submodules-->Getting latest]<]
 
 Let's say someone else has updated the commit that the submodule is
 pinned at in your repo. And you want to get up to speed.
@@ -398,7 +411,11 @@ Two steps to make that happen:
    This will fetch the submodule data and set you up to point at the
    correct commit. 
 
+[i[Submodules-->Getting latest]>]
+
 ## Updating the Actual Submodule Itself
+
+[i[Submodules-->Updating]<]
 
 What do I mean by this? Let's say the submodule holds some library, and
 you need to make a bug fix in the library. And you need people who use
@@ -459,7 +476,11 @@ you'll want to run an `add`/`commit` from the containing repo, as
 outlined in [Setting the Commit for the
 Submodule](#set-submodule-commit), above.
 
+[i[Submodules-->Updating]>]
+
 ## Getting the Submodule Status
+
+[i[Submodules-->Status]<]
 
 When it comes to which commit the submodule is pinned to, there are some
 commands that are quite helpful.
@@ -523,6 +544,8 @@ $ git ls-tree HEAD mysubmod
   160000 commit 898650e74c18cf4b30bdd07297d638de4a6fc7dd   mysubmod
 ```
 
+[i[Submodules-->Status]>]
+
 ## Some Behind the Scenes
 
 Not really behind the scenes, actually, but I wanted to point out the
@@ -578,6 +601,8 @@ After that, you can run `git submodule update` to bring in the submodule
 data to use.
 
 ## Deleting a Submodule
+
+[i[Submodules-->Deleting]<]
 
 This is a bit clunky, but not too bad if you follow the steps.
 
@@ -650,3 +675,6 @@ your module in the following commands.
 
 And that's the end of the submodule.
 
+[i[Submodules-->Deleting]>]
+
+[i[Submodules]>]
