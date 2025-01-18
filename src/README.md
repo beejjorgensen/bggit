@@ -15,6 +15,10 @@ Example repo with submodule:
 # TODO
 
 * Pushing a branch delete
+* Editing pass
+* Book page breaks
+* Book cover
+* Publish
 
 ## Still to Write
 
