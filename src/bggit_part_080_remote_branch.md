@@ -276,6 +276,64 @@ You can select either branch and view it in the GitHub interface.
 
 [i[Push-->Branch to remote]>]
 
+## Deleting Remote Tracking Branches
+
+[i[Branch-->Deleting remote tracking]<]
+
+There are few things that can happen here.
+
+1. Someone deletes the branch on the remote, your remote tracking branch
+   (local to you) still exists and you want to delete it.
+
+2. You want to delete your remote tracking branch (local to you), and
+   you want to leave it untouched on the remote.
+
+3. You delete your remote tracking branch (local to you) and you want to
+   tell the remote to delete it, too.
+
+### Fetching Deleted Remote Branches
+
+The first one is pretty easy. Let's tell Git to delete all our local
+remote tracking branches that no longer exist on the `origin` remote:
+
+``` {.default}
+$ git fetch --prune
+```
+
+or if you want to specify a remote:
+
+``` {.default}
+$ git fetch --prune someremote
+```
+
+or if you want to prune all remotes:
+
+``` {.default}
+$ git fetch --prune --all
+```
+
+### Deleting Your Remote Tracking Branch
+
+In this case, you have a remote tracking branch on your clone that you
+want to delete. But you don't want to delete that branch from the
+server.
+
+Use `-d` for delete and `-r` for remote:
+
+``` {.default}
+$ git branch -dr remote/branch
+``` 
+
+For example:
+
+``` {.default}
+$ git branch -dr origin/topic99
+``` 
+
+### Deleting Remote Tracking Branch on Remote
+
+TODO
+
 ## Multiple Remotes
 
 [i[Remote-->Multiple]<]
