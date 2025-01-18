@@ -22,7 +22,7 @@ Patch mode allows you to select which hunks will be operated on.
 
 ## Adding Files in Patch Mode
 
-[i[Patch mode-->Add]]
+[i[Patch mode-->Add]<]
 
 Let's say you had a commit that added `Line 1` to `Line 8` in a file:
 
@@ -149,9 +149,11 @@ haven't staged *all* our changes!
 At this point we can go ahead and commit the partially-added changes
 that are on the stage.
 
+[i[Patch mode-->Add]>]
+
 ## Resetting Files in Patch Mode
 
-[i[Patch mode-->Reset]]
+[i[Patch mode-->Reset]<]
 
 Kind of the opposite of `git add -p` is `git reset -p`. You can use
 `reset -p` to selectively change hunks *on the stage*.
@@ -340,6 +342,8 @@ entirely.
 > <!-- ` -->
 > That will make the stage and working tree the same, so everything will
 > all be on the same page when the commit is complete.
+
+[i[Patch mode-->Reset]>]
 
 ## Other Patch Mode Commands
 

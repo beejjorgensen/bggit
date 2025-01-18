@@ -30,6 +30,8 @@ garbage collected.
 
 ## What Can We Use It For?
 
+[i[Reflog-->Uses]]
+
 You can use it for all kinds of things.
 
 * Looking at orphan commits
@@ -49,6 +51,8 @@ state, you could look up that earlier commit in the reflog[^ab30].
     pushed, of course.
 
 ## Looking Back at an Orphan Commit
+
+[i[Reflog-->Finding an orphan commit]<]
 
 Let's run an example where we do the following:
 
@@ -199,9 +203,11 @@ $ cat bar.txt
 As you can see, the reflog can get you out of all kinds of trouble when
 you thought you'd lost commits for good.
 
+[i[Reflog-->Finding an orphan commit]>]
+
 ## Reflog Selectors
 
-[i[Reflog-->Selectors]]
+[i[Reflog-->Selectors]<]
 
 Let's take a look at that example reflog output again:
 
@@ -228,5 +234,7 @@ $ git switch --detach HEAD@{1}
 ```
 
 Just like that.
+
+[i[Reflog-->Selectors]>]
 
 [i[Reflog]>]
