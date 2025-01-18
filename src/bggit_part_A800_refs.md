@@ -1,10 +1,14 @@
 # Appendix: Other References
 
+[i[Reference Material]<]
+
 **"Your book stinks. What other references can I use?"**
 
 Here are more! I found these by searching the Internet for Git book
 recommendations. The only ones I've used are the man pages and *Pro
 Git*.
+
+[i[Reference Material-->`man` pages]]
 
 * **The man pages**
   * If you have the manual pages (historically known as the "man pages")
@@ -29,6 +33,7 @@ Git*.
     to read. But all the information is there! They can also be found in
     _The Git Reference Manual_, below.
 
+[i[Reference Material-->Free]]
 * **Free Stuff!**
   * [fl[_Pro Git_|https://git-scm.com/book/en/v2]]
   * [fl[_The Git Reference Manual_|https://git-scm.com/docs]]
@@ -41,6 +46,7 @@ Git*.
   * [fl[_Git Internals_|https://github.com/pluralsight/git-internals-pdf?tab=readme-ov-file]]
   * [fl[_Post-Production Editing Using Git_|http://sethrobertson.github.io/GitPostProduction/gpp.html]]
 
+[i[Reference Material-->Non-free]]
 * **For Money**
   * [fl[_Learn Git in a Month of Lunches_|https://www.manning.com/books/learn-git-in-a-month-of-lunches]]
   * [fl[_Getting Started with GitHub_|https://www.amazon.com/Introducing-GitHub-Non-Technical-Peter-Bell/dp/1491949740]]
@@ -53,3 +59,4 @@ Git*.
 
 If you know of more, mail them to [beej@beej.us](mailto:beej@beej.us).
 
+[i[Reference Material]>]

@@ -1,6 +1,6 @@
 # Appendix: Making a Playground {#making-playground}
 
-[i[Playground]]
+[i[Playground]<]
 
 In programming circles in general, a *playground* is a place you can go
 to mess with code and tech and not worry about messing up your
@@ -228,7 +228,7 @@ directories and start again. It's a playground!
 
 ## Automating Playground Builds
 
-[i[Playground-->Automating]] [i[Shell scripts]]
+[i[Playground-->Automating]<] [i[Shell scripts]]
 
 It can be tedious to continually destroy and recreate repos that you're
 trying to learn from. I suggest putting your commands in a _shell
@@ -293,3 +293,7 @@ $ cat foobar.txt
 By putting the initialization commands in a shell script, it's almost
 like having a "saved game" at that point. You can just rerun the shell
 script any time you want the same playground set up.
+
+[i[Playground-->Automating]>]
+
+[i[Playground]>]

@@ -1,6 +1,6 @@
 # Appendix: Getting Out of Editors {#editor-get-out}
 
-[i[Exiting editors]]
+[i[Exiting editors]<]
 
 If you try to `git commit` and don't specify `-m` for a message, or if
 you `git pull` and there's a non-fast-forward merge, or if you `git
@@ -25,3 +25,4 @@ So here's how to get out of it.
   of this guide, but this author thinks it's worth it for the editing
   speed you can achieve.
 
+[i[Exiting editors]>]

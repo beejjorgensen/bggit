@@ -1,8 +1,11 @@
 # Appendix: Errors and Scary Messages
 
+[i[Errors]<]
+
 ## Detached Head
 
-[i[`HEAD`-->Detached]]
+[i[`HEAD`-->Detached]<]
+[i[Errors-->Detached `HEAD`]<]
 
 Did you get this alarmingly guillotinesque message?
 
@@ -54,7 +57,12 @@ To get out of this, you can:
 
 And now your `HEAD` is no longer detached.
 
+[i[`HEAD`-->Detached]>]
+[i[Errors-->Detached `HEAD`]>]
+
 ## Upstream Branch Name Doesn't Match Current
+
+[i[Errors->Branch name doesn't match]<]
 
 Did you accidentally run `git branch -c newbranch` when you meant to run
 `git switch -c newbranch`? Because if you did, it could land you here:
@@ -117,7 +125,11 @@ You have a few options.
    $ git branch --unset-upstream newbranch
    ```
 
+[i[Errors->Branch name doesn't match]>]
+
 ## Current Branch Has No Upstream Branch
+
+[i[Errors-->No upstream branch]<]
 
 Trying to push and getting this message?
 
@@ -139,3 +151,7 @@ instruction.
 
 If you are pushing from the wrong branch by accident, switch to the
 right one first.
+
+[i[Errors-->No upstream branch]>]
+
+[i[Errors]>]
