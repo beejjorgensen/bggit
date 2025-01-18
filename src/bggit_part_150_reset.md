@@ -68,7 +68,7 @@ The summary of differences is:
 
 ## Soft Reset
 
-[i[Reset-->Soft]]
+[i[Reset-->Soft]<]
 
 When you run a `git reset --soft`, this resets the current branch to
 point to the given commit, and makes the stage and working tree both
@@ -144,9 +144,11 @@ the general public.
 > **Again, we've rewritten history here.** Don't do this if you've
 > already pushed those commits past the one you're resetting to.
 
+[i[Reset-->Soft]>]
+
 ## Mixed Reset
 
-[i[Reset-->Mixed]]
+[i[Reset-->Mixed]<]
 
 When you run a `git reset --mixed`[^2472], this resets the current
 branch to point to the given commit, and it modifies the stage to that
@@ -191,9 +193,11 @@ Another use might be if you want to squash a bunch of unpushed commits
 but simply don't want to stage the changes at the old commit yet,
 leaving them as modified.
 
+[i[Reset-->Mixed]>]
+
 ## Hard Reset
 
-[i[Reset-->Hard]]
+[i[Reset-->Hard]<]
 
 This resets everything to a particular commit. The branch moves there.
 The stage is set to that commit. The files in the working tree are set
@@ -217,7 +221,11 @@ But there's no reason why you couldn't reset to an entirely different
 divergent branch. It just moves the branch there with exactly the same
 rules for soft, mixed, and hard that we've already covered.
 
+[i[Reset-->Hard]>]
+
 ## Resetting Files
+
+[i[Reset-->Files]<]
 
 So far, we've been just doing resets on a commit-by-commit basis. But we
 could also do mixed resets with specific files. We can't do hard or soft
@@ -264,9 +272,11 @@ $ git status
 
 And there you have it.
 
+[i[Reset-->Files]>]
+
 ## Pushing Branch Changes to a Remote
 
-[i[Reset-->Pushing to remote]]
+[i[Reset-->Pushing to remote]<]
 
 Let's say you've made a mess of things somehow and you have to reset a
 branch that you've already pushed commits on. That is, you have to
@@ -311,9 +321,11 @@ Your coworkers will do something like this:
 Note that your coworkers don't necessarily need to do a hard reset; they
 could do a mixed reset, for instance.
 
+[i[Reset-->Pushing to remote]>]
+
 ### Forcing the Push
 
-[i[Push-->Forced]]
+[i[Push-->Forced]<]
 
 We have basically two options to use with `git push` here:
 
@@ -340,7 +352,7 @@ If that happens, you'll have to talk to your team to get them to stop,
 and then pull the changes, make sure everyone is on board with the new
 reset, and then start again.
 
-We'll use `--force-with-lease` in our example.
+We'll use `--force-with-lease` in our examples.
 
 ### Example: Rewrite Public History
 
@@ -438,9 +450,11 @@ branch as above, you can `git switch oldmain` to examine them, and maybe
 use something like `git cherry-pick` to bring in any functionality you
 need.
 
+[i[Push-->Forced]>]
+
 ## Resetting Without Moving `HEAD`
 
-[i[Branch-->Moving]]
+[i[Branch-->Moving]<]
 
 Using the reset feature moves the `HEAD` around by necessity. What if
 you just want to move a branch to another commit but leave `HEAD` alone?
@@ -476,6 +490,8 @@ it in the output for the second `git log`.
 
 You could also specify a destination for `main` as a second argument if
 you wanted it to move somewhere other than your current location.
+
+[i[Branch-->Moving]>]
 
 ## Resetting to Remove Credentials
 
