@@ -1,5 +1,7 @@
 # Git Aliases
 
+[i[Alias]<]
+
 Some of these Git commands might be painstaking to type. So far, we
 haven't had to do anything _too_ complicated, but we might eventually.
 
@@ -25,6 +27,8 @@ chapter](#configuration). In particular, if these commands don't work,
 you should look at [configuration of Older Git Versions](#config-old).
 
 ## Creating an Alias
+
+[i[Alias-->Creating]<]
 
 You do this through the configuration interface. Basically what you want
 to set is the variable `alias.myname` where `myname` is the name of the
@@ -56,7 +60,11 @@ Since aliases are just regular configuration variables, getting,
 setting, and deleting them happens as described in the [config
 chapter](#configuration).
 
+[i[Alias-->Creating]>]
+
 ## Displaying Aliases
+
+[i[Alias-->Displaying]<]
 
 Since aliases are just config variables, you can just get them in order
 to see what they are.
@@ -79,7 +87,11 @@ which is super annoying. I suggest you alias it. Wheee!
 > ```
 > <!-- ` -->
 
+[i[Alias-->Displaying]>]
+
 ## Some Neat Sample Aliases
+
+[i[Alias-->Examples]<]
 
 Some of the following are split into multiple lines so they fit in the
 book. You can put them on a single line, or type them as-is with the `\`
@@ -127,7 +139,11 @@ gives tons of control over the output. [fl[See the "Pretty Formats"
 section of the `git log` manual page for more
 info|https://git-scm.com/docs/git-log#_pretty_formats]].
 
+[i[Alias-->Examples]>]
+
 ## Seeing Git's Alias Expansion
+
+[i[Alias-->Debugging]<]
 
 Let's say you've added an alias, but it's not working. When you run it,
 it just gives some error and it's not super clear what's going on.
@@ -195,4 +211,7 @@ It's probably a bit of overkill for this simple example, but there are
 some aliases of extraordinary complexity for which this technique might
 help.
 
+[i[Alias-->Debugging]>]
+
+[i[Alias]>]
 

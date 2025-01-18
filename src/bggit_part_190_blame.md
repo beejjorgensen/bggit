@@ -36,6 +36,8 @@ And now we know.
 
 ## Fancier Blaming
 
+[i[Blame-->Fancier output]<]
+
 You can use the `--color-lines` switch to get color output, alternating
 colors between commits. Very exciting. If you want that to always
 happen, you can set the `color.blame.repeatedLines` config option.
@@ -52,5 +54,7 @@ with `-M`. And you can do the same thing across multiple files with
 Finally, your IDE (like VS Code) might support blame, either natively or
 via an extension. Some people just have this feature turned on all the
 time.
+
+[i[Blame-->Fancier output]>]
 
 [i[Blame]>]

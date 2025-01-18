@@ -175,7 +175,7 @@ git config --edit                         # Edit
 
 ### Aliases
 
-[i[Configuration-->Aliases]i<]
+[i[Alias]i<]
 
 Setting aliases, some examples:
 
@@ -204,7 +204,7 @@ Tracing an alias run:
 $ GIT_TRACE=1 git logx
 ```
 
-[i[Configuration-->Aliases]i>]
+[i[Alias]i>]
 [i[Configuration]i>]
 
 ## Creating and Cloning Repos

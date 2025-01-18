@@ -7,7 +7,7 @@
 <!-- [nh[scalbn]] -->
 
 <!-- Index see alsos -->
-[is[Aliases==>see Configuration, Aliases]]
+[is[Configuration-->Aliases==>see Aliases]]
 [is[Branch-->on GitHub==>see GitHub, Branches]]
 [is[Branch-->Diff==>see Diff, Between branches]]
 [is[Detached `HEAD`==>see `HEAD`, Detached]]

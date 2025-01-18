@@ -1,5 +1,7 @@
 # Configuration {#configuration}
 
+[i[Configuration]<]
+
 Waaaaay back at the beginning of this book, we did some Git
 configuration. We did this:
 
@@ -42,6 +44,8 @@ If the commands in this chapter are giving you errors, see the section
 on [older Git versions](#config-old), below.
 
 ## Local Configuration
+
+[i[Configuration-->Local]<]
 
 In those `git config` lines, above, you might have noticed the
 `--global` switch:
@@ -100,7 +104,11 @@ specifying local configs.
 Finally, the local config for a repo is found in the `.git/config` file
 out of the repo's root directory.
 
+[i[Configuration-->Local]>]
+
 ## Listing the Current Config
+
+[i[Configuration-->Listing]<]
 
 You can view the current config with `git config list`. Add the
 `--global` flag if you want to see the global config.
@@ -122,8 +130,11 @@ You can see in there that `user.name` and `user.email` appear twice. The
 first is from the global config, which is overridden later by the value
 in the local config.
 
+[i[Configuration-->Listing]>]
+
 ## Getting, Setting, and Deleting Variables
 
+[i[Configuration-->Get]]
 An example "get":
 
 ``` {.default}
@@ -135,6 +146,7 @@ Note that it is only giving the active value (the local one in this
 case) even though we saw with `git config list` that both the global and
 local values were there.
 
+[i[Configuration-->Set]]
 And we've already seen a "set":
 
 ``` {.default}
@@ -151,6 +163,8 @@ in it.
 Set will overwrite any previously-existing value of the name variable
 name.
 
+[i[Configuration-->Delete]]
+[i[Configuration-->Unset]]
 And last but not least, we can delete a variable with `unset`:
 
 ``` {.default}
@@ -158,6 +172,8 @@ $ git config unset user.name
 ```
 
 ## Some Popular Variables
+
+[i[Configuration-->Commonly-set variables]<]
 
 To see which variables you can set, look in the manual page for the
 appropriate command. You can usually get there by looking at the first
@@ -187,7 +203,11 @@ Variable        | Description
 
 Again, there are a *lot* more of these. Peruse the docs for more.
 
+[i[Configuration-->Commonly-set variables]>]
+
 ## Editing the Config Directly
+
+[i[Configuration-->Editing directly]<]
 
 You can launch an editor (the one specified in the `core.editor`
 variable) to edit the config file directly. Some people might find this
@@ -240,7 +260,11 @@ this easier than adding or modifying variables on the command line.
 > Bring the appropriate file up in your editor, fix the mistake, save
 > it, and then `git config edit` should work again.
 
+[i[Configuration-->Editing directly]>]
+
 ## Conditional Configuration
+
+[i[Configuration-->Conditional]<]
 
 This is more than I want to talk about, but it's neat enough to point
 out.
@@ -264,7 +288,11 @@ need, and I've never used this feature, but that's just me.
 [fl[Get more info and examples in the official
 book|https://git-scm.com/docs/git-config#_conditional_includes]].
 
+[i[Configuration-->Conditional]>]
+
 ## Older Git Versions {#config-old}
+
+[i[Configuration-->Deprecated usage]<]
 
 I'm assuming you have a recent version of Git installed. But if you
 don't, these commands might be different.
@@ -294,3 +322,6 @@ git config --edit                         # Edit
 
 Use the new ones if you can!
 
+[i[Configuration-->Deprecated usage]>]
+
+[i[Configuration]>]
