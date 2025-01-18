@@ -213,7 +213,7 @@ But not every cherry-pick will go as smoothly as that!
 
 ## Cherry-Pick Conflicts
 
-[i[Cherry-pick-->Conflicts]]
+[i[Cherry-pick-->Conflicts]<]
 
 Yes, you can get conflicts with a cherry-pick, of course. This might
 happen because you've changed some of the same lines as the commit
@@ -228,5 +228,7 @@ But by now I hope the process seems familiar. First, make the file
 _Right_, then add it, and then you'll _continue_ (like with a `rebase`)
 with `git cherry-pick --continue`. Keep doing that until everything's
 merged together cleanly.
+
+[i[Cherry-pick-->Conflicts]>]
 
 [i[Cherry-pick]>]
