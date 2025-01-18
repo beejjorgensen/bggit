@@ -345,7 +345,7 @@ We're going to (perhaps surprisingly) use `git push` for this.
 To delete a branch on the remote, you:
 
 ``` {.default}
-$ git push remote --delete branchname
+$ git push someremote --delete branchname
 ``` 
 
 For example:
