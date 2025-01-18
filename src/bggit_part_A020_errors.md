@@ -62,7 +62,7 @@ And now your `HEAD` is no longer detached.
 
 ## Upstream Branch Name Doesn't Match Current
 
-[i[Errors->Branch name doesn't match]<]
+[i[Errors-->Branch name doesn't match]<]
 
 Did you accidentally run `git branch -c newbranch` when you meant to run
 `git switch -c newbranch`? Because if you did, it could land you here:
@@ -125,7 +125,7 @@ You have a few options.
    $ git branch --unset-upstream newbranch
    ```
 
-[i[Errors->Branch name doesn't match]>]
+[i[Errors-->Branch name doesn't match]>]
 
 ## Current Branch Has No Upstream Branch
 

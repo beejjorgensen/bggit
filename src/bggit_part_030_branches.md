@@ -152,8 +152,8 @@ before, during, and/or after reading this chapter.
 
 [i[Pull-->Force rebase or merge]]
 
-When you do a pull, it actually does two things: (a) _fetch_ all the
-changes from the remote repo and (b) _merge_ those changes.
+When you do a pull, it actually does two things: [i[Fetch]] (a) _fetch_
+all the changes from the remote repo and (b) _merge_ those changes.
 
 If two or more people are committing to the same branch, eventually `git
 pull` is going to have to merge. And it turns out there are a few ways

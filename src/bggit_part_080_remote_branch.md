@@ -293,6 +293,8 @@ originally) up to `remote2` and you'd like to get it.
 
 So you do this:
 
+[i[Fetch]]
+
 ``` {.default}
 $ git fetch remote2
   remote: Enumerating objects: 15, done.
@@ -336,6 +338,8 @@ remotes/remote2/foobranch
 
 If you want to keep your `origin/foobranch` in sync with that on
 `remote2`, you'll have to do a bunch of merging.
+
+[i[Fetch]]
 
 ``` {.default}
 $ git fetch remote2            # Get remote2 changes

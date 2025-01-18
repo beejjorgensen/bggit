@@ -458,6 +458,8 @@ $ git remote add upstream https://github.com/other/upstream.git
 And then we need to get the new commits from the upstream repo and merge
 them into our stuff.
 
+[i[Fetch]]
+
 ``` {.default}
 $ git fetch upstream
   remote: Enumerating objects: 5, done.
@@ -502,8 +504,8 @@ tell us "These branches can be automatically merged" which is music to
 everyone's ears.
 
 Once you have the `upstream` remote set up, all you have to do to sync
-in the future is do the `git fetch upstream` and then merge or rebase
-your stuff with it.
+in the future is do the [i[Fetch]] `git fetch upstream` and then merge
+or rebase your stuff with it.
 
 [i[Fork-->Syncing with Upstream]>]
 

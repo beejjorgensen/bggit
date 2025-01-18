@@ -434,8 +434,8 @@ submodule at all.
 
 Then you can push, pull, modify, etc. all you want.
 
-And then when you have it all fixed, you can go to the submodule
-directory and do a `git fetch` to pull down the new commits.
+[i[Fetch]] And then when you have it all fixed, you can go to the
+submodule directory and do a `git fetch` to pull down the new commits.
 
 At that point, it might be convenient to run this:
 

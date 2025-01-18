@@ -302,7 +302,8 @@ Our process will be something like this:
 
 Your coworkers will do something like this:
 
-1. Do a `git fetch` to get the new branch position from the remote.
+1. [i[Fetch]]Do a `git fetch` to get the new branch position from the
+   remote.
 2. Stash or commit any local changes they need to preserve.
 3. Maybe make a new branch at the old branch point in case they need to
    return to see old soon-to-be-obliterated commits.
@@ -414,7 +415,7 @@ of affairs for reference if we have to:
 $ git branch oldmain
 ```
 
-And now it's time for action. We need to fetch the new branch
+And now it's time for action. [i[Fetch]] We need to fetch the new branch
 information.
 
 ``` {.default}

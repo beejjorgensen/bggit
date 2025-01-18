@@ -119,7 +119,7 @@ is preserved.
 [i[Rebase-->And pulling]]
 
 If you might recall from way back when, doing a pull is actually a
-couple operations: *fetch* and *merge*.
+couple operations: [i[Fetch]] *fetch* and *merge*.
 
 The fetch downloads all the new data from the remote, but doesn't
 actually merge anything into your branches or working tree. So you won't
@@ -136,6 +136,8 @@ $ git pull
 ```
 
 Git actually does something like this:
+
+[i[Fetch]]
 
 ``` {.default}
 git fetch                # Get all the information from origin
@@ -157,6 +159,8 @@ $ git pull --rebase
 ```
 
 That causes these two things to happen:
+
+[i[Fetch]]
 
 ``` {.default}
 git fetch                # Get all the information from origin
