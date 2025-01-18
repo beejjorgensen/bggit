@@ -115,7 +115,7 @@ repo with GitHub.
 
 ## The Most Basic Git Workflow
 
-[i[Workflow-->basic]]
+[i[Workflow-->Basic]]
 
 There's a super-common workflow that you'll use repeatedly:
 
@@ -210,7 +210,7 @@ local repo.
 
 ## Actual Git Usage
 
-[i[Workflow-->basic]<]
+[i[Workflow-->Basic]<]
 
 Let's put all this into play. This section assumes you have the
 command line Git tools installed. It also generally assumes you're
@@ -668,4 +668,4 @@ GitHub that's not plain password.
 Let's try that in the next section.
 
 [i[Push]>]
-[i[Workflow-->basic]>]
+[i[Workflow-->Basic]>]
