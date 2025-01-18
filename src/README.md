@@ -14,6 +14,7 @@ Example repo with submodule:
 
 # TODO
 
+* Pushing a branch delete
 * Update example in chapter 2 so that source matches the actual example
   repo.
 * Index everything
