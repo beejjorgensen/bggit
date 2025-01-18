@@ -278,24 +278,29 @@ You can select either branch and view it in the GitHub interface.
 
 ## Deleting Remote Tracking Branches
 
+[i[Branch-->Deleting remote]<]
 [i[Branch-->Deleting remote tracking]<]
 
 There are few things that can happen here.
 
-1. Someone deletes the branch on the remote, your remote tracking branch
-   (local to you) still exists and you want to delete it.
+1. Someone deletes the branch on the remote, but your corresponding
+   remote tracking branch (the one on your clone) still exists and you
+   want to delete it.
 
-2. You want to delete your remote tracking branch (local to you), and
-   you want to leave it untouched on the remote.
+2. You want to delete your remote tracking branch, and you want to leave
+   the corresponding branch untouched on the remote.
 
-3. You delete your remote tracking branch (local to you) and you want to
-   tell the remote to delete it, too.
+3. You delete your remote tracking branch and you want to delete the
+   corresponding branch on the remote, too.
+
+For all of these, it's good to have your working tree clean, of course.
 
 ### Fetching Deleted Remote Branches
 
-The first one is pretty easy. Let's tell Git to delete all our local
-remote tracking branches that no longer exist on the `origin` remote:
+The first one is pretty easy. Let's tell Git to delete all our remote
+tracking branches that no longer exist on the `origin` remote:
 
+[i[Fetch-->Pruning remote tracking branches]]
 ``` {.default}
 $ git fetch --prune
 ```
@@ -330,9 +335,29 @@ For example:
 $ git branch -dr origin/topic99
 ``` 
 
-### Deleting Remote Tracking Branch on Remote
+### Deleting a Branch on a Remote
 
-TODO
+Finally, let's say you've deleted your remote tracking branch on your
+clone, as per above, and you also want to delete it on the remote.
+
+We're going to (perhaps surprisingly) use `git push` for this.
+
+To delete a branch on the remote, you:
+
+``` {.default}
+$ git push remote --delete branchname
+``` 
+
+For example:
+
+``` {.default}
+$ git push origin --delete topic99
+``` 
+
+And that's it! Make sure you delete your remote tracking branch
+
+[i[Branch-->Deleting remote]>]
+[i[Branch-->Deleting remote tracking]>]
 
 ## Multiple Remotes
 
