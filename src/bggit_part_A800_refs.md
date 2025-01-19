@@ -34,6 +34,7 @@ Git*.
     _The Git Reference Manual_, below.
 
 [i[Reference Material-->Free]]
+
 * **Free Stuff!**
   * [fl[_Pro Git_|https://git-scm.com/book/en/v2]]
   * [fl[_The Git Reference Manual_|https://git-scm.com/docs]]
@@ -47,6 +48,7 @@ Git*.
   * [fl[_Post-Production Editing Using Git_|http://sethrobertson.github.io/GitPostProduction/gpp.html]]
 
 [i[Reference Material-->Non-free]]
+
 * **For Money**
   * [fl[_Learn Git in a Month of Lunches_|https://www.manning.com/books/learn-git-in-a-month-of-lunches]]
   * [fl[_Getting Started with GitHub_|https://www.amazon.com/Introducing-GitHub-Non-Technical-Peter-Bell/dp/1491949740]]
