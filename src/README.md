@@ -14,8 +14,9 @@ Example repo with submodule:
 
 # TODO
 
-* Pushing a branch delete: test
 * Editing pass
+  * Current bookmark: bggit_part_020_using_github.md
+* Pushing a branch delete: test
 * Book page breaks
 * Book cover
 * Publish
