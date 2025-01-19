@@ -21,8 +21,11 @@ So here's how to get out of it.
   you're in Vim or some other vi ("vee eye") variant. Press `i`, then
   type a message (if you want), then hit the `ESC` key in the upper
   left, then type two capital `Z`s in a row. `ZZ`. That should save and
-  exit. [fl[Learning Vim|https://www.openvim.com/]] is beyond the scope
-  of this guide, but this author thinks it's worth it for the editing
-  speed you can achieve.
+  exit.
+
+  I love Vim. But it took a while. If you want to learn more, see the
+  [Appendix on Using Vim](#vim-tutorial), that has the briefest of
+  tutorials. I guess the previous paragraph was really the briefest, so
+  we'll call it the second-briefest.
 
 [i[Exiting editors]>]
