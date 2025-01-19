@@ -14,15 +14,22 @@ Yes, you can get by with a cheat-sheet of common Git commands, but if
 you want to fearlessly use the tool to its full effectiveness, you gotta
 learn the internals!
 
+And, yes, Git is complex. There's a *lot* to it. But like with many
+complex tools, there's a lot of power to be found there if you put in
+the time to get good at it.
+
 ## What is Git?
 
 Git is a _source code control system_, also known as a _version control
 system_.
 
-Clear? OK, not really? Let's dive in a bit more, then!
+Clear? Okay, not really? Let's dive in a bit more, then!
 
 Git's main job is to keep a log of _snapshots_ of the current state of
-all your source code in a particular directory tree.
+all your source code in a particular directory tree. A snapshot is the
+current state of all tracked files at a particular time. If you wanted
+to see what your source code looked like last Wednesday, you could go
+back in time and see it.
 
 The idea is that you'll make some changes (to implement a feature, for
 example), and then you'll _commit_ those changes to the _source code
@@ -42,7 +49,7 @@ But that's not all! As we'll see, Git also works well as a remote backup
 mechanism, and works wonderfully when cooperating with a team on the
 same codebase.
 
-### Definitions:
+### Definitions
 
 * **Source Code Control System**/**Version Control System**: Software
   that manages changes to a software project potentially consisting of
@@ -71,8 +78,6 @@ same codebase.
 
   Sometimes repos are local to your computer, and sometimes they're
   stored on other, remote computers.
-
-* **Check out**: To look at a particular commit (or branch—more later).
 
 ## What is GitHub?
 
@@ -103,15 +108,16 @@ later).
 > server. None of this information is immediately important.
 
 Regardless of whatever repos you have on GitHub, you'll also have copies
-(known as _clones_) of those repos on your local system to work
-on. Periodically, in a common workflow, you'll sync your copy of the
-repo with GitHub.
+(known as _clones_) of those repos on your local system to work on.
+Periodically, in a common workflow, you'll sync your clone of the repo
+with GitHub.
 
-> **You don't need GitHub.** Even though you might be commonly using GitHub, there's no
-> law that says you have to. You can just create and destroy repos on
-> your local system all you want, even if you're not connected to the
-> Internet. See [Appendix: Making a Playground](#making-playground) for
-> more information once you're more comfortable with the basics.
+> **You don't need GitHub.** Even though you might be commonly using
+> GitHub, there's no law that says you have to. You can just create and
+> destroy repos on your local system all you want, even if you're not
+> connected to the Internet. See [Appendix: Making a
+> Playground](#making-playground) for more information once you're more
+> comfortable with the basics.
 
 ## The Most Basic Git Workflow
 
@@ -125,13 +131,13 @@ There's a super-common workflow that you'll use repeatedly:
    files are on your computer.
 3. Add those changes to the _stage_ (AKA the _index_).
 4. _Commit_ those changes.
-5. _Push_ your changes back to the remote repo.
+5. _Push_ your commit back to the remote repo.
 6. Go back to Step 2.
 
 This is not the only workflow; there are others that are also not
 uncommon.
 
-### Definitions:
+### Definitions
 
 * **Clone** (verb): to make a copy of a remote repo locally.
 
@@ -143,9 +149,9 @@ uncommon.
   the files of the project. This is created when you clone.
 
 * **Stage**: In Git, a place you add copies of files to in preparation
-  for a commit. The commit will include all the files that you've placed
-  on the stage. It will not include files you haven't placed on the
-  stage, even if you've modified those files.
+  for a commit. The commit will include all the modified files that
+  you've placed on the stage. It will not include modified files you
+  haven't placed on the stage.
 
 * **Index**: A less-common name for the stage.
 
@@ -174,7 +180,7 @@ an entire, existing GitHub repo.
 Making a clone is a one time-process, typically (though you can make as
 many as you want).
 
-### Definitions:
+### Definitions
 
 * **Distributed Version Control System**: A VCS in which there is no
   central authority of the data, and multiple clones of a repo exist.
@@ -232,7 +238,7 @@ Recall the process in The Most Basic Git Workflow, above:
 2. Make some local changes.
 3. Add those changes to the _stage_.
 4. _Commit_ those changes.
-5. _Push_ your changes back to the remote repo.
+5. _Push_ your commit back to the remote repo.
 6. Go back to Step 2.
 
 ### Step 0: One-time Setup
@@ -366,21 +372,30 @@ We don't want to get caught up in the intricacies of branching right
 now, but bear with me for a couple paragraphs.
 
 `origin` is an alias for the remote repository that we originally cloned
-from, so `origin/main` is "branch `main` on the repo you originally
-cloned from".
+from, so `origin/main` corresponds to "branch `main` on the repo you
+originally cloned from"[^a7cb].
+
+[^a7cb]: We're glazing over an important topic here that we'll come back
+    to later called _remote tracking branches_.
 
 There is one important thing to notice here: there are two `main`
 branches. There's the `main` branch on your local repo, and there's a
-corresponding `main` branch on the remote (`origin`) repo.
+corresponding `main` branch on the remote (`origin`) repo[^2d0c].
+
+[^2d0c]: And again we're doing some hand-waving. There are actually
+    three branches. Two of them, `main` and `origin/main` are on your
+    local clone. And there's a third `main` on the remote `origin` that
+    your `origin/main` is _tracking_. Feel free to ignore this detail
+    until we get to the remote tracking branch chapter.
 
 Remember how clones are separate? That is, changes you make on one clone
 aren't automatically visible on the other? This is an indication of
 that. You can make changes your your local `main` branch, and these
-won't affect the remotes `origin/main` branch. (At least, not until you
-push those changes!)
+won't affect the remotes `main` branch. (At least, not until you push
+those changes!)
 
-Lastly, it mentions we're up-to-date with the latest version of
-`origin/main` (that we know of), and that there's nothing to commit
+Lastly, it mentions we're up-to-date with the latest version of `main`
+on `origin` (that we know of), and that there's nothing to commit
 because there are no local changes. We're not sure what that means yet,
 but it all sounds like vaguely good news.
 
@@ -449,9 +464,9 @@ which we did.
 But it also says there are `no changes added to commit` (i.e. "there is
 nothing to make a commit with"). What does that mean?
 
-It means we haven't added anything to the _stage_ yet. Recall that the
-stage is where we can place items that we wish to include in the next
-commit. Let's try that.
+It means we haven't added any modified files to the _stage_ yet. Recall
+that the stage is where we can place items that we wish to include in
+the next commit. Let's try that.
 
 #### Step 2.1: Reviewing Your Changes
 
@@ -558,7 +573,9 @@ not be included in the snapshot. Unmodified files are automatically
 included in the snapshot.
 
 In short, the commit snapshot will contain all the unmodified files Git
-currently tracks plus the modified files that are on the stage.
+currently tracks **plus** the modified files that are on the stage. (Git
+just doesn't show all the unmodified files with `status` because the
+output would be completely unhelpful.)
 
 Let's do it:
 
@@ -593,9 +610,27 @@ $ git status
 "Nothing to commit, working tree clean" means we have no local changes
 to our branch.
 
-But look! We're "ahead of 'origin/main' by 1 commit"! This means our
-local commit history on the `main` branch has one commit that the remote
-commit history on its `main` branch does not have.
+> **Turns out there's an optional shortcut here.** If you've modified a
+> file, you can just commit it directly (without adding it to the
+> stage!) by naming it on the command line.
+>
+> Let's say you modified `foo.txt` but didn't add it. You could:
+>
+> ``` {.default}
+> $ git commit -m "jerbify the flurblux" foo.txt
+> ```
+> 
+> <!-- ` -->
+> And that would add it and make the commit. You can only do this with
+> files that you added before. And there's never any harm in using `git
+> add` to add things to the stage.
+>
+> You can specify multiple files here, or a directory. Also, this
+> doesn't affect files that are already on the stage.
+
+But look! The status says we're "ahead of 'origin/main' by 1 commit"!
+This means our local commit history on the `main` branch has one commit
+that the remote commit history on its `main` branch does not have.
 
 Which makes sense—the remote repo is a clone and so it's independent of
 our local repo unless we explicitly try to sync them up. It doesn't
@@ -606,24 +641,6 @@ the remote repo so that it also has our changes.
 
 So let's try to do that. Let's push our local changes to the remote
 repo.
-
-> **Turns out there's an optional shortcut here.** If you've modified a
-> file, you can just commit it directly (without adding it to the
-> stage!) by naming it on the command line.
->
-> Let's say you modified `foo.txt` but didn't add it. You could:
->
-> ``` {.default}
-> $ git commit -m "jerbified the flurblux" foo.txt
-> ```
-> 
-> <!-- ` -->
-> And that would add it and make the commit. You can only do this with
-> files that you added before. And there's never any harm in using `git
-> add` to add things to the stage.
->
-> You can specify multiple files here, or a directory. Also, this
-> doesn't affect files that are already on the stage.
 
 [i[Commit]>]
 
