@@ -80,6 +80,8 @@ Personally, I use SSH keys. But other people... don't. It's up to you.
 If you already have authentication working with GitHub, skip these
 sections.
 
+Otherwise, choose one of them (like SSH) and use it.
+
 ### GitHub CLI
 
 [i[GitHub-->GitHub CLI setup]]
@@ -110,10 +112,10 @@ $ gh auth setup-git
 $ gh auth login
 ```
 
-The first is one-time only.
+The first (`setup-git`) is one-time only.
 
-The second command will take you through the login process. You'll have
-to do this again if you log out.
+The second command (`login`) will take you through the login process.
+You'll have to do this again if you log out.
 
 When choosing the authentication type between SSH and HTTPS, I recommend
 SSH. You'll need to remember your choice when you go to clone a repo
@@ -245,7 +247,7 @@ ssh-ed25519 AAAC3N[a bunch of letters]V+znpoO youremail@example.com
 
 Copy the entire thing into the clipboard so you can paste it later.
 
-Now go to GitHub, and click on your icon in the upper right.
+Now go to GitHub, and click on your avatar icon in the upper right.
 
 Choose "Settings".
 
@@ -324,7 +326,7 @@ your `test-repo` repo. Click on the name.
 And you should then be on the repo page. You can browse the files here,
 among other things, but really we want to get the clone URL.
 
-Click the big green "Code" button.
+Click the big blue "Code" button.
 
 What you do next depends on if you're using GitHub CLI or SSH keys.
 
