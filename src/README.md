@@ -15,7 +15,7 @@ Example repo with submodule:
 # TODO
 
 * Editing pass
-  * Current bookmark: bggit_part_030_branches.md
+  * Current bookmark: bggit_part_040_merging.md
 * Pushing a branch delete: test
 * Book page breaks
 * Book cover

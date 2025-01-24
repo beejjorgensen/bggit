@@ -1,4 +1,4 @@
-# Merging and Conflicts
+# Merging and Conflicts {#merge}
 
 [i[Merge]<]
 

@@ -1,4 +1,4 @@
-# Remote Tracking Branches
+# Remote Tracking Branches {#remote-tracking-branch}
 
 [i[Branch-->Remote tracking]<]
 

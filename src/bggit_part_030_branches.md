@@ -2,7 +2,7 @@
 
 ## What is a Branch?
 
-[i[Branch]]
+[i[Branch]<]
 
 Normally you think of writing code as a linear sequence of changes. You
 start with an empty file, add some things, test them, add some more,
@@ -32,10 +32,10 @@ relationship.
 A _branch_ is like a name tag stuck on one **specific** commit. You can
 move the name tag around with various Git operations.
 
-The default branch is called `main`.
+The default branch is called [i[Branch-->`main`]] `main`.
 
-> The default branch used to be called `master`, and still is called
-> that in some older repos.
+> **The default branch used to be called [i[Branch-->`master`]]
+> `master`**, and still is called that in some older repos.
 
 ![The main branch on a commit.](img_030_020.pdf "[The main branch on a commit.]")
 
@@ -52,10 +52,10 @@ So to make it a little more complete, we can show that branch in
 Figure_#.2. There's our `main` branch attached to the commit labeled
 `(5)`.
 
-> It's tempting to think of the whole sequence of commits as "the
-> branch", but this author recommends against it. Better to keep in mind
-> that the branch is just a name tag for a single commit, and that we
-> can move that name tag around.
+> **It's tempting to think of the whole sequence of commits as "the
+> branch", but this author recommends against it.** Better to keep in
+> mind that the branch is just a name tag for a single commit, and that
+> we can move that name tag around.
 
 But Git offers something more powerful, allowing you (or collaborators)
 to pursue multiple branches simultaneously.
@@ -171,7 +171,7 @@ it the first time it has to merge on a pull. And you'll have to do it
 then. (Leave the word `set` out of that command if it fails on older
 Gits.)
 
-When we talk about rebasing later, this will make more sense.
+When we talk about [rebasing](#rebase) later, this will make more sense.
 
 ## `HEAD` and Branches
 
@@ -182,8 +182,11 @@ commit you're looking at right now in your unmodified working tree.
 
 And we also said that was a bit of a lie.
 
-In normal usage, `HEAD` points to a branch, not to a commit. In detached
-head state, `HEAD` points to a commit.
+[i[`HEAD`-->Detached]<]
+
+In normal usage, `HEAD` points to a branch, not to a commit. Only in
+detached head state does `HEAD` point directly to a commit (i.e. when
+it's detached from all branches).
 
 If we look at Figure_#.7, we see `HEAD` is pointing to a branch as per
 normal.
@@ -200,7 +203,8 @@ normal.
 -->
 
 But if we check out an earlier commit that doesn't have a branch, we end
-up in detached head state, and it looks like Figure_#.8.
+up in detached head state, and it looks like
+Figure_#.8.
 
 ![`HEAD` pointing to a commit.](img_030_080.pdf "[HEAD pointing to a commit.]")
 
@@ -236,7 +240,6 @@ If we were here back at Figure_#.7, when `HEAD` was pointing to the
 ```
 -->
 
-[i[`HEAD`-->Detached]]
 Contrast that to detached head state, back in Figure_#.8. If we were
 there, a new commit would get us to Figure_#.10, leaving `main` alone.
 
@@ -261,6 +264,8 @@ at the same commit as `HEAD`, if you want to do that. Or maybe you are
 just messing around and decide to switch back to `main` later,
 abandoning the commits you've made in detached `HEAD` state.
 
+[i[`HEAD`-->Detached]>]
+
 Now that we have the abstract theory stuff laid out, let's talk
 specifics.
 
@@ -276,7 +281,7 @@ $ git branch
 ```
 
 This is telling you there's one branch, and you have it checked out (the
-`*` lets you know that.
+`*` lets you know that).
 
 If I make a new branch called `foobranch` and switch to that, I'll see
 this:
@@ -296,11 +301,14 @@ If I then detach the `HEAD`, I end up here:
     main
 ```
 
+But you can always see what branch you're on with `git branch` or `git
+status`.
+
 [i[Branch-->Listing]>]
 
 ## Creating a Branch
 
-[i[Branch-->Creating]]
+[i[Branch-->Creating]<]
 
 When you make the first commit to a new repo, the `main` branch is
 automatically created for you at that commit.
@@ -338,13 +346,13 @@ $ git switch -c newbranch
 
 Normally you can just switch to another branch (i.e. have `HEAD` point
 to that branch) with `git switch branchname`. But if the branch doesn't
-exist, you use the `-c` switch to create the branch before switching to
-it.
+exist, you need to use the `-c` switch to create the branch before
+switching to it.
 
 > **Make sure all your local changes are committed before switching
 > branches!** If you `git status` it should say "working tree clean"
-> before you switch. Later we'll learn about another option with `git
-> stash`.
+> before you switch. Later we'll learn about another option when we talk
+> about [stashing](#stash).
 
 So after checking out `main`, we have Figure_#.11.
 
@@ -390,16 +398,20 @@ branch.
 > other branches pushed to the server).
 >
 > There is a way to set up that connection where your local branches are
-> uploaded when you push, called _remote-tracking branches_. `main` is
-> an example of a remote-tracking branch, which is why `git push` from
-> `main` works while `git push` from `newbranch` gives an error. But
+> uploaded when you push, called [_remote-tracking
+> branches_](#remote-tracking-branch). `main` is connected to a remote
+> tracking branch (usually called `origin/main`) which is why `git push`
+> from `main` works while `git push` from `newbranch`, which is not by
+> default connected to a remote tracking branch, gives an error. But
 > we'll talk about all this later.
+
+[i[Branch-->Creating]>]
 
 ## Make Some Commits on a Branch
 
 This is not really that different than what we were doing with our
 commits before. Before we made a branch, we had `HEAD` pointing to
-`main`, and we were making commits on `main`.
+branch `main`, and we were making commits on `main`.
 
 Now we have `HEAD` pointing to `newbranch` and our commits will go
 there, instead.
@@ -451,8 +463,8 @@ Right? Let's make another commit and get to Figure_#.14.
 We can see that `newbranch` and `main` are pointing at different
 commits.
 
-> If we wanted to see the state of the repo from `main`'s perspective,
-> what would we have to do? We'd have to `git switch main` to look at
+> **If we wanted to see the state of the repo from `main`'s perspective,
+> what would we have to do?** We'd have to `git switch main` to look at
 > that branch.
 
 Now for another question. Let's say we've decided that we're happy with
@@ -461,12 +473,13 @@ the `main` branch. How would we do that?
 
 ## Merging: Fast-Forward
 
+[i[Merge]<]
 [i[Merge-->Fast-forward]<]
 
 Bringing two branches back into sync is called _merging_.
 
 The branch you're on is the branch you're bringing other changes _into_.
-That is, if you're on Branch A, and you tell git to Merge Branch B,
+That is, if you're on Branch A, and you tell git to "merge Branch B",
 Branch B's changes will be applied onto Branch A. (Branch B remains
 unchanged in this scenario.)
 
@@ -490,7 +503,7 @@ example in Figure_#.14.
 -->
 
 I decide I want to merge `main`'s changes into `newbranch`, so (again,
-having `newbranch` checked out):
+with `newbranch` currently checked out):
 
 ``` {.default}
 $ git merge main
@@ -561,9 +574,9 @@ Wait a second—didn't we say to merge `newbranch` into `main`, like take
 those changes and fold them into the `main` branch? Why did `main`
 move, then?
 
-We did! But let's stop and think about how this can happen in the
-special case where the branch you're merging _into_ is a direct ancestor
-of the branch you're merging _from_.
+We did say that! But let's stop and think about how this can happen in
+the special case where the branch you're merging _into_ is a direct
+ancestor of the branch you're merging _from_.
 
 It used to be that `main` didn't have commits `(5)` or `(6)` in the
 graph, above. But `newbranch` has already done the work of adding `(5)`
@@ -583,9 +596,11 @@ Git will automatically fast-forward if it can. Otherwise it does a
 "real" merge. And while fast-forward merges can never lead to _merge
 conflicts_, regular merges certainly can.
 
-But that's another story.
+But that's another story well get into in the [Merging and
+Conflicts](#merge) chapter.
 
 [i[Merge-->Fast-forward]>]
+[i[Merge]>]
 
 ## Deleting a Branch
 
@@ -604,7 +619,7 @@ $ git switch main
 $ git merge topic1                       # merge topic1 into main
 ```
 
-At this point, assuming a completed merge, we can delete the `topic`
+At this point, assuming a completed merge, we can delete the `topic1`
 branch:
 
 ``` {.default}
@@ -632,5 +647,6 @@ $ git branch -D topic1
 
 Use lowercase `-d` unless you have reason to do otherwise. It'll at
 least tell you if you're about to lose your reference to your unmerged
-commits!
+commits, and then you can override with `-D` if you really want to.
 
+[i[Branch]>]

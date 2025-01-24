@@ -14,6 +14,8 @@
 [is[Fast-forward==>see Merge, Fast-forward]]
 [is[Ignoring files==>see `.gitignore`]]
 [is[Index==>see Stage]]
+[is[`main`==>see Branch, `main`]]
+[is[`master`==>see Branch, `master`]]
 [is[`origin`==>see Remotes, `origin`]]
 [is[`origin/main`==>see Branch, Remote tracking]]
 [is[Recursion==>see Recursion]]

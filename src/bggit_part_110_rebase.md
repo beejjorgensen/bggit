@@ -1,4 +1,4 @@
-# Rebasing: Moving Commits
+# Rebasing: Moving Commits {#rebase}
 
 [i[Rebase]<]
 
