@@ -75,13 +75,20 @@ this:
 
 `5a02fede3007edf55d18e2f9ee3e57979535e8f2`
 
-Luckily, there are a few ways to refer to commits with more human
+Luckily, there are a few ways to refer to commits with more-human
 symbolic names.
 
 `HEAD` is one of these references. It indicates which branch or commit
-you're looking at right now in your project subdirectory. Remember how
-we said you could go look at previous commits? The way you do that is by
-moving `HEAD` to them.
+you're looking at right now in your project subdirectory[^7b00].
+Remember how we said you could go look at previous commits? The way you
+do that is by moving `HEAD` to them.
+
+[^7b00]: I'm stretching it a bit, here. `HEAD` looks at the commit
+    you've switched to. This might not be quite the same as what's in
+    your project subdirectory if you've modified some of the files since
+    the moving `HEAD` to that commit. The commit is a snapshot, but that
+    snapshot doesn't include modifications to files until you make
+    another commit that contains them.
 
 > **We haven't talked about branches yet, but the `HEAD` normally refers
 > to a branch.** By default, it's the `main` branch. But since we're
@@ -91,10 +98,10 @@ moving `HEAD` to them.
 >
 > So this is a bit of a lie, but I hope you forgive me.
 
-Some terminology: the Git subdirectory you're looking at right and all
-the files within it is referred to as your _working tree_. The working
-tree is the files as they appear at the commit pointed to by `HEAD`,
-plus any uncommitted changes you might have made.
+Some terminology: the Git subdirectory you're looking at right now and
+all the files within it is referred to as your _working tree_. The
+working tree is the files as they appear at the commit pointed to by
+`HEAD`, plus any uncommitted changes you might have made.
 
 So if you switch `HEAD` to another commit, the files in your working
 tree will be updated to reflect that.
@@ -155,6 +162,10 @@ commit and see what the files looked like then. How would I do that?
 
 I can use the [i[Switch]] `git switch` command to make that happen.
 
+> **Before you switch branches, you should be all committed with `git
+> status` telling you everything is clean.** If you're not, make a
+> commit or [stash](#stash) your stuff before your switch.
+
 Let's check out the first commit, the one with ID
 `5a02fede3007edf55d18e2f9ee3e57979535e8f2`.
 
@@ -192,12 +203,13 @@ Date:   Thu Feb 1 09:24:52 2024 -0800
 That's all! Just one commit?! Where's the second commit I made? Is it
 gone forever?!
 
-No. Everything is fine.
+No. Everything is fine. _[Soothing image of a kitten sleeping in the
+sun.]_
 
 When you have `HEAD` at a certain commit, you're looking at the world as
 it looked at that snapshot in time. Future commits haven't "happened"
 yet from this perspective. They are still out there, but you'll have to
-change back to them by name.
+change back to them by name. (It's like a flippin' _time machine_!)
 
 Also, do you see anything different about that first line that reads
 `(HEAD)`? That's right: no `main` to be seen.
@@ -218,7 +230,7 @@ branch you want to attach to.)
 > when `HEAD` is pointing to a commit instead of a branch. To reattach
 > it, you have to change it to point to a branch again.
 
-Let's reattach to the `main` branch. There are two options:
+Let's reattach `HEAD` to the `main` branch. There are two options:
 
 1. `git switch -`: this switches to wherever we were before this, which,
    in this case, was `main`.
@@ -267,8 +279,9 @@ Date:   Thu Feb 1 09:24:52 2024 -0800
 and our working tree will be updated to show the files as they are in
 the `main` commit.
 
-And you see the `HEAD -> main`? This means `HEAD` is reattached to
-`main`.
+And you see the `HEAD -> main`? The arrow means `HEAD` is reattached to
+`main`. (If `HEAD` were detached at the same commit as `main`, you'd see
+`HEAD, main`.)
 
 [i[`HEAD`]>]
 
@@ -280,7 +293,7 @@ In ye olden days before `git switch` existed, there was a command to do
 all that stuff called `git checkout`. `git checkout` did a lot of
 things, and it still does. Because it does so much, the maintainers of
 Git have been trying to break some of that functionality into `git
-switch`.
+switch` and other commands.
 
 > **There are still times when you need to use `checkout`**, but if your
 > version of Git supports `switch`, this isn't one of them. Use `switch`
@@ -318,7 +331,8 @@ HEAD is now at 5a02fed Added
 
 Well, that's a lot of scary stuff, but it's just Git telling us that
 we're now in detached head state. Which of course we are since we just
-detached the head from a branch by switching to a specific commit UUID.
+detached the head from branch `main` by switching to a specific commit
+UUID.
 
 And we can get back to the `main` branch with:
 

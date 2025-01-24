@@ -1,4 +1,4 @@
-# Stashing: Temporarily Set Changes Aside
+# Stashing: Temporarily Set Changes Aside {#stash}
 
 [i[Stash]<]
 
