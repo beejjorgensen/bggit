@@ -6,7 +6,8 @@ We've seen how a fast-forward merge can bring to branches into sync with
 no possibility of conflict.
 
 But what if we can't fast-forward because two branches are not direct
-ancestors? In other words, what if the branches have _diverged_?
+ancestors? In other words, what if the branches have _diverged_? What if
+a change in one branch _conflicts_ with a change in the other?
 
 ## An Example of Divergent Branches
 
@@ -275,9 +276,7 @@ And then I (since I'm the one doing the merge), edit `foo.py` and remove
 all the merge delimiters and everything else, and make it look exactly
 like we agreed upon. I make it look *Right*.
 
-Then I add the file to the stage and make a merge commit. (Here we're
-manually making the merge commit, unlike above where Git was able to
-automatically make it.)
+Then I add the file to the stage:
 
 ``` {.default}
 $ git add foo.py
@@ -297,8 +296,8 @@ the merge.
 > **What if I added the conflict file too soon?** For example, what if
 > you add it but then you realize there are still unresolved conflicts
 > or the file isn't _Right_? If you haven't committed yet, you have a
-> couple options. (If you have committed, all you can do is reset or
-> revert.)
+> couple options. (If you have committed, all you can do is
+> [reset](#reset) or [revert](#revert).)
 >
 > One option is to just edit the file again, and re-add it when it's
 > done. (After editing the file will show up as a "change not staged for
@@ -309,7 +308,9 @@ the merge.
 > Helpfully, this won't delete the changes you already added. This is
 > especially useful if you're using a [merge tool](#mergetool).
 
-So now that we've added the file, let's make the merge commit:
+So now that we've added the file, let's make the merge commit. Here
+we're manually making the merge commit, unlike above where Git was able
+to automatically make it.
 
 ``` {.default}
 $ git commit -m "Merged with newbranch"
@@ -341,19 +342,19 @@ $ git log
   Author: User Name <user@example.com>
   Date:   Sun Feb 4 13:16:32 2024 -0800
 
-      Commmit 4
+      Commit 4
 
   commit 81d6f58b5982d39a1d92af06b812777dbb452879 (newbranch)
   Author: User Name <user@example.com>
   Date:   Sun Feb 4 13:16:32 2024 -0800
 
-      Commmit 3
+      Commit 3
 
   commit 3ab961073374ec26734c933503a8aa988c94185b
   Author: User Name <user@example.com>
   Date:   Sun Feb 4 13:16:32 2024 -0800
 
-      Commmit 1
+      Commit 1
 ```
 
 We see a few things. One is that our merge commit is pointed to by
@@ -361,7 +362,8 @@ We see a few things. One is that our merge commit is pointed to by
 now-direct ancestor, `newbranch` back on Commit 3.
 
 We also see a `Merge:` line on that top commit. It lists the UUIDs for
-the two commits that it came from (the first 7 digits, anyway).
+the two commits that it came from (the first 7 digits, anyway), since
+the merge commit has two parents.
 
 ## Why Merge Conflicts Happen
 
@@ -383,9 +385,9 @@ Also, even when selecting "both", it could be that the editor puts them
 in the wrong order. It's up to you to make sure the file is _Right_
 before making the final commit to complete the merge.
 
-You can do this by, after the tool has been used to merge, opening the
-file again in a new window and making sure it's as you want it, and
-editing it to be if it's not.
+You can do this by, after the tool has been used to resolve the
+conflict, opening the file again in a new window and making sure it's as
+you want it, and editing it to be if it's not.
 
 For more information about merge tools, see the [Mergetool](#mergetool)
 chapter.

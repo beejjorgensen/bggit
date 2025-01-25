@@ -1,4 +1,4 @@
-# Reverting: Undoing Commits
+# Reverting: Undoing Commits {#revert}
 
 [i[Revert]<]
 
