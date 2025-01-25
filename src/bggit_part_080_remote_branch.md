@@ -2,9 +2,8 @@
 
 [i[Branch-->Remote tracking]<]
 
-We've seen how to create local branches that you do work on and then
-merge back into the `main` branch, then `git push` it up to a remote
-server.
+We've seen how to create local branches that you do work on, then merge
+back into the `main` branch, then `git push` it up to a remote server.
 
 This part of the guide is going to try to clarify what's actually going
 on behind the scenes, as well as give us a way to push our local
@@ -59,7 +58,8 @@ branch_, and we'll call the one on `origin` the _upstream branch_.
 
 I want to go over that one more time to drive it home.
 
-Let's say you have these two branches on your computer:
+Let's say you have these two branches on your computer because you've
+just cloned the remote repo at the `origin`:
 
 ``` {.default}
 main            # main branch on your local repo
@@ -67,12 +67,14 @@ origin/main     # main branch on the remote named origin
 ```
 
 When you have those two branches on your computer, *there are actually
-three branches in the world**. 
+three branches in the world*. 
 
 1. `main` on your computer.
 2. `origin/main` on your computer.
 3. `main` on the `origin` computer, usually a different computer than
    yours, e.g. one at GitHub or something.
+
+Notice that the first two of these are on the repo on your computer!
 
 The branch `origin/main` is just where your computer *thinks* that
 `main` on the `origin` is. Your computer got this information the last
@@ -127,10 +129,10 @@ points to `origin/main` which simply lets us know that `main` is the
 initial branch for the repo that Git will use when you clone it. You
 typically don't need to think about this line.
 
-The remaining two lines tell us what the remote tracking branches
-`origin/main` and `origin/sphinx` are pointing at. Looking closely, we
-see they're pointing to the same commits as our local `main` and
-`sphinx` indicating that everything is in sync. (As far as we
+The remaining two lines tell us what commits the remote tracking
+branches `origin/main` and `origin/sphinx` are pointing at. Looking
+closely, we see they're pointing to the same commits as our local `main`
+and `sphinx` indicating that everything is in sync. (As far as we
 know—someone else might have pushed something to the repo since our last
 pull and we don't know about that yet.)
 
@@ -160,9 +162,12 @@ $ git push --set-upstream origin main
 $ git push -u origin main              # same thing, shorthand
 ```
 
-This will do a couple things: 1) it'll push changes on your local `main`
-to the remote server, and 2) it'll remember that the remote branch
-`origin/main` is tracking your local `main` branch.
+This will do a couple things:
+
+1. It'll push changes on your local `main` to the remote server (that's
+   the `push origin main` part).
+2. It'll remember that the remote branch `origin/main` is tracking your
+   local `main` branch (that's the `-u` part).
 
 And then, from then on, from the `main` branch, you can just:
 
