@@ -1,4 +1,4 @@
-# Submodules
+# Submodules {#submodules}
 
 [i[Submodules]<]
 

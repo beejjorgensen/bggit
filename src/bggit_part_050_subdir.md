@@ -39,14 +39,14 @@ What happens if you initialize a new Git repo _inside_ an existing repo?
 It's not great. Don't do this.
 
 For mixing and matching different repos in the same hierarchy, Git has
-the concept of
-[fl[submodules|https://git-scm.com/book/en/v2/Git-Tools-Submodules]],
-but that's out of scope for this guide, and rarely used in school.
+the concept of submodules, and you can find more information in the
+[Submodules chapter](#submodules). If you're in school, submodules are
+typically not used.
 
 ## Accidentally Making a Repo in your Home Directory
 
-Git won't stop you from making a repo there, i.e. a repo that contains
-everything in all your directories.
+Git won't stop you from making a repo in your home directory, i.e. a
+repo that contains everything in all your directories.
 
 But that's probably not what you wanted to do.
 
@@ -60,8 +60,10 @@ you _think_ is a standalone repo, you might have been misled since Git
 searches parent folder for the `.git` directory and it could be finding
 the spurious one you accidentally made in your home directory.
 
-We recommend against one big repo from your home directory. You should
-have separate subdirectories for each of your repos.
+We[^5d3e] recommend against one big repo from your home directory. You
+should have separate subdirectories for each of your repos.
+
+[^5d3e]: All Git enthusiasts collectively, that is.
 
 [i[`.git` directory-->Removing]]
 If you accidentally create a repo where you didn't want to, changing a
@@ -82,6 +84,9 @@ this!
 > This way when Git tries to make its metadata folder there, it'll be
 > stopped because you don't have write permission to that `.git`
 > directory.
+>
+> (You can always delete this directory with `rmdir` even if you don't
+> have write permission to it.)
 
 ## Empty Subdirectories in Repos
 
