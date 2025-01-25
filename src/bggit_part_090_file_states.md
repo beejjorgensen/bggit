@@ -7,7 +7,7 @@ We've talked about this quite a bit in passing already.
 If you create a new file, you have to `git add` it to the stage before
 you commit.
 
-If you modify a file, you have to `git add` it to the stage before you
+If you modify a file, you should `git add` it to the stage before you
 commit.
 
 If you add a file `foo.txt` to the stage, you can remove it from the
@@ -26,8 +26,9 @@ There are four of them: **Untracked**, **Unmodified**, **Modified**, and
 **Staged**.
 
 * [i[File States-->Untracked]] **Untracked**: Git does not know anything
-  about this file (e.g. you just created it in the repo). Git will
-  ignore it, but you'll see it in the status.
+  about this file (e.g. you just created it in the working tree and
+  haven't added it). Git will ignore it, but you'll see it in the
+  status.
 
   You can make Git aware of this file by moving it to Staged State with
   `git add`.
@@ -94,7 +95,7 @@ Here's a partial list of ways to change state:
 * **Untracked** → `git add foo.txt` → **Staged** (as "new file")
 * **Modified** → `git add foo.txt` → **Staged**
 * **Modified** → `git restore foo.txt` → **Unmodified**
-* **Unmodified** → `edit foo.txt` → **Modified**  (with your favorite editor)
+* **Unmodified** → edit `foo.txt` → **Modified**  (with your favorite editor)
 * **Staged** → `git commit` → **Unmodified**
 * **Staged** → `git restore --staged` → **Modified**
 
@@ -156,7 +157,9 @@ the same data.
 Just remember that when you stage a file, it effectively stages a
 **copy** of that file as it exists right then. There is nothing stopping
 you from making another modification to the file in the working tree and
-ending up like this:
+ending up like this, where one version of the file is on the stage ready
+to commit, and another one is in the working tree with additional
+changes not-yet-staged:
 
 ``` {.default}
 $ git status
