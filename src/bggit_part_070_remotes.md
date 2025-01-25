@@ -8,13 +8,13 @@ pull from.
 We identify these by a URL. With GitHub, this is a URL we copied when we
 went to clone the repo initially.
 
-It's possible to use this URL to identify the server in our Git usage,
-but it's unwieldy to type. So we give the remote server URLs nicknames
-that we just tend to call "remotes".
+It's possible to use this URL to identify the server in our everyday Git
+usage, but it's unwieldy to type. So we give the remote server URLs
+nicknames that we just tend to call "remotes".
 
-A remote we've already seen a bunch of is [i[Remote-->`origin`]] `origin`. This is the nickname
-for the remote repo you cloned from, and it gets set automatically by
-Git when you clone.
+A remote we've already seen a bunch of is [i[Remote-->`origin`]]
+`origin`. This is the nickname for the remote repo you cloned from, and
+it gets set automatically by Git when you clone.
 
 ## Remote and Branch Notation
 
@@ -55,7 +55,7 @@ $ git remote -v
 ```
 
 We see that we're using the same URL for the remote named `origin` for
-both push (part of which is `fetch`) and pull. Having the same URL for
+both pull (part of which is `fetch`) and push. Having the same URL for
 both is super common.
 
 And that URL is the exact same one we copied from GitHub when cloning
@@ -63,9 +63,9 @@ the repo in the first place.
 
 [i[Remote-->Listing]>]
 
-## Renaming a Remote
+## Changing a Remote's URL
 
-[i[Remote-->Renaming]<]
+[i[Remote-->Setting the URL]<]
 
 Remember that a remote name is just an alias for some URL that you
 cloned the repo from.
@@ -111,7 +111,7 @@ origin    git@github.com:beejjorgensen/git-example-repo.git (push)
 
 And now we can push! (Assuming we have our SSH keys set up.)
 
-[i[Remote-->Renaming]>]
+[i[Remote-->Setting the URL]>]
 
 ## Adding a Remote
 
@@ -160,9 +160,9 @@ reallinux    https://github.com/torvalds/linux.git (push)
 > repo on GitHub, people tend to call that remote `upstream`, whereas
 > I've clearly called it `reallinux`.
 >
-> I did this because when we subsequently talk about remote tracking
-> branches, we're going to use "upstream" to mean something else, and I
-> don't want the two to be confusing.
+> I did this because when we subsequently talk about [remote tracking
+> branches](#remote-tracking-branch), we're going to use "upstream" to
+> mean something else, and I don't want the two to be confusing.
 >
 > Just remember IRL when you set up a remote to point to the forked-from
 > repo, it's relatively customary to call that remote `upstream`.
@@ -179,7 +179,7 @@ And I can merge it into my branch (the Linux repo uses `master` for the
 `main` branch):
 
 ``` {.default}
-$ git switch master           # My local master
+$ git switch master            # My local master
 $ git merge reallinux/master   # Note the slash notation!
 ```
 
@@ -205,7 +205,7 @@ lagging behind a few commits:
 ```
 
 > You might or might not have `origin/HEAD` depending on how you made
-> your repo.
+> your repo. No worries either way.
 
 At this point I'd do a `git push` to get them all on the same commit, so
 the top commit would show:
@@ -219,7 +219,8 @@ And now we're all happily pointing to the same commit.
 It's interesting that my local `master` can be out of sync from the
 `master` on `origin`, right?
 
-We'll look at this in the Remote Tracking Branches chapter.
+We'll look at this in the [Remote Tracking Branches
+chapter](#remote-tracking-branch).
 
 [i[Remote-->Adding]>]
 
