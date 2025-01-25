@@ -13,7 +13,7 @@ That's what this part of the guide is all about.
 
 ## Adding a `.gitignore` File
 
-In any directory of a project, you can add a `.gitignore` ("dot
+In any directory of a Git repository, you can add a `.gitignore` ("dot
 gitignore") file.
 
 This is a simple textfile that contains a list of file names to ignore.
@@ -84,7 +84,8 @@ $ git status
   nothing to commit, working tree clean
 ```
 
-and we're all clear.
+and we're all clear. That `doom` file is still there in the working
+tree, but Git pays it no heed since it's in the `.gitignore`.
 
 ## Can I Specify Subdirectories in `.gitignore`?
 
@@ -100,42 +101,53 @@ Here's a `.gitignore` looking for a very specific file:
 subdir/subdir2/foo.txt
 ```
 
-That will match anywhere in the project. If you want to only match a
-specific file from the project root, you can prepend a slash:
+That will match anywhere in the repo. If you want to only match a
+specific file from the repo root, you can prepend a slash:
 
 ``` {.default}
 /subdir/subdir2/foo.txt
 ```
 
-Note that means `subdir` in the root of the _project_, not the root
+Note that means `subdir` in the root of the _repo_, not the root
 directory of your entire filesystem.
+
+If you put this in your `.gitignore`:
+
+``` {.default}
+foo.txt
+```
+
+it will ignore `foo.txt` in all subdirectories of the repo.
+
 
 ## Where do I Put the `.gitignore`?
 
 [i[`.gitignore` file-->Location]]
 
-You can add `.gitignore` files to any subdirectories of your project.
+You can add `.gitignore` files to any subdirectories of your repo.
 But how they behave depends on where they are.
 
-The rule is this: *each `.gitignore` file applies to all the
-subdirectories below it*.
+The rule is this: *each `.gitignore` file applies to its containing
+directory **and** all the subdirectories below it*.
 
-So if you put a `.gitignore` in your project's root directory that has
+So if you put a `.gitignore` in your repo's root directory that has
 `foo.txt` in it, every single `foo.txt` in every subdirectory of your
-project will be ignored.
+repo will be ignored.
 
 Use the highest-level `.gitignore` file to block things you know you
-don't want **anywhere** in your project.
+don't want **anywhere** in your repo.
 
 If you add additional `.gitignore` files to subdirectories, those only
 apply to that subdirectory and below.
 
 The idea is that you start with the most broadly applicable set of
-ignored files in your project root, and then get more specific in the
+ignored files in your repo root, and then get more specific in the
 subdirectories.
 
-For simple projects, you're fine just having one `.gitignore` in the
-project root directory.
+For simple repos, you're fine just having one `.gitignore` in the
+repo root directory.
+
+And we'll also talk about overriding `.gitignore` entries soon.
 
 ## Wildcards
 
@@ -185,13 +197,13 @@ sequence of characters, followed by `.sw`, followed by either `o` or
 [i[`.gitignore` file-->Negated rules]]
 
 What if your root `.gitignore` is ignoring `*.tmp` files for the entire
-project. No problem.
+repo. No problem.
 
 But then later in development you have some deeply nested subdirectory
 that has a file `needed.tmp` that you really need to get into Git.
 
 Bad news, though, since `*.tmp` is ignored at the root level across all
-subdirectories in the project! Can we fix it?
+subdirectories in the repo! Can we fix it?
 
 Yes! You can add a new `.gitignore` to the subdirectory with
 `needed.tmp` in it, with these contents:
