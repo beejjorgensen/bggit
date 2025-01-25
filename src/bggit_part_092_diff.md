@@ -111,7 +111,12 @@ against the previous commit?
 
 Just typing `git diff` shows nothing!
 
-Why?
+Why? It's because diff, by default, is showing *the difference between
+your working tree and the stage*. You just staged that file, copying it
+from the working tree to the stage, so the two are identical. So a diff
+shows no differences.
+
+How do we diff the stage with the previous commit?
 
 The answer is really easy: `git diff --staged`[^91c6]. Done.
 
@@ -121,36 +126,40 @@ The answer is really easy: `git diff --staged`[^91c6]. Done.
 But I want to use this subsection to dig a little deeper into what's
 happening so you can improve your understanding of how this works.
 
-A good mental model here is to imagine that the stage **must** have one
-of two things on it at all time, either of these:
+Mental model time!
 
-1. A copy of a file from the last commit. If this is the case, `git status`
-   will not show the file on the stage.
-2. A copy of a file from the working tree, something modified from the
-   last commit. In this case `git status` **will** show something on the
-   stage.
+Let's say that these two things are true. Now, whether or not they're
+true doesn't really matter.
 
-So in this mental model, *something* is always on the stage. It's just
-that you don't see it unless it's something different than the last
-commit that you put there with `git add`.
+> _"It's only a model."_\
+> \ \ \ \ \ \ \ \ \ \ \ \ —Patsy, _Monty Python and the Holy Grail_
 
-OK? I know I'm asking you to just bear with me on faith, so thank you
-for that.
+1. The stage contains a _copy_ of **all** unmodified files at your
+   current commit.
 
-Back to the question: if you have added some modified files to the
-stage, why does `git diff` show nothing is changed?
+2. A `git status` or `git diff` only shows files that differ between
+   your working tree and the stage.
 
-*It's because `git diff` **always** compares the working tree to the
-stage.* (Unless you're diffing specific commits—see below.) And in this
-case, after you've added your modified file to the stage, it's the same
-as the working tree. So no diffs.
+So if you don't have any modifications, `git diff` won't show any
+differences. Because the stage and working tree are the same.
+
+Now if you modify a file in your working tree and then `git diff`, you
+*will* see some changes, because the working tree differs from the
+stage.
+
+But then if you add the modified file to the stage, then the stage and
+working tree become the same again. And `git diff` will show no
+differences.
+
+*`git diff` **always** compares the working tree to the stage.* (Unless
+you're diffing specific commits—see below.) And in this case, after
+you've added your modified file to the stage, it's the same as the
+working tree. So no diffs.
 
 Contrast this to where you've modified the working tree but *haven't*
 added the file to the stage. In this case, the file on the stage is just
 like the last commit, which is different than your working tree. So `git
 diff` shows the differences.
-
-Got it?
 
 Well, okay, then... what if you *want* to diff what's on the stage with
 the last commit?  That is, instead of diffing the working tree with the
@@ -162,7 +171,8 @@ Back to the punchline:
 $ git diff --staged
 ```
 
-And that'll do it.
+And that'll do it. This will run a diff between what's on the stage and
+the last commit, showing you the changes you've staged.
 
 [i[Diff-->The stage]>]
 
