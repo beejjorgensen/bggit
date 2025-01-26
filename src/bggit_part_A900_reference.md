@@ -375,6 +375,10 @@ $ git push -u REMOTE BRANCH    # Create remote tracking branch and
                                # branch
 
 $ git push -u origin branch99  # Example
+
+$ git push --tags              # Push all tags to origin
+$ git push REMOTE --tags       # Push all tags to specific remote
+$ git push REMOTE tag3.14      # Push single tag
 ```
 
 [i[Fetch]i]
@@ -576,11 +580,27 @@ $ git commit -m "remove DIR submodule"
 [i[Tags]i<]
 
 ``` {.default}
-$ git tag        # List tags
-$ git tag -l     # List tags
-$ git tag TAG    # Create a tag on HEAD
+$ git tag     # List tags
+$ git tag -l  # List tags
+```
 
-TODO
+``` {.default}
+$ git tag TAG          # Create a tag on HEAD
+$ git tag TAG CMMT     # Create a tag on a specific commit
+$ git tag -a TAG       # Create an annotated tag
+$ git tag -a TAG CMMT  # On a specific commit
+$ git tag -a TAG -m "message" # Add a message to the tag
+```
+
+``` {.default}
+$ git push --tags          # Push all tags to origin
+$ git push REMOTE --tags   # Push all tags to specific remote
+$ git push REMOTE tag3.14  # Push specific tag
+```
+
+``` {.default}
+$ git tag -d tagname          # Delete a tag locally
+$ git push REMOTE -d tagname  # Delete a tag on a remote
 ```
 
 [i[Tags]i>]
