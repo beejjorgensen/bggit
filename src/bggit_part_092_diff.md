@@ -1,4 +1,4 @@
-# Comparing Files with Diff
+# Comparing Files with Diff {#diff}
 
 [i[Diff]<]
 

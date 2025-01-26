@@ -44,7 +44,8 @@ The process for someone making a pull request is:
 
 1. On GitHub, fork the repo. Now you have your own clone of it.
 2. Clone your repo to your local machine. Now you have two clones of it:
-   your fork on GitHub and its clone on your local machine.
+   your fork on GitHub and its clone on your local machine. (And you own
+   them both.)
 3. Make the fix on your local machine and test it.
 4. Push your fix to your GitHub fork.
 5. On GitHub, create a pull request. This informs the upstream owner
@@ -89,7 +90,7 @@ please.
 We can clone it as normal, pull, push, delete the repo, etc. The owner
 of the original repo will not know about it—our changes affect our repo
 alone. Later we'll see how to issue a pull request to try to get our
-changes in the original upstream repo.
+changes merged into the original upstream repo.
 
 [i[Fork-->Creating]>]
 
@@ -125,6 +126,7 @@ Let's modify `hello.py` to this:
 #!/usr/bin/env python
 
 print("Hello, world!")
+print("This is my program!")
 print("This is my modification")
 ```
 
@@ -268,10 +270,9 @@ and then, **very importantly** review the code!
 
 To review the code, look right below the description to the
 contributor's avatar and the commit message. Click on the commit message
-and you'll see a diff[^6ec7]. Lines marked with a `+` are added, and
-lines marked with `-` are removed.
-
-[^6ec7]: A diff shows the difference between two files.
+and you'll see a diff, as described in the [_Comparing Files with Diff_
+chapter](#diff). Lines marked with a `+` are added, and lines marked
+with `-` are removed.
 
 If you just want a straight up view of the file as it was edited by the
 contributor, you can hit the "..." on the right and then "View file".
@@ -360,11 +361,13 @@ $ git push -u origin feature1
   branch 'feature1' set up to track 'origin/feature1'.
 ```
 
-Now you can jump back to GitHub and issue a PR.
+Now you can jump back to GitHub and issue a PR. (And look at the
+response from the remote helpfully telling you the GitHub URL to visit
+to issue the PR!)
 
-There might be a handy little popup there saying "feature1 had recent
-pushes 4 minutes ago" and a button "Compare and pull request" you can
-click to make the PR.
+In the GitHub UI, there might be a handy little popup there saying
+"feature1 had recent pushes 4 minutes ago" and a button "Compare and
+pull request" you can click to make the PR.
 
 But if it's been too long and the popup is gone, not to worry. See the
 branch selector button on the upper left that probably says "main" right
@@ -452,7 +455,7 @@ methods to access it. (And this remote can be named anything, but
 `upstream` is a common convention.)
 
 ``` {.default}
-$ git remote add upstream https://github.com/other/upstream.git
+$ git remote add upstream https://github.com/other/orig-repo.git
 ```
 
 And then we need to get the new commits from the upstream repo and merge
