@@ -15,6 +15,10 @@ history get out of sync with the history of other devs who have cloned
 the repo with the old history, and it makes syncing up quite
 challenging.
 
+There are other commands in Git that also rewrite history. And the
+general rule is *never rewrite history on anything that's already been
+pushed*. Unless you really know what you're doing.
+
 ## Contrasted to Merging
 
 [i[Rebase-->Compared to merging]<]
@@ -28,14 +32,14 @@ working on the `topic` branch.
 ![Two divergent branches.](img_110_010.pdf "Two divergent branches.")
 
 Then you hear that someone has made a change to `main` and you want to
-roll those changes into your `topic` branch, but not necessarily get your
-changes in `main` yet.
+roll those changes into your `topic` branch, but not necessarily get
+your changes in `main` yet.
 
-At this point, if we wanted to get the changes in `main` into
-`topic`, our merge option was to make another commit, the *merge commit*.
-The merge commit contains the changes from two parent commits (in this
-case the commit labeled *2* and the one labeled *4* are the parents) and
-makes them into a new commit, marked *5* in Figure_#.2.
+At this point, if we wanted to get the changes in `main` into `topic`,
+our merge option was to make another commit, the *merge commit*. The
+merge commit contains the changes from two parent commits (in this case
+the commit labeled `(2)` and the one labeled `(4)` are the parents) and
+makes them into a new commit, marked `(5)` in Figure_#.2.
 
 ![Two divergent branches, merged.](img_110_020.pdf "Two divergent branches, merged.")
 
@@ -53,54 +57,55 @@ made a new commit for everyone to see.
 Not only that, but now the commit graph forms a loop, so the history is
 a little more convoluted than perhaps we'd like it.
 
-What really would have been nice is if I could just have taken commits *3*
-and *4* from `topic` and just somehow applied those changes to *2* on
-`main`. That is, could we pretend that instead of branching off *1* like
-`topic` did, that we instead branched off *2*?
+What really would have been nice is if I could just have taken commits
+`(3)` and `(4)` from `topic` and just somehow applied those changes to
+`(2)` on `main`. That is, could we pretend that instead of branching off
+`(1)` like `topic` did, that we instead branched off `(2)`?
 
-After all, if we branched off *2*, then we'd have those changes from
+After all, if we branched off `(2)`, then we'd have those changes from
 `main` that we wanted.
 
 What we need is a way to somehow rewind our commits back to the branch
-point at *1*, and then reapply them on commit *2*. That is, the base of
-our `topic` branch, which was commit *1*, needs to be changed to another
-base at commit *2*. We want to ***rebase*** it to commit *2*!
+point at `(1)`, and then reapply them on commit `(2)`. That is, the base
+of our `topic` branch, which was commit `(1)`, needs to be changed to
+another base at commit `(2)`. We want to ***rebase*** it to commit
+`(2)`!
 
 [i[Rebase-->Compared to merging]>]
 [i[Merge-->Compared to rebasing]>]
 
 ## How it Works
 
-So let's do exactly that. Let's take the changes we made in commit *3*
-and apply them to `main` at commit *2*. This will make a brand new
-commit that includes changes from both commit *2* and commit *3*.
+So let's do exactly that. Let's take the changes we made in commit `(3)`
+and apply them to `main` at commit `(2)`. This will make a brand new
+commit that includes changes from both commit `(2)` and commit `(3)`.
 (Importantly, this commit didn't exist before; there was no commit that
-contained changes from *2* and *3*.) We'll call this new commit *3'*
-("three prime"), since it has the changes that we made in *3*.
+contained changes from `(2)`and `(3)`.) We'll call this new commit
+`(3')` ("three prime"), since it has the changes that we made in `(3)`.
 
-After that, we'll do the same thing with commit *4*. We'll apply the
-changes from old commit *4* to *3'*, making a new commit *4'*.
+After that, we'll do the same thing with commit `(4)`. We'll apply the
+changes from old commit `(4)` to `(3')`, making a new commit `(4')`.
 
 And if we do that, we end up with Figure_#.3.
 
 ![`topic` branch rebased on `main`.](img_110_030.pdf "topic branch rebased on main")
 
-And there you see *3'* and *4'* now rebased onto `main`!
+And there you see `(3')` and `(4')` now rebased onto `main`!
 
 Again, these two commits have the same changes that you originally had
-in commits *3* and *4*, but now they've been applied to `main` at commit
-*2*. So the code is necessarily different since it now contains the
-changes from `main`. This means your old commits *3* and *4* are
+in commits `(3)` and `(4)`, but now they've been applied to `main` at
+commit `(2)`. So the code is necessarily different since it now contains
+the changes from `main`. This means your old commits `(3)` and `(4)` are
 effectively gone, and the rebase has replaced them with two new commits
 that contain the same changes, just on a different base point.
 
 > **We just changed history.** When we mentioned rewriting history at
 > the top of this chapter, this is what we were talking about. Imagine
-> some other dev had your old commits *3* and *4* and was working off
-> those making their own new commits. And then you rebased effectively
-> destroying commits *3* and *4*. Now your commit history is different
-> than the other dev's and all kinds of *Fun*™ will be had trying to
-> sort if out.
+> some other dev had your old commits `(3)` and `(4)` and was working
+> off those making their own new commits. And then you rebased
+> effectively destroying commits `(3)` and `(4)`. Now your commit
+> history is different than the other dev's and all kinds of *Fun*™ will
+> be had trying to sort if out.
 >
 > If you only rebase commits that you haven't pushed, you'll never get
 > into trouble. But if some other dev has a copy of your commits
@@ -230,9 +235,9 @@ So we'll have the scenario in Figure_#.4.
 Finally, we'll try to rebase `topic` onto `main`.
 
 At that point, Git will become confused. It knows the last commit on
-`main` has `2` and that `topic` is unaware of this (because it
-branched off before that change). And it knows the last commit on
-`topic` has `3`. So which one is right?
+`main` has `2` and that `topic` is unaware of this (because it branched
+off before that change). And it knows the last commit on `topic` has
+`3`. So which one is right?
 
 Let's try to rebase while we're on the `topic` branch and see what
 happens.
@@ -353,9 +358,9 @@ $ git rebase --continue
 
 This pops me into my editor to edit the commit message. This is your
 opportunity to change the commit message if it no longer reflects the
-commit. (That is, if you changed the commit when resolving the
-conflict to be something entirely different, you might need to edit the
-message.) Edit it if necessary and save it.
+commit. (That is, if you changed the commit when resolving the conflict
+to be something entirely different, you might need to edit the message.)
+Edit it if necessary and save it.
 
 And Git says:
 
@@ -599,6 +604,7 @@ Git automatically discards the squashed commit messages.
 ## Multiple Conflicts in the Rebase
 
 [i[Rebase-->Conflicts]<]
+
 When you merge with commit and there are multiple conflicts, you resolve
 them all in one big merge commit and then you're done. You use `git
 commit` to wrap it all up.
