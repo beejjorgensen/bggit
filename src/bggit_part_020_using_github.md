@@ -382,7 +382,7 @@ $ git clone git@github.com:user/test-repo.git
 
 ## Make Changes and Push!
 
-[i[Pushing]]
+[i[Push]]
 
 Now that you've cloned the repo, you should be able to `cd` into that
 directory, edit a file, `git add` it to the stage, then `git commit -m

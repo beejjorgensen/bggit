@@ -20,6 +20,7 @@ In this reference section we use the following substitutions:
 * `VARIABLE`: a Git config variable name, usually words separated by
   periods.
 * `VALUE`: an arbitrary value for Git configs.
+* `TAG`: a tag name
 
 Also, don't type the `$`—it's the shell prompt. And everything after a
 `#` is a comment. A backslash `\` at the end of a line indicates that it
@@ -569,3 +570,17 @@ $ git rm --cached DIR
 $ git commit -m "remove DIR submodule"
 ```
 [i[Submodules]i>]
+
+## Tags
+
+[i[Tags]i<]
+
+``` {.default}
+$ git tag        # List tags
+$ git tag -l     # List tags
+$ git tag TAG    # Create a tag on HEAD
+
+TODO
+```
+
+[i[Tags]i>]

@@ -14,6 +14,7 @@ Example repo with submodule:
 
 # TODO
 
+* Finish tags reference
 * Editing pass
   * Current bookmark: bggit_part_110_rebase.md
 * Tags
