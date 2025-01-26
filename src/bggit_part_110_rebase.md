@@ -80,7 +80,7 @@ So let's do exactly that. Let's take the changes we made in commit `(3)`
 and apply them to `main` at commit `(2)`. This will make a brand new
 commit that includes changes from both commit `(2)` and commit `(3)`.
 (Importantly, this commit didn't exist before; there was no commit that
-contained changes from `(2)`and `(3)`.) We'll call this new commit
+contained changes from `(2)` and `(3)`.) We'll call this new commit
 `(3')` ("three prime"), since it has the changes that we made in `(3)`.
 
 After that, we'll do the same thing with commit `(4)`. We'll apply the
@@ -90,7 +90,8 @@ And if we do that, we end up with Figure_#.3.
 
 ![`topic` branch rebased on `main`.](img_110_030.pdf "topic branch rebased on main")
 
-And there you see `(3')` and `(4')` now rebased onto `main`!
+And there you see `(3')` and `(4')` now rebased onto `main`! And now the
+`topic` branch includes commit `(2)` from the `main` branch!
 
 Again, these two commits have the same changes that you originally had
 in commits `(3)` and `(4)`, but now they've been applied to `main` at
@@ -350,7 +351,12 @@ $ git status
 	  modified:   magic.txt
 ```
 
-That status looks nicer. Now `--continue`.
+That status looks nicer. (But note that Git's in a special "rebase"
+state similar to how it gets into a special "merge" state when merging.
+We have to either abort or continue before we can use Git normally
+again.)
+
+Now `--continue`.
 
 ``` {.default}
 $ git rebase --continue
@@ -485,9 +491,10 @@ pick c1820e6 Fixed another typo
 Notice that they're listed in forward order instead of the reverse log
 order we're used to.
 
-Look at all those options! Pick, reword, edit, squash, fixup... so many
-things to choose from. As you might imagine we're in a pretty powerful
-history rewriting mode.
+Look at all those options shown in the comment block (and not shown here
+in the guide)! Pick, reword, edit, squash, fixup... so many things to
+choose from. As you might imagine we're in a pretty powerful history
+rewriting mode.
 
 For now, though, let's just look at "squash" and "fixup", which are
 almost the same thing.
@@ -574,7 +581,9 @@ And you can see, if you look at the earlier log, that the "Added
 feature" commit ID has changed. We did a rebase, after all, so those old
 commits are gone, replaced by the new ones.
 
-Finally, after all this, *now* you can push.
+Finally, after all this, *now* you can push. And always remember that
+since this is a history rewrite, you shouldn't do it after you've
+pushed.
 
 [i[Rebase-->Squashing commits]>]
 
