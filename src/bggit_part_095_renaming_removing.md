@@ -1,7 +1,7 @@
 # Renaming and Removing Files
 
-This is an extension of dealing with file states, so make sure you read
-that chapter first!
+This is an extension of dealing with [file states](#file-states), so
+make sure you read that chapter first!
 
 Also, I'm going to interchangeably use the terms _rename_ and _move_ to
 mean the same thing. Moving as a concept is a little more powerful
@@ -44,7 +44,8 @@ But what if we want to undo the rename?
 Git suggests `git restore --staged` to the rescue... But which file name
 to use, the old one or new one? And then what? It turns out that while
 you *can* use `git restore` to undo this by following it with multiple
-other commands, you should, in this case, ignore Git's advice.
+other commands, you should, in this case, ignore Git's advice, and
+instead read the following section.
 
 ## Unrenaming Files from the Stage
 
@@ -116,7 +117,9 @@ $ git status
 	  deleted:    foo.txt
 ```
 
-So the now-deleted file is in Staged State, as it were.
+So the now-deleted file is in Staged State, as it were. Which makes
+sense since there's now a "difference" between the working tree (where
+the file is gone) and the stage (where the file still exists).
 
 If we do a commit here, the file is deleted. Done.
 
@@ -259,7 +262,7 @@ to resurrect that thing.
 Now, let's say you've committed some code that looks like this:
 
 ``` {.default}
-MASTER_PASSWORD_FOR_THE_ENTIRE_COMPANY=7e56e476c58c
+MASTER_PASSWORD_FOR_THE_ENTIRE_COMPANY=pencil
 ```
 
 And then you make the horrible mistake of pushing it.
@@ -277,17 +280,25 @@ look back in the history to get the deleted file. The only recourse is
 to change that password immediately. Throughout the entire company. That
 is what **must** happen. Your manager is not amused.
 
-> **Protip: Never, EVER commit secrets to Git.** Use a dot-env file or
+> **Never, EVER commit secrets to Git.** Use a dot-env[^e749] file or
 > literally anything other than committing the secret.
 
-Let's make it less severe. Let's say you've pushed to GitHub, but it's a
-private repo. It's still kinda bad. You have to trust everyone who has
-access, and trust that no clones of the repo will ever end up in the
-hands of anyone outside the company or those of any disgruntled
-employees. The only recourse is to change that password.
+[^e749]: A dot-env (`.env`) file is one that contains secret information
+    (like login credentials) that is never committed to the repo. It's
+    usually in the `.gitignore` just to be sure. Someone related to the
+    project will use a side channel to tell you what to put in it so you
+    can authenticate properly. Support for `.env` files exists for a
+    variety of languages and frameworks. I'm using my serious voice
+    because this is a serious matter!
 
-Okay. Let's make it less severe, still. Let's say you've committed the
-password to your repo, *but you haven't yet pushed*.
+Let's make the infraction less severe. Let's say you've pushed to
+GitHub, but it's a private repo. It's still kinda bad. You have to trust
+everyone who has access, and trust that no clones of the repo will ever
+end up in the hands of anyone outside the company or those of any
+disgruntled employees. The only recourse is to change that password.
+
+Okay. Let's make it even *less* severe, still. Let's say you've
+committed the password to your repo, *but you haven't yet pushed*.
 
 Now we can do something about it because there's no chance anyone other
 than you has seen the code. You didn't push it, so no one can have
@@ -295,7 +306,5 @@ pulled it. But we'll not talk about that here; see the chapter on
 [Amending Commits](#amend) for fixing the file before the push.
 
 [i[Remove-->Secrets]>]
-
-[i[Remove]>]
 
 [i[Remove]>]
