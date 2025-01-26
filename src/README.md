@@ -16,7 +16,7 @@ Example repo with submodule:
 
 * Finish tags reference
 * Editing pass
-  * Current bookmark: bggit_part_110_rebase.md
+  * Current bookmark: bggit_part_140_revert.md
 * Tags
 * Pushing a branch delete: test
 * Book page breaks
