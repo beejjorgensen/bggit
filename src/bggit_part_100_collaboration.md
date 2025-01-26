@@ -47,6 +47,9 @@ and you'll figure it out in the school of hard knocks.
 > *"Oh great. Another f\-\-\-ing learning experience."* \
 > \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ —Actual quote from my mother
 
+Finally, I'll be using GitHub in all these examples, but you could use
+any server or service as the remote instead.
+
 ## Communication and Delegation
 
 [i[Communication]]
@@ -134,8 +137,9 @@ Drawbacks:
 
 * If your branch diverges too far from `main`, merging might become
   painful.
-* Unless you're rebasing, the incremental work on your branch might
-  "pollute" the commit history on `main` with a lot of tiny commits.
+* Unless you're [rebasing and squashing](#squashing-commits), the
+  incremental work on your branch might "pollute" the commit history on
+  `main` with a lot of tiny commits.
 
 Initial setup:
 
@@ -216,7 +220,7 @@ as we graphically see in Figure_#.2.
 ```
 -->
 
-After that, other contributors looking at `main` will see the changes.
+After that, other contributors who pull `main` will see the changes.
 
 [i[Workflow-->One Branch per Dev]>]
 
@@ -254,8 +258,7 @@ that is performed by someone in a managerial role.
 Overall the process works as in Figure_#.3. This is a busy image, but
 notice how Bob and Alice are only merging their work into the `dev`
 branch, and then every so often, their manager merges the `dev` branch
-into `main` and tags that commit with a release number. (More on tagging
-later.)
+into `main` and tags that commit with a release number.
 
 Benefits:
 
@@ -268,8 +271,11 @@ Drawbacks:
 * A little more complexity and management.
 * If your branch diverges too far from `dev`, merging might become
   painful.
+* If the `dev` branch diverges too far from `main`, merging might become
+  painful.
 * Unless you're rebasing, the incremental work on your branch might
-  "pollute" the commit history on `dev` with a lot of tiny commits.
+  "pollute" the commit history on `dev` and `main` with a lot of tiny
+  commits.
 
 Initial setup:
 
