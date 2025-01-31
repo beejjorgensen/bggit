@@ -291,9 +291,9 @@ because) you don't own it.
 > repo and push those commits. But for this example, we'll assume the
 > remote repo exists first, though this isn't a requirement.
 
-Switch in a subdirectory where you want the clone created. This command
-will create a new subdirectory out of there that will hold all the repo
-files.
+Switch into a subdirectory where you want the clone created. This
+command will create a new subdirectory out of there that will hold all
+the repo files.
 
 (In the example, anything that begins with `$` represents the shell
 prompt indicating this is input, not output. Don't type the `$`; just
