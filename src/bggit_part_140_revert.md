@@ -10,7 +10,7 @@ There's the cheesy way to do this that might have already occurred to
 you: detach the head to an earlier commit where the file was like you
 wanted it, make a copy of the file someplace safe, then reattach the
 head to `main`, then copy the old file over the existing one in your
-working tree. And add and commit!
+working tree. And add and commit! And this would work...
 
 But let's be more proper, and we can do that with `git revert`.
 
