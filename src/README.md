@@ -14,10 +14,8 @@ Example repo with submodule:
 
 # TODO
 
-* Finish tags reference
 * Editing pass
   * Current bookmark: bggit_part_140_revert.md
-* Tags
 * Pushing a branch delete: test
 * Book page breaks
 * Book cover
