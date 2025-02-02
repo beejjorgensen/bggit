@@ -101,7 +101,7 @@ escape that tells the shell to continue the command on the next line.
 might add more than you wanted!
 
 ``` {.default}
-$ git config set alias.aa "add --all"
+$ git config set alias.adda "add --all"
 ```
 
 **More compact log showing the commit graph** with `git logc`.
