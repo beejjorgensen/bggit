@@ -36,7 +36,7 @@ easy-to-digest form.
 
 ## Merge Tool Operations
 
-Merge tools operate on a file-by-file basis. So when you're using on,
+Merge tools operate on a file-by-file basis. So when you're using one,
 you're using it on a particular conflicting file.
 
 They all tend to show you at least three panels:

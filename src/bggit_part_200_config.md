@@ -38,7 +38,8 @@ Name"`.
 > incredibly easy to impersonate anyone else in the world just by
 > putting their name and email there. To mitigate this, one option is to
 > [fl[digitally sign your commits|https://git-scm.com/book/en/v2/Git-Tools-Signing-Your-Work]],
-> but that's beyond the scope of this guide.
+> something you can read a little bit more about in the [Changing
+> Identity](#changing-identity) chapter.
 
 If the commands in this chapter are giving you errors, see the section
 on [older Git versions](#config-old), below.
@@ -198,7 +199,7 @@ Variable        | Description
 `difftool.prompt`  | Set to `false` to stop Git from always asking you if you want to launch your difftool.
 `color.ui`         | Set to `true` for more colorful Git output
 `core.autocrlf`    | Set to `true` if you're on Windows **and** not in WSL **and** the remote repo has Unix-style newlines **and** you want to use Windows-style newlines in your working directory. On other systems, set to `input`. This is all about working around Window's ancient newlines.
-`commit.gpgsign`   | Set to `true` if you've configured GPG commit signing and want to always sign.
+`commit.gpgsign`   | Set to `true` if you've configured [GPG commit signing](#gpg-signing) and want to always sign.
 `help.autocorrect` | Set to `0` to show the command Git thinks you meant to type if you misspelled it. Set to `immediate` to have it run the corrected command right now. Set to `prompt` to ask you if you want to run it.
 
 Again, there are a *lot* more of these. Peruse the docs for more.

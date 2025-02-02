@@ -1,4 +1,4 @@
-# Changing Identity
+# Changing Identity {#changing-identity}
 
 [i[Identity]<]
 
@@ -109,13 +109,21 @@ environment variable or in SSH's somewhat-unrelated configuration).
 
 [i[Configuration-->SSH identity]>]
 
-## Changing your GPG Signing Key
+## Changing your GPG Signing Key {#gpg-signing}
 
 [i[Configuration-->GPG signing key]<]
 
-We haven't talked about this yet, but if you use your GPG key for
-signing you can specify which key is used if you get its fingerprint (or
-probably email or any other unique identifier recognized by GPG).
+If you use your [fl[GPG key|https://www.gnupg.org/]] for signing you can
+specify which key is used if you get its fingerprint (or probably email
+or any other unique identifier recognized by GPG).
+
+With apologies, setting up your GPG keypair is outside the scope of this
+book. But the Git-side one-time setup looks like this:
+
+``` {.default}
+$ git config gpg.format gpg
+$ git config commit.gpgsign true
+```
 
 First find the secret key you're interested in:
 
@@ -155,28 +163,54 @@ Then when you sign the commits, that key will be used.
 
 [i[Configuration-->SSH signing key]<]
 
-This is also something we haven't talked about yet. But if it's all set
-up for you, read on.
-
-There are two parts to this:
-
-1. Change the key to use (similar to how it's done in the GPG section,
-   above).
-
-2. Make sure your `allowed_signers` file has your current email and key
-   in it. (You only have to do this if you want to verify signatures
-   locally.)
-
-Part one is easy. Just find the path to your public key in your `~/.ssh`
-directory and set the config variable `user.signingkey` to that.
+In addition to GPG, you can also sign commits with SSH keys. You can
+create a signing key with `ssh-keygen`:
 
 ``` {.default}
-git config set user.signingkey '~/.ssh/id_ed25519_signing_key.pub'
+$ ssh-keygen -t ed25519
 ```
 
-Part two is if you have your `allowed_signers` file set up. You'll have
-to make sure it contains a line that has your current `user.email`
-config variable and a copy of the public key to use.
+And then you have to do some one-time config if you haven't done so
+already. Use `--global` if you want to set this up across all your
+repos. This tells Git to use SSH keys and always sign commits:
+
+``` {.default}
+$ git config gpg.format ssh
+$ git config commit.gpgsign true
+``` 
+
+Then we can set the key we use for signing. Change the path, below, to
+point to the public key:
+
+``` {.default}
+$ git config user.signingkey ~/.ssh/id_ed25519_signing.pub
+``` 
+
+Lastly, we have to add your information to the `allowed_signers` file.
+This file can go anywhere; in this example, we'll put it in `~/.ssh/`,
+but you could do one-offs per repo if you wanted.
+
+Firstly in this lastly step is to tell Git where your `allowed_signers`
+file is.
+
+``` {.default}
+$ git config gpg.ssh.allowedSignersFile "~/.ssh/allowed_signers"
+```
+
+The contents of that file should have at least two fields. First the
+email address found in your `user.email` config variable that you'll use
+for the commits. Second, a copy of the public key from your
+`user.signingkey` variable. Note that you want the *contents* of that
+file, not the file name.
+
+An example line in the `allowed_signers` file looks like this (line
+truncated for formatting):
+
+``` {.default}
+user@example.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAmaTS47vRmsKy
+```
+
+You can have multiple lines in that file for multiple identities.
 
 [i[Configuration-->SSH signing key]>]
 

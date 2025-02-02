@@ -250,8 +250,8 @@ How do we do that? It's pretty easy:
 
 1. Go to the submodule directory.
 2. Switch to the commit that you want to use. You can refer to this
-   commit by branch name, UUID, tag, or any other thing that `git
-   switch` takes. Use `--detach` if you're detaching the `HEAD`.
+   commit by branch name, UUID, tag, or any other thing that
+   `git switch` takes. Use `--detach` if you're detaching the `HEAD`.
 3. Go back to the containing module directory.
 4. Add the submodule directory.
 5. Commit.
