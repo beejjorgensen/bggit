@@ -39,11 +39,63 @@ Now, there is a question of what happens to the _difference_ between
 your working tree at the old commit and whatever it would be at the new
 commit.
 
-And there we have some options: ***soft reset***, ***mixed reset***, and
-***hard reset***.
+You might have read that last sentence too quickly, so let's revisit it
+because it's important. Right now, you have some files in your working
+tree. Let's assume you're fully committed and your `HEAD` is on the
+`main` branch. Now if you move the `main` branch elsewhere, *there will
+necessarily be a difference between what you had at the commit you* were
+*looking at, and the one you* will be *looking at.
+
+We need to decide what to do with that difference. Where will it be
+reflected? As a difference between the stage and the destination commit?
+A difference between the working tree and the stage? Or both?
+
+Turns out we have three options: ***soft reset***, ***mixed reset***,
+and ***hard reset***.
 
 And which you choose controls what happens to the branch, the stage, and
 the working tree.
+
+> **I want you to consider that *all* files exist in three places at all
+> times in Git:** the working tree, the stage, and a commit.
+>
+> And you're supposed to say, "Wait—the stage has *all* the files on it?
+> But I haven't added anything to it!"
+>
+> Yes. I'm saying that when your working tree is clean that means that
+> the files in the `HEAD` commit, the files on the stage, and the files
+> in your working tree *are all the same*. And, yes, all the files exist
+> in all three places![^12db]
+>
+> [^12db]: Who knows what it really does under the hood, but we're going
+>     to use this as a mental model for how things work.
+>
+> And `git status` won't show anything because there are no differences
+> between these three places. And `git status` shows the differences.
+>
+> Let's say you modified a file in your working tree. In that case, `git
+> status` would show you a difference between your working tree and the
+> stage as a "modified file". But there would still be no difference
+> between the stage and the `HEAD` commit, so nothing would show as
+> "ready to commit".
+>
+> Then let's say you added the file to the stage. At the point, a copy
+> of the file from the working tree is placed on the stage. So now the
+> working tree and the stage are the same. And nothing shows as
+> "modified". But now, crucially, the stage differs from the `HEAD`
+> commit! So now `git status` shows that difference as "ready to
+> commit".
+>
+> Finally, let's say that before you committed, you modified the file
+> again in the working tree. Now the file in the working tree is
+> different than the stage. **And** the file on the stage is different
+> than the `HEAD` commit! Now the file shows up as both "ready to
+> commit" and "modified".
+>
+> The reason I want us to think about things this way is because it will
+> make this whole thing with `git reset` easier to digest. Sometimes a
+> reset will change the files in the working tree, sometimes on the
+> stage, and sometimes both.
 
 Note: in the following examples, I'm going to use the term "old commit"
 to refer to where the branch was *before* the reset, and "new commit" to
@@ -57,14 +109,20 @@ The summary of differences is:
 * **Soft**:
   * Stage: old commit
   * Working tree: old commit
+  * Result: All the old files will show on the stage as "ready to
+    commit".
 
 * **Mixed**:
   * Stage: new commit
   * Working tree: old commit
+  * Result: All the old files will show in the working tree as
+    "modified".
   
 * **Hard**:
   * Stage: new commit
   * Working tree: new commit
+  * Result: All the old files will be gone, and the working tree and
+    stage will be clean.
 
 ## Soft Reset
 
@@ -150,6 +208,12 @@ the general public.
 
 [i[Reset-->Mixed]<]
 
+Before we begin, the main use case of this reset was to unstage files.
+Now the more modern command is `git restore --staged`, and you should
+use that if all you want to do is unstage.
+
+But let's still look at how this works!
+
 When you run a `git reset --mixed`[^2472], this resets the current
 branch to point to the given commit, and it modifies the stage to that
 commit, and it **doesn't** change your working tree.
@@ -172,14 +236,10 @@ the stage, it ends up in the working tree. You can stage it and commit
 it from here.
 
 But that's not all! Since the stage is also updated to the new commit,
-it means the stage is effectively emptied.
+it means the stage is effectively "emptied".
 
-In fact, this is the classic use for a mixed reset: `git reset HEAD`.
-This moves files from staged state back to modified state.
-
-> **In the glorious future past, a new command was introduced to do
-> this**: `git restore --staged`. That's the preferred method to use
-> now.
+Like I mentioned, this is the classic use for a mixed reset: `git reset
+HEAD`. This moves files from staged state back to modified state.
 
 This will reset the current branch to where it already was (assuming
 `HEAD` points to the current branch), and reset the stage to be the same
@@ -212,7 +272,11 @@ If you do a hard reset, it will simply move the branch and reset your
 entire world (as it pertains to that branch) to that point as if nothing
 had happened since. `git status` will report that everything is clean.
 
+[i[Reset-->Hard]>]
+
 ## Reset to a Divergent Branch
+
+[i[Reset-->To divergent branch]<]
 
 In the above examples, we've been resetting to a direct ancestor of our
 current commit. This is the common case for using `git reset`.
@@ -221,7 +285,7 @@ But there's no reason why you couldn't reset to an entirely different
 divergent branch. It just moves the branch there with exactly the same
 rules for soft, mixed, and hard that we've already covered.
 
-[i[Reset-->Hard]>]
+[i[Reset-->To divergent branch]>]
 
 ## Resetting Files
 
