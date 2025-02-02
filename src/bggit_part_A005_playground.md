@@ -265,8 +265,8 @@ $ sh buildrepo.sh
    1 file changed, 1 insertion(+)
 ```
 
-> **Protip:** If you run `sh -x buildrepo.sh` it will also show you the
-> commands it is running.
+> **To debug a shell script** you can run it like this: `sh -x
+> buildrepo.sh` and it will show you the commands it is running.
 
 After that, we can `cd` in there and see what happened:
 
