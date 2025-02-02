@@ -216,14 +216,10 @@ easier.
 I can launch the editor like this:
 
 ``` {.default}
-$ git config --edit
+$ git config edit
 ```
 
 Add the `--global` flag to edit the global config file.
-
-> **Like with the other commands, there's a new version of this one.**
-> On newer Git installs, you can just say `git config edit` without the
-> minus-minus.
 
 When you get into the editor, you'll see a config file that might look
 something like this:
