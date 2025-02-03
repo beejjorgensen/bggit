@@ -37,7 +37,7 @@ repo_ (repository) once the feature is ready. This saves the changes to
 the repo and allows other collaborators to see them.
 
 And if you ever change something you didn't want to, or you want to see
-how things were implemented in the past, you can always _check out_ a
+how things were implemented in the past, you can always check out a
 previous commit and take a look.
 
 Git keeps a history of all the commits you've ever made. Assuming
@@ -223,10 +223,12 @@ command line Git tools installed. It also generally assumes you're
 running a Unix shell like Bash or Zsh.
 
 > **Where do you get these shells?** Linux/BSD/Unix and Mac users will
-> already have these shells. Recommendation for Windows users is to
-> [fl[install and run Ubuntu with
+> already have these shells. Yay!
+>
+> Recommendation for Windows users is to [fl[install and run Ubuntu with
 > WSL|https://learn.microsoft.com/en-us/windows/wsl/]] to get a virtual
-> Linux installation.
+> Linux installation. Or, if you don't want to jump down that particular
+> rabbit hole just yet, run Git Bash (included with Git).
 
 For this example, we'll assume we have a GitHub repo already in
 existence that we're going to clone.
@@ -391,7 +393,7 @@ corresponding `main` branch on the remote (`origin`) repo[^2d0c].
 Remember how clones are separate? That is, changes you make on one clone
 aren't automatically visible on the other? This is an indication of
 that. You can make changes your your local `main` branch, and these
-won't affect the remotes `main` branch. (At least, not until you push
+won't affect the remote's `main` branch. (At least, not until you push
 those changes!)
 
 Lastly, it mentions we're up-to-date with the latest version of `main`
@@ -529,7 +531,7 @@ Now we, the developers, know that we modified `hello.py`, and that we'd
 like to make a commit that reflects the changes to that file. So we need
 to first add it to the stage so that we can make a commit.
 
-Let's do it:
+Let's do it with `git add`:
 
 ``` {.default}
 $ git add hello.py
@@ -580,8 +582,8 @@ output would be completely unhelpful.)
 Let's do it:
 
 ``` {.default}
-$ git commit -m "I added another print line"
-  [main 0e1ad42] I added another print line
+$ git commit -m "Add another print line"
+  [main 0e1ad42] Add another print line
    1 file changed, 1 insertion(+)
 ```
 
