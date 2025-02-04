@@ -87,7 +87,7 @@ We call this the _merge commit_, and Git will automatically make it for
 you. (When this happens, you'll see an editor pop up with some text in
 it. This text is the commit message. Edit it (or just accept it as-is)
 and save the file and exit the editor. See [Getting Out of
-Editors](#editor-get-out) if you need help with this.
+Editors](#editor-get-out) if you need help with this.)
 
 So after our merge, we end up with Figure_#.3.
 
