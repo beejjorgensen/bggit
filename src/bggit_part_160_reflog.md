@@ -42,7 +42,7 @@ You can use it for all kinds of things.
 * And more!
 
 Basically it gives you a way to look back on the linear history of the
-repo, and tells you the commit UUIDs along the way.
+repo, and tells you the commit hashes along the way.
 
 This means if you want to, say, hard reset the repo to some earlier
 state, you could look up that earlier commit in the reflog[^ab30].
@@ -128,8 +128,8 @@ $ git reflog
 ```
 
 Hey, that's more like it! I see the changes I made to `bar.txt` in
-there! And I see the commit UUID on the left! This means I can switch
-to that commit!
+there! And I see the commit hash on the left! This means I can switch to
+that commit!
 
 ``` {.default}
 $ git switch --detach bf8b8cf
@@ -223,7 +223,7 @@ $ git reflog
 ```
 
 See that `HEAD@{3}`-type stuff in there? You can use those to check out
-specific commits (instead of using the UUID, for example).
+specific commits (instead of using the commit hash, for example).
 
 Now, `HEAD@{3}` **doesn't** mean "3 commits before `HEAD`". But it is an
 identifier you can use to switch to a particular commit.

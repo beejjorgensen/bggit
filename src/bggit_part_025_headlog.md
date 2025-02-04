@@ -332,7 +332,7 @@ HEAD is now at 5a02fed Added
 Well, that's a lot of scary stuff, but it's just Git telling us that
 we're now in detached head state. Which of course we are since we just
 detached the head from branch `main` by switching to a specific commit
-UUID.
+hash.
 
 And we can get back to the `main` branch with:
 

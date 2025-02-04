@@ -71,7 +71,7 @@ Branch: Line 102
 **Additionally** let's create a branch here called `checkpoint` to make
 this demo a little easier. You don't *have* to do this, but it'll enable
 us to cherry-pick this commit by its branch name instead of by its
-commit UUID. Or you could skip this step and use the UUID.
+commit hash. Or you could skip this step and just use the hash.
 
 ``` {.default}
 $ git branch checkpoint
@@ -135,8 +135,8 @@ Okay—that's the set-up part of the demo. Now it's time to cherry-pick!
 
 What we're going to want to do for the demo is switch back to `main` and
 then cherry-pick the one commit that inserts line 5 in the middle. You
-can always use its UUID (`407f2`) for this, but we left behind that
-branch `checkpoint` there we can use instead.
+can always use its commit hash (`407f2`) for this, but we left behind
+that branch `checkpoint` there we can use instead.
 
 Let's do it.
 
@@ -199,14 +199,14 @@ There are two amazing things to notice here:
    was the latter who did the cherry-pick. This might not be entirely
    surprising, except...
 
-2. The cherry-picked commit UUID is different in `main` than in
+2. The cherry-picked commit hash is different in `main` than in
    `branch`! In `branch`, it's `407f2`, and here it's `92546`. But it
    **has** to be that way because it's got all new content. That is,
    there's no other commit anywhere in the commit graph where `foo.txt`
-   looks like this, so it has to have a unique UUID[^5472].
+   looks like this, so it has to have a unique commit hash[^5472].
 
-[^5472]: Even if the changes were identical, the UUID would still be
-    different because the hash takes all kinds of other metadata into
+[^5472]: Even if the changes were identical, the commit hash would still
+    be different because the hash takes all kinds of other metadata into
     account.
 
 But not every cherry-pick will go as smoothly as that!

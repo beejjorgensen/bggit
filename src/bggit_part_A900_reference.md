@@ -12,9 +12,9 @@ In this reference section we use the following substitutions:
 * `PATH`: Path to directory or file
 * `BRANCH`: Some branch name, e.g. `main`, etc.
 * `REMOTE`: A remote name, e.g. `origin`, `upstream`, etc.
-* `UUID`: Some commit UUID—you can get a commit UUID from `git log` or
+* `HASH`: Some commit hash—you can get a commit hash from `git log` or
   `git reflog`.
-* `CMMT`: a UUID, branch, etc. Anything that refers to a commit.
+* `CMMT`: a commit hash, branch, etc. Anything that refers to a commit.
   Officially this is called a _tree-ish_, but that was more letters than
   I wanted to repeatedly type.
 * `VARIABLE`: a Git config variable name, usually words separated by
@@ -308,7 +308,7 @@ like `remote/branchname`.
 
 ``` {.default}
 $ git switch BRANCH         # Switch to a branch
-$ git switch --detach UUID  # Detach HEAD to a commit
+$ git switch --detach HASH  # Detach HEAD to a commit
 $ git switch -              # Switch back to previous commit
 ```
 

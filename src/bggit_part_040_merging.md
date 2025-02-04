@@ -361,9 +361,9 @@ We see a few things. One is that our merge commit is pointed to by
 `main` (and `HEAD`). And looking down a couple commits, we see our
 now-direct ancestor, `newbranch` back on Commit 3.
 
-We also see a `Merge:` line on that top commit. It lists the UUIDs for
-the two commits that it came from (the first 7 digits, anyway), since
-the merge commit has two parents.
+We also see a `Merge:` line on that top commit. It lists the commit
+hashes for the two commits that it came from (the first 7 digits,
+anyway), since the merge commit has two parents.
 
 ## Why Merge Conflicts Happen
 
