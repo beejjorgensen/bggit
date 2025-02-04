@@ -338,7 +338,7 @@ $ git status
 
 Look at that! The submodule directory is listed as modified. It says
 "new commits", but that's just telling us that "things have changed
-in the submodule from the commit that I was pinned onto before"
+in the submodule from the commit that I was pinned onto before".
 
 So let's add that and commit it.
 
