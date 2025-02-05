@@ -103,10 +103,20 @@ just press return without entering a command.
 There are a few ways, and all of them start from normal mode. (So hit
 `ESC` after you're done entering text, then try to exit.)
 
-* `ZZ`: exit, saving only if there have been changes
-* `:wq`: exit, saving unconditionally ("write, quit")
-* `:q`: exit, don't save
-* `:q!`: exit, don't save even if there have been changes!
+* `ZZ` — exit, saving only if there have been changes
+* `:wq` — exit, saving unconditionally ("write, quit")
+* `:q` — exit, don't save
+* `:q!` — exit, don't save even if there have been changes!
+
+And one more that's of use for Git:
+
+* `:cq` — exit with a non-zero (AKA error) exit status
+
+If you do a `:cq` when entering a commit message in Vim, Git will think
+something went wrong and not complete the commit. So if you find
+yourself in Vim writing a commit message and think, "I didn't mean to do
+this yet!" you can `:cq` to get out of it. The files will remain on the
+stage.
 
 ## Learn More
 
