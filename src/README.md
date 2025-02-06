@@ -14,6 +14,8 @@ Example repo with submodule:
 
 # TODO
 
+* Figures 6.1-6.3 missing commit 6.
+* Clarify committing without adding 2.7.5
 * Book page breaks
 * Book cover
 * Publish
