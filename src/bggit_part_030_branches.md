@@ -32,10 +32,9 @@ relationship.
 A _branch_ is like a name tag stuck on one **specific** commit. You can
 move the name tag around with various Git operations.
 
-The default branch is called [i[Branch-->`main`]] `main`.
-
-> **The default branch used to be called [i[Branch-->`master`]]
-> `master`**, and still is called that in some older repos.
+We're assuming the default branch is called [i[Branch-->`main`]] `main`.
+If you haven't done so already, configure your default branch as shown
+in the [Git Basics](#initial-setup) chapter.
 
 ![The main branch on a commit.](img_030_020.pdf "[The main branch on a commit.]")
 

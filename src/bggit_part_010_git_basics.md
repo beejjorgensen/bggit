@@ -243,7 +243,7 @@ Recall the process in The Most Basic Git Workflow, above:
 5. _Push_ your commit back to the remote repo.
 6. Go back to Step 2.
 
-### Step 0: One-time Setup
+### Step 0: One-time Setup {#initial-setup}
 
 [i[Configuration]]
 
@@ -279,6 +279,25 @@ If you need to change them in the future, just run those commands again.
 > **If you get an error with the above commands** you might be running
 > an older version of Git. Try them again, but leave out the word `set`.
 > Or, better yet, see if you can get a newer version of Git.
+
+Finally, let's set the default branch name. It's really too early to
+explain what that means, but let's run this command and set the name to
+`main`. This will keep Git from complaining when you create a repo.
+
+[i[Configuration-->Default branch]]
+
+``` {.default}
+$ git config set --global init.defaultBranch main
+```
+
+> **Some repos use `master` for the default branch name instead of
+> `main`.** It's actually an arbitrary choice, and repo creators can use
+> anything they want. Git itself hints, "Names commonly chosen instead
+> of 'master' are 'main', 'trunk' and 'development'."
+>
+> I'm suggesting using `main` for multiple reasons, not the least of
+> which is that's what GitHub uses, but it's up to you. In this guide
+> I'll use `main`.
 
 ### Step 1: Clone an Existing Repo
 

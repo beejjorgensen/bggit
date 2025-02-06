@@ -36,8 +36,8 @@ continues on the next line.
   repo under your GitHub account.
 * **`HEAD`**: the commit that is currently checked out/switched to.
 * **Index**: another name for the *stage*.
-* **`main`**: the default name of the first branch created.
-* **`master`**: the historical name for `main`.
+* **`main`**: a common the first branch created.
+* **`master`**: another common name for the first branch created.
 * **`origin`**: the default name for the remote from which this repo was
   cloned.
 * **Pull request**: a way to get changes you made in your fork of a repo
@@ -100,6 +100,19 @@ SSH identity:
 $ git config set core.sshCommand \
     "ssh -i ~/.ssh/id_alterego_ed25519 -F none"
 ```
+
+### Set default branch
+
+[i[Configuration-->Default branch]i]
+
+This is the first branch created when you make a new repo.
+
+``` {.default}
+$ git config set --global init.defaultBranch BRANCH
+```
+
+Common names are `main`, `master`, `trunk`, and `development`. This
+guide uses `main`.
 
 ### Set default pull behavior to merge or rebase
 

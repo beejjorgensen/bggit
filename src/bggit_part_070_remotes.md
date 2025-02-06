@@ -176,7 +176,7 @@ $ git fetch reallinux
 ```
 
 And I can merge it into my branch (the Linux repo uses `master` for the
-`main` branch):
+instead of `main` for the main branch):
 
 ``` {.default}
 $ git switch master            # My local master
