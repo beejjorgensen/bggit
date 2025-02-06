@@ -372,6 +372,20 @@ $ git switch --detach HEAD^
 
 And that gets you to the previous commit.
 
+> **It's apparently a little-known Fun Fact™ that you can commonly
+> enter `@` instead of `HEAD` with these commands.** For example, the
+> previous command could be written:
+>
+> ``` {.default}
+> $ git switch --detach HEAD^
+> $ git switch --detach @^     # Same thing
+> ```
+>
+> <!-- ` -->
+> Be aware that some shells might require you to put the `@` in quotes
+> to get it to work right. But that can potentially save three
+> keystrokes.
+
 What if you wanted to get to the _third-previous_ commit? You can add
 more carets!
 
