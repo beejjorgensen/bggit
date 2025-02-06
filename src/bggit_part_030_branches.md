@@ -484,7 +484,7 @@ unchanged in this scenario.)
 
 But in this section we're going to be talking about a specific kind of
 merge: the _fast-forward_. This occurs when the branch you're merging
-from is a direct ancestor of the branch you're merging into.
+from is a direct descendant of the branch you're merging into.
 
 Let's say we have `newbranch` checked out, like from the previous
 example in Figure_#.14.
