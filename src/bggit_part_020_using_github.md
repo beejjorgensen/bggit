@@ -72,7 +72,7 @@ There are a few options:
 * Use Personal Authentication Tokens
 
 GitHub CLI is likely easier. SSH keys are geektacular. I only recently
-learned that you could authentication with personal access tokens, so I
+learned that you could authenticate with personal access tokens, so I
 can't really speak to them much.
 
 Personally, I use SSH keys. But other people... don't. It's up to you.
