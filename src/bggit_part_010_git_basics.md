@@ -411,9 +411,9 @@ corresponding `main` branch on the remote (`origin`) repo[^2d0c].
 
 Remember how clones are separate? That is, changes you make on one clone
 aren't automatically visible on the other? This is an indication of
-that. You can make changes your your local `main` branch, and these
-won't affect the remote's `main` branch. (At least, not until you push
-those changes!)
+that. You can make changes to your local `main` branch, and these won't
+affect the remote's `main` branch. (At least, not until you push those
+changes!)
 
 Lastly, it mentions we're up-to-date with the latest version of `main`
 on `origin` (that we know of), and that there's nothing to commit
