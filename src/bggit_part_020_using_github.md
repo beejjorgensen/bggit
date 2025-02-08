@@ -108,18 +108,23 @@ $ gh --version
 Then you'll want to run the following two commands:
 
 ``` {.default}
-$ gh auth setup-git
 $ gh auth login
+$ gh auth setup-git
 ```
 
-The first (`setup-git`) is one-time only.
-
-The second command (`login`) will take you through the login process.
+The first command (`login`) will take you through the login process.
 You'll have to do this again if you log out.
 
-When choosing the authentication type between SSH and HTTPS, I recommend
-SSH. You'll need to remember your choice when you go to clone a repo
-later.
+It's going to ask you if you want to use SSH or HTTP. If you have SSH
+keys set up, I recommend using that. If you don't,
+choose "HTTP" when it asks. The main difference is that with HTTP, the
+login credentials are stored unencrypted, whereas with SSH, you can
+protect them with a passphrase. See below for setting up SSH keys.
+
+And logging in with a web browser is easiest, when it asks.
+
+The second command (`setup-git`) is one-time only. This just adds to
+your global config some stuff to help with authentication.
 
 ### SSH Keys
 
