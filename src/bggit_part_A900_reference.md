@@ -617,3 +617,20 @@ $ git push REMOTE -d tagname  # Delete a tag on a remote
 ```
 
 [i[Tags]i>]
+
+## Worktrees
+
+[i[Worktree]i<]
+
+``` {.default}
+$ git worktree list   # List worktrees
+
+$ git worktree add DIR CMMT            # Add worktree at CMMT
+$ git worktree add --detach DIR CMMT   # Add, detach head at CMMT
+$ git worktree add DIR HASH            # Add, detach head at HASH
+
+$ git worktree remove DIR          # Remove worktree
+$ git worktree remove --force DIR  # Remove, lose uncommitted mods
+```
+
+[i[Worktree]i>]
