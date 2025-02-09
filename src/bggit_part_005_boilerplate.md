@@ -65,10 +65,11 @@ of pitfalls and merge conflicts and detached heads and remotes and
 cherrypicks and rebases and an endless array of other commands that do
 who-knows-what.
 
-Which leads us directly to the goal: let's make sense of all this. We'll
-start off easy (allegedly) with commands mixed in with some theory of
-operation. And we'll see that understanding what Git does under the
-hood is critical to using it correctly.
+Which leads us directly to the goal: let's make sense of all this and go
+from complete Git novice up to intermediate! We'll start off easy
+(allegedly) with commands mixed in with some theory of operation. And
+we'll see that understanding what Git does under the hood is critical to
+using it correctly.
 
 And I *promise* there's definitely a chance that after you get through
 some of this guide, you might actually start to appreciate Git and like
