@@ -382,6 +382,12 @@ After all that, we see our new commit graph in Figure_#.5.
 
 ![After rebase conflict resolution.](img_110_050.pdf "After rebase conflict resolution.")
 
+One last note: if you find yourself resolving the same conflicts with a
+rebase over and over with every pull, you might check out [i[`git
+rerere`]] [fl[`git
+rerere`|https://git-scm.com/book/en/v2/Git-Tools-Rerere]] to help
+automate that process.
+
 [i[Rebase-->Conflicts]>]
 
 ## Squashing Commits {#squashing-commits}
