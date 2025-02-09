@@ -36,9 +36,11 @@ Git*.
 [i[Reference Material-->Free]]
 
 * **Free Stuff!**
-  * [fl[_Pro Git_|https://git-scm.com/book/en/v2]]
+  * [fl[_Pro Git_|https://git-scm.com/book/en/v2]]—_The_ Book
   * [fl[_The Git Reference Manual_|https://git-scm.com/docs]]
   * [fl[_The Git Community Book_|https://shafiul.github.io/gitbook/index.html]]
+  * [fl[_git cheat sheet_|https://wizardzines.com/git-cheat-sheet.pdf]]
+  * [fl[_Oh Shit, Git!?!_|https://ohshitgit.com/]]
   * [fl[_Learn Git Branching_|https://learngitbranching.js.org/]]
   * [fl[_GitHub Learning Lab_|https://github.com/apps/github-learning-lab]]
   * [fl[_Learn Git and GitHub_|https://www.codecademy.com/learn/learn-git]]
@@ -50,6 +52,8 @@ Git*.
 [i[Reference Material-->Non-free]]
 
 * **For Money**
+  * [fl[_How Git Works_|https://wizardzines.com/zines/git/]]
+  * [fl[_Oh Shit, Git_|https://wizardzines.com/zines/oh-shit-git/]]
   * [fl[_Learn Git in a Month of Lunches_|https://www.manning.com/books/learn-git-in-a-month-of-lunches]]
   * [fl[_Getting Started with GitHub_|https://www.amazon.com/Introducing-GitHub-Non-Technical-Peter-Bell/dp/1491949740]]
   * [fl[_Git Pocket Guide_|https://www.amazon.com/Git-Pocket-Guide-Working-Introduction/dp/1449325866]]
