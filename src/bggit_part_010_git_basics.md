@@ -642,9 +642,9 @@ to our branch.
 > ```
 > 
 > <!-- ` -->
-> And that would add it and make the commit. You can only do this with
-> files that you added before. And there's never any harm in using `git
-> add` to add things to the stage.
+> And that would make the commit directly, bypassing the whole
+> add-it-to-the-stage step. But you can only do this with files that you
+> added before.
 >
 > You can specify multiple files here, or a directory. Also, this
 > doesn't affect files that are already on the stage.
