@@ -643,8 +643,8 @@ to our branch.
 > 
 > <!-- ` -->
 > And that would make the commit directly, bypassing the whole
-> add-it-to-the-stage step. But you can only do this with files that you
-> added before.
+> add-it-to-the-stage step. But you can only do this with files that
+> the repo already is aware of, i.e. they aren't "untracked".
 >
 > You can specify multiple files here, or a directory. Also, this
 > doesn't affect files that are already on the stage.
