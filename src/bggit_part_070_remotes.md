@@ -184,37 +184,36 @@ $ git merge reallinux/master   # Note the slash notation!
 ```
 
 That will merge the `master` branch from the `reallinux` into my local
-master, once we've dealt with any conflicts.
+`master`, once we've dealt with any conflicts.
 
-At this point if I did a `git log`, I'd see that the latest commit would
-indicate that my `HEAD` was attached to my `master` branch, and it was
-pointing to the same commit as the `reallinux/master`:
+If I make another commit, this will move my local `HEAD` and `master` to
+that new commit, and will leave `origin/master` (my fork on GitHub) and
+`reallinux/master` (Linus's repo) farther behind.
 
-``` {.default}
-(HEAD -> master, reallinux/master)
-```
-
-This is expected, since I just merged `reallinux/master` into my
-`master`, so they definitely should be pointing to the same commit.
-
-But looking farther down, I'd see the `master` branch on my origin
-lagging behind a few commits:
+Let's say for fun I made two commits that I didn't have on my `origin`
+remote at GitHub. In that case, a chopped up and
+fabricated-for-demonstration-purposes log might look like this:
 
 ``` {.default}
-(origin/master, origin/HEAD)
+commit 2d7d5d (HEAD -> master)
+commit cde831
+commit 311eb3 (origin/master)
+commit d5d2cc (reallinux/master)
 ```
 
-> You might or might not have `origin/HEAD` depending on how you made
-> your repo. No worries either way.
-
-At this point I'd do a `git push` to get them all on the same commit, so
-the top commit would show:
+At this point I'd do a `git push` to send my local `master` changes to
+GitHub and catch up my `origin/master` there. So the top commit would
+show:
 
 ``` {.default}
-(HEAD -> master, reallinux/master, origin/master, origin/HEAD)
+commit 2d7d5d (HEAD -> master, origin/master)
+commit cde831
+commit 311eb3
+commit d5d2cc (reallinux/master)
 ```
 
-And now we're all happily pointing to the same commit.
+And `reallinux/master` would still be behind somewhere. (And there it
+would remain until Linus deigned to merge my changes.)
 
 It's interesting that my local `master` can be out of sync from the
 `master` on `origin`, right?
