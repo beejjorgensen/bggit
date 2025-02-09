@@ -122,12 +122,12 @@ And that would be that.
 
 Again, this doesn't delete any commits that you made from that worktree;
 the worktree is just a view onto the same repo as the main working tree,
-so the commits are already "in" the main working tree the instant you
-make them from any of the worktrees.
+so the commits are already stored in the repo the instant you make them
+from any of the worktrees.
 
-The path you specify for the `worktree remove` doesn't have to
-character-per-character match the one you specified with `worktree add`.
-It just has to be the same directory.
+The path you specify for `worktree remove` doesn't have to match
+character-for-character the one you specified with `worktree add`. It
+just has to refer to the same directory.
 
 For example, if I were in the `wumpus/` directory, this would accomplish
 the same thing as the first example:
@@ -143,8 +143,8 @@ You can even blow away the worktree you're in right now:
 $ git worktree remove .
 ```
 
-If you try to remove the main working tree, you're stopped by the Git
-police.
+And, finally, if you try to remove the main working tree, you're stopped
+by the Git police.
 
 ``` {.default}
 $ git worktree remove wumpus
@@ -170,7 +170,8 @@ That'll show you all the working trees with their directories on the
 left, their commit hashes in the middle, and the branch names on the
 right.
 
-The first worktree listed is the main working tree.
+The first worktree listed is the main working tree, i.e. the one you
+can't remove.
 
 [i[Worktree-->Listing]>]
 
