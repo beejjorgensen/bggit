@@ -25,7 +25,7 @@ in Figure_#.1.
            v          [somebranch]
     (1)---(2)            |
             \            v
-            (3)---(5)---(7)
+            (3)---(5)---(6)
 ```
 -->
 
@@ -41,9 +41,9 @@ But what if, **before** we merged, someone made another commit on the
                [main]
                  |
                  v    [somebranch]
-    (1)---(2)---(8)      |
+    (1)---(2)---(7)      |
             \            v
-            (3)---(5)---(7)
+            (3)---(5)---(6)
 ```
 -->
 
@@ -72,8 +72,8 @@ $ git merge somebranch    # into main
 > want, but it does nothing.
 
 The difference here is that Git can't simply fast-forward. It has to
-somehow, magically, bring together the changes from commit `(7)` **and**
-commit `(8)` even if they're radically different than one other.
+somehow, magically, bring together the changes from commit `(6)` **and**
+commit `(7)` even if they're radically different than one other.
 
 This means that after we bring those two commits together, the code will
 look like it's never looked before, a combination of two sets of
@@ -99,23 +99,23 @@ So after our merge, we end up with Figure_#.3.
                          [main]
                            |
                            v    
-    (1)---(2)---(8)-------(9)
+    (1)---(2)---(7)-------(8)
             \             /
-            (3)---(5)---(7)
+            (3)---(5)---(6)
                          ^
                          |
                       [somebranch]
 ```
 -->
 
-Commit labeled `(9)` is the merge commit. It contains both the changes
-from `(8)` and `(7)`. And has the commit message you saved in the
+Commit labeled `(8)` is the merge commit. It contains both the changes
+from `(7)` and `(6)`. And has the commit message you saved in the
 editor.
 
 And we see `main` has been updated to point to it. And that `somebranch`
 is unaffected.
 
-Importantly, we see that commit `(9)` has **two parents**, the commits
+Importantly, we see that commit `(8)` has **two parents**, the commits
 that were merged together to make it.
 
 And look! If we want, we can now fast-forward `somebranch` to `main`
