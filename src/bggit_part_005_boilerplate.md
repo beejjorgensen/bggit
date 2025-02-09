@@ -51,6 +51,7 @@
 [is[`git stash`==>see Stash]]
 [is[`git status`==>see Status]]
 [is[`git switch`==>see Switch]]
+[is[`git tag`==>see Tag]]
 [is[`git worktree`==>see Worktree]]
 
 # Foreword

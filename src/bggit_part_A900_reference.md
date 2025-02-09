@@ -590,7 +590,7 @@ $ git commit -m "remove DIR submodule"
 
 ## Tags
 
-[i[Tags]i<]
+[i[Tag]i<]
 
 ``` {.default}
 $ git tag     # List tags
@@ -616,7 +616,7 @@ $ git tag -d tagname          # Delete a tag locally
 $ git push REMOTE -d tagname  # Delete a tag on a remote
 ```
 
-[i[Tags]i>]
+[i[Tag]i>]
 
 ## Worktrees
 

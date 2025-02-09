@@ -1,6 +1,6 @@
 # Tags
 
-[i[Tags]<]
+[i[Tag]<]
 
 Tags are a way to annotate a particular commit. You can kind of think of
 them like branches that don't move.
@@ -21,7 +21,7 @@ There are two types of tags:
 You can generally use tags the same way you'd use branches (you can diff
 them, switch to them, etc.) except they don't move.
 
-[i[Tags-->Listing]<]
+[i[Tag-->Listing]<]
 
 And you can see them in the log with the other branch information.
 
@@ -41,12 +41,12 @@ Date:   Sat Jan 25 18:59:58 2025 -0800
 
 Or get a list of all tags with just `git tag`.
 
-[i[Tags-->Listing]>]
+[i[Tag-->Listing]>]
 
 ## Lightweight Tags
 
-[i[Tags-->Creating]<]
-[i[Tags-->Lightweight]<]
+[i[Tag-->Creating]<]
+[i[Tag-->Lightweight]<]
 
 Adding a lightweight tag is easy enough. First, switch to the commit you
 want to tag, and then run this, assuming you want a tag called
@@ -64,11 +64,11 @@ $ git tag CPE1704TKS 4fa12    # tag commit 4fa23
 $ git tag plover feature99    # tag branch feature99
 ```
 
-[i[Tags-->Lightweight]>]
+[i[Tag-->Lightweight]>]
 
 ## Annotated Tags
 
-[i[Tags-->Annotated]<]
+[i[Tag-->Annotated]<]
 
 Adding an annotated tag is just about as easy. Add the `-a` for
 "annotate" switch.
@@ -86,12 +86,12 @@ Or if you want to specify the message on the command line:
 $ git tag -a v3490 -m "tag message"
 ```
 
-[i[Tags-->Annotated]>]
-[i[Tags-->Creating]>]
+[i[Tag-->Annotated]>]
+[i[Tag-->Creating]>]
 
 ## Pushing Tags
 
-[i[Tags-->Pushing]<]
+[i[Tag-->Pushing]<]
 
 By default, the tags only exist on your local repo, even if you do a
 regular push. You have to tell it you want to push tags explicitly.
@@ -113,11 +113,11 @@ $ git push origin tag3.14
 After a tag is pushed, other collaborators will automatically get the
 tags when they pull.
 
-[i[Tags-->Pushing]>]
+[i[Tag-->Pushing]>]
 
 ## Deleting Tags
 
-[i[Tags-->Deleting]<]
+[i[Tag-->Deleting]<]
 
 You can delete a tag on your repo like this:
 
@@ -147,5 +147,5 @@ change a tag, just make a new tag.
 
 That's not a law; it's just more of a recommended guideline.
 
-[i[Tags-->Deleting]>]
-[i[Tags]>]
+[i[Tag-->Deleting]>]
+[i[Tag]>]
