@@ -49,8 +49,8 @@ Let's put a quick note here about some ground rules.
    are looking at the same local repo! (Unlike a clone where two clones
    would be associated with the same *remote* repo.)
 
-5. [i[Worktree-->main worktree]]Only one of the worktrees is the *real*
-   one (called the "main working tree", no relation to the `main`
+5. [i[Worktree-->`main` worktree]]Only one of the worktrees is the
+   *real* one (called the "main working tree", no relation to the `main`
    branch). The others don't have a proper `.git` directory. Do not
    delete the real one unless you want to lose all your git metadata!
    Always use `git worktree remove` to remove worktrees because it'll
