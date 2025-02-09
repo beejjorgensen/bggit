@@ -39,8 +39,8 @@ $ git init playground
 
 We have all the power!
 
-> **Note:** This repo only exists on this computer; it has no remotes
-> and no way to push. You could add that stuff later, if you wanted, but
+> **This repo only exists on this computer**; it has no remotes and no
+> way to push. You could add that stuff later, if you wanted, but
 > playgrounds tend to be temporary areas where you're just trying things
 > out.
 
@@ -57,8 +57,8 @@ $ ls -la
 
 There's a directory there called `.git` that has all the metadata in it.
 
-> **Note:** If we wanted to change this directory from a Git repo to
-> just a normal directory, we could run this:
+> **If we wanted to change this directory from a Git repo to
+> just a normal directory**, we could run this:
 >
 > ``` {.default}
 > $ rm -rf .git       # Delete the .git directory
