@@ -102,6 +102,13 @@ commit, commit 9. Commit 9 contains the changes of both commits 7 and 6.
 In that case, `somebranch` and `anotherbranch` both point to the same
 commit. There's no problem with this.
 
+> **I'm actually oversimplifying this a little.** When you merge a
+> branch into another, really only the branch you're merging *into*
+> moves, not both of them. So to get the two branches to point to the
+> same commit, you'd have to do two merges: `somebranch` into
+> `anotherbranch` and then `anotherbranch` into `somebranch`. (Or the
+> other way around.) And *then* they'd point to the same commit.
+
 And then we can keep merging if we want, until all the branches are
 pointing at the same commit (Figure_#.5).
 
