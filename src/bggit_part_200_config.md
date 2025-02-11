@@ -16,6 +16,13 @@ info in that file applies to all the Git repos on your system.
 Unless you override them with a local config, that is. But stay tuned
 for more on that later.
 
+> **Some of you might be saying, "Hey, I've never written `set` before
+> to set variables with `git config`!"** And you'd be right. But that's
+> the old, deprecated way of using `git config`. If you're using an
+> older version of Git, the deprecated way might be the only way. So if
+> you're getting errors with the new usage, see [Older Git
+> Versions](#config-old), below.
+
 Let's look at one of those lines again:
 
 ``` {.default}
@@ -297,7 +304,7 @@ don't, these commands might be different.
 The [fl[Git manual page for `git config` has a complete summary of the
 changes|https://git-scm.com/docs/git-config#_deprecated_modes]].
 
-And here are the modern commands we use in this chapter:
+And here are the modern commands we used in this chapter:
 
 ```{.default}
 git config get user.email                     # Get
