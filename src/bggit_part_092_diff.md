@@ -215,10 +215,10 @@ $ git diff HEAD 27a3
 Or relative `HEAD`:
 
 ``` {.default}
-$ git diff HEAD~3 HEAD~4
+$ git diff HEAD~4 HEAD~3
 ```
 
-That last one diffs three commits before `HEAD` with four commits before
+That last one diffs four commits before `HEAD` with three commits before
 `HEAD`.
 
 ### Diffing with Parent Commit
@@ -227,14 +227,14 @@ That last one diffs three commits before `HEAD` with four commits before
 We just showed this example:
 
 ``` {.default}
-$ git diff HEAD~3 HEAD~4
+$ git diff HEAD~4 HEAD~3
 ```
 
 But since `HEAD~4` is the parent of `HEAD~3`, is there some shorthand we
 can use here? Yes!
 
 ``` {.default}
-$ git diff HEAD~3 HEAD~4
+$ git diff HEAD~4 HEAD~3
 $ git diff HEAD~3^!          # Same thing!
 ```
 
