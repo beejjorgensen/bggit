@@ -212,14 +212,79 @@ Or use `HEAD`:
 $ git diff HEAD 27a3
 ```
 
-Or relative `HEAD`:
+Or relative `HEAD`... This one diffs the previous-to-`HEAD` commit with
+the `HEAD`:
+
+``` {.default}
+$ git diff HEAD^ HEAD
+```
+
+And this one diffs four commits before `HEAD` with three commits before
+`HEAD`:
 
 ``` {.default}
 $ git diff HEAD~4 HEAD~3
 ```
 
-That last one diffs four commits before `HEAD` with three commits before
-`HEAD`.
+### Diffing Order
+
+These are both valid ways to diff, but they give different (inverted)
+results:
+
+``` {.default}
+$ git diff main topic
+$ git diff topic main
+```
+
+One way to think about this is that it's like:
+
+``` {.default}
+$ git diff FROM TO
+```
+
+That is, "Hey, Git, tell me the changes I need to make to get from
+commit `FROM` to commit `TO`."
+
+Let's say I made a file `foo.md` and committed it with a single line
+`First` in it. And then I overwrote it with `Second` and committed it
+again.
+
+In this example, I can ask, "What do I have to change from the
+previous-to-`HEAD` commit to the `HEAD` commit?"
+
+``` {.default}
+$ git diff HEAD^ HEAD
+  diff --git a/foo.md b/foo.md
+  index d00491f..495a7e9 100644
+  --- a/foo.md
+  +++ b/foo.md
+  @@ -1 +1 @@
+  -First
+  +Second
+```
+
+It's telling me to get from previous-to-`HEAD` to `HEAD`, I would need
+to delete `First` and add `Second`.
+
+But if I reverse it and ask, "What do I have to change from `HEAD` to
+get back to the previous-to-`HEAD` commit?" I'll get the opposite:
+
+``` {.default}
+$ git diff HEAD HEAD^
+  diff --git a/foo.md b/foo.md
+  index 495a7e9..d00491f 100644
+  --- a/foo.md
+  +++ b/foo.md
+  @@ -1 +1 @@
+  -Second
+  +First
+```
+
+There it's telling me to get back to the previous-to-`HEAD` I'd need to
+delete `Second` and add `First`.
+
+So remember, `git diff FROM TO` is telling you the changes you have to
+make to get from the `FROM` commit to the `TO` commit.
 
 ### Diffing with Parent Commit
 
