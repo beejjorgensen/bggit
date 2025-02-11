@@ -1,5 +1,5 @@
+# Foreword
 <!-- Beej's guide to Git
-
 # vim: ts=4:sw=4:nosi:et:tw=72
 -->
 
@@ -53,8 +53,6 @@
 [is[`git switch`==>see Switch]]
 [is[`git tag`==>see Tag]]
 [is[`git worktree`==>see Worktree]]
-
-# Foreword
 
 Hello again, everyone! In my role as an industry
 professional-turned-college instructor, I definitely see my fair share

@@ -8,3 +8,7 @@ split-wide
 bggit_temp*
 
 bggit_amazon.md
+
+img_*.png
+!img_080_010.png
+!img_difftool.png

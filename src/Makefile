@@ -7,5 +7,6 @@ GUIDE_ID=bggit
 BGBSPD_BUILD_DIR?=../../bgbspd
 
 WEB_IMAGES=$(wildcard img_*.svg img_*.png)
+EPUB_SVGS=$(wildcard img_*.svg)
 
 include $(BGBSPD_BUILD_DIR)/source.make
