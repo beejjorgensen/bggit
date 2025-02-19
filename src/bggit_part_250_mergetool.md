@@ -107,7 +107,7 @@ $ git config --global set merge.tool vimdiff
 $ git config --global set mergetool.vimdiff.cmd \
                              'vimdiff "$LOCAL" "$REMOTE" "$MERGED"'
 $ git config --global set difftool.vimdiff.cmd \
-                             'vimdiff "$LOCAL" "$REMOTE"
+                             'vimdiff "$LOCAL" "$REMOTE"'
 ```
 
 (Long commands split to fit in the book margins—it could be on a single
