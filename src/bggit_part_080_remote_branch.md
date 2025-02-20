@@ -262,7 +262,8 @@ certainly no `topic99` branch on that remote. Yet.
 The fix is easy enough—Git already told us what to do.
 
 [i[Branch-->Set upstream]]
-```
+
+```{.default}
 $ git push --set-upstream origin topic99
 ```
 
