@@ -360,7 +360,8 @@ For example:
 $ git push origin --delete topic99
 ``` 
 
-And that's it! Make sure you delete your remote tracking branch
+And that's it! Make sure you delete your remote tracking branch if you
+haven't done so already.
 
 [i[Branch-->Deleting remote]>]
 [i[Branch-->Deleting remote tracking]>]
