@@ -158,7 +158,7 @@ local values were there.
 And we've already seen a "set":
 
 ``` {.default}
-$ git config set user.name "Alfred Manfrengensenton"
+$ git config set user.name "Harvey Manfrengensenton"
 ```
 
 The double quotes are there so that the shell delivers the name as a
