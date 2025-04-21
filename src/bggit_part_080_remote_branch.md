@@ -13,7 +13,7 @@ branches to a remote for safe keeping.
 
 [i[Branch-->On remote]<]
 
-First, some refresher!
+First, a refresher!
 
 Recall that the remote repo you cloned yours from is a complete copy of
 your repo. The remote repo has a `main` branch, and therefore your

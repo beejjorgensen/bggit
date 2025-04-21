@@ -2,7 +2,7 @@
 
 [i[Merge]<]
 
-We've seen how a fast-forward merge can bring to branches into sync with
+We've seen how a fast-forward merge can bring two branches into sync with
 no possibility of conflict.
 
 But what if we can't fast-forward because two branches are not direct
