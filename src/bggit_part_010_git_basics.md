@@ -331,7 +331,8 @@ Cloning into 'git-example-repo'...
 remote: Enumerating objects: 10, done.
 remote: Counting objects: 100% (10/10), done.
 remote: Compressing objects: 100% (8/8), done.
-remote: Total 10 (delta 2), reused 9 (delta 1), pack-reused 0 (from 0)
+remote: Total 10 (delta 2), reused 9 (delta 1), pack-reused 0
+remote: (from 0)
 Receiving objects: 100% (10/10), done.
 Resolving deltas: 100% (2/2), done.
 ```

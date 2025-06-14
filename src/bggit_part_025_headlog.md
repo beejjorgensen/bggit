@@ -254,8 +254,8 @@ we're doing.
 > ``` {.default}
 > $ git switch 5a02
 >   fatal: a branch is expected, got commit '5a02'
->   hint: If you want to detach HEAD at the commit, try again with
->         the --detach option.
+>   hint: If you want to detach HEAD at the commit, try again
+>         with the --detach option.
 > ```
 
 <!-- ` -->
@@ -311,12 +311,14 @@ and it says:
 ``` {.default}
 Note: switching to '5a02fede3007edf55d18e2f9ee3e57979535e8f2'.
 
-You are in 'detached HEAD' state. You can look around, make experimental
-changes and commit them, and you can discard any commits you make in this
-state without impacting any branches by switching back to a branch.
+You are in 'detached HEAD' state. You can look around, make
+experimental changes and commit them, and you can discard any
+commits you make in this state without impacting any branches by
+switching back to a branch.
 
-If you want to create a new branch to retain commits you create, you may
-do so (now or later) by using -c with the switch command. Example:
+If you want to create a new branch to retain commits you create, you
+may do so (now or later) by using -c with the switch command.
+Example:
 
   git switch -c <new-branch-name>
 
@@ -324,7 +326,8 @@ Or undo this operation with:
 
   git switch -
 
-Turn off this advice by setting config variable advice.detachedHead to false
+Turn off this advice by setting config variable advice.detachedHead
+to false
 
 HEAD is now at 5a02fed Added
 ```

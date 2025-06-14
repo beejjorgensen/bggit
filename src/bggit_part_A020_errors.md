@@ -78,11 +78,12 @@ To push to the branch of the same name on the remote, use
 
     git push origin HEAD
 
-To choose either option permanently, see push.default in 'git help config'.
+To choose either option permanently, see push.default in 'git help
+config'.
 
 To avoid automatically configuring an upstream branch when its name
-won't match the local branch, see option 'simple' of branch.autoSetupMerge
-in 'git help config'.
+won't match the local branch, see option 'simple' of
+branch.autoSetupMerge in 'git help config'.
 ```
 
 Let's check our branch names to see what's going on:
