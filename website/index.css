@@ -84,6 +84,24 @@ hr.singleline {
 	text-align: left;
 }
 
+.bigfont {
+    font-size: 1.2em;
+}
+
+.buy-book-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 10px;
+}
+
+
+.buy-book-copy {
+    text-align: left;
+}
+
 #suggestive-sell {
 	font-weight: bold;
 	margin-bottom: 1ex;
@@ -115,5 +133,12 @@ hr.singleline {
 
 .small {
     font-size: 0.8em;
+}
+
+a.donate-link {
+    text-decoration: none;
+}
+
+a.donate-link > img {
 }
 
