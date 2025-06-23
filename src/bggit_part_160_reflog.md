@@ -174,8 +174,8 @@ $ git switch -
     bf8b8cf appended to bar.txt
     4219f83 added bar.txt
 
-  If you want to keep them by creating a new branch, this may be a good
-  time to do so with:
+  If you want to keep them by creating a new branch, this may be a
+  good time to do so with:
 
     git branch <new-branch-name> bf8b8cf
 

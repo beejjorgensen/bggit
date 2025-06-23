@@ -64,8 +64,19 @@ And now your `HEAD` is no longer detached.
 
 [i[Errors-->Branch name doesn't match]<]
 
-Did you accidentally run `git branch -c newbranch` when you meant to run
-`git switch -c newbranch`? Because if you did, it could land you here:
+What if you ran:
+
+``` {.default}
+git branch -c newbranch
+```
+
+when you meant to run:
+
+``` {.default}
+git switch -c newbranch
+```
+
+Because if you did, it could land you here:
 
 ``` {.default}
 fatal: The upstream branch of your current branch does not match
