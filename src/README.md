@@ -15,10 +15,8 @@ Example repo with submodule:
 # TODO
 
 * The merge intro section needs work
-* Book page breaks
-* Book cover
-* Publish
 
 ## Still to Write
 
+* `git commit -a`
 * Git in VS Code? Appendix?
