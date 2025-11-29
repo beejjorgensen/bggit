@@ -106,7 +106,7 @@ that contain the same changes, just on a different base point.
 > off those making their own new commits. And then you rebased
 > effectively destroying commits `(3)` and `(4)`. Now your commit
 > history is different than the other dev's and all kinds of *Fun*™ will
-> be had trying to sort if out.
+> be had trying to sort it out.
 >
 > If you only rebase commits that you haven't pushed, you'll never get
 > into trouble. But if some other dev has a copy of your commits
