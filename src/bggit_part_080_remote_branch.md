@@ -166,8 +166,8 @@ This will do a couple things:
 
 1. It'll push changes on your local `main` to the remote server (that's
    the `push origin main` part).
-2. It'll remember that the remote branch `origin/main` is tracking your
-   local `main` branch (that's the `-u` part).
+2. It'll remember that local `main` branch is tracking the remote branch
+   `origin/main` (that's the `-u` part).
 
 And then, from then on, from the `main` branch, you can just:
 
@@ -175,8 +175,8 @@ And then, from then on, from the `main` branch, you can just:
 $ git push
 ```
 
-and it'll automatically push to `origin/main` thanks to your earlier
-usage of `--set-upstream`.
+and it'll automatically push to `main` on `origin` (and update your
+`origin/main` branch) thanks to your earlier usage of `--set-upstream`.
 
 And `git pull` has the same option, as well, though you only need to do
 it once with either push or pull.
