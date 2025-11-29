@@ -366,7 +366,8 @@ You can also specify commits or branches before the `--`:
 $ git diff somebranch -- hello.py
 ```
 
-That'll compare `hello.py` at `HEAD` with the version on `somebranch`.
+That'll compare `hello.py` in the working tree with the version on
+`somebranch`.
 
 Or you could give two commits or branches to compare the file there:
 
