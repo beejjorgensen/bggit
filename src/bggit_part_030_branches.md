@@ -518,7 +518,7 @@ $ git merge main
 
 Nothing happened? What's that mean? Well, if we look at the commit
 graph, above, all of `main`'s changes are already in `newbranch`, since
-`newbranch` is a direct ancestor.
+`newbranch` is a direct descendant.
 
 Git is saying, "Hey, you already have all the commits up to `main` in
 your branch, so there's nothing for me to do."
