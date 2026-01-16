@@ -10,8 +10,7 @@ Of course, this is a highly-recommended guideline, not a rule, and you
 can reset anything provided you know what you're doing and have good
 communication with your team.
 
-But if you never reset a branch you haven't pushed, you won't get into
-trouble.
+But if you reset a branch you haven't pushed, you won't get into trouble.
 
 So what is it?
 
