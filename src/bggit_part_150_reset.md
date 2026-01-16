@@ -15,8 +15,8 @@ trouble.
 
 So what is it?
 
-Doing a reset allows you change where the `HEAD` and your current branch
-point to. You can move your current branch to a different commit!
+Doing a reset allows you to change where the `HEAD` and your current
+branch point to. You can move your current branch to a different commit!
 
 When you move a branch to another commit, the branch "becomes" the repo
 at the point of that commit, including all the history that led up to
