@@ -78,7 +78,7 @@ the working tree.
 > between the stage and the `HEAD` commit, so nothing would show as
 > "ready to commit".
 >
-> Then let's say you added the file to the stage. At the point, a copy
+> Then let's say you added the file to the stage. At this point, a copy
 > of the file from the working tree is placed on the stage. So now the
 > working tree and the stage are the same. And nothing shows as
 > "modified". But now, crucially, the stage differs from the `HEAD`
