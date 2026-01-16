@@ -42,9 +42,9 @@ commit.
 You might have read that last sentence too quickly, so let's revisit it
 because it's important. Right now, you have some files in your working
 tree. Let's assume you're fully committed and your `HEAD` is on the
-`main` branch. Now if you move the `main` branch elsewhere, *there will
-necessarily be a difference between what you had at the commit you* were
-*looking at, and the one you* will be *looking at.
+`main` branch. Now if you move the `main` branch elsewhere, there will
+necessarily be a difference between what you had at the commit you *were*
+looking at, and the one you *will be* looking at.
 
 We need to decide what to do with that difference. Where will it be
 reflected? As a difference between the stage and the destination commit?
