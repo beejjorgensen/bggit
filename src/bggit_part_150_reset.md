@@ -21,7 +21,7 @@ branch point to. You can move your current branch to a different commit!
 When you move a branch to another commit, the branch "becomes" the repo
 at the point of that commit, including all the history that led up to
 that commit. The upshot is that all the commits that led to the old
-branch point are now effectively gone, as shown in Figure 18.1.
+branch point are now effectively gone, as shown in Figure 19.1.
 
 ![If we reset `main` to commit _2_, commits _3_ and _4_ will eventually be lost.](img_150_010.pdf "If we reset main to commit 2, commits 3 and 4 will eventually be lost.")
 
