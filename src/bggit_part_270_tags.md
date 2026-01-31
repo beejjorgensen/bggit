@@ -60,7 +60,7 @@ You can also tag a commit, or anything that refers to a commit (like a
 branch or even another tag):
 
 ``` {.default}
-$ git tag CPE1704TKS 4fa12    # tag commit 4fa23
+$ git tag CPE1704TKS 4fa12    # tag commit 4fa12
 $ git tag plover feature99    # tag branch feature99
 ```
 
