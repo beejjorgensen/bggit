@@ -226,7 +226,7 @@ use wildcards:
 ```
 
 And that would make it so all `.tmp` files in this subdirectory were not
-ignored
+ignored.
 
 ## How To Ignore All Files Except a Few?
 

@@ -33,7 +33,7 @@ methods outlined below can be mixed and matched with local topic
 branches, or people having multiple remote tracking branches, or
 whatever. Often management will have an approach they want to use for
 collaboration which might be one of the ones in this section, or maybe
-it's a variant, or maybe its something completely different.
+it's a variant, or maybe it's something completely different.
 
 In any case, the best strategy for you, the learner, is to just be
 familiar with the tools (branching, merging, conflict resolution,

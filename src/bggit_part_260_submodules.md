@@ -130,7 +130,7 @@ need to build it.
 If you didn't use submodules, anyone who wanted to build your repo would
 need to also clone the library repo and juggle all that. Wouldn't it be
 nicer if they could just add that `--recurse-submodules` flag to their
-`clone` command and have it all set up an ready to build?
+`clone` command and have it all set up and ready to build?
 
 So let's go through the steps of adding a submodule to an existing repo
 and see how that all works.
@@ -425,7 +425,7 @@ this repo as a submodule (or otherwise) to get the changes.
 So how to make this happen?
 
 Either do it from a standalone repo, or you can also do it _in situ_ in
-submodule directory.
+the submodule directory.
 
 ### Modify the Submodule Repo Elsewhere
 
@@ -573,7 +573,7 @@ $ cd git-example-submodule-repo
 $ git submodule update --recursive --init
 ```
 
-So `--recurse-submodules` was going that work for us.
+So `--recurse-submodules` was doing that work for us.
 
 But the rabbit hole goes farther! That `--init` does a bunch for us,
 too. Let's break it down into a full by-hand process. Don't worry—it's

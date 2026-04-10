@@ -36,7 +36,7 @@ continues on the next line.
   repo under your GitHub account.
 * **`HEAD`**: the commit that is currently checked out/switched to.
 * **Index**: another name for the *stage*.
-* **`main`**: a common the first branch created.
+* **`main`**: a common name for the first branch created.
 * **`master`**: another common name for the first branch created.
 * **`origin`**: the default name for the remote from which this repo was
   cloned.
@@ -81,6 +81,16 @@ $ git config get VARIABLE
 $ git config list
 $ git config unset VARIABLE
 $ git config --edit
+```
+
+Obsolete commands for older versions:
+
+``` {.default}
+git config user.email                     # Get
+git config user.email "user@example.com"  # Set
+git config --unset user.email             # Delete
+git config --list                         # List
+git config --edit                         # Edit
 ```
 
 ### Set identity
@@ -173,16 +183,6 @@ Handle automatic newline translation. Recommend set to true for Windows
 ``` {.default}
 $ git config set core.autocrlf true  # Windows (non-WSL)
 $ git config set core.autocrlf false # WSL, Linux, Mac, C64, etc.
-```
-
-Obsolete commands for older versions:
-
-``` {.default}
-git config user.email                     # Get
-git config user.email "user@example.com"  # Set
-git config --unset user.email             # Delete
-git config --list                         # List
-git config --edit                         # Edit
 ```
 
 ### Aliases
@@ -411,7 +411,7 @@ $ git mergetool      # Run mergetool to resolve a conflict
 $ git checkout --merged FILE   # Unstage resolved files
 ```
 
-In a conflict occurs, you can always `--abort`. Otherwise:
+If a conflict occurs, you can always `--abort`. Otherwise:
 
 1. Fix the conflict.
 2. Add the fixed files.

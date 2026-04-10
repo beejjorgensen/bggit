@@ -180,7 +180,7 @@ at. We'll get there in a moment.
 
 For now, let's look on the left. What we see there is a timestamp and
 some information about which part of the Git code is sending the trace
-out. And the it ends with our error.
+out. And then it ends with our error.
 
 Let's scroll to the right and just look at the lines following the
 `trace:`.

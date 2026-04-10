@@ -104,7 +104,7 @@ help in the following sections.
 Basically, we just give it the `-avv` switch for "all" (to list the
 remote tracking branches) and "verbose" (to give info about which
 commits they're pointing to) and "verbose" again (to give info about
-which remote branches map to which remote branches.
+which remote branches map to which local branches.)
 
 Here's the result for the repo that holds the source for this book:
 

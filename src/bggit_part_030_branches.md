@@ -602,7 +602,7 @@ Git will automatically fast-forward if it can. Otherwise it does a
 "real" merge. And while fast-forward merges can never lead to _merge
 conflicts_, regular merges certainly can.
 
-But that's another story well get into in the [Merging and
+But that's another story we'll get into in the [Merging and
 Conflicts](#merge) chapter.
 
 [i[Merge-->Fast-forward]>]
