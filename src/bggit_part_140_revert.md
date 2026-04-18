@@ -199,7 +199,7 @@ At this point, the file is staged with those two commits reverted. And
 you can now make a single commit that holds them. And you can do the
 same thing specifying a range.
 
-Of course, there might a conflict, and you'll have to resolve those in
+Of course, there might be a conflict, and you'll have to resolve those in
 the super fun way we've already discussed.
 
 [i[Revert-->Multiple commits]>]

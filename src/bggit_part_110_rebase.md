@@ -263,7 +263,7 @@ Whoa, Nelly. OK, so it can't do that. It says we need to "Resolve all
 conflicts manually", and then add them, and then we'll run rebase again
 with the `--continue` flag to continue the rebase.
 
-> **If you keep reading the hints**, you'll see there some more stuff in
+> **If you keep reading the hints**, you'll see there is some more stuff in
 > there. We'll get to `--skip` later, but do note that if the conflict
 > is more than you want to take on right now, you can just run:
 >

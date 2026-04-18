@@ -70,7 +70,7 @@ which identity it is running as. It uses a default identity (which is
 in a file called `~/.ssh/id_something`, like `id_ed25519`) unless you
 specify another one.
 
-You can do this one the command line with the `-i` switch to `ssh`.
+You can do this on the command line with the `-i` switch to `ssh`.
 
 Let's say you have two private keys in your `.ssh` direcrtory,
 `id_ed25519` and `id_alterego_ed25519`. The first one is the default key

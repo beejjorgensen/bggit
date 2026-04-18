@@ -103,7 +103,7 @@ work on, or add and commit.
 
 [i[Stash-->The stack]<]
 
-If you're familiar with [flw[stack abstract data
+If you're familiar with the [flw[stack abstract data
 type|Stack_(abstract_data_type)]], your ears might have perked up when
 you read `git stash pop`.
 
