@@ -168,8 +168,8 @@ characters in it. The grotesquely oversimplified rule, with apologies to
 shell enthusiasts, is to use quotes around the value if it has a space
 in it.
 
-Set will overwrite any previously-existing value of the name variable
-name.
+Set will overwrite any previously-existing value of the `user.name`
+variable.
 
 [i[Configuration-->Delete]]
 [i[Configuration-->Unset]]
