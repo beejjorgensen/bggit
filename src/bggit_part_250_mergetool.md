@@ -52,7 +52,7 @@ And they all tend to have the same core operations:
 * **Choose yours**—copy _your_ conflicting changes into the final result,
   i.e. your changes are _Right_.
 * **Choose theirs**—copy _their_ conflicting changes into the final
-  result, i.e. your changes are _Right_.
+  result, i.e. their changes are _Right_.
 
 In terms of usage, here's what we're going to do, assuming that the
 merge tool starts you at the first conflict when it is launched:
@@ -176,7 +176,7 @@ made.
 In the middle window, we'll see the corresponding changes that are in
 the repo.
 
-And in the right repo, we see what will be staged when we're done. Right
+And in the right window, we see what will be staged when we're done. Right
 now in the right window, we see all the `=====` and `<<<<<` stuff. But
 we'll change that in a moment.
 

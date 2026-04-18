@@ -175,7 +175,7 @@ Now I can run this to get all the changes from Linus's repo:
 $ git fetch reallinux
 ```
 
-And I can merge it into my branch (the Linux repo uses `master` for the
+And I can merge it into my branch (the Linux repo uses `master`
 instead of `main` for the main branch):
 
 ``` {.default}

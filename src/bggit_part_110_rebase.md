@@ -106,7 +106,7 @@ that contain the same changes, just on a different base point.
 > off those making their own new commits. And then you rebased
 > effectively destroying commits `(3)` and `(4)`. Now your commit
 > history is different than the other dev's and all kinds of *Fun*™ will
-> be had trying to sort if out.
+> be had trying to sort it out.
 >
 > If you only rebase commits that you haven't pushed, you'll never get
 > into trouble. But if some other dev has a copy of your commits
@@ -263,7 +263,7 @@ Whoa, Nelly. OK, so it can't do that. It says we need to "Resolve all
 conflicts manually", and then add them, and then we'll run rebase again
 with the `--continue` flag to continue the rebase.
 
-> **If you keep reading the hints**, you'll see there some more stuff in
+> **If you keep reading the hints**, you'll see there is some more stuff in
 > there. We'll get to `--skip` later, but do note that if the conflict
 > is more than you want to take on right now, you can just run:
 >

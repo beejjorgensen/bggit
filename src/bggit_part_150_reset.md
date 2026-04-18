@@ -10,18 +10,17 @@ Of course, this is a highly-recommended guideline, not a rule, and you
 can reset anything provided you know what you're doing and have good
 communication with your team.
 
-But if you never reset a branch you haven't pushed, you won't get into
-trouble.
+But if you reset a branch you haven't pushed, you won't get into trouble.
 
 So what is it?
 
-Doing a reset allows you change where the `HEAD` and your current branch
-point to. You can move your current branch to a different commit!
+Doing a reset allows you to change where the `HEAD` and your current
+branch point to. You can move your current branch to a different commit!
 
 When you move a branch to another commit, the branch "becomes" the repo
 at the point of that commit, including all the history that led up to
 that commit. The upshot is that all the commits that led to the old
-branch point are now effectively gone, as shown in Figure 18.1.
+branch point are now effectively gone, as shown in Figure 19.1.
 
 ![If we reset `main` to commit _2_, commits _3_ and _4_ will eventually be lost.](img_150_010.pdf "If we reset main to commit 2, commits 3 and 4 will eventually be lost.")
 
@@ -79,7 +78,7 @@ the working tree.
 > between the stage and the `HEAD` commit, so nothing would show as
 > "ready to commit".
 >
-> Then let's say you added the file to the stage. At the point, a copy
+> Then let's say you added the file to the stage. At this point, a copy
 > of the file from the working tree is placed on the stage. So now the
 > working tree and the stage are the same. And nothing shows as
 > "modified". But now, crucially, the stage differs from the `HEAD`
