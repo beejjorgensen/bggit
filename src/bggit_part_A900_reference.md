@@ -66,7 +66,7 @@ continues on the next line.
 * **Staged**
   * Unmodified: `git commit FILE` (finalize commit)
   * Modified: `git restore --staged FILE` (unstage)
-  * Both modified: `git checkout --merged FILE` (during merge)
+  * Both modified: `git checkout --merge FILE` (during merge)
 
 ## Configuration
 
@@ -408,7 +408,7 @@ $ git merge CMMT     # Merge commit or branch into HEAD
 $ git merge --abort  # Rollback the current merge
 $ git mergetool      # Run mergetool to resolve a conflict
 
-$ git checkout --merged FILE   # Unstage resolved files
+$ git checkout --merge FILE   # Unstage resolved files
 ```
 
 If a conflict occurs, you can always `--abort`. Otherwise:
