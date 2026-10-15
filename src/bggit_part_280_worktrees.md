@@ -212,7 +212,7 @@ $ git worktree add --detach ../wumpus-worktree main
 ```
 
 Finally, if you specify a commit hash instead of branch when creating a
-new worktree, it will be automatically be created with a detached
+new worktree, it will be automatically created with a detached
 `HEAD`.
 
 [i[Worktree-->Detached `HEAD`]>]
