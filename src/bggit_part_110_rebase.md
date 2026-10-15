@@ -173,7 +173,7 @@ That causes these two things to happen:
 
 ``` {.default}
 git fetch                # Get all the information from origin
-git rebase origin/main   # Rebase main into origin/main
+git rebase origin/main   # Rebase main onto origin/main
 ```
 
 If you want that to be the default behavior for the current repo, you
