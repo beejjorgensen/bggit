@@ -55,7 +55,7 @@ Also, we have those huge
 [fl[hex|https://en.wikipedia.org/wiki/Hexadecimal]] numbers after the
 word `commit`.
 
-This is the _commit ID_ or _commit hash_. This is universally unique
+This is the _commit ID_ or _commit hash_. This is a universally unique
 number that you can use to identify a particular commit.
 
 Normally you don't need to know this, but it can be useful for going
@@ -86,7 +86,7 @@ do that is by moving `HEAD` to them.
 [^7b00]: I'm stretching it a bit, here. `HEAD` looks at the commit
     you've switched to. This might not be quite the same as what's in
     your project subdirectory if you've modified some of the files since
-    the moving `HEAD` to that commit. The commit is a snapshot, but that
+    moving `HEAD` to that commit. The commit is a snapshot, but that
     snapshot doesn't include modifications to files until you make
     another commit that contains them.
 
