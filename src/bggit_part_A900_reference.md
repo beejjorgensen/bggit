@@ -80,7 +80,7 @@ $ git config get VARIABLE
 $ git config set VARIABLE VALUE
 $ git config unset VARIABLE
 $ git config list
-$ git config --edit
+$ git config edit
 ```
 
 Obsolete commands for older versions:
