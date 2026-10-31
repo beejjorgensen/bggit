@@ -76,10 +76,10 @@ For all `git config` commands, specify `--global` for a universal
 setting or leave it off to set the value just for this repo.
 
 ``` {.default}
-$ git config set VARIABLE VALUE
 $ git config get VARIABLE
-$ git config list
+$ git config set VARIABLE VALUE
 $ git config unset VARIABLE
+$ git config list
 $ git config --edit
 ```
 
