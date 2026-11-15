@@ -57,8 +57,8 @@ location.
 
 This is particularly insidious because if you're in a subdirectory that
 you _think_ is a standalone repo, you might have been misled since Git
-searches parent folder for the `.git` directory and it could be finding
-the spurious one you accidentally made in your home directory.
+searches the parent folder for the `.git` directory and it could be
+finding the spurious one you accidentally made in your home directory.
 
 We[^5d3e] recommend against one big repo from your home directory. You
 should have separate subdirectories for each of your repos.
